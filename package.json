@@ -1,0 +1,9 @@
+{
+  "name": "prorack-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ProRack AI warehouse engineering website",
+  "scripts": {
+    "build": "node ./scripts/build.mjs"
+  }
+}

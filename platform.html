@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Explore ProRack AI's Connected Intelligence Layer: non-disruptive integration across ERPNext, Tekla Structures, PowerFab, Microsoft 365, and machine PLCs.">
+  <title>Connected Intelligence Layer | ProRack AI Platform Integrations</title>
+  <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(40px, 5vw, 64px) 0 36px;
+    }
+
+    .topology-container {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+      margin-bottom: 36px;
+    }
+
+    .system-nav-col {
+      background: var(--bg-subtle);
+      border-right: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sys-btn {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+
+    .sys-btn:hover {
+      background: #ffffff;
+      color: var(--text-primary);
+    }
+
+    .sys-btn.active {
+      background: #ffffff;
+      color: var(--accent-orange);
+      border-left: 3px solid var(--accent-orange);
+      font-weight: 700;
+    }
+
+    .sys-btn small {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sys-btn.active small {
+      color: var(--accent-orange);
+    }
+
+    .sys-detail-col {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .detail-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 16px;
+      border-radius: 4px;
+    }
+
+    .detail-box h4 {
+      font-size: 13px;
+      color: var(--data-teal);
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .detail-box p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .topology-container { grid-template-columns: 1fr; }
+      .system-nav-col { display: grid; grid-template-columns: 1fr 1fr; border-right: none; border-bottom: 1px solid var(--border-light); }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="platform.html" class="active">Platform</a>
+        <a href="operations.html">Operations</a>
+        <a href="machines.html">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="shell">
+        <span class="mono-tag" style="margin-bottom:10px;display:inline-block;">PLATFORM ARCHITECTURE // CONNECTED LAYER</span>
+        <h1 class="section-title">One Unified Context Above Your Stack.</h1>
+        <p class="section-desc" style="max-width:76ch;">
+          ProRack AI does not replace your existing systems of record. It bridges ERP, CAD/BIM tools, shop routing, and machine sensors into one synchronized operational knowledge graph.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SYSTEM EXPLORER -->
+    <section class="section-md">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">MULTI-SYSTEM TOPOLOGY</span>
+          <h2 class="section-title">Explore Source System Connectors</h2>
+          <p class="section-desc">
+            Click any connected source system below to inspect the extracted entities, semantic interpretation logic, and security boundaries.
+          </p>
+        </div>
+
+        <div id="react-platform-matrix" style="margin-bottom:36px;"></div>
+
+        <!-- TEKLA SHOWCASE -->
+        <div class="responsive-showcase-grid" style="background:var(--bg-subtle);border:1px solid var(--border-light);padding:28px;border-radius:6px;">
+          <div class="img-frame" style="height:300px;">
+            <img src="assets/tekla-engineering-workstation.jpg" alt="Structural engineer workstation with 3D Tekla model and engineering drawings" class="realistic-img" width="1200" height="675" loading="lazy">
+            <div class="img-overlay-label">
+              <span>TEKLA STRUCTURES // WORKSTATION WS-04</span>
+              <span class="mono-data">3D BIM INGESTION</span>
+            </div>
+          </div>
+          <div>
+            <span class="mono-tag">ENGINEERING FIDELITY</span>
+            <h3 style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">Tekla 3D Model Coherence</h3>
+            <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">
+              ProRack AI parses 3D Tekla structures models via Open API and IFC geometry streams. Every upright column, pallet beam, and base plate retains its original member mark, structural section, and drawing sheet link.
+            </p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div style="background:#ffffff;border:1px solid var(--border-light);padding:10px;border-radius:4px;">
+                <small style="font-family:var(--font-mono);font-size:8px;color:var(--text-muted);display:block;text-transform:uppercase;">Revision Diff</small>
+                <span style="font-size:12px;font-weight:700;color:var(--text-primary);">Automated DWG Rev C Sync</span>
+              </div>
+              <div style="background:#ffffff;border:1px solid var(--border-light);padding:10px;border-radius:4px;">
+                <small style="font-family:var(--font-mono);font-size:8px;color:var(--text-muted);display:block;text-transform:uppercase;">Fabrication Route</small>
+                <span style="font-size:12px;font-weight:700;color:var(--text-primary);">Linked to Cut List #891</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

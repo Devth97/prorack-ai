@@ -3,57 +3,590 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b0e10">
-  <meta name="description" content="ProRack AI connects warehouse engineering inputs, structural workflows, change control and project visibility.">
-  <title>ProRack AI | Engineering intelligence for warehouse infrastructure</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="ProRack AI is the digital intelligence layer connecting business systems, engineering, manufacturing, machines, and project execution across the complete industrial storage lifecycle.">
+  <title>ProRack AI | Intelligence Across the Complete Project Lifecycle</title>
   <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
   <style>
-    @font-face{font-family:GeistPixel;src:url('assets/GeistPixel-Circle.woff2') format('woff2');font-display:swap}
-    :root{--bg:#0b0e10;--panel:#111619;--ink:#eef1ec;--soft:#9aa5a1;--line:#2a3334;--accent:#f4512c;--paper:#dde2dc;--dark:#101412;--gutter:clamp(20px,4.5vw,72px)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;color:var(--ink);background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow-x:hidden}a{color:inherit}button,a{touch-action:manipulation}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.shell{width:min(1500px,100%);margin:auto;padding-inline:var(--gutter)}
-    .nav{position:fixed;z-index:20;inset:0 0 auto;background:rgba(11,14,16,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(238,241,236,.12)}.nav__in{height:76px;display:flex;align-items:center;justify-content:space-between}.mark{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:780;letter-spacing:-.03em}.mark img{width:38px;height:38px}.mark small{display:block;color:var(--soft);font-family:GeistPixel,monospace;font-size:8px;letter-spacing:.14em;margin-top:3px}.links{display:flex;gap:26px;align-items:center}.links a{font-size:12px;text-transform:uppercase;letter-spacing:.09em;text-decoration:none}.links .cta{border:1px solid var(--accent);padding:12px 15px;color:#fff}
-    .hero{min-height:100svh;padding-top:76px;display:grid;align-items:stretch}.hero__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(440px,1.1fr);min-height:calc(100svh - 76px)}.hero__copy{padding:clamp(70px,10vw,150px) var(--gutter) 60px;display:flex;flex-direction:column;justify-content:space-between}.eyebrow{font-family:GeistPixel,monospace;font-size:9px;line-height:1.4;text-transform:uppercase;letter-spacing:.13em;color:var(--accent)}h1,h2,h3{font-family:"Arial Narrow","Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:-.055em}h1{font-size:clamp(4.3rem,9vw,10.5rem);line-height:.78;margin:24px 0;max-width:7ch}.hero__copy>p{font-size:clamp(18px,1.55vw,23px);line-height:1.45;color:var(--soft);max-width:34ch}.hero__meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;line-height:1.5;color:var(--soft)}.hero__media{position:relative;overflow:hidden;background:#111}.hero__media img,.hero__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero__media video{z-index:1}.hero__media:after{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(90deg,rgba(11,14,16,.32),transparent 45%)}.hero__stamp{position:absolute;z-index:3;right:24px;bottom:24px;width:130px;aspect-ratio:1;border:1px solid rgba(255,255,255,.55);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:GeistPixel,monospace;font-size:9px;line-height:1.4;text-transform:uppercase;letter-spacing:.1em;animation:spin 22s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-    .belief{background:var(--paper);color:var(--dark);padding:clamp(90px,12vw,180px) 0}.belief__grid{display:grid;grid-template-columns:minmax(170px,.3fr) minmax(0,1fr);gap:clamp(30px,7vw,120px)}.belief h2{margin:0;font-size:clamp(3.5rem,8vw,9.3rem);line-height:.84;max-width:10ch}.belief p{align-self:end;margin:0;font-size:clamp(19px,2vw,29px);line-height:1.3;max-width:32ch;color:#48504b}
-    .workflow{padding:clamp(90px,11vw,170px) 0}.workflow__head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:70px}.workflow h2{font-size:clamp(3rem,7vw,8rem);line-height:.85;margin:0;max-width:10ch}.workflow__head p{max-width:36ch;color:var(--soft);line-height:1.55}.process{display:grid;grid-template-columns:minmax(220px,.55fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);border-top:1px solid var(--line);padding-top:34px}.process__nav{display:grid;align-content:start}.process__nav button{appearance:none;border:0;border-bottom:1px solid var(--line);background:none;color:var(--soft);text-align:left;padding:20px 0;font:600 15px/1.2 inherit;cursor:pointer;display:flex;justify-content:space-between;transition:color 150ms ease-out,padding 150ms ease-out}.process__nav button:hover,.process__nav button[aria-selected="true"]{color:var(--ink);padding-left:12px}.process__nav button[aria-selected="true"] span{color:var(--accent)}.process__panel{min-height:430px;background:var(--panel);border-top:1px solid #3a4546;padding:clamp(28px,5vw,72px);position:relative;overflow:hidden}.process__panel:after{content:"";position:absolute;width:250px;height:250px;border:1px solid #2e3939;border-radius:50%;right:-80px;bottom:-90px}.process__panel b{font-family:GeistPixel,monospace;font-size:10px;letter-spacing:.12em;color:var(--accent)}.process__panel h3{font-size:clamp(2.8rem,6vw,6.6rem);line-height:.86;margin:24px 0;max-width:9ch}.process__panel p{color:var(--soft);font-size:18px;line-height:1.55;max-width:48ch}.signal{margin-top:50px;height:2px;background:var(--line);position:relative}.signal:after{content:"";position:absolute;left:0;top:-4px;width:10px;height:10px;background:var(--accent);animation:signal 3.5s ease-in-out infinite}@keyframes signal{50%{left:calc(100% - 10px)}}
-    .systems{border-top:1px solid var(--line);padding:clamp(90px,11vw,170px) 0}.systems__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,8vw,130px)}.systems h2{font-size:clamp(3.4rem,7vw,8rem);line-height:.84;margin:0}.system-list{border-top:1px solid var(--line)}.system-list article{padding:25px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:110px 1fr;gap:20px}.system-list b{font-family:GeistPixel,monospace;font-size:9px;color:var(--accent);letter-spacing:.1em}.system-list h3{font-size:clamp(1.5rem,2.2vw,2.3rem);margin:0 0 8px}.system-list p{margin:0;color:var(--soft);line-height:1.5}
-    .standards{background:#161b1c;border-block:1px solid var(--line);padding:70px 0}.standards__line{display:flex;gap:38px;overflow:hidden;white-space:nowrap;font-family:GeistPixel,monospace;font-size:11px;letter-spacing:.12em;color:#c0c7c2}.standards__line span{color:var(--accent)}
-    .close{min-height:85svh;display:grid;align-items:center;padding:100px 0 40px}.close h2{font-size:clamp(4rem,10vw,11rem);line-height:.8;margin:0;max-width:8ch}.close__action{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-top:70px;padding-top:20px;border-top:1px solid var(--line)}.close__action p{color:var(--soft);max-width:38ch;line-height:1.5}.close__action a{text-decoration:none;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid var(--accent);padding-bottom:8px;white-space:nowrap}.foot{display:flex;justify-content:space-between;gap:20px;padding:24px 0;border-top:1px solid var(--line);color:var(--soft);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
-    @media(max-width:850px){.links a:not(.cta){display:none}.hero__grid,.belief__grid,.process,.systems__grid{grid-template-columns:1fr}.hero__media{min-height:52svh;order:-1}.hero__copy{padding-top:50px}.belief__grid{gap:40px}.workflow__head{display:block}.workflow__head p{margin-top:28px}.process__panel{min-height:380px}.close__action{display:block}.close__action a{display:inline-block;margin-top:30px}.foot{flex-direction:column}.hero__stamp{width:95px}.system-list article{grid-template-columns:74px 1fr}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero__stamp,.signal:after{animation:none}}
+    /* PAGE SPECIFIC STYLES: HOMEPAGE */
+    .hero-wrap {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(36px, 5vw, 64px) 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+      line-height: 1.02;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline .highlight {
+      color: var(--accent-orange);
+    }
+
+    .hero-subhead {
+      font-size: clamp(16px, 1.3vw, 19px);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+    }
+
+    .hero-stat-item small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .hero-stat-item span {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* HERO VIDEO PREVIEW CARD */
+    .hero-media-box {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: #0f172a;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+      aspect-ratio: 16 / 10;
+    }
+
+    .hero-media-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+
+    .hero-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.85) 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .hud-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hud-card {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-left: 3px solid var(--accent-orange);
+      padding: 10px 14px;
+      border-radius: 4px;
+    }
+
+    .hud-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hud-card-sub {
+      font-size: 11px;
+      color: #cbd5e1;
+    }
+
+    /* THE PROBLEM: COMPACT COMPARISON */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .problem-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 20px 18px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+    }
+
+    .problem-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .problem-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent-orange);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .problem-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .problem-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* PILLARS SHOWCASE GRID */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 24px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.18s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 8px 24px rgba(244, 81, 44, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .pillar-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent-orange);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .pillar-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .pillar-link {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .problem-grid .problem-card:last-child { grid-column: span 2; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .problem-grid .problem-card:last-child { grid-column: span 1; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .hero-stats-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <header class="nav"><div class="nav__in shell"><a class="mark" href="#top"><img src="assets/prorack-mark.webp" alt="" width="38" height="38"><span>ProRack AI<small>A ProRack Global initiative</small></span></a><nav class="links" aria-label="Main navigation"><a href="#workflow">Workflow</a><a href="#systems">Systems</a><a class="cta" href="#contact">Discuss a project</a></nav></div></header>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="ProRack AI Home">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="active">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="operations.html">Operations</a>
+        <a href="machines.html">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
   <main>
-    <section class="hero" id="top"><div class="hero__grid">
-      <div class="hero__copy"><div><span class="eyebrow">Warehouse engineering, connected</span><h1>From brief to built.</h1><p>A digital project layer shaped around storage-system design, structural verification, change control and execution visibility.</p></div><div class="hero__meta"><span>Built on ProRack's warehouse engineering workflow</span><span>Hyderabad, India</span></div></div>
-      <div class="hero__media"><img src="assets/warehouse-poster.webp" width="1600" height="900" alt="Warehouse structure under construction"><video autoplay muted loop playsinline poster="assets/warehouse-poster.webp"><source src="assets/warehouse-mobile.mp4" media="(max-width:850px)" type="video/mp4"><source src="assets/warehouse.mp4" type="video/mp4"></video><div class="hero__stamp">Model · verify · coordinate · deliver</div></div>
-    </div></section>
-    <section class="belief"><div class="belief__grid shell"><span class="eyebrow">The working belief</span><h2>Engineering information should move as one system.</h2><p>Every approved change should remain connected to the model, drawings, fabrication information and site plan.</p></div></section>
-    <section class="workflow" id="workflow"><div class="shell"><div class="workflow__head"><h2>A connected engineering thread.</h2><p>The workflow follows the real sequence of warehouse infrastructure: capture requirements, model the system, verify performance, coordinate outputs and maintain project visibility.</p></div><div class="process"><div class="process__nav" role="tablist" aria-label="Engineering workflow">
-      <button role="tab" aria-selected="true" data-step="0">Requirements <span>Input</span></button><button role="tab" aria-selected="false" data-step="1">System design <span>Model</span></button><button role="tab" aria-selected="false" data-step="2">Structural checks <span>Verify</span></button><button role="tab" aria-selected="false" data-step="3">Change control <span>Update</span></button><button role="tab" aria-selected="false" data-step="4">Project visibility <span>Track</span></button>
-    </div><section class="process__panel" aria-live="polite"><b id="step-label">INPUT / PROJECT BRIEF</b><h3 id="step-title">Start with operating reality.</h3><p id="step-copy">Capture load, layout, handling equipment, movement and site constraints before the system is engineered.</p><div class="signal" aria-hidden="true"></div></section></div></div></section>
-    <section class="systems" id="systems"><div class="systems__grid shell"><h2>Digital continuity, grounded in engineering.</h2><div class="system-list">
-      <article><b>MODEL</b><div><h3>3D structural definition</h3><p>Geometry, sections, materials, connections and project constraints held in one coordinated model.</p></div></article>
-      <article><b>CHECK</b><div><h3>Structural verification</h3><p>Analysis considers load combinations, stability, serviceability and connection performance against applicable project requirements.</p></div></article>
-      <article><b>OUTPUT</b><div><h3>Connected deliverables</h3><p>Engineering drawings, shop information, quantities and fabrication outputs stay linked to approved model changes.</p></div></article>
-      <article><b>FIELD</b><div><h3>Project visibility</h3><p>Progress information supports clearer communication from engineering through manufacturing and execution.</p></div></article>
-    </div></div></section>
-    <section class="standards" aria-label="Engineering references"><div class="standards__line shell"><span>WORKFLOW REFERENCES</span> EN 15512 · EN 15620 · EN 15629 · EN 15635 · EN 16681 · EN 1993 · IS 800 · IS 875 · IS 1893 · FEM RECOMMENDATIONS</div></section>
-    <section class="close" id="contact"><div class="shell"><h2>Make the project easier to see.</h2><div class="close__action"><p>Bring the warehouse requirement, early brief or coordination challenge. The next step starts with the engineering context.</p><a href="mailto:kshitij@prorackglobal.com">Discuss a project</a></div></div></section>
+    <!-- HERO SECTION -->
+    <section class="hero-wrap">
+      <div class="shell hero-grid">
+        <div>
+          <span class="mono-tag" style="margin-bottom:12px;display:inline-block;">INDUSTRIAL OPERATIONAL AI</span>
+          <h1 class="hero-headline">
+            Intelligence Across the Complete <span class="highlight">Project Lifecycle</span>
+          </h1>
+          <p class="hero-subhead">
+            Connecting business, engineering, fabrication, machines and project execution into one intelligent operational layer.
+          </p>
+
+          <div class="hero-actions">
+            <a href="platform.html" class="btn-primary">
+              Explore the Platform
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="architecture.html" class="btn-secondary">
+              See How It Works
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <small>System Scope</small>
+              <span>ERP · CAD · MES · PLC</span>
+            </div>
+            <div class="hero-stat-item">
+              <small>Core Premise</small>
+              <span>Interprets, Never Replaces</span>
+            </div>
+            <div class="hero-stat-item">
+              <small>Operations Base</small>
+              <span>Hyderabad Industrial Plant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media-box">
+          <video autoplay muted loop playsinline poster="assets/warehouse-poster.webp">
+            <source src="assets/warehouse-mobile.mp4" media="(max-width:850px)" type="video/mp4">
+            <source src="assets/warehouse.mp4" type="video/mp4">
+          </video>
+          <div class="hero-media-overlay">
+            <div class="hud-header">
+              <span class="mono-data">● LIVE TELEMETRY</span>
+              <span id="hud-clock">00:00:00 UTC</span>
+            </div>
+            <div class="hud-body">
+              <div class="hud-card">
+                <div class="hud-card-title">Project 2026-HYD-04 // High-Bay Drive-In</div>
+                <div class="hud-card-sub">ERPNext ↔ Tekla BIM Coherence: 4,280 parts synced with Cut List #891.</div>
+              </div>
+              <div class="hud-card" style="border-left-color: var(--data-teal);">
+                <div class="hud-card-title">Roll-Former Line 01 // Upright Profile</div>
+                <div class="hud-card-sub">Speed: 42.2 m/min · Modbus TCP telemetry active · Zero tolerance drift.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10-STAGE CONTINUOUS LIFECYCLE TICKER -->
+    <div class="lifecycle-bar" aria-label="Project Lifecycle Pipeline">
+      <div class="lifecycle-lead">
+        <span class="mono-tag">LIFECYCLE PIPELINE:</span>
+        <span style="font-size:11px;color:var(--text-secondary);font-weight:600;">Ten unified operational gates across the project lifespan</span>
+      </div>
+      <div class="lifecycle-track">
+        <div class="lifecycle-step"><span class="num">01</span> CRM / ERPNext</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">02</span> Engineering / Tekla</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">03</span> PowerFab Routing</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">04</span> Manufacturing Floor</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">05</span> Machine PLCs</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">06</span> Quality Control</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">07</span> Warehouse Staging</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">08</span> Dispatch Logistics</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">09</span> Site Installation</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">10</span> Management Intel</div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE REACT LIFECYCLE NAVIGATOR -->
+    <section class="section-sm" style="background:#ffffff;padding-top:20px;padding-bottom:12px;">
+      <div class="shell">
+        <div id="react-lifecycle"></div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="section-md" style="background:#ffffff;">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">THE OPERATIONAL DISCONNECT</span>
+          <h2 class="section-title">Five Disconnected Silos. One Fragile Project.</h2>
+          <p class="section-desc">
+            In industrial warehouse manufacturing and engineering, critical context is fractured across independent tools. When systems cannot converse, coordination breaks down, schedules slip, and visibility is delayed.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">01 / SYSTEMS</div>
+              <h3 class="problem-title">Fragmented Systems</h3>
+              <p class="problem-text">ERP financials, 3D BIM models, cut lists, and shop schedules remain trapped in isolated silos with zero semantic bridge.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">02 / INBOXES</div>
+              <h3 class="problem-title">Disconnected Data</h3>
+              <p class="problem-text">Urgent revision notices, engineering clarifications, and customer directives remain buried in unsearchable email threads.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">03 / OVERHEAD</div>
+              <h3 class="problem-title">Manual Coordination</h3>
+              <p class="problem-text">Project managers spend up to 40% of their day manually calling plant supervisors to verify basic part quantities and drawings.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">04 / DELAY</div>
+              <h3 class="problem-title">Delayed Visibility</h3>
+              <p class="problem-text">Material shortages, roll-forming bottlenecks, and weld holds are frequently discovered only when the dispatch truck arrives.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">05 / TELEMETRY</div>
+              <h3 class="problem-title">Trapped Machine Data</h3>
+              <p class="problem-text">Cold roll-forming lines and punch presses generate thousands of telemetry data points daily that never inform project schedules.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-light);border-left:4px solid var(--accent-orange);padding:18px 24px;border-radius:4px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+          <p style="font-size:14px;color:var(--text-primary);font-weight:600;">
+            Adding another database does not solve this. ProRack AI sits above your stack to interpret and connect your existing systems of record.
+          </p>
+          <a href="architecture.html" style="font-size:12px;font-weight:700;color:var(--accent-orange);text-transform:uppercase;">Read Architectural Approach →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM PILLARS -->
+    <section class="section-md" style="background:var(--bg-subtle);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">EXPLORE BY PLATFORM CAPABILITY</span>
+          <h2 class="section-title">Dedicated Intelligence Across Every Phase.</h2>
+          <p class="section-desc">
+            Explore how ProRack AI surfaces real-time insight from engineering CAD models to cold roll-forming production lines.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">INTEGRATION TOPOLOGY</div>
+              <h3 class="pillar-title">Connected Layer</h3>
+              <p class="pillar-desc">
+                How ProRack AI interfaces with ERPNext, Tekla Structures, PowerFab, M365, and WMS without modifying underlying schemas.
+              </p>
+            </div>
+            <a href="platform.html" class="pillar-link">Explore Integration Layer →</a>
+          </div>
+
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">PROJECT &amp; SHOP FLOOR</div>
+              <h3 class="pillar-title">Operations Intel</h3>
+              <p class="pillar-desc">
+                Live project status, phase gate blockers, planned vs actual production curves, and raw coil heat cert traceability.
+              </p>
+            </div>
+            <a href="operations.html" class="pillar-link">View Operations Console →</a>
+          </div>
+
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">INDUSTRIAL IOT</div>
+              <h3 class="pillar-title">Machine Intel</h3>
+              <p class="pillar-desc">
+                Direct PLC connectivity via Modbus TCP and OPC-UA tracking cold roll-forming stroke counts, line speeds, and bearing health.
+              </p>
+            </div>
+            <a href="machines.html" class="pillar-link">Inspect Machine Telemetry →</a>
+          </div>
+
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">OPERATIONAL COPILOT</div>
+              <h3 class="pillar-title">AI Assistant &amp; Brief</h3>
+              <p class="pillar-desc">
+                Ask executive questions answered with deterministic source citations, plus the automated Shift Project Delivery Brief.
+              </p>
+            </div>
+            <a href="copilot.html" class="pillar-link">Launch AI Copilot Simulator →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALISTIC WORKSTATION HIGHLIGHT -->
+    <section class="section-md" style="background:#ffffff;">
+      <div class="shell responsive-showcase-grid">
+        <div>
+          <span class="mono-tag">ENGINEERING FIDELITY</span>
+          <h2 class="section-title">Built Around Real Structural Reality.</h2>
+          <p class="section-desc" style="margin-bottom:20px;">
+            ProRack AI does not replace your engineering tools. Tekla Structures models and approved engineering drawings remain the authoritative source of record.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-secondary);margin-bottom:24px;">
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--accent-orange);font-weight:bold;">✓</span> Direct indexing of 3D member marks and profile sections</li>
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--accent-orange);font-weight:bold;">✓</span> Automated drawing revision diff detection (Rev C vs Rev B)</li>
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--accent-orange);font-weight:bold;">✓</span> Read-only model lock to protect structural calculations</li>
+          </ul>
+          <a href="platform.html" class="btn-secondary">Learn About Engineering Ingestion →</a>
+        </div>
+
+        <div class="img-frame" style="height:320px;">
+          <img src="assets/tekla-engineering-workstation.jpg" alt="Structural engineer workstation with 3D Tekla model and engineering drawings" class="realistic-img" width="1200" height="675" loading="lazy">
+          <div class="img-overlay-label">
+            <span>TEKLA STRUCTURES // WS-04 HYDERABAD</span>
+            <span class="mono-data">3D MODEL SYNCED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND ARCHITECTURE STRIP -->
+    <section class="brand-nav-strip" aria-label="ProRack Brand Architecture">
+      <div class="shell">
+        <div style="margin-bottom:12px;">
+          <span class="mono-tag">PRORACK BRAND ARCHITECTURE:</span>
+        </div>
+        <div class="brand-strip-grid">
+          <a href="https://prorackglobal.com" target="_blank" rel="noopener noreferrer" class="brand-pillar-card">
+            <small>CORPORATE &amp; MANUFACTURING</small>
+            <strong>prorackglobal.com</strong>
+            <p>Parent corporate entity, heavy storage rack manufacturing plant, and engineering catalogs.</p>
+          </a>
+
+          <div class="brand-pillar-card active">
+            <small>INTELLIGENCE &amp; OPERATIONS (YOU ARE HERE)</small>
+            <strong>prorack.ai</strong>
+            <p>AI, digital intelligence, automation, and connected operational layers across systems.</p>
+          </div>
+
+          <a href="https://gosmartfit.ai" target="_blank" rel="noopener noreferrer" class="brand-pillar-card">
+            <small>INSTALLATION &amp; EXECUTION</small>
+            <strong>gosmartfit.ai</strong>
+            <p>Warehouse installation execution, site surveying, and field team alignment platform.</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="foot shell"><span>ProRack AI</span><span>ProRack Global · Hyderabad, India</span><span>kshitij@prorackglobal.com · +91 98199 95285</span></footer>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    const steps=[
-      ['INPUT / PROJECT BRIEF','Start with operating reality.','Capture load, layout, handling equipment, movement and site constraints before the system is engineered.'],
-      ['MODEL / SYSTEM DESIGN','Turn requirements into structure.','Develop system geometry and layout around the approved operating requirement, equipment interfaces and clearances.'],
-      ['VERIFY / STRUCTURAL ANALYSIS','Check what the system must carry.','Review strength, stability, serviceability, connection forces and applicable load conditions within the engineering workflow.'],
-      ['UPDATE / CHANGE CONTROL','Let one change reach every output.','Keep drawings, quantities, fabrication information and downstream coordination aligned to approved model revisions.'],
-      ['TRACK / PROJECT VISIBILITY','Give teams one shared view.','Connect engineering status and progress information so decisions remain visible from the office to the site.']
-    ];
-    const buttons=[...document.querySelectorAll('[data-step]')];
-    function select(i){buttons.forEach((b,n)=>b.setAttribute('aria-selected',String(n===i)));document.querySelector('#step-label').textContent=steps[i][0];document.querySelector('#step-title').textContent=steps[i][1];document.querySelector('#step-copy').textContent=steps[i][2];}
-    buttons.forEach(b=>{b.addEventListener('click',()=>select(+b.dataset.step));b.addEventListener('keydown',e=>{const i=buttons.indexOf(b);if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();buttons[(i+1)%buttons.length].focus();select((i+1)%buttons.length)}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();buttons[(i-1+buttons.length)%buttons.length].focus();select((i-1+buttons.length)%buttons.length)}})});
+    function updateClock() {
+      const el = document.getElementById('hud-clock');
+      if (el) {
+        el.textContent = new Date().toTimeString().split(' ')[0] + ' UTC';
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
   </script>
+  <script src="assets/app.js" defer></script>
 </body>
 </html>

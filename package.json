@@ -4,6 +4,16 @@
   "private": true,
   "description": "ProRack AI warehouse engineering website",
   "scripts": {
-    "build": "node ./scripts/build.mjs"
+    "bundle": "esbuild src/app.jsx --bundle --minify --outfile=assets/app.js --format=iife",
+    "build": "npm run bundle && node ./scripts/build.mjs",
+    "start": "node ./scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "dependencies": {
+    "lucide-react": "^1.45.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   }
 }

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="ProRack AI Enterprise Architecture: Non-disruptive integration, source-level RBAC, immutable audit logging, human write boundaries, and on-premises OT edge security.">
+  <title>Enterprise Architecture &amp; Governance | ProRack AI</title>
+  <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(40px, 5vw, 64px) 0 36px;
+    }
+
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 30px 1.2fr 30px 1.2fr 30px 1.4fr;
+      align-items: center;
+      gap: 8px;
+      margin: 28px 0;
+    }
+
+    .pipe-box {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 20px 16px;
+      border-radius: 6px;
+      text-align: center;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pipe-box.highlight {
+      border-color: var(--accent-orange);
+      background: var(--accent-orange-soft);
+    }
+
+    .pipe-box.tools {
+      border-color: rgba(13, 148, 136, 0.4);
+      background: var(--data-teal-soft);
+    }
+
+    .pipe-box.source {
+      border-color: rgba(2, 132, 199, 0.3);
+      background: var(--data-blue-soft);
+    }
+
+    .pipe-arrow {
+      text-align: center;
+      color: var(--accent-orange);
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .governance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gov-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 24px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .gov-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+
+    .gov-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--data-teal);
+      margin-bottom: 10px;
+    }
+
+    .gov-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .gov-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 1024px) {
+      .pipeline-grid { grid-template-columns: 1fr; }
+      .pipe-arrow { transform: rotate(90deg); padding: 6px 0; }
+      .governance-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .governance-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="operations.html">Operations</a>
+        <a href="machines.html">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html" class="active">Architecture</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="shell">
+        <span class="mono-tag" style="margin-bottom:10px;display:inline-block;">DATA PLATFORM &amp; GOVERNANCE</span>
+        <h1 class="section-title">Architected for Enterprise Security &amp; Deterministic Flow.</h1>
+        <p class="section-desc" style="max-width:76ch;">
+          An ingestion-to-application pipeline engineered specifically for industrial engineering workflows, with strict role-based access control, cryptographic auditability, and human write boundaries.
+        </p>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE PIPELINE -->
+    <section class="section-md">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">THE 4-STAGE PIPELINE</span>
+          <h2 class="section-title">End-to-End Execution Flow</h2>
+          <p class="section-desc">
+            Every user request flows through a deterministic interpretation and policy validation layer before accessing any connected enterprise system.
+          </p>
+        </div>
+
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-light);padding:24px;border-radius:6px;margin-bottom:28px;">
+          <div class="pipeline-grid">
+            <div class="pipe-box">
+              <span class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-bottom:4px;">OPERATIONS</span>
+              <h4 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:4px;">Users &amp; Team</h4>
+              <p style="font-size:11px;color:var(--text-secondary);">Plant managers, structural engineers, QC chiefs</p>
+            </div>
+
+            <div class="pipe-arrow">→</div>
+
+            <div class="pipe-box highlight">
+              <span class="mono-tag" style="font-size:9px;margin-bottom:4px;">LAYER 01</span>
+              <h4 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:4px;">ProRack AI Core</h4>
+              <p style="font-size:11px;color:var(--text-secondary);">Context synthesis &amp; semantic cross-referencing</p>
+            </div>
+
+            <div class="pipe-arrow">→</div>
+
+            <div class="pipe-box tools">
+              <span class="mono-data" style="font-size:9px;margin-bottom:4px;">LAYER 02</span>
+              <h4 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:4px;">Controlled Tool Layer</h4>
+              <p style="font-size:11px;color:var(--text-secondary);">RBAC permissions, audit logging, human sign-off</p>
+            </div>
+
+            <div class="pipe-arrow">→</div>
+
+            <div class="pipe-box source">
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--data-blue);margin-bottom:4px;text-transform:uppercase;">SOURCE SYSTEMS</span>
+              <h4 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:4px;">Enterprise &amp; Factory</h4>
+              <p style="font-size:11px;color:var(--text-secondary);">ERPNext · Tekla · PowerFab · PLCs · WMS</p>
+            </div>
+          </div>
+
+          <div style="background:#ffffff;border-left:4px solid var(--accent-orange);border-radius:4px;padding:16px 20px;border:1px solid var(--border-light);border-left-width:4px;margin-top:20px;">
+            <p style="font-size:13px;color:var(--text-primary);line-height:1.6;font-weight:600;">
+              <strong>Core Architectural Principle:</strong> ProRack AI does not replace your source systems of record; it connects, interprets, and surfaces operational intelligence across them. Your ERP, CAD/BIM models, and factory PLCs continue operating as the authoritative sources of truth.
+            </p>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE SECURITY & RBAC SIMULATOR -->
+        <div id="react-rbac-simulator" style="margin-top:32px;margin-bottom:32px;"></div>
+
+        <!-- GOVERNANCE PILLARS -->
+        <div class="section-header" style="margin-top:40px;">
+          <span class="mono-tag">SECURITY &amp; COMPLIANCE</span>
+          <h2 class="section-title">Six Pillars of Enterprise Governance</h2>
+          <p class="section-desc">
+            Industrial infrastructure demands uncompromising data integrity, role-based boundary enforcement, and deterministic safety.
+          </p>
+        </div>
+
+        <div class="governance-grid">
+          <div class="gov-card">
+            <div class="gov-num">01 // ACCESS CONTROL</div>
+            <h3 class="gov-title">Source-Level RBAC</h3>
+            <p class="gov-desc">
+              ProRack AI inherits permission scopes directly from ERPNext and Microsoft 365. An employee without commercial margin visibility cannot query cost data through the AI assistant.
+            </p>
+          </div>
+
+          <div class="gov-card">
+            <div class="gov-num">02 // AUDIT COMPLIANCE</div>
+            <h3 class="gov-title">Immutable Audit Trails</h3>
+            <p class="gov-desc">
+              Every query, telemetry extraction, and user action is cryptographically logged with user identity, timestamp, and source system citations for complete audit compliance.
+            </p>
+          </div>
+
+          <div class="gov-card">
+            <div class="gov-num">03 // HUMAN-IN-THE-LOOP</div>
+            <h3 class="gov-title">Controlled Write Boundary</h3>
+            <p class="gov-desc">
+              The AI layer is read-only by default. Any operational write-action (e.g. releasing a hold on a work order) strictly requires explicit authorized human confirmation.
+            </p>
+          </div>
+
+          <div class="gov-card">
+            <div class="gov-num">04 // GROUNDED INTELLIGENCE</div>
+            <h3 class="gov-title">Deterministic Citations</h3>
+            <p class="gov-desc">
+              Operational inquiries are answered strictly with verifiable citations to underlying structural models, ERP documents, and machine PLCs. Speculative answers are explicitly blocked.
+            </p>
+          </div>
+
+          <div class="gov-card">
+            <div class="gov-num">05 // NETWORK SECURITY</div>
+            <h3 class="gov-title">On-Premises Edge Relays</h3>
+            <p class="gov-desc">
+              Lightweight edge agents interface with machine PLCs using outbound-only TLS 1.3 connections, preventing inbound exposure of factory OT networks to the public internet.
+            </p>
+          </div>
+
+          <div class="gov-card">
+            <div class="gov-num">06 // DATA PRIVACY</div>
+            <h3 class="gov-title">Complete Sovereignty</h3>
+            <p class="gov-desc">
+              Structural CAD files, proprietary roll-forming die profiles, customer layouts, and cost metrics remain isolated in your private environment and are never used for public model training.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

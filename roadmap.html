@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Explore ProRack AI's technology roadmap: AI dynamic scheduling, risk prediction, computer vision for structural steel QC, and physical-to-digital twin sync.">
+  <title>Technology Roadmap &amp; Future Vision | ProRack AI</title>
+  <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(40px, 5vw, 64px) 0 36px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .road-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 24px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+    }
+
+    .road-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
+    }
+
+    .road-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 6px;
+      border-radius: 2px;
+      background: rgba(234, 179, 8, 0.14);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      color: #b45309;
+      font-weight: 700;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .road-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .road-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 1024px) {
+      .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .roadmap-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="operations.html">Operations</a>
+        <a href="machines.html">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="roadmap.html" class="active">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="shell">
+        <span class="mono-tag" style="margin-bottom:10px;display:inline-block;">FUTURE VISION &amp; TECHNOLOGY ROADMAP</span>
+        <h1 class="section-title">The Next Horizon of Industrial Intelligence.</h1>
+        <p class="section-desc" style="max-width:76ch;">
+          Explore our planned future capabilities under active development, clearly distinguished from currently available production features.
+        </p>
+      </div>
+    </section>
+
+    <!-- ROADMAP GRID -->
+    <section class="section-md">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">DEVELOPMENT MILESTONES</span>
+          <h2 class="section-title">Planned Operational Innovations</h2>
+          <p class="section-desc">
+            Each initiative is engineered to solve concrete structural manufacturing constraints without disrupting core plant operations.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="road-card">
+            <div>
+              <span class="road-badge">ROADMAP / FUTURE CAPABILITY</span>
+              <h3 class="road-title">AI-Assisted Dynamic Scheduling</h3>
+              <p class="road-desc">
+                Real-time factory schedule rebalancing that dynamically adapts cutting, punching, and roll-forming queues when an upstream machine undergoes unexpected maintenance.
+              </p>
+            </div>
+            <div class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-top:16px;">PHASE: RESEARCH</div>
+          </div>
+
+          <div class="road-card">
+            <div>
+              <span class="road-badge">ROADMAP / FUTURE CAPABILITY</span>
+              <h3 class="road-title">Risk &amp; Margin Prediction</h3>
+              <p class="road-desc">
+                Continuous financial variance intelligence connecting raw steel coil price fluctuations directly to project delivery margins and site erection schedules.
+              </p>
+            </div>
+            <div class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-top:16px;">PHASE: PROTOTYPING</div>
+          </div>
+
+          <div class="road-card">
+            <div>
+              <span class="road-badge">ROADMAP / FUTURE CAPABILITY</span>
+              <h3 class="road-title">Computer Vision QC Inspection</h3>
+              <p class="road-desc">
+                High-speed optical camera inspection measuring hole punch pitch, flange angle, and robotic weld fillet geometry directly on the conveyor line.
+              </p>
+            </div>
+            <div class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-top:16px;">PHASE: LAB VALIDATION</div>
+          </div>
+
+          <div class="road-card">
+            <div>
+              <span class="road-badge">ROADMAP / FUTURE CAPABILITY</span>
+              <h3 class="road-title">Predictive Maintenance Models</h3>
+              <p class="road-desc">
+                Physics-informed machine learning models detecting microscopic bearing friction and hydraulic valve degradation weeks before mechanical failure occurs.
+              </p>
+            </div>
+            <div class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-top:16px;">PHASE: MODEL TRAINING</div>
+          </div>
+
+          <div class="road-card">
+            <div>
+              <span class="road-badge">ROADMAP / FUTURE CAPABILITY</span>
+              <h3 class="road-title">Digital Twin Synchronization</h3>
+              <p class="road-desc">
+                Bi-directional sync connecting physical warehouse rack deflection sensors back into the structural Tekla 3D model for live structural load monitoring.
+              </p>
+            </div>
+            <div class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-top:16px;">PHASE: ARCHITECTURE DESIGN</div>
+          </div>
+
+          <div class="road-card">
+            <div>
+              <span class="road-badge">ROADMAP / FUTURE CAPABILITY</span>
+              <h3 class="road-title">Autonomous Operational Workflows</h3>
+              <p class="road-desc">
+                Self-orchestrating multi-agent loops that draft technical RFIs, notify suppliers of coil delays, and update shipping manifests upon manager approval.
+              </p>
+            </div>
+            <div class="mono-tag" style="font-size:9px;color:var(--text-muted);margin-top:16px;">PHASE: EXPLORATION</div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-light);padding:18px 22px;border-radius:4px;font-size:12px;color:var(--text-secondary);display:flex;align-items:center;gap:12px;">
+          <span style="color:#b45309;font-weight:bold;">ℹ</span>
+          <span><strong>Transparency Commitment:</strong> Capabilities listed on this roadmap are under active engineering development and will be deployed in scheduled enterprise releases following validation at our Hyderabad facility.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

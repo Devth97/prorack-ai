@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="ProRack AI Operations Intelligence: Live project gate health, cold roll-forming shop floor tracking, planned vs actual curves, and steel heat cert traceability.">
+  <title>Operations Intelligence | Project Health &amp; Shop Floor Execution | ProRack AI</title>
+  <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(40px, 5vw, 64px) 0 36px;
+    }
+
+    /* DASHBOARD CARD */
+    .dash-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .dash-stat-box {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 18px 20px;
+      border-radius: 6px;
+    }
+
+    .dash-stat-box small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .dash-stat-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .dash-stat-val.good { color: var(--data-teal); }
+    .dash-stat-val.alert { color: var(--accent-orange); }
+
+    .dash-stat-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .dash-split-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .card-panel {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 24px;
+      border-radius: 6px;
+    }
+
+    .blocker-row {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent-orange);
+      padding: 14px 16px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .blocker-row.warn {
+      border-left-color: #f59e0b;
+    }
+
+    .blocker-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .blocker-source {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--data-blue);
+      font-weight: 600;
+    }
+
+    /* MACHINE MATRIX */
+    .machine-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .machine-box {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--data-teal);
+      padding: 18px;
+      border-radius: 6px;
+    }
+
+    .machine-box.changeover {
+      border-top-color: #f59e0b;
+    }
+
+    .machine-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .state-badge {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+
+    .state-running { background: var(--data-teal-soft); color: var(--data-teal); }
+    .state-pause { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+
+    @media (max-width: 1024px) {
+      .dash-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .dash-split-grid { grid-template-columns: 1fr; }
+      .machine-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .dash-metrics-grid { grid-template-columns: 1fr; }
+      .machine-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="operations.html" class="active">Operations</a>
+        <a href="machines.html">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="shell">
+        <span class="mono-tag" style="margin-bottom:10px;display:inline-block;">REAL-TIME OPERATIONS // PROJECT &amp; SHOP FLOOR</span>
+        <h1 class="section-title">Synchronize Shop Floor Flow with Project Commitments.</h1>
+        <p class="section-desc" style="max-width:76ch;">
+          Live progress across structural phase gates, machine statuses, planned vs. actual production tonnage, and digital quality inspection traceability.
+        </p>
+      </div>
+    </section>
+
+    <!-- LIVE PROJECT TELEMETRY DASHBOARD -->
+    <section class="section-md" style="background:var(--bg-subtle);">
+      <div class="shell">
+        <div id="react-operations-monitor" style="margin-bottom: 24px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+          <div>
+            <span class="mono-tag">LIVE PROJECT TELEMETRY</span>
+            <h2 style="font-size:20px;font-weight:800;color:var(--text-primary);margin-top:2px;">Project 2026-HYD-04 // Heavy Duty Drive-In Rack Complex</h2>
+          </div>
+          <div class="mono-data" style="font-size:10px;">STAGE 4: FABRICATION RELEASE · LAST SYNC: 4S AGO</div>
+        </div>
+
+        <div class="dash-metrics-grid">
+          <div class="dash-stat-box">
+            <small>Material Readiness</small>
+            <div class="dash-stat-val good">94.2%</div>
+            <div class="dash-stat-sub">48.6 MT HR Coils verified in yard</div>
+          </div>
+          <div class="dash-stat-box">
+            <small>Shop Fabrication</small>
+            <div class="dash-stat-val">68.4%</div>
+            <div class="dash-stat-sub">Uprights 82% · Beams 64% · Bracing 55%</div>
+          </div>
+          <div class="dash-stat-box">
+            <small>Active Blockers</small>
+            <div class="dash-stat-val alert">1 Critical</div>
+            <div class="dash-stat-sub">Gusset Rev C structural approval</div>
+          </div>
+          <div class="dash-stat-box">
+            <small>Installation Readiness</small>
+            <div class="dash-stat-val good">On Track</div>
+            <div class="dash-stat-sub">GoSmartFit verified anchor grid B1-F12</div>
+          </div>
+        </div>
+
+        <div class="dash-split-grid">
+          <!-- BLOCKERS -->
+          <div class="card-panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+              <h3 style="font-size:16px;font-weight:800;color:var(--text-primary);">Active Blockers &amp; Root Causes</h3>
+              <span class="mono-tag">1 HIGH · 1 MEDIUM</span>
+            </div>
+
+            <div class="blocker-row">
+              <div class="blocker-top">
+                <span class="mono-tag" style="font-size:9px;">CRITICAL PATH HOLD</span>
+                <span class="blocker-source">TEKLA DWG-C104-REV-C</span>
+              </div>
+              <div style="font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Base Plate Gusset Structural EOR Approval Pending</div>
+              <p style="font-size:12px;color:var(--text-secondary);line-height:1.45;">
+                Seismic revision requires upgraded 12mm plate. PowerFab holds cutting nest #412 until engineering approval is logged in M365 email thread #419.
+              </p>
+            </div>
+
+            <div class="blocker-row warn">
+              <div class="blocker-top">
+                <span class="mono-tag" style="font-size:9px;color:#f59e0b;">TRANSIT ALERT</span>
+                <span class="blocker-source">ERPNEXT PO-00892</span>
+              </div>
+              <div style="font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">M16 High-Tensile Fasteners Shipment Transit Delay</div>
+              <p style="font-size:12px;color:var(--text-secondary);line-height:1.45;">
+                18-hour transport delay. Buffer inventory at Hyderabad warehouse is sufficient for initial 4 days of site erection.
+              </p>
+            </div>
+          </div>
+
+          <!-- MILESTONE TIMELINE -->
+          <div class="card-panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+              <h3 style="font-size:16px;font-weight:800;color:var(--text-primary);">Milestone Gate Status</h3>
+              <span class="mono-data">PHASE 4 OF 6</span>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-light);padding-bottom:8px;">
+                <span style="font-size:13px;font-weight:600;color:var(--text-primary);">Tekla 3D Model Freeze &amp; Structural Stamp</span>
+                <span class="state-badge state-running">CLEARED</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-light);padding-bottom:8px;">
+                <span style="font-size:13px;font-weight:600;color:var(--text-primary);">PowerFab Nesting &amp; Coil Allocation (48 MT)</span>
+                <span class="state-badge state-running">CLEARED</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-light);padding-bottom:8px;">
+                <span style="font-size:13px;font-weight:600;color:var(--text-primary);">Batch 01 Dispatch (Uprights &amp; Anchors)</span>
+                <span class="state-badge state-pause">IN PROGRESS</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:13px;font-weight:600;color:var(--text-secondary);">Site Erection &amp; Plumb Check (GoSmartFit)</span>
+                <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);">SCHEDULED 22 SEP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MACHINE MATRIX -->
+        <div style="margin-bottom:16px;">
+          <span class="mono-tag">SHOP FLOOR EXECUTION</span>
+          <h3 style="font-size:18px;font-weight:800;color:var(--text-primary);margin-top:2px;">Active Machine Work Centers</h3>
+        </div>
+
+        <div class="machine-grid">
+          <div class="machine-box">
+            <div class="machine-top">
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);">RF-01 ROLL FORMER</span>
+              <span class="state-badge state-running">RUNNING</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:2px;">Upright Post 90×1.8</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:12px;">Speed: 42.2 m/min · Shift: 1,840 m</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:var(--data-teal);">TOLERANCE ±0.03mm</div>
+          </div>
+
+          <div class="machine-box changeover">
+            <div class="machine-top">
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);">RF-02 BEAM LINE</span>
+              <span class="state-badge state-pause">CHANGEOVER</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:2px;">Box Beam 125×50</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:12px;">Tooling adjustment · 10 min remaining</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:#f59e0b;">PLANNED WINDOW</div>
+          </div>
+
+          <div class="machine-box">
+            <div class="machine-top">
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);">CNC-PL01 PLASMA</span>
+              <span class="state-badge state-running">RUNNING</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:2px;">Base Plates 12mm</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:12px;">Cutting nest #308 · 92% sheet yield</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:var(--data-teal);">GAS FLOW OPTIMAL</div>
+          </div>
+
+          <div class="machine-box">
+            <div class="machine-top">
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);">WELD-R01 ROBOTIC</span>
+              <span class="state-badge state-running">RUNNING</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:2px;">Beam Connectors</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:12px;">Cycle: 34 sec/pc · Arc-on: 88.4%</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:var(--data-teal);">TWIN MIG SYNC</div>
+          </div>
+        </div>
+
+        <!-- QC INSPECTION & TRACEABILITY SHOWCASE -->
+        <div class="responsive-showcase-grid" style="background:#ffffff;border:1px solid var(--border-light);padding:24px;border-radius:6px;">
+          <div class="img-frame" style="height:260px;">
+            <img src="assets/steel-quality-inspection.jpg" alt="Quality control inspector measuring steel profile thickness with digital caliper" class="realistic-img" width="1200" height="675" loading="lazy">
+            <div class="img-overlay-label">
+              <span>METROLOGY &amp; QC INSPECTION</span>
+              <span class="mono-data">IS 2062 / EN 10025</span>
+            </div>
+          </div>
+          <div>
+            <span class="mono-tag">HEAT CERT PROVENANCE</span>
+            <h3 style="font-size:20px;font-weight:800;color:var(--text-primary);margin-bottom:8px;">Material Heat Number Traceability</h3>
+            <p style="font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:16px;">
+              Every cold-rolled profile, welded connector, and base plate retains digital traceability to its raw steel mill heat certificate.
+            </p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:var(--bg-subtle);border:1px solid var(--border-light);padding:10px 14px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <strong style="font-size:12px;color:var(--data-blue);font-family:var(--font-mono);">HEAT #JSW-CR450-8912</strong>
+                  <div style="font-size:11px;color:var(--text-secondary);">Yield 462 MPa · UTS 535 MPa · Thickness 1.80mm</div>
+                </div>
+                <span class="state-badge state-running">PASSED QC</span>
+              </div>
+              <div style="background:var(--bg-subtle);border:1px solid var(--border-light);padding:10px 14px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <strong style="font-size:12px;color:var(--data-blue);font-family:var(--font-mono);">HEAT #TATA-HR350-1094</strong>
+                  <div style="font-size:11px;color:var(--text-secondary);">Yield 368 MPa · UTS 450 MPa · Thickness 3.20mm</div>
+                </div>
+                <span class="state-badge state-running">PASSED QC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

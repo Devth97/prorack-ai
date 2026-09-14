@@ -14,3 +14,4 @@ await Promise.all([
 ]);
 
 console.log(`Built dist/ with ${htmlFiles.length} HTML pages and assets`);
+

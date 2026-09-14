@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Connect industrial cold roll-forming lines, punch presses, and robotic welding cells to ProRack AI using Modbus TCP, OPC-UA, and MQTT without disrupting PLC logic.">
+  <title>Machine Intelligence &amp; PLC Telemetry | ProRack AI</title>
+  <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(40px, 5vw, 64px) 0 36px;
+    }
+
+    .telemetry-console-dark {
+      background: #090e13;
+      border: 1px solid #1e293b;
+      border-radius: 6px;
+      overflow: hidden;
+      color: #f1f5f9;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+      margin-bottom: 36px;
+    }
+
+    .telemetry-topbar {
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .proto-pill {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #94a3b8;
+      border: 1px solid #334155;
+    }
+
+    .proto-pill.active {
+      color: #00d2c4;
+      border-color: rgba(0, 210, 196, 0.4);
+      background: rgba(0, 210, 196, 0.08);
+    }
+
+    .stream-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #1e293b;
+    }
+
+    .stream-col {
+      background: #090e13;
+      padding: 20px;
+    }
+
+    .stream-col-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent-orange);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .stream-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.8;
+      color: #64748b;
+      height: 240px;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .stream-code .hi { color: #00d2c4; }
+    .stream-code .warn { color: #f59e0b; }
+
+    @media (max-width: 900px) {
+      .stream-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="operations.html">Operations</a>
+        <a href="machines.html" class="active">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="shell">
+        <span class="mono-tag" style="margin-bottom:10px;display:inline-block;">INDUSTRIAL IOT &amp; OT INTEGRATION</span>
+        <h1 class="section-title">PLC &amp; Machine Telemetry Without Disruption.</h1>
+        <p class="section-desc" style="max-width:76ch;">
+          Connect cold roll-forming lines, punch presses, and robotic cells using Modbus TCP, OPC-UA, and MQTT without interrupting existing PLC ladder logic.
+        </p>
+      </div>
+    </section>
+
+    <!-- REALISTIC ROLL FORMING MILL SHOWCASE -->
+    <section class="section-md">
+      <div class="shell">
+        <div style="margin-bottom:24px;">
+          <div class="img-frame" style="height:360px;">
+            <img src="assets/roll-forming-production-line.jpg" alt="Heavy duty cold roll-forming production line with steel coil and PLC operator console" class="realistic-img" width="1200" height="675" loading="lazy">
+            <div class="img-overlay-label">
+              <span>COLD ROLL-FORMING MILL // LINE RF-01 HYDERABAD PLANT</span>
+              <span class="mono-data">MODBUS TCP OK · 42.2 M/MIN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="mono-tag">EDGE TELEMETRY CONSOLE</span>
+          <h2 class="section-title">Live Machine Sensor Feeds</h2>
+          <p class="section-desc">
+            Raw industrial events translated into operational intelligence: cycle counts, stroke speed, bearing acoustic vibration, and hydraulic oil temperatures.
+          </p>
+        </div>
+
+        <!-- INTERACTIVE REACT TELEMETRY CHART -->
+        <div id="react-telemetry" style="margin-bottom: 24px;"></div>
+
+        <!-- DARK TELEMETRY CONSOLE -->
+        <div class="telemetry-console-dark">
+          <div class="telemetry-topbar">
+            <div>
+              <span class="mono-tag" style="color:#ffffff;">NODE: HYD-EDGE-RELAY-01</span>
+              <span style="font-size:11px;color:#94a3b8;margin-left:8px;">Line RF-01 &amp; RF-02 Streams</span>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <span class="proto-pill active">MODBUS TCP</span>
+              <span class="proto-pill active">OPC-UA</span>
+              <span class="proto-pill active">MQTT BROKER</span>
+              <span class="proto-pill">REST EDGE</span>
+            </div>
+          </div>
+
+          <div class="stream-grid">
+            <div class="stream-col">
+              <div class="stream-col-title">01 / LIVE CYCLE COUNTS</div>
+              <div class="stream-code">
+                <div>[10:38:12] PLC_RF1_STROKE: 14821</div>
+                <div>[10:38:14] PROFILE_LEN_M: +3.204</div>
+                <div>[10:38:16] SHEAR_PUNCH_ACK: OK (0.18s)</div>
+                <div class="hi">[10:38:18] PART_ID: UP-90-18-B24 #892</div>
+                <div>[10:38:20] LINE_SPEED: 42.1 m/min</div>
+                <div>[10:38:22] MOTOR_AMPS: 28.4 A (NORM)</div>
+                <div>[10:38:24] ENCODER_DELTA: +0.02 mm</div>
+                <div class="hi">[10:38:26] BUNDLE_COUNT: 24/25 PCS</div>
+              </div>
+            </div>
+
+            <div class="stream-col">
+              <div class="stream-col-title">02 / PREDICTIVE HEALTH</div>
+              <div class="stream-code">
+                <div>[SYS] BEARING_VIB_RMS: 0.14 mm/s</div>
+                <div class="hi">[SYS] GEARBOX_OIL_TEMP: 48.2°C</div>
+                <div>[SYS] HYD_PRESSURE: 185 BAR (STABLE)</div>
+                <div>[SYS] ROLL_GAP_ALIGN: 1.81 mm</div>
+                <div>[SYS] THERMAL_DRIFT: 0.003 mm</div>
+                <div class="hi">[SYS] PUNCH_DIE_WEAR: 12.4% (GOOD)</div>
+                <div>[SYS] LUBRICATION_FLOW: 1.4 L/min</div>
+                <div>[SYS] EST_MAINTENANCE_DUE: 184 HRS</div>
+              </div>
+            </div>
+
+            <div class="stream-col">
+              <div class="stream-col-title">03 / EVENT SYNTHESIS</div>
+              <div class="stream-code">
+                <div class="hi">[EVENT] Coil changeover logged (8.2 min)</div>
+                <div>[CORRELATION] Tied to ERP Coil #JSW-8912</div>
+                <div>[CHECK] Thickness 1.80mm matches Tekla spec</div>
+                <div class="warn">[ALERT] Speed reduced 5% for hole slotting</div>
+                <div>[DISPATCH] Batch #01 completion est 16:45</div>
+                <div class="hi">[AI SYNTHESIS] Zero variance against schedule</div>
+                <div>[AUDIT] Log signed by Edge Agent #04</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARCHITECTURE SAFETY -->
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-light);border-left:4px solid var(--accent-orange);padding:20px 24px;border-radius:4px;">
+          <h4 style="font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:6px;">Air-Gapped OT Network Protection</h4>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.55;">
+            ProRack AI edge relays run on isolated plant networks with outbound-only TLS 1.3 connectivity. No external inbound connections are permitted to factory PLC controllers or machine safety networks.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

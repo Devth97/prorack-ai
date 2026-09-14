@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="ProRack AI is the digital intelligence layer connecting business systems, engineering, manufacturing, machines, and project execution across the complete industrial storage lifecycle.">
+  <title>ProRack AI | Intelligence Across the Complete Project Lifecycle</title>
+  <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* PAGE SPECIFIC STYLES: HOMEPAGE */
+    .hero-wrap {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: clamp(36px, 5vw, 64px) 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+      line-height: 1.02;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline .highlight {
+      color: var(--accent-orange);
+    }
+
+    .hero-subhead {
+      font-size: clamp(16px, 1.3vw, 19px);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 48ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+    }
+
+    .hero-stat-item small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .hero-stat-item span {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* HERO VIDEO PREVIEW CARD */
+    .hero-media-box {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: #0f172a;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+      aspect-ratio: 16 / 10;
+    }
+
+    .hero-media-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+
+    .hero-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.85) 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .hud-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hud-card {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-left: 3px solid var(--accent-orange);
+      padding: 10px 14px;
+      border-radius: 4px;
+    }
+
+    .hud-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hud-card-sub {
+      font-size: 11px;
+      color: #cbd5e1;
+    }
+
+    /* THE PROBLEM: COMPACT COMPARISON */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .problem-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 20px 18px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+    }
+
+    .problem-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .problem-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent-orange);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .problem-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .problem-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* PILLARS SHOWCASE GRID */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 24px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.18s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 8px 24px rgba(244, 81, 44, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .pillar-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent-orange);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .pillar-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .pillar-link {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .problem-grid .problem-card:last-child { grid-column: span 2; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .problem-grid .problem-card:last-child { grid-column: span 1; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .hero-stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="react-header">
+    <div class="shell nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="ProRack AI Home">
+        <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
+        <div class="nav-brand-text">
+          <span class="brand-title">ProRack AI</span>
+          <span class="brand-sub">Connected Operations Layer</span>
+        </div>
+      </a>
+
+      <div class="nav-status-pill">
+        <span class="pulse-dot"></span>
+        <span>Connected Intelligence Layer Active</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="active">Overview</a>
+        <a href="platform.html">Platform</a>
+        <a href="operations.html">Operations</a>
+        <a href="machines.html">Machines</a>
+        <a href="copilot.html">AI Copilot</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <a href="copilot.html#brief" class="nav-cta">View Live Brief</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-wrap">
+      <div class="shell hero-grid">
+        <div>
+          <span class="mono-tag" style="margin-bottom:12px;display:inline-block;">INDUSTRIAL OPERATIONAL AI</span>
+          <h1 class="hero-headline">
+            Intelligence Across the Complete <span class="highlight">Project Lifecycle</span>
+          </h1>
+          <p class="hero-subhead">
+            Connecting business, engineering, fabrication, machines and project execution into one intelligent operational layer.
+          </p>
+
+          <div class="hero-actions">
+            <a href="platform.html" class="btn-primary">
+              Explore the Platform
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="architecture.html" class="btn-secondary">
+              See How It Works
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <small>System Scope</small>
+              <span>ERP · CAD · MES · PLC</span>
+            </div>
+            <div class="hero-stat-item">
+              <small>Core Premise</small>
+              <span>Interprets, Never Replaces</span>
+            </div>
+            <div class="hero-stat-item">
+              <small>Operations Base</small>
+              <span>Hyderabad Industrial Plant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media-box">
+          <video autoplay muted loop playsinline poster="assets/warehouse-poster.webp">
+            <source src="assets/warehouse-mobile.mp4" media="(max-width:850px)" type="video/mp4">
+            <source src="assets/warehouse.mp4" type="video/mp4">
+          </video>
+          <div class="hero-media-overlay">
+            <div class="hud-header">
+              <span class="mono-data">● LIVE TELEMETRY</span>
+              <span id="hud-clock">00:00:00 UTC</span>
+            </div>
+            <div class="hud-body">
+              <div class="hud-card">
+                <div class="hud-card-title">Project 2026-HYD-04 // High-Bay Drive-In</div>
+                <div class="hud-card-sub">ERPNext ↔ Tekla BIM Coherence: 4,280 parts synced with Cut List #891.</div>
+              </div>
+              <div class="hud-card" style="border-left-color: var(--data-teal);">
+                <div class="hud-card-title">Roll-Former Line 01 // Upright Profile</div>
+                <div class="hud-card-sub">Speed: 42.2 m/min · Modbus TCP telemetry active · Zero tolerance drift.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10-STAGE CONTINUOUS LIFECYCLE TICKER -->
+    <div class="lifecycle-bar" aria-label="Project Lifecycle Pipeline">
+      <div class="lifecycle-lead">
+        <span class="mono-tag">LIFECYCLE PIPELINE:</span>
+        <span style="font-size:11px;color:var(--text-secondary);font-weight:600;">Ten unified operational gates across the project lifespan</span>
+      </div>
+      <div class="lifecycle-track">
+        <div class="lifecycle-step"><span class="num">01</span> CRM / ERPNext</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">02</span> Engineering / Tekla</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">03</span> PowerFab Routing</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">04</span> Manufacturing Floor</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">05</span> Machine PLCs</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">06</span> Quality Control</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">07</span> Warehouse Staging</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">08</span> Dispatch Logistics</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">09</span> Site Installation</div>
+        <span class="lifecycle-arrow">→</span>
+        <div class="lifecycle-step"><span class="num">10</span> Management Intel</div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE REACT LIFECYCLE NAVIGATOR -->
+    <section class="section-sm" style="background:#ffffff;padding-top:20px;padding-bottom:12px;">
+      <div class="shell">
+        <div id="react-lifecycle"></div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="section-md" style="background:#ffffff;">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">THE OPERATIONAL DISCONNECT</span>
+          <h2 class="section-title">Five Disconnected Silos. One Fragile Project.</h2>
+          <p class="section-desc">
+            In industrial warehouse manufacturing and engineering, critical context is fractured across independent tools. When systems cannot converse, coordination breaks down, schedules slip, and visibility is delayed.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">01 / SYSTEMS</div>
+              <h3 class="problem-title">Fragmented Systems</h3>
+              <p class="problem-text">ERP financials, 3D BIM models, cut lists, and shop schedules remain trapped in isolated silos with zero semantic bridge.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">02 / INBOXES</div>
+              <h3 class="problem-title">Disconnected Data</h3>
+              <p class="problem-text">Urgent revision notices, engineering clarifications, and customer directives remain buried in unsearchable email threads.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">03 / OVERHEAD</div>
+              <h3 class="problem-title">Manual Coordination</h3>
+              <p class="problem-text">Project managers spend up to 40% of their day manually calling plant supervisors to verify basic part quantities and drawings.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">04 / DELAY</div>
+              <h3 class="problem-title">Delayed Visibility</h3>
+              <p class="problem-text">Material shortages, roll-forming bottlenecks, and weld holds are frequently discovered only when the dispatch truck arrives.</p>
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <div>
+              <div class="problem-num">05 / TELEMETRY</div>
+              <h3 class="problem-title">Trapped Machine Data</h3>
+              <p class="problem-text">Cold roll-forming lines and punch presses generate thousands of telemetry data points daily that never inform project schedules.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-light);border-left:4px solid var(--accent-orange);padding:18px 24px;border-radius:4px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+          <p style="font-size:14px;color:var(--text-primary);font-weight:600;">
+            Adding another database does not solve this. ProRack AI sits above your stack to interpret and connect your existing systems of record.
+          </p>
+          <a href="architecture.html" style="font-size:12px;font-weight:700;color:var(--accent-orange);text-transform:uppercase;">Read Architectural Approach →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM PILLARS -->
+    <section class="section-md" style="background:var(--bg-subtle);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);">
+      <div class="shell">
+        <div class="section-header">
+          <span class="mono-tag">EXPLORE BY PLATFORM CAPABILITY</span>
+          <h2 class="section-title">Dedicated Intelligence Across Every Phase.</h2>
+          <p class="section-desc">
+            Explore how ProRack AI surfaces real-time insight from engineering CAD models to cold roll-forming production lines.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">INTEGRATION TOPOLOGY</div>
+              <h3 class="pillar-title">Connected Layer</h3>
+              <p class="pillar-desc">
+                How ProRack AI interfaces with ERPNext, Tekla Structures, PowerFab, M365, and WMS without modifying underlying schemas.
+              </p>
+            </div>
+            <a href="platform.html" class="pillar-link">Explore Integration Layer →</a>
+          </div>
+
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">PROJECT &amp; SHOP FLOOR</div>
+              <h3 class="pillar-title">Operations Intel</h3>
+              <p class="pillar-desc">
+                Live project status, phase gate blockers, planned vs actual production curves, and raw coil heat cert traceability.
+              </p>
+            </div>
+            <a href="operations.html" class="pillar-link">View Operations Console →</a>
+          </div>
+
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">INDUSTRIAL IOT</div>
+              <h3 class="pillar-title">Machine Intel</h3>
+              <p class="pillar-desc">
+                Direct PLC connectivity via Modbus TCP and OPC-UA tracking cold roll-forming stroke counts, line speeds, and bearing health.
+              </p>
+            </div>
+            <a href="machines.html" class="pillar-link">Inspect Machine Telemetry →</a>
+          </div>
+
+          <div class="pillar-card">
+            <div>
+              <div class="pillar-tag">OPERATIONAL COPILOT</div>
+              <h3 class="pillar-title">AI Assistant &amp; Brief</h3>
+              <p class="pillar-desc">
+                Ask executive questions answered with deterministic source citations, plus the automated Shift Project Delivery Brief.
+              </p>
+            </div>
+            <a href="copilot.html" class="pillar-link">Launch AI Copilot Simulator →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALISTIC WORKSTATION HIGHLIGHT -->
+    <section class="section-md" style="background:#ffffff;">
+      <div class="shell responsive-showcase-grid">
+        <div>
+          <span class="mono-tag">ENGINEERING FIDELITY</span>
+          <h2 class="section-title">Built Around Real Structural Reality.</h2>
+          <p class="section-desc" style="margin-bottom:20px;">
+            ProRack AI does not replace your engineering tools. Tekla Structures models and approved engineering drawings remain the authoritative source of record.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-secondary);margin-bottom:24px;">
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--accent-orange);font-weight:bold;">✓</span> Direct indexing of 3D member marks and profile sections</li>
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--accent-orange);font-weight:bold;">✓</span> Automated drawing revision diff detection (Rev C vs Rev B)</li>
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--accent-orange);font-weight:bold;">✓</span> Read-only model lock to protect structural calculations</li>
+          </ul>
+          <a href="platform.html" class="btn-secondary">Learn About Engineering Ingestion →</a>
+        </div>
+
+        <div class="img-frame" style="height:320px;">
+          <img src="assets/tekla-engineering-workstation.jpg" alt="Structural engineer workstation with 3D Tekla model and engineering drawings" class="realistic-img" width="1200" height="675" loading="lazy">
+          <div class="img-overlay-label">
+            <span>TEKLA STRUCTURES // WS-04 HYDERABAD</span>
+            <span class="mono-data">3D MODEL SYNCED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND ARCHITECTURE STRIP -->
+    <section class="brand-nav-strip" aria-label="ProRack Brand Architecture">
+      <div class="shell">
+        <div style="margin-bottom:12px;">
+          <span class="mono-tag">PRORACK BRAND ARCHITECTURE:</span>
+        </div>
+        <div class="brand-strip-grid">
+          <a href="https://prorackglobal.com" target="_blank" rel="noopener noreferrer" class="brand-pillar-card">
+            <small>CORPORATE &amp; MANUFACTURING</small>
+            <strong>prorackglobal.com</strong>
+            <p>Parent corporate entity, heavy storage rack manufacturing plant, and engineering catalogs.</p>
+          </a>
+
+          <div class="brand-pillar-card active">
+            <small>INTELLIGENCE &amp; OPERATIONS (YOU ARE HERE)</small>
+            <strong>prorack.ai</strong>
+            <p>AI, digital intelligence, automation, and connected operational layers across systems.</p>
+          </div>
+
+          <a href="https://gosmartfit.ai" target="_blank" rel="noopener noreferrer" class="brand-pillar-card">
+            <small>INSTALLATION &amp; EXECUTION</small>
+            <strong>gosmartfit.ai</strong>
+            <p>Warehouse installation execution, site surveying, and field team alignment platform.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div class="footer-left">
+        <img src="assets/prorack-mark.webp" alt="ProRack Logo" width="22" height="22">
+        <span>© 2026 ProRack AI. An initiative of ProRack Global.</span>
+      </div>
+      <div class="footer-contacts">
+        <span>Hyderabad, India</span>
+        <a href="mailto:kshitij@prorackglobal.com">kshitij@prorackglobal.com</a>
+        <span>+91 98199 95285</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateClock() {
+      const el = document.getElementById('hud-clock');
+      if (el) {
+        el.textContent = new Date().toTimeString().split(' ')[0] + ' UTC';
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

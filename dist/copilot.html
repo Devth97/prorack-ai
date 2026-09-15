@@ -15,9 +15,9 @@
 <body>
 
   <!-- SITE HEADER -->
-  <header class="site-header" id="react-header">
+    <header class="site-header" id="react-header">
     <div class="shell nav-inner">
-      <a href="index.html" class="nav-brand">
+      <a href="index.html" class="nav-brand" aria-label="ProRack AI Home">
         <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="34" height="34">
         <div class="nav-brand-text">
           <span class="brand-title">ProRack AI</span>
@@ -25,12 +25,12 @@
         </div>
       </a>
 
-      <div class="nav-status-pill">
+      <div class="nav-status-pill hidden-mobile">
         <span class="pulse-dot"></span>
         <span>Connected Intelligence Layer Active</span>
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Main Navigation">
         <a href="index.html">Overview</a>
         <a href="platform.html">Platform</a>
         <a href="operations.html">Operations</a>
@@ -40,7 +40,11 @@
         <a href="roadmap.html">Roadmap</a>
       </nav>
 
-      <a href="#brief" class="nav-cta">View Live Brief</a>
+      <a href="copilot.html#brief" class="nav-cta hidden-mobile">View Live Brief</a>
+
+      <button class="mobile-toggle-btn" aria-label="Toggle navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      </button>
     </div>
   </header>
 

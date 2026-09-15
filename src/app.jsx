@@ -45,7 +45,7 @@ function GlobalHeader({ activePage }) {
     item.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Keyboard shortcut listener for Ctrl+K / Cmd+K
+  // Keyboard shortcut & resize listener
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -54,10 +54,20 @@ function GlobalHeader({ activePage }) {
       }
       if (e.key === 'Escape') {
         setCommandOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
+    const handleResize = () => {
+      if (window.innerWidth > 1040) {
+        setMobileMenuOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -110,15 +120,18 @@ function GlobalHeader({ activePage }) {
             className="mobile-toggle-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Backdrop Overlay */}
       {mobileMenuOpen && (
-        <div className="mobile-drawer">
+        <>
+          <div className="mobile-drawer-overlay" onClick={() => setMobileMenuOpen(false)} />
+          <div className="mobile-drawer">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', padding: '16px' }}>
             <div className="nav-status-pill" style={{ width: 'fit-content', marginBottom: '8px' }}>
               <span className="pulse-dot"></span>
@@ -149,6 +162,7 @@ function GlobalHeader({ activePage }) {
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* shadcn-style Command Dialog / Search Modal */}
@@ -452,7 +466,7 @@ function TelemetryLiveChart() {
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px', marginBottom: '18px' }}>
+      <div className="responsive-stat-grid-3">
         <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
           <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Continuous Speed</small>
           <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--primary)' }}>{speed} m/min</span>
@@ -624,7 +638,7 @@ function PlatformSystemMatrix() {
         </div>
 
         {/* Status Highlights */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+        <div className="responsive-stat-grid-3">
           <div style={{ background: 'var(--secondary)', padding: '12px 14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>ACTIVE ENTITY</span>
             <strong style={{ fontSize: '13px', color: 'var(--foreground)' }}>{activeSys.entity}</strong>
@@ -1025,7 +1039,7 @@ function SecurityRbacSimulator() {
         </div>
 
         {/* Permissions Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px', marginBottom: '20px' }}>
+        <div className="responsive-rbac-grid">
           {/* Read Access */}
           <div style={{ background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 'var(--radius)', padding: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#15803d', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>

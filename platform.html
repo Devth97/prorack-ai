@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#07090e">
   <meta name="description" content="Explore ProRack AI's Connected Intelligence Layer: non-disruptive integration across ERPNext, Tekla Structures, PowerFab, Microsoft 365, and machine PLCs.">
   <title>Connected Intelligence Layer | ProRack AI Platform Integrations</title>
   <link rel="icon" href="assets/prorack-mark.webp">
@@ -12,11 +12,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* PAGE SPECIFIC STYLES: PLATFORM (SUPER FLAT) */
+    /* PAGE SPECIFIC STYLES: PLATFORM (MODERN INDUSTRIAL OBSIDIAN) */
     .page-hero {
-      background: #f8fafc;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(244, 81, 44, 0.12), transparent 70%),
+                  radial-gradient(circle at 85% 30%, rgba(0, 229, 201, 0.05), transparent 50%),
+                  var(--background);
       border-bottom: 1px solid var(--border);
-      padding: clamp(40px, 5vw, 64px) 0 36px;
+      padding: clamp(40px, 5vw, 68px) 0 40px;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
     }
 
     .topology-container {
@@ -26,8 +43,9 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      background: #ffffff;
+      background: var(--card);
       margin-bottom: 36px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     }
 
     .system-nav-col {
@@ -47,17 +65,20 @@
       color: var(--muted-foreground);
       font-size: 13px;
       font-weight: 600;
-      transition: all 0.1s ease;
+      transition: all 0.15s ease;
+      background: transparent;
+      border-left: 3px solid transparent;
+      cursor: pointer;
     }
 
     .sys-btn:hover {
-      background: #ffffff;
-      color: var(--foreground);
+      background: #141c2c;
+      color: #ffffff;
     }
 
     .sys-btn.active {
-      background: #ffffff;
-      color: var(--foreground);
+      background: #141c2c;
+      color: #ffffff;
       border-left: 3px solid var(--primary);
       font-weight: 700;
     }
@@ -65,7 +86,7 @@
     .sys-btn small {
       font-family: var(--font-mono);
       font-size: 9px;
-      color: var(--muted-foreground);
+      color: #64748b;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }

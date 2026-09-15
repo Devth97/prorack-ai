@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#07090e">
   <meta name="description" content="ProRack AI is the digital intelligence layer connecting business systems, engineering, manufacturing, machines, and project execution across the complete industrial storage lifecycle.">
   <title>ProRack AI | Intelligence Across the Complete Project Lifecycle</title>
   <link rel="icon" href="assets/prorack-mark.webp">
@@ -12,36 +12,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* PAGE SPECIFIC STYLES: HOMEPAGE (SUPER FLAT) */
+    /* PAGE SPECIFIC STYLES: HOMEPAGE (MODERN INDUSTRIAL OBSIDIAN) */
     .hero-wrap {
-      background: #f8fafc;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(244, 81, 44, 0.12), transparent 70%),
+                  radial-gradient(circle at 85% 30%, rgba(0, 229, 201, 0.05), transparent 50%),
+                  var(--background);
       border-bottom: 1px solid var(--border);
-      padding: clamp(36px, 5vw, 64px) 0 40px;
+      padding: clamp(48px, 6vw, 80px) 0 48px;
+      overflow: hidden;
+    }
+
+    .hero-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
+      gap: 40px;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-headline {
       font-size: clamp(2.8rem, 5.2vw, 4.8rem);
       line-height: 1.02;
-      color: var(--foreground);
+      color: #ffffff;
       font-weight: 900;
+      letter-spacing: -0.03em;
       margin-bottom: 20px;
     }
 
     .hero-headline .highlight {
       color: var(--primary);
+      text-shadow: 0 0 30px rgba(244, 81, 44, 0.4);
     }
 
     .hero-subhead {
       font-size: clamp(16px, 1.3vw, 19px);
-      line-height: 1.6;
-      color: var(--muted-foreground);
+      line-height: 1.65;
+      color: #94a3b8;
       max-width: 48ch;
       margin-bottom: 28px;
     }
@@ -51,7 +72,7 @@
       align-items: center;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .hero-stats-row {
@@ -59,33 +80,33 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       border-top: 1px solid var(--border);
-      padding-top: 20px;
+      padding-top: 24px;
     }
 
     .hero-stat-item small {
       display: block;
       font-family: var(--font-mono);
       font-size: 9px;
-      color: var(--muted-foreground);
+      color: #64748b;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .hero-stat-item span {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      color: var(--foreground);
+      color: #f1f5f9;
     }
 
-    /* HERO VIDEO PREVIEW CARD (FLAT) */
+    /* HERO VIDEO PREVIEW CARD */
     .hero-media-box {
       position: relative;
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid var(--border);
-      background: #0f172a;
-      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #090e17;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 20px rgba(244, 81, 44, 0.15);
       aspect-ratio: 16 / 10;
     }
 
@@ -93,13 +114,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.55;
+      opacity: 0.45;
     }
 
     .hero-media-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(15, 23, 42, 0.75);
+      background: linear-gradient(180deg, rgba(7, 9, 14, 0.6) 0%, rgba(7, 9, 14, 0.85) 100%);
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -114,20 +135,22 @@
       font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: 0.08em;
+      color: #94a3b8;
     }
 
     .hud-body {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .hud-card {
-      background: #1e293b;
-      border: 1px solid #334155;
+      background: rgba(13, 18, 28, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-left: 3px solid var(--primary);
-      padding: 10px 14px;
+      padding: 12px 14px;
       border-radius: var(--radius);
+      backdrop-filter: blur(12px);
     }
 
     .hud-card-title {
@@ -138,10 +161,11 @@
 
     .hud-card-sub {
       font-size: 11px;
-      color: #cbd5e1;
+      color: #94a3b8;
+      margin-top: 2px;
     }
 
-    /* THE PROBLEM: COMPACT COMPARISON (SUPER FLAT) */
+    /* THE PROBLEM: COMPACT COMPARISON */
     .problem-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -150,20 +174,21 @@
     }
 
     .problem-card {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
-      padding: 20px 18px;
+      padding: 22px 18px;
       border-radius: var(--radius);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: border-color 0.1s ease;
-      box-shadow: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .problem-card:hover {
-      border-color: var(--primary);
-      box-shadow: none;
+      border-color: rgba(244, 81, 44, 0.5);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(244, 81, 44, 0.15);
+      transform: translateY(-2px);
     }
 
     .problem-num {
@@ -172,22 +197,23 @@
       color: var(--primary);
       font-weight: 700;
       margin-bottom: 8px;
+      letter-spacing: 0.05em;
     }
 
     .problem-title {
       font-size: 15px;
       font-weight: 700;
-      color: var(--foreground);
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
     .problem-text {
       font-size: 13px;
       color: var(--muted-foreground);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* PILLARS SHOWCASE GRID (SUPER FLAT) */
+    /* PILLARS SHOWCASE GRID */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -195,36 +221,37 @@
     }
 
     .pillar-card {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       padding: 24px;
       border-radius: var(--radius);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: border-color 0.1s ease;
-      box-shadow: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .pillar-card:hover {
-      border-color: var(--primary);
-      box-shadow: none;
-      transform: none;
-      background: #fafafa;
+      border-color: rgba(244, 81, 44, 0.5);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(244, 81, 44, 0.15);
+      transform: translateY(-2px);
     }
 
     .pillar-tag {
       font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--primary);
+      font-size: 9px;
+      color: var(--data-teal);
       letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 12px;
+      display: block;
     }
 
     .pillar-title {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
-      color: var(--foreground);
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
@@ -232,21 +259,12 @@
       font-size: 13px;
       color: var(--muted-foreground);
       line-height: 1.55;
-      margin-bottom: 16px;
-    }
-
-    .pillar-link {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--primary);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+      margin-bottom: 18px;
     }
 
     @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .problem-grid { grid-template-columns: repeat(3, 1fr); }
       .problem-grid .problem-card:last-child { grid-column: span 2; }
       .pillars-grid { grid-template-columns: repeat(2, 1fr); }
     }

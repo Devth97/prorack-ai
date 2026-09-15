@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#07090e">
   <meta name="description" content="Explore ProRack AI's technology roadmap: AI dynamic scheduling, risk prediction, computer vision for structural steel QC, and physical-to-digital twin sync.">
   <title>Technology Roadmap &amp; Future Vision | ProRack AI</title>
   <link rel="icon" href="assets/prorack-mark.webp">
@@ -12,11 +12,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* PAGE SPECIFIC STYLES: ROADMAP (SUPER FLAT) */
+    /* PAGE SPECIFIC STYLES: ROADMAP (MODERN INDUSTRIAL OBSIDIAN) */
     .page-hero {
-      background: #f8fafc;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(244, 81, 44, 0.12), transparent 70%),
+                  radial-gradient(circle at 85% 30%, rgba(0, 229, 201, 0.05), transparent 50%),
+                  var(--background);
       border-bottom: 1px solid var(--border);
-      padding: clamp(40px, 5vw, 64px) 0 36px;
+      padding: clamp(40px, 5vw, 68px) 0 40px;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
     }
 
     .roadmap-grid {
@@ -27,22 +44,22 @@
     }
 
     .road-card {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       padding: 24px;
       border-radius: var(--radius);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: border-color 0.1s ease;
-      box-shadow: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .road-card:hover {
-      border-color: var(--primary);
-      box-shadow: none;
-      transform: none;
-      background: #fafafa;
+      border-color: rgba(244, 81, 44, 0.5);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(244, 81, 44, 0.15);
+      transform: translateY(-2px);
+      background: #111724;
     }
 
     .road-badge {
@@ -55,9 +72,9 @@
       text-transform: uppercase;
       padding: 3px 6px;
       border-radius: var(--radius);
-      background: #fefce8;
-      border: 1px solid #fde047;
-      color: #a16207;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
       font-weight: 700;
       margin-bottom: 12px;
       width: fit-content;
@@ -66,7 +83,7 @@
     .road-title {
       font-size: 18px;
       font-weight: 800;
-      color: var(--foreground);
+      color: #ffffff;
       margin-bottom: 8px;
     }
 

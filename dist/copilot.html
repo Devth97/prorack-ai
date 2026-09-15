@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#07090e">
   <meta name="description" content="Ask operational questions across ERPNext, Tekla drawings, and PowerFab cut lists. Get deterministic, evidence-backed answers with exact citations.">
   <title>Operational AI Assistant &amp; Shift Delivery Brief | ProRack AI</title>
   <link rel="icon" href="assets/prorack-mark.webp">
@@ -12,11 +12,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* PAGE SPECIFIC STYLES: COPILOT (SUPER FLAT) */
+    /* PAGE SPECIFIC STYLES: COPILOT (MODERN INDUSTRIAL OBSIDIAN) */
     .page-hero {
-      background: #f8fafc;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(244, 81, 44, 0.12), transparent 70%),
+                  radial-gradient(circle at 85% 30%, rgba(0, 229, 201, 0.05), transparent 50%),
+                  var(--background);
       border-bottom: 1px solid var(--border);
-      padding: clamp(40px, 5vw, 64px) 0 36px;
+      padding: clamp(40px, 5vw, 68px) 0 40px;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
     }
 
     .copilot-grid {
@@ -35,24 +52,27 @@
     .p-btn {
       text-align: left;
       padding: 14px 16px;
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       font-size: 13px;
       font-weight: 600;
       color: var(--muted-foreground);
-      transition: all 0.1s ease;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      border-left: 3px solid transparent;
     }
 
     .p-btn:hover {
       border-color: var(--primary);
-      color: var(--foreground);
+      color: #ffffff;
+      background: var(--secondary);
     }
 
     .p-btn.active {
       border-color: var(--primary);
-      background: #ffffff;
-      color: var(--foreground);
+      background: #141c2c;
+      color: #ffffff;
       border-left: 3px solid var(--primary);
       font-weight: 700;
     }
@@ -67,7 +87,7 @@
     }
 
     .chat-window {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;
@@ -75,18 +95,18 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 380px;
-      box-shadow: none;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     }
 
     .user-bubble {
       align-self: flex-end;
-      background: #fff5f2;
-      border: 1px solid rgba(244, 81, 44, 0.3);
+      background: rgba(244, 81, 44, 0.12);
+      border: 1px solid rgba(244, 81, 44, 0.35);
       padding: 12px 18px;
       border-radius: var(--radius);
       font-size: 14px;
       font-weight: 600;
-      color: var(--foreground);
+      color: #ffffff;
       max-width: 80%;
       margin-bottom: 20px;
     }
@@ -104,8 +124,8 @@
       font-size: 9px;
       padding: 3px 8px;
       border-radius: var(--radius);
-      background: #f0f9ff;
-      border: 1px solid rgba(2, 132, 199, 0.25);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--data-blue);
       font-weight: 600;
       display: inline-block;
@@ -113,14 +133,14 @@
       margin-top: 6px;
     }
 
-    /* BRIEF CARD (SUPER FLAT) */
+    /* BRIEF CARD */
     .brief-card-lg {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       border-top: 4px solid var(--primary);
       border-radius: var(--radius);
       padding: 32px;
-      box-shadow: none;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
     }
 
     .brief-3col {
@@ -152,7 +172,7 @@
       gap: 8px;
       font-size: 12px;
       color: var(--muted-foreground);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .brief-col-box ul li::before {

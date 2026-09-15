@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#07090e">
   <meta name="description" content="ProRack AI Operations Intelligence: Live project gate health, cold roll-forming shop floor tracking, planned vs actual curves, and steel heat cert traceability.">
   <title>Operations Intelligence | Project Health &amp; Shop Floor Execution | ProRack AI</title>
   <link rel="icon" href="assets/prorack-mark.webp">
@@ -12,14 +12,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* PAGE SPECIFIC STYLES: OPERATIONS (SUPER FLAT) */
+    /* PAGE SPECIFIC STYLES: OPERATIONS (MODERN INDUSTRIAL OBSIDIAN) */
     .page-hero {
-      background: #f8fafc;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(244, 81, 44, 0.12), transparent 70%),
+                  radial-gradient(circle at 85% 30%, rgba(0, 229, 201, 0.05), transparent 50%),
+                  var(--background);
       border-bottom: 1px solid var(--border);
-      padding: clamp(40px, 5vw, 64px) 0 36px;
+      padding: clamp(40px, 5vw, 68px) 0 40px;
+      overflow: hidden;
     }
 
-    /* DASHBOARD CARD (SUPER FLAT) */
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
+    }
+
+    /* DASHBOARD CARD */
     .dash-metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -28,17 +45,18 @@
     }
 
     .dash-stat-box {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       padding: 18px 20px;
       border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .dash-stat-box small {
       display: block;
       font-family: var(--font-mono);
       font-size: 9px;
-      color: var(--muted-foreground);
+      color: #64748b;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 4px;
@@ -47,13 +65,13 @@
     .dash-stat-val {
       font-size: 28px;
       font-weight: 800;
-      color: var(--foreground);
+      color: #ffffff;
       line-height: 1.1;
       margin-bottom: 4px;
     }
 
-    .dash-stat-val.good { color: var(--data-teal); }
-    .dash-stat-val.alert { color: var(--primary); }
+    .dash-stat-val.good { color: var(--data-teal); text-shadow: 0 0 16px rgba(0, 229, 201, 0.3); }
+    .dash-stat-val.alert { color: var(--primary); text-shadow: 0 0 16px rgba(244, 81, 44, 0.3); }
 
     .dash-stat-sub {
       font-size: 11px;
@@ -68,10 +86,11 @@
     }
 
     .card-panel {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       padding: 24px;
       border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .blocker-row {
@@ -101,7 +120,7 @@
       font-weight: 600;
     }
 
-    /* MACHINE MATRIX (SUPER FLAT) */
+    /* MACHINE MATRIX */
     .machine-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -110,11 +129,12 @@
     }
 
     .machine-box {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
       border-top: 3px solid var(--data-teal);
       padding: 18px;
       border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .machine-box.changeover {
@@ -136,8 +156,8 @@
       font-weight: 700;
     }
 
-    .state-running { background: var(--data-teal-soft); color: var(--data-teal); }
-    .state-pause { background: #fef3c7; color: #b45309; }
+    .state-running { background: rgba(0, 229, 201, 0.12); color: var(--data-teal); border: 1px solid rgba(0, 229, 201, 0.25); }
+    .state-pause { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
 
     @media (max-width: 1024px) {
       .dash-metrics-grid { grid-template-columns: repeat(2, 1fr); }

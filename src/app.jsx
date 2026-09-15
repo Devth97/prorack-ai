@@ -137,7 +137,7 @@ function GlobalHeader({ activePage }) {
               </a>
             ))}
 
-            <div style={{ borderTop: '1px solid #e4e4e7', paddingTop: '12px', marginTop: '8px' }}>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '12px', marginTop: '8px' }}>
               <a 
                 href="copilot.html#brief" 
                 className="btn btn-primary"
@@ -345,7 +345,7 @@ function LifecycleExplorer() {
             </div>
           </div>
 
-          <div style={{ background: '#ffffff', border: '1px solid var(--border)', padding: '14px', borderRadius: '2px', fontSize: '12px' }}>
+          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', padding: '14px', borderRadius: 'var(--radius)', fontSize: '12px' }}>
             <div style={{ marginBottom: '8px' }}>
               <strong style={{ color: 'var(--primary)', display: 'block', fontSize: '10px', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Deliverable Output</strong>
               <span style={{ color: 'var(--foreground)' }}>{current.output}</span>
@@ -646,7 +646,7 @@ function PlatformSystemMatrix() {
           <pre style={{ margin: 0 }}>{activeSys.payload}</pre>
         </div>
 
-        <div style={{ marginTop: '14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '2px', padding: '10px 14px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ marginTop: '14px', background: 'var(--secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ShieldCheck size={16} color="#0d9488" />
           <span style={{ color: 'var(--muted-foreground)' }}>
             <strong style={{ color: 'var(--foreground)' }}>Security Boundary:</strong> {activeSys.boundary}
@@ -702,7 +702,7 @@ function OperationsLiveMonitor() {
         <div className="ops-dial">
           <div className="ops-dial-num">74.2%</div>
           <div className="ops-dial-label">Total Fabrication Progress</div>
-          <div style={{ background: '#e4e4e7', height: '4px', borderRadius: '2px', marginTop: '8px', overflow: 'hidden' }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.1)', height: '4px', borderRadius: '2px', marginTop: '8px', overflow: 'hidden' }}>
             <div style={{ width: '74.2%', height: '100%', background: 'var(--primary)' }}></div>
           </div>
         </div>
@@ -871,7 +871,7 @@ function InteractiveCopilotChat() {
           <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ffffff' }}>
             <Zap size={14} />
           </div>
-          <div style={{ flex: 1, background: '#ffffff', border: '1px solid var(--border)', padding: '16px', borderRadius: '2px' }}>
+          <div style={{ flex: 1, background: 'var(--card)', border: '1px solid var(--border)', padding: '16px', borderRadius: 'var(--radius)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span className="badge badge-teal" style={{ fontSize: '9px' }}>DETERMINISTIC CITATION VERIFIED</span>
@@ -924,7 +924,7 @@ function InteractiveCopilotChat() {
               borderRadius: '2px',
               border: '1px solid var(--border)',
               fontSize: '13px',
-              background: '#ffffff',
+              background: 'var(--secondary)',
               color: 'var(--foreground)',
               outline: 'none'
             }}
@@ -1023,40 +1023,40 @@ function SecurityRbacSimulator() {
         {/* Permissions Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
           {/* Read Access */}
-          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '2px', padding: '14px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0d9488', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#00e5c9', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
               <Check size={14} />
               <span>Read Permitted</span>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: 'var(--foreground)' }}>
               {activeRole.read.map((item, i) => (
-                <li key={i} style={{ padding: '3px 0', borderBottom: '1px dashed #e2e8f0' }}>• {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed rgba(255, 255, 255, 0.08)' }}>• {item}</li>
               ))}
             </ul>
           </div>
 
           {/* Write Access */}
-          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '2px', padding: '14px' }}>
+          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
               <Zap size={14} />
               <span>Scoped Write Allowed</span>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: 'var(--foreground)' }}>
               {activeRole.write.map((item, i) => (
-                <li key={i} style={{ padding: '3px 0', borderBottom: '1px dashed #e2e8f0' }}>• {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed rgba(255, 255, 255, 0.08)' }}>• {item}</li>
               ))}
             </ul>
           </div>
 
           {/* Blocked / Redacted Access */}
-          <div style={{ background: '#fef2f2', border: '1px solid #fee2e2', borderRadius: '2px', padding: '14px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+          <div style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.25)', borderRadius: 'var(--radius)', padding: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#f87171', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
               <Lock size={14} />
               <span>Enforced Blocked Boundaries</span>
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#991b1b' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#fca5a5' }}>
               {activeRole.blocked.map((item, i) => (
-                <li key={i} style={{ padding: '3px 0', borderBottom: '1px dashed #fee2e2' }}>✕ {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed rgba(239, 68, 68, 0.2)' }}>✕ {item}</li>
               ))}
             </ul>
           </div>

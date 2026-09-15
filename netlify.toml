@@ -3,6 +3,43 @@
   publish = "dist"
 
 [[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/platform"
+  to = "/platform.html"
+  status = 200
+
+[[redirects]]
+  from = "/operations"
+  to = "/operations.html"
+  status = 200
+
+[[redirects]]
+  from = "/machines"
+  to = "/machines.html"
+  status = 200
+
+[[redirects]]
+  from = "/copilot"
+  to = "/copilot.html"
+  status = 200
+
+[[redirects]]
+  from = "/architecture"
+  to = "/architecture.html"
+  status = 200
+
+[[redirects]]
+  from = "/roadmap"
+  to = "/roadmap.html"
+  status = 200

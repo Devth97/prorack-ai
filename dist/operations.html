@@ -7,15 +7,19 @@
   <meta name="description" content="ProRack AI Operations Intelligence: Live project gate health, cold roll-forming shop floor tracking, planned vs actual curves, and steel heat cert traceability.">
   <title>Operations Intelligence | Project Health &amp; Shop Floor Execution | ProRack AI</title>
   <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
+    /* PAGE SPECIFIC STYLES: OPERATIONS (SUPER FLAT) */
     .page-hero {
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      border-bottom: 1px solid var(--border-light);
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
       padding: clamp(40px, 5vw, 64px) 0 36px;
     }
 
-    /* DASHBOARD CARD */
+    /* DASHBOARD CARD (SUPER FLAT) */
     .dash-metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -25,16 +29,16 @@
 
     .dash-stat-box {
       background: #ffffff;
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
       padding: 18px 20px;
-      border-radius: 6px;
+      border-radius: var(--radius);
     }
 
     .dash-stat-box small {
       display: block;
       font-family: var(--font-mono);
       font-size: 9px;
-      color: var(--text-muted);
+      color: var(--muted-foreground);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 4px;
@@ -43,17 +47,17 @@
     .dash-stat-val {
       font-size: 28px;
       font-weight: 800;
-      color: var(--text-primary);
+      color: var(--foreground);
       line-height: 1.1;
       margin-bottom: 4px;
     }
 
     .dash-stat-val.good { color: var(--data-teal); }
-    .dash-stat-val.alert { color: var(--accent-orange); }
+    .dash-stat-val.alert { color: var(--primary); }
 
     .dash-stat-sub {
       font-size: 11px;
-      color: var(--text-secondary);
+      color: var(--muted-foreground);
     }
 
     .dash-split-grid {
@@ -65,17 +69,17 @@
 
     .card-panel {
       background: #ffffff;
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
       padding: 24px;
-      border-radius: 6px;
+      border-radius: var(--radius);
     }
 
     .blocker-row {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
-      border-left: 3px solid var(--accent-orange);
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
       padding: 14px 16px;
-      border-radius: 4px;
+      border-radius: var(--radius);
       margin-bottom: 12px;
     }
 
@@ -97,7 +101,7 @@
       font-weight: 600;
     }
 
-    /* MACHINE MATRIX */
+    /* MACHINE MATRIX (SUPER FLAT) */
     .machine-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -107,10 +111,10 @@
 
     .machine-box {
       background: #ffffff;
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
       border-top: 3px solid var(--data-teal);
       padding: 18px;
-      border-radius: 6px;
+      border-radius: var(--radius);
     }
 
     .machine-box.changeover {
@@ -128,12 +132,12 @@
       font-family: var(--font-mono);
       font-size: 8px;
       padding: 2px 6px;
-      border-radius: 2px;
+      border-radius: var(--radius);
       font-weight: 700;
     }
 
     .state-running { background: var(--data-teal-soft); color: var(--data-teal); }
-    .state-pause { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+    .state-pause { background: #fef3c7; color: #b45309; }
 
     @media (max-width: 1024px) {
       .dash-metrics-grid { grid-template-columns: repeat(2, 1fr); }

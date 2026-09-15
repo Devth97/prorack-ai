@@ -345,7 +345,7 @@ function LifecycleExplorer() {
             </div>
           </div>
 
-          <div style={{ background: '#ffffff', border: '1px solid var(--border)', padding: '14px', borderRadius: '6px', fontSize: '12px' }}>
+          <div style={{ background: '#ffffff', border: '1px solid var(--border)', padding: '14px', borderRadius: '2px', fontSize: '12px' }}>
             <div style={{ marginBottom: '8px' }}>
               <strong style={{ color: 'var(--primary)', display: 'block', fontSize: '10px', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Deliverable Output</strong>
               <span style={{ color: 'var(--foreground)' }}>{current.output}</span>
@@ -422,7 +422,7 @@ function TelemetryLiveChart() {
               padding: '5px 10px',
               fontSize: '11px',
               fontFamily: 'var(--font-mono)',
-              borderRadius: '4px',
+              borderRadius: '2px',
               border: selectedMachine.id === m.id ? '1px solid #00d2c4' : '1px solid #1e293b',
               background: selectedMachine.id === m.id ? '#0f172a' : 'transparent',
               color: selectedMachine.id === m.id ? '#00d2c4' : '#94a3b8',
@@ -451,24 +451,24 @@ function TelemetryLiveChart() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
-        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '4px', border: '1px solid #1e293b' }}>
+        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '2px', border: '1px solid #1e293b' }}>
           <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Continuous Speed</small>
           <span style={{ fontSize: '20px', fontWeight: 800, color: '#00d2c4' }}>{speed} m/min</span>
         </div>
 
-        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '4px', border: '1px solid #1e293b' }}>
+        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '2px', border: '1px solid #1e293b' }}>
           <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Stroke Count</small>
           <span style={{ fontSize: '20px', fontWeight: 800, color: '#f1f5f9' }}>{strokes.toLocaleString()}</span>
         </div>
 
-        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '4px', border: '1px solid #1e293b' }}>
+        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '2px', border: '1px solid #1e293b' }}>
           <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Bearing RMS</small>
           <span style={{ fontSize: '20px', fontWeight: 800, color: '#10b981' }}>{vibration} mm/s</span>
         </div>
       </div>
 
       {/* SVG Waveform */}
-      <div style={{ background: '#0a1016', padding: '10px', borderRadius: '4px', border: '1px solid #1e293b' }}>
+      <div style={{ background: '#0a1016', padding: '10px', borderRadius: '2px', border: '1px solid #1e293b' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#64748b', marginBottom: '6px', fontFamily: 'var(--font-mono)' }}>
           <span>LIVE LINE SPEED WAVEFORM</span>
           <span>CURRENT: {speed} M/MIN</span>
@@ -623,15 +623,15 @@ function PlatformSystemMatrix() {
 
         {/* Status Highlights */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '14px' }}>
-          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '2px', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>ACTIVE ENTITY</span>
             <strong style={{ fontSize: '12px', color: 'var(--foreground)' }}>{activeSys.entity}</strong>
           </div>
-          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '2px', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>HEALTH / LATENCY</span>
             <strong style={{ fontSize: '12px', color: '#10b981' }}>Synchronized ({activeSys.latency})</strong>
           </div>
-          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '2px', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>INGEST COUNTER</span>
             <strong style={{ fontSize: '12px', color: 'var(--foreground)' }}>{syncCount.toLocaleString()} events</strong>
           </div>
@@ -646,7 +646,7 @@ function PlatformSystemMatrix() {
           <pre style={{ margin: 0 }}>{activeSys.payload}</pre>
         </div>
 
-        <div style={{ marginTop: '14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '10px 14px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ marginTop: '14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '2px', padding: '10px 14px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ShieldCheck size={16} color="#0d9488" />
           <span style={{ color: 'var(--muted-foreground)' }}>
             <strong style={{ color: 'var(--foreground)' }}>Security Boundary:</strong> {activeSys.boundary}
@@ -861,7 +861,7 @@ function InteractiveCopilotChat() {
           <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: '1px solid var(--border)' }}>
             <FileText size={14} color="var(--foreground)" />
           </div>
-          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', padding: '12px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, color: 'var(--foreground)' }}>
+          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', padding: '12px 16px', borderRadius: '2px', fontSize: '13px', fontWeight: 600, color: 'var(--foreground)' }}>
             {activeScenario.query}
           </div>
         </div>
@@ -871,7 +871,7 @@ function InteractiveCopilotChat() {
           <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ffffff' }}>
             <Zap size={14} />
           </div>
-          <div style={{ flex: 1, background: '#ffffff', border: '1px solid var(--border)', padding: '16px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.02)' }}>
+          <div style={{ flex: 1, background: '#ffffff', border: '1px solid var(--border)', padding: '16px', borderRadius: '2px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span className="badge badge-teal" style={{ fontSize: '9px' }}>DETERMINISTIC CITATION VERIFIED</span>
@@ -921,7 +921,7 @@ function InteractiveCopilotChat() {
               flex: 1,
               height: '38px',
               padding: '0 14px',
-              borderRadius: '6px',
+              borderRadius: '2px',
               border: '1px solid var(--border)',
               fontSize: '13px',
               background: '#ffffff',
@@ -1023,7 +1023,7 @@ function SecurityRbacSimulator() {
         {/* Permissions Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
           {/* Read Access */}
-          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '14px' }}>
+          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '2px', padding: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0d9488', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
               <Check size={14} />
               <span>Read Permitted</span>
@@ -1036,7 +1036,7 @@ function SecurityRbacSimulator() {
           </div>
 
           {/* Write Access */}
-          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '14px' }}>
+          <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '2px', padding: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
               <Zap size={14} />
               <span>Scoped Write Allowed</span>
@@ -1049,7 +1049,7 @@ function SecurityRbacSimulator() {
           </div>
 
           {/* Blocked / Redacted Access */}
-          <div style={{ background: '#fef2f2', border: '1px solid #fee2e2', borderRadius: '6px', padding: '14px' }}>
+          <div style={{ background: '#fef2f2', border: '1px solid #fee2e2', borderRadius: '2px', padding: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
               <Lock size={14} />
               <span>Enforced Blocked Boundaries</span>

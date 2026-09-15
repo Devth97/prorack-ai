@@ -7,11 +7,15 @@
   <meta name="description" content="Ask operational questions across ERPNext, Tekla drawings, and PowerFab cut lists. Get deterministic, evidence-backed answers with exact citations.">
   <title>Operational AI Assistant &amp; Shift Delivery Brief | ProRack AI</title>
   <link rel="icon" href="assets/prorack-mark.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
+    /* PAGE SPECIFIC STYLES: COPILOT (SUPER FLAT) */
     .page-hero {
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      border-bottom: 1px solid var(--border-light);
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
       padding: clamp(40px, 5vw, 64px) 0 36px;
     }
 
@@ -32,24 +36,24 @@
       text-align: left;
       padding: 14px 16px;
       background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       font-size: 13px;
       font-weight: 600;
-      color: var(--text-secondary);
-      transition: all 0.15s ease;
+      color: var(--muted-foreground);
+      transition: all 0.1s ease;
     }
 
     .p-btn:hover {
-      border-color: var(--accent-orange);
-      color: var(--text-primary);
+      border-color: var(--primary);
+      color: var(--foreground);
     }
 
     .p-btn.active {
-      border-color: var(--accent-orange);
+      border-color: var(--primary);
       background: #ffffff;
-      color: var(--text-primary);
-      border-left: 3px solid var(--accent-orange);
+      color: var(--foreground);
+      border-left: 3px solid var(--primary);
       font-weight: 700;
     }
 
@@ -57,41 +61,41 @@
       display: block;
       font-family: var(--font-mono);
       font-size: 8px;
-      color: var(--accent-orange);
+      color: var(--primary);
       text-transform: uppercase;
       margin-bottom: 2px;
     }
 
     .chat-window {
       background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 380px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+      box-shadow: none;
     }
 
     .user-bubble {
       align-self: flex-end;
-      background: var(--accent-orange-soft);
-      border: 1px solid var(--accent-orange-border);
+      background: #fff5f2;
+      border: 1px solid rgba(244, 81, 44, 0.3);
       padding: 12px 18px;
-      border-radius: 6px;
+      border-radius: var(--radius);
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-primary);
+      color: var(--foreground);
       max-width: 80%;
       margin-bottom: 20px;
     }
 
     .ai-bubble {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
+      background: var(--secondary);
+      border: 1px solid var(--border);
       padding: 20px;
-      border-radius: 6px;
+      border-radius: var(--radius);
       margin-bottom: 16px;
     }
 
@@ -99,8 +103,8 @@
       font-family: var(--font-mono);
       font-size: 9px;
       padding: 3px 8px;
-      border-radius: 2px;
-      background: var(--data-blue-soft);
+      border-radius: var(--radius);
+      background: #f0f9ff;
       border: 1px solid rgba(2, 132, 199, 0.25);
       color: var(--data-blue);
       font-weight: 600;
@@ -109,14 +113,14 @@
       margin-top: 6px;
     }
 
-    /* BRIEF CARD */
+    /* BRIEF CARD (SUPER FLAT) */
     .brief-card-lg {
       background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-top: 4px solid var(--accent-orange);
-      border-radius: 6px;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: var(--radius);
       padding: 32px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+      box-shadow: none;
     }
 
     .brief-3col {
@@ -127,16 +131,16 @@
     }
 
     .brief-col-box {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
+      background: var(--secondary);
+      border: 1px solid var(--border);
       padding: 18px;
-      border-radius: 4px;
+      border-radius: var(--radius);
     }
 
     .brief-col-box h4 {
       font-family: var(--font-mono);
       font-size: 10px;
-      color: var(--accent-orange);
+      color: var(--primary);
       text-transform: uppercase;
       margin-bottom: 10px;
     }
@@ -147,13 +151,13 @@
       flex-direction: column;
       gap: 8px;
       font-size: 12px;
-      color: var(--text-secondary);
+      color: var(--muted-foreground);
       line-height: 1.45;
     }
 
     .brief-col-box ul li::before {
       content: '■ ';
-      color: var(--accent-orange);
+      color: var(--primary);
       font-size: 8px;
     }
 
@@ -264,12 +268,37 @@
             </div>
           </div>
 
-          <div style="border-top:1px solid var(--border-light);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;">
+          <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;">
             <div>
-              <strong style="color:var(--accent-orange);">RECOMMENDED ACTION:</strong>
-              <span style="color:var(--text-primary);margin-left:6px;">Expedite DWG-C104 stamp; proceed with Upright post roll-forming uninterrupted.</span>
+              <strong style="color:var(--primary);">RECOMMENDED ACTION:</strong>
+              <span style="color:var(--foreground);margin-left:6px;">Expedite DWG-C104 stamp; proceed with Upright post roll-forming uninterrupted.</span>
             </div>
             <span class="mono-data">STRICTLY EVIDENCE-BACKED · NO HALLUCINATIONS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALISTIC PLANT CONTROL HUB SHOWCASE -->
+    <section class="section-md" style="background:#ffffff;border-top:1px solid var(--border);">
+      <div class="shell responsive-showcase-grid">
+        <div>
+          <span class="mono-tag">OPERATIONAL INTELLIGENCE IN ACTION</span>
+          <h2 class="section-title">Plant Operations Control Center.</h2>
+          <p class="section-desc" style="margin-bottom:20px;">
+            Plant managers and scheduling supervisors use ProRack AI Copilot directly on floor stations to coordinate roll-forming runs, cut list allocations, and dispatch timelines in real time.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--muted-foreground);margin-bottom:24px;">
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--primary);font-weight:bold;">✓</span> Real-time Tekla 3D model cross-referenced against ERP inventory</li>
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--primary);font-weight:bold;">✓</span> Automated morning shift brief generated in under 3 seconds</li>
+            <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--primary);font-weight:bold;">✓</span> Instant resolution of engineering change orders on the active shop floor</li>
+          </ul>
+        </div>
+        <div class="img-frame" style="height:320px;">
+          <img src="assets/plant-control-hub.jpg" alt="Operations control hub with engineers reviewing 3D rack models and production schedules" class="realistic-img" width="1200" height="675" loading="lazy">
+          <div class="img-overlay-label">
+            <span>PLANT CONTROL HUB // HYD-OPS-01</span>
+            <span class="mono-data">REAL-TIME COPILOT LIVE</span>
           </div>
         </div>
       </div>

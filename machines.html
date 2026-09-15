@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#07090e">
+  <meta name="theme-color" content="#f8fafc">
   <meta name="description" content="Connect industrial cold roll-forming lines, punch presses, and robotic welding cells to ProRack AI using Modbus TCP, OPC-UA, and MQTT without disrupting PLC logic.">
   <title>Machine Intelligence &amp; PLC Telemetry | ProRack AI</title>
   <link rel="icon" href="assets/prorack-mark.webp">
@@ -12,11 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* PAGE SPECIFIC STYLES: MACHINES (MODERN INDUSTRIAL OBSIDIAN) */
+    /* PAGE SPECIFIC STYLES: MACHINES (CRISP LIGHT TECH-FIRST) */
     .page-hero {
       position: relative;
-      background: radial-gradient(circle at 50% 0%, rgba(244, 81, 44, 0.12), transparent 70%),
-                  radial-gradient(circle at 85% 30%, rgba(0, 229, 201, 0.05), transparent 50%),
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(244, 81, 44, 0.08), transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 85% 10%, rgba(2, 132, 199, 0.05), transparent 60%),
                   var(--background);
       border-bottom: 1px solid var(--border);
       padding: clamp(40px, 5vw, 68px) 0 40px;
@@ -28,8 +28,8 @@
       position: absolute;
       inset: 0;
       background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
       background-size: 32px 32px;
       pointer-events: none;
       mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%);
@@ -37,18 +37,18 @@
     }
 
     .telemetry-console-dark {
-      background: #090e13;
-      border: 1px solid var(--border);
+      background: #090e17;
+      border: 1px solid #1e293b;
       border-radius: var(--radius);
       overflow: hidden;
-      color: #f1f5f9;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      color: #f8fafc;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.15);
       margin-bottom: 36px;
     }
 
     .telemetry-topbar {
-      background: #0d141e;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
       padding: 14px 20px;
       display: flex;
       justify-content: space-between;
@@ -61,27 +61,27 @@
       font-family: var(--font-mono);
       font-size: 9px;
       padding: 3px 8px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.08);
       color: #94a3b8;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .proto-pill.active {
       color: #00e5c9;
       border-color: rgba(0, 229, 201, 0.4);
-      background: rgba(0, 229, 201, 0.08);
+      background: rgba(0, 229, 201, 0.12);
     }
 
     .stream-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(255, 255, 255, 0.06);
+      background: #1e293b;
     }
 
     .stream-col {
-      background: #090e13;
+      background: #090e17;
       padding: 20px;
     }
 
@@ -98,14 +98,14 @@
       font-family: var(--font-mono);
       font-size: 11px;
       line-height: 1.8;
-      color: #64748b;
+      color: #94a3b8;
       height: 240px;
       overflow-y: auto;
       scrollbar-width: none;
     }
 
     .stream-code .hi { color: #00e5c9; }
-    .stream-code .warn { color: #f59e0b; }
+    .stream-code .warn { color: #fbbf24; }
 
     @media (max-width: 900px) {
       .stream-grid { grid-template-columns: 1fr; }

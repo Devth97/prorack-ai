@@ -96,8 +96,8 @@ function GlobalHeader({ activePage }) {
             onClick={() => setCommandOpen(true)}
             title="Search systems and capabilities (Ctrl+K)"
           >
-            <Search size={14} />
-            <span className="hidden-mobile" style={{ fontSize: '11px', color: '#71717a' }}>Quick Find</span>
+            <Search size={14} color="#64748b" />
+            <span className="hidden-mobile" style={{ fontSize: '11px', color: '#64748b' }}>Quick Find</span>
             <kbd className="hidden-mobile">Ctrl K</kbd>
           </button>
 
@@ -133,7 +133,7 @@ function GlobalHeader({ activePage }) {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span>{link.name}</span>
-                <ChevronRight size={14} color="#71717a" />
+                <ChevronRight size={14} color="#94a3b8" />
               </a>
             ))}
 
@@ -156,7 +156,7 @@ function GlobalHeader({ activePage }) {
         <div className="command-dialog-overlay" onClick={() => setCommandOpen(false)}>
           <div className="command-dialog" onClick={(e) => e.stopPropagation()}>
             <div className="command-input-wrap">
-              <Search size={16} color="#71717a" />
+              <Search size={16} color="#64748b" />
               <input 
                 type="text"
                 placeholder="Search systems, metrics, drawings, machines..."
@@ -181,11 +181,11 @@ function GlobalHeader({ activePage }) {
                       <div className="command-item-title">{item.title}</div>
                       <span className="command-item-cat">{item.category}</span>
                     </div>
-                    <ArrowRight size={14} color="#a1a1aa" />
+                    <ArrowRight size={14} color="#94a3b8" />
                   </a>
                 ))
               ) : (
-                <div style={{ padding: '24px', textAlign: 'center', color: '#71717a', fontSize: '13px' }}>
+                <div style={{ padding: '24px', textAlign: 'center', color: '#64748b', fontSize: '13px' }}>
                   No matching systems or metrics found.
                 </div>
               )}
@@ -303,11 +303,11 @@ function LifecycleExplorer() {
   const current = stagesData[activeIdx];
 
   return (
-    <div className="card" style={{ padding: '24px', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
+    <div className="card" style={{ padding: '28px', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', flexWrap: 'wrap', gap: '12px' }}>
         <div>
           <span className="mono-tag">LIFECYCLE INTELLIGENCE NAVIGATOR</span>
-          <h3 style={{ fontSize: '18px', fontWeight: 800, marginTop: '2px' }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--foreground)', marginTop: '2px' }}>
             Stage {current.num} // {current.name}
           </h3>
         </div>
@@ -322,7 +322,7 @@ function LifecycleExplorer() {
             className={`lifecycle-nav-pill ${activeIdx === idx ? 'active' : ''}`}
             onClick={() => setActiveIdx(idx)}
           >
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', opacity: 0.8 }}>{stage.num}</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', opacity: 0.85 }}>{stage.num}</span>
             <span>{stage.name}</span>
           </button>
         ))}
@@ -332,10 +332,10 @@ function LifecycleExplorer() {
       <div className="lifecycle-active-detail">
         <div className="lifecycle-grid">
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--foreground)', marginBottom: '6px' }}>
+            <h4 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--foreground)', marginBottom: '8px' }}>
               {current.title}
             </h4>
-            <p style={{ fontSize: '13px', color: 'var(--muted-foreground)', lineHeight: 1.6, marginBottom: '14px' }}>
+            <p style={{ fontSize: '13px', color: 'var(--muted-foreground)', lineHeight: 1.65, marginBottom: '16px' }}>
               {current.sub}
             </p>
 
@@ -345,13 +345,13 @@ function LifecycleExplorer() {
             </div>
           </div>
 
-          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', padding: '14px', borderRadius: 'var(--radius)', fontSize: '12px' }}>
-            <div style={{ marginBottom: '8px' }}>
-              <strong style={{ color: 'var(--primary)', display: 'block', fontSize: '10px', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Deliverable Output</strong>
-              <span style={{ color: 'var(--foreground)' }}>{current.output}</span>
+          <div style={{ background: '#ffffff', border: '1px solid var(--border)', padding: '18px', borderRadius: 'var(--radius)', fontSize: '12px', boxShadow: 'var(--shadow-sm)' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <strong style={{ color: 'var(--primary)', display: 'block', fontSize: '10px', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Deliverable Output</strong>
+              <span style={{ color: 'var(--foreground)', fontWeight: 600 }}>{current.output}</span>
             </div>
             <div>
-              <strong style={{ color: 'var(--data-teal)', display: 'block', fontSize: '10px', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Gate Clearance Requirement</strong>
+              <strong style={{ color: 'var(--data-teal)', display: 'block', fontSize: '10px', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Gate Clearance Requirement</strong>
               <span style={{ color: 'var(--muted-foreground)' }}>{current.check}</span>
             </div>
           </div>
@@ -411,22 +411,24 @@ function TelemetryLiveChart() {
   }).join(' ');
 
   return (
-    <div className="card" style={{ padding: '20px', background: 'var(--console-bg)', color: '#f1f5f9', border: '1px solid var(--console-border)' }}>
+    <div className="card" style={{ padding: '24px' }}>
       {/* Machine Feed Selectors */}
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '14px' }}>
+      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
         {machinesFeed.map(m => (
           <button
             key={m.id}
             onClick={() => handleSelectMachine(m)}
             style={{
-              padding: '5px 10px',
+              padding: '6px 12px',
               fontSize: '11px',
               fontFamily: 'var(--font-mono)',
-              borderRadius: '2px',
-              border: selectedMachine.id === m.id ? '1px solid #00d2c4' : '1px solid #1e293b',
-              background: selectedMachine.id === m.id ? '#0f172a' : 'transparent',
-              color: selectedMachine.id === m.id ? '#00d2c4' : '#94a3b8',
-              cursor: 'pointer'
+              borderRadius: 'var(--radius-sm)',
+              border: selectedMachine.id === m.id ? '1px solid var(--primary)' : '1px solid var(--border)',
+              background: selectedMachine.id === m.id ? 'var(--primary-subtle)' : '#ffffff',
+              color: selectedMachine.id === m.id ? 'var(--primary)' : 'var(--muted-foreground)',
+              fontWeight: selectedMachine.id === m.id ? 700 : 500,
+              cursor: 'pointer',
+              boxShadow: 'var(--shadow-sm)'
             }}
           >
             {m.name}
@@ -434,49 +436,49 @@ function TelemetryLiveChart() {
         ))}
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Activity size={16} color="#00d2c4" />
-          <span style={{ fontSize: '13px', fontWeight: 700, color: '#f1f5f9' }}>{selectedMachine.profile}</span>
+          <Activity size={16} color="var(--primary)" />
+          <span style={{ fontSize: '14px', fontWeight: 800, color: 'var(--foreground)' }}>{selectedMachine.profile}</span>
           <span className="badge badge-teal" style={{ fontSize: '9px' }}>MODBUS TCP STREAM</span>
         </div>
 
         <button 
           onClick={() => setRunning(!running)}
           className="btn btn-outline"
-          style={{ height: '28px', padding: '0 10px', fontSize: '10px', background: '#0f172a', borderColor: '#334155', color: '#f1f5f9' }}
+          style={{ height: '30px', padding: '0 12px', fontSize: '11px' }}
         >
           {running ? 'Pause Feed' : 'Resume Feed'}
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
-        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '2px', border: '1px solid #1e293b' }}>
-          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Continuous Speed</small>
-          <span style={{ fontSize: '20px', fontWeight: 800, color: '#00d2c4' }}>{speed} m/min</span>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px', marginBottom: '18px' }}>
+        <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Continuous Speed</small>
+          <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--primary)' }}>{speed} m/min</span>
         </div>
 
-        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '2px', border: '1px solid #1e293b' }}>
-          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Stroke Count</small>
-          <span style={{ fontSize: '20px', fontWeight: 800, color: '#f1f5f9' }}>{strokes.toLocaleString()}</span>
+        <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Stroke Count</small>
+          <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--foreground)' }}>{strokes.toLocaleString()}</span>
         </div>
 
-        <div style={{ background: '#0f172a', padding: '12px', borderRadius: '2px', border: '1px solid #1e293b' }}>
-          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>Bearing RMS</small>
-          <span style={{ fontSize: '20px', fontWeight: 800, color: '#10b981' }}>{vibration} mm/s</span>
+        <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Bearing RMS</small>
+          <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--data-teal)' }}>{vibration} mm/s</span>
         </div>
       </div>
 
-      {/* SVG Waveform */}
-      <div style={{ background: '#0a1016', padding: '10px', borderRadius: '2px', border: '1px solid #1e293b' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#64748b', marginBottom: '6px', fontFamily: 'var(--font-mono)' }}>
+      {/* SVG Waveform in dark hardware chassis monitor */}
+      <div style={{ background: '#090e17', padding: '14px 18px', borderRadius: 'var(--radius)', border: '1px solid #1e293b' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#94a3b8', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
           <span>LIVE LINE SPEED WAVEFORM</span>
-          <span>CURRENT: {speed} M/MIN</span>
+          <span style={{ color: '#00e5c9' }}>CURRENT: {speed} M/MIN</span>
         </div>
-        <svg viewBox={`0 0 ${width} ${height}`} style={{ width: '100%', height: '50px', overflow: 'visible' }}>
+        <svg viewBox={`0 0 ${width} ${height}`} style={{ width: '100%', height: '54px', overflow: 'visible' }}>
           <polyline
             fill="none"
-            stroke="#00d2c4"
+            stroke="#00e5c9"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -572,7 +574,7 @@ function PlatformSystemMatrix() {
     <div className="platform-matrix-container">
       {/* Left System Selector Column */}
       <div className="platform-matrix-nav">
-        <div style={{ padding: '12px 18px', borderBottom: '1px solid var(--border)', fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--muted-foreground)', textTransform: 'uppercase' }}>
+        <div style={{ padding: '14px 18px', borderBottom: '1px solid var(--border)', fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--muted-foreground)', textTransform: 'uppercase', fontWeight: 700 }}>
           Connected Ingest Nodes
         </div>
         {platformSystems.map(sys => (
@@ -582,20 +584,20 @@ function PlatformSystemMatrix() {
             onClick={() => setActiveSys(sys)}
           >
             <div>
-              <div style={{ color: activeSys.id === sys.id ? 'var(--foreground)' : 'var(--muted-foreground)' }}>{sys.name}</div>
+              <div style={{ color: activeSys.id === sys.id ? 'var(--foreground)' : 'var(--muted-foreground)', fontSize: '13px', fontWeight: 600 }}>{sys.name}</div>
               <small style={{ fontSize: '10px', color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{sys.protocol}</small>
             </div>
-            <span style={{ fontSize: '11px', color: '#10b981', fontFamily: 'var(--font-mono)' }}>{sys.latency}</span>
+            <span style={{ fontSize: '11px', color: '#15803d', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{sys.latency}</span>
           </button>
         ))}
       </div>
 
       {/* Right Dynamic Payload & Boundary Detail */}
       <div className="platform-matrix-content">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '18px' }}>
           <div>
-            <span className="mono-tag" style={{ fontSize: '9px' }}>STREAM CONNECTOR // {activeSys.protocol}</span>
-            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--foreground)', marginTop: '2px' }}>
+            <span className="mono-tag" style={{ fontSize: '10px' }}>STREAM CONNECTOR // {activeSys.protocol}</span>
+            <h3 style={{ fontSize: '19px', fontWeight: 800, color: 'var(--foreground)', marginTop: '2px' }}>
               {activeSys.name}
             </h3>
           </div>
@@ -605,7 +607,7 @@ function PlatformSystemMatrix() {
               className="btn btn-outline" 
               onClick={handleSimulateSync}
               disabled={isSyncing}
-              style={{ fontSize: '11px', height: '32px', gap: '6px' }}
+              style={{ fontSize: '11px', height: '34px', gap: '6px' }}
             >
               <RefreshCw size={13} className={isSyncing ? 'spin-icon' : ''} />
               <span>{isSyncing ? 'Ingesting...' : 'Test Ingest Sync'}</span>
@@ -613,43 +615,43 @@ function PlatformSystemMatrix() {
             <button 
               className="btn btn-outline"
               onClick={handleCopyPayload}
-              style={{ fontSize: '11px', height: '32px', gap: '6px' }}
+              style={{ fontSize: '11px', height: '34px', gap: '6px' }}
             >
-              {copied ? <CheckCheck size={13} color="#10b981" /> : <Copy size={13} />}
+              {copied ? <CheckCheck size={13} color="#15803d" /> : <Copy size={13} />}
               <span>{copied ? 'Copied' : 'Copy JSON'}</span>
             </button>
           </div>
         </div>
 
         {/* Status Highlights */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '14px' }}>
-          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '2px', border: '1px solid var(--border)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+          <div style={{ background: 'var(--secondary)', padding: '12px 14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>ACTIVE ENTITY</span>
-            <strong style={{ fontSize: '12px', color: 'var(--foreground)' }}>{activeSys.entity}</strong>
+            <strong style={{ fontSize: '13px', color: 'var(--foreground)' }}>{activeSys.entity}</strong>
           </div>
-          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '2px', border: '1px solid var(--border)' }}>
+          <div style={{ background: 'var(--secondary)', padding: '12px 14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>HEALTH / LATENCY</span>
-            <strong style={{ fontSize: '12px', color: '#10b981' }}>Synchronized ({activeSys.latency})</strong>
+            <strong style={{ fontSize: '13px', color: '#15803d' }}>Synchronized ({activeSys.latency})</strong>
           </div>
-          <div style={{ background: 'var(--secondary)', padding: '10px 12px', borderRadius: '2px', border: '1px solid var(--border)' }}>
+          <div style={{ background: 'var(--secondary)', padding: '12px 14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>INGEST COUNTER</span>
-            <strong style={{ fontSize: '12px', color: 'var(--foreground)' }}>{syncCount.toLocaleString()} events</strong>
+            <strong style={{ fontSize: '13px', color: 'var(--foreground)' }}>{syncCount.toLocaleString()} events</strong>
           </div>
         </div>
 
         {/* Live Payload Preview */}
         <div className="payload-preview-box">
-          <div style={{ display: 'flex', justifyContent: 'space-between', color: '#94a3b8', fontSize: '10px', marginBottom: '8px', borderBottom: '1px solid #1e293b', paddingBottom: '4px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', color: '#94a3b8', fontSize: '10px', marginBottom: '8px', borderBottom: '1px solid #1e293b', paddingBottom: '6px' }}>
             <span>UNIFIED KNOWLEDGE GRAPH INGEST PACKET</span>
-            <span style={{ color: '#00d2c4' }}>SCHEMA VALID // ZERO DRIFT</span>
+            <span style={{ color: '#00e5c9' }}>SCHEMA VALID // ZERO DRIFT</span>
           </div>
           <pre style={{ margin: 0 }}>{activeSys.payload}</pre>
         </div>
 
-        <div style={{ marginTop: '14px', background: 'var(--secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <ShieldCheck size={16} color="#0d9488" />
-          <span style={{ color: 'var(--muted-foreground)' }}>
-            <strong style={{ color: 'var(--foreground)' }}>Security Boundary:</strong> {activeSys.boundary}
+        <div style={{ marginTop: '16px', background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <ShieldCheck size={16} color="#15803d" />
+          <span style={{ color: '#166534' }}>
+            <strong style={{ color: '#14532d' }}>Security Boundary:</strong> {activeSys.boundary}
           </span>
         </div>
       </div>
@@ -666,10 +668,10 @@ function OperationsLiveMonitor() {
 
   return (
     <div className="ops-monitor-card">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '18px' }}>
         <div>
           <span className="mono-tag">LIVE OPERATIONS DASHBOARD // PROJECT 2026-HYD-04</span>
-          <h3 style={{ fontSize: '18px', fontWeight: 800, marginTop: '2px' }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--foreground)', marginTop: '2px' }}>
             Amazon Logistics Hub (1,135 MT Execution Stream)
           </h3>
         </div>
@@ -680,15 +682,16 @@ function OperationsLiveMonitor() {
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`btn btn-outline`}
+              className="btn btn-outline"
               style={{
                 fontSize: '11px',
-                height: '30px',
-                padding: '0 10px',
+                height: '32px',
+                padding: '0 12px',
                 textTransform: 'capitalize',
-                background: filter === f ? 'var(--primary)' : 'var(--secondary)',
+                background: filter === f ? 'var(--primary)' : '#ffffff',
                 color: filter === f ? '#ffffff' : 'var(--foreground)',
-                borderColor: filter === f ? 'var(--primary)' : 'var(--border)'
+                borderColor: filter === f ? 'var(--primary)' : 'var(--border)',
+                boxShadow: 'var(--shadow-sm)'
               }}
             >
               {f === 'all' ? 'All Workstreams' : f}
@@ -700,9 +703,9 @@ function OperationsLiveMonitor() {
       {/* Dials Grid */}
       <div className="ops-dials-grid">
         <div className="ops-dial">
-          <div className="ops-dial-num">74.2%</div>
+          <div className="ops-dial-num" style={{ color: 'var(--primary)' }}>74.2%</div>
           <div className="ops-dial-label">Total Fabrication Progress</div>
-          <div style={{ background: 'rgba(255, 255, 255, 0.1)', height: '4px', borderRadius: '2px', marginTop: '8px', overflow: 'hidden' }}>
+          <div style={{ background: '#e2e8f0', height: '6px', borderRadius: '3px', marginTop: '10px', overflow: 'hidden' }}>
             <div style={{ width: '74.2%', height: '100%', background: 'var(--primary)' }}></div>
           </div>
         </div>
@@ -710,37 +713,37 @@ function OperationsLiveMonitor() {
         <div className="ops-dial">
           <div className="ops-dial-num">842 / 1,135</div>
           <div className="ops-dial-label">Metric Tons Produced (MT)</div>
-          <div style={{ fontSize: '11px', color: '#10b981', marginTop: '6px', fontWeight: 600 }}>+12 MT ahead of shift plan</div>
+          <div style={{ fontSize: '11px', color: '#15803d', marginTop: '6px', fontWeight: 700 }}>+12 MT ahead of shift plan</div>
         </div>
 
         <div className="ops-dial">
-          <div className="ops-dial-num">98.2%</div>
+          <div className="ops-dial-num" style={{ color: 'var(--data-teal)' }}>98.2%</div>
           <div className="ops-dial-label">Steel Strip Yield (Nest)</div>
-          <div style={{ fontSize: '11px', color: '#0d9488', marginTop: '6px', fontWeight: 600 }}>1.8% drop waste (Target: &lt;4%)</div>
+          <div style={{ fontSize: '11px', color: 'var(--data-teal)', marginTop: '6px', fontWeight: 700 }}>1.8% drop waste (Target: &lt;4%)</div>
         </div>
 
         <div className="ops-dial">
           <div className="ops-dial-num">+1.5 Days</div>
           <div className="ops-dial-label">Erection Schedule Buffer</div>
-          <div style={{ fontSize: '11px', color: '#10b981', marginTop: '6px', fontWeight: 600 }}>Site receiving on schedule</div>
+          <div style={{ fontSize: '11px', color: '#15803d', marginTop: '6px', fontWeight: 700 }}>Site receiving on schedule</div>
         </div>
       </div>
 
       {/* Critical Path Anomaly Simulation */}
       <div className={`ops-anomaly-banner ${anomalyResolved ? 'resolved' : ''}`}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
           {anomalyResolved ? (
-            <CheckCheck size={20} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <CheckCheck size={22} color="#15803d" style={{ flexShrink: 0, marginTop: '2px' }} />
           ) : (
-            <AlertCircle size={20} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <AlertCircle size={22} color="#d97706" style={{ flexShrink: 0, marginTop: '2px' }} />
           )}
           <div>
-            <strong style={{ fontSize: '13px', color: 'var(--foreground)', display: 'block' }}>
+            <strong style={{ fontSize: '14px', color: 'var(--foreground)', display: 'block' }}>
               {anomalyResolved 
                 ? 'AI Auto-Sequencing Executed: Blocker Cleared' 
                 : 'Active Gate Blocker: Upright Punch Pattern Revision Variance'}
             </strong>
-            <p style={{ fontSize: '12px', color: 'var(--muted-foreground)', marginTop: '2px' }}>
+            <p style={{ fontSize: '12px', color: 'var(--muted-foreground)', marginTop: '3px' }}>
               {anomalyResolved
                 ? 'Roll Mill #01 automated tooling repositioned to Bank B (+0.00mm offset). Nest PF-8840 synced to Tekla Rev C with zero lost minutes.'
                 : 'Tekla Drawing Rev C updated slot pitch on column C220. Roll Mill #01 is queued with legacy Rev B cut list. 42 uprights at risk of slot misalignment.'}
@@ -752,7 +755,7 @@ function OperationsLiveMonitor() {
           <button 
             onClick={() => setAnomalyResolved(true)}
             className="btn btn-primary"
-            style={{ fontSize: '11px', whiteSpace: 'nowrap', padding: '8px 14px' }}
+            style={{ fontSize: '11px', whiteSpace: 'nowrap', padding: '8px 16px' }}
           >
             Simulate AI Auto-Resolution
           </button>
@@ -858,22 +861,22 @@ function InteractiveCopilotChat() {
       <div className="copilot-stream-area">
         {/* User Prompt Bubble */}
         <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '16px' }}>
-          <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: '1px solid var(--border)' }}>
-            <FileText size={14} color="var(--foreground)" />
+          <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: '1px solid var(--border)' }}>
+            <FileText size={15} color="var(--primary)" />
           </div>
-          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', padding: '12px 16px', borderRadius: '2px', fontSize: '13px', fontWeight: 600, color: 'var(--foreground)' }}>
+          <div style={{ background: 'var(--primary-subtle)', border: '1px solid var(--primary-border)', padding: '12px 18px', borderRadius: 'var(--radius)', fontSize: '13px', fontWeight: 600, color: '#9a3412', maxWidth: '85%' }}>
             {activeScenario.query}
           </div>
         </div>
 
         {/* AI Copilot Answer Area */}
         <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '18px' }}>
-          <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ffffff' }}>
-            <Zap size={14} />
+          <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ffffff' }}>
+            <Zap size={15} />
           </div>
-          <div style={{ flex: 1, background: 'var(--card)', border: '1px solid var(--border)', padding: '16px', borderRadius: 'var(--radius)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ flex: 1, background: '#ffffff', border: '1px solid var(--border)', padding: '20px', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-sm)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span className="badge badge-teal" style={{ fontSize: '9px' }}>DETERMINISTIC CITATION VERIFIED</span>
                 <span style={{ fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>LATENCY: 42MS</span>
               </div>
@@ -881,28 +884,28 @@ function InteractiveCopilotChat() {
               <button 
                 onClick={handleCopy}
                 className="btn btn-outline"
-                style={{ fontSize: '10px', height: '26px', padding: '0 8px', gap: '4px' }}
+                style={{ fontSize: '11px', height: '28px', padding: '0 10px', gap: '4px' }}
               >
-                {copied ? <CheckCheck size={12} color="#10b981" /> : <Copy size={12} />}
+                {copied ? <CheckCheck size={13} color="#15803d" /> : <Copy size={13} />}
                 <span>{copied ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
 
-            <div style={{ fontSize: '13px', lineHeight: 1.65, color: 'var(--foreground)', whiteSpace: 'pre-line' }}>
+            <div style={{ fontSize: '13px', lineHeight: 1.7, color: 'var(--foreground)', whiteSpace: 'pre-line' }}>
               {displayedAnswer}
             </div>
 
             {/* Citations List */}
-            <div style={{ marginTop: '14px', paddingTop: '12px', borderTop: '1px solid var(--border)' }}>
-              <span style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', color: 'var(--muted-foreground)', display: 'block', marginBottom: '6px' }}>
+            <div style={{ marginTop: '16px', paddingTop: '14px', borderTop: '1px solid var(--border)' }}>
+              <span style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', color: 'var(--muted-foreground)', display: 'block', marginBottom: '8px', fontWeight: 700 }}>
                 Grounded Source Records:
               </span>
               <div>
                 {activeScenario.citations.map((c, i) => (
                   <span key={i} className="citation-chip" title={c.source}>
-                    <ShieldCheck size={11} color="#0d9488" />
+                    <ShieldCheck size={12} color="#0284c7" />
                     <span>{c.text}</span>
-                    <small style={{ color: '#71717a' }}>({c.source})</small>
+                    <small style={{ color: '#64748b' }}>({c.source})</small>
                   </span>
                 ))}
               </div>
@@ -911,7 +914,7 @@ function InteractiveCopilotChat() {
         </div>
 
         {/* Custom Query Input */}
-        <form onSubmit={handleCustomSubmit} style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+        <form onSubmit={handleCustomSubmit} style={{ display: 'flex', gap: '8px', marginTop: '14px' }}>
           <input
             type="text"
             placeholder="Ask anything (e.g. 'coil', 'delay', 'tekla', 'mill')..."
@@ -919,17 +922,18 @@ function InteractiveCopilotChat() {
             onChange={(e) => setCustomQuery(e.target.value)}
             style={{
               flex: 1,
-              height: '38px',
+              height: '40px',
               padding: '0 14px',
-              borderRadius: '2px',
+              borderRadius: 'var(--radius)',
               border: '1px solid var(--border)',
               fontSize: '13px',
-              background: 'var(--secondary)',
+              background: '#ffffff',
               color: 'var(--foreground)',
-              outline: 'none'
+              outline: 'none',
+              boxShadow: 'var(--shadow-sm)'
             }}
           />
-          <button type="submit" className="btn btn-primary" style={{ fontSize: '12px', height: '38px', padding: '0 16px' }}>
+          <button type="submit" className="btn btn-primary" style={{ fontSize: '12px', height: '40px', padding: '0 18px' }}>
             Query AI
           </button>
         </form>
@@ -1009,54 +1013,54 @@ function SecurityRbacSimulator() {
       </div>
 
       <div className="rbac-content">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '18px' }}>
           <div>
-            <span className="mono-tag" style={{ fontSize: '9px' }}>ACCESS CONTROL MATRIX // BOUNDARY LEVEL 4</span>
-            <h3 style={{ fontSize: '17px', fontWeight: 800, marginTop: '2px' }}>
+            <span className="mono-tag" style={{ fontSize: '10px' }}>ACCESS CONTROL MATRIX // BOUNDARY LEVEL 4</span>
+            <h3 style={{ fontSize: '19px', fontWeight: 800, color: 'var(--foreground)', marginTop: '2px' }}>
               {activeRole.title}
             </h3>
-            <span style={{ fontSize: '11px', color: 'var(--muted-foreground)' }}>Primary Surface: {activeRole.systems}</span>
+            <span style={{ fontSize: '12px', color: 'var(--muted-foreground)' }}>Primary Surface: {activeRole.systems}</span>
           </div>
           <span className="badge badge-teal">AIR-GAPPED OT ISOLATION ACTIVE</span>
         </div>
 
         {/* Permissions Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px', marginBottom: '20px' }}>
           {/* Read Access */}
-          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '14px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#00e5c9', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+          <div style={{ background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 'var(--radius)', padding: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#15803d', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
               <Check size={14} />
               <span>Read Permitted</span>
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: 'var(--foreground)' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#166534' }}>
               {activeRole.read.map((item, i) => (
-                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed rgba(255, 255, 255, 0.08)' }}>• {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #bbf7d0' }}>• {item}</li>
               ))}
             </ul>
           </div>
 
           {/* Write Access */}
-          <div style={{ background: 'var(--secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '14px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+          <div style={{ background: '#fff7ed', border: '1px solid #ffedd5', borderRadius: 'var(--radius)', padding: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
               <Zap size={14} />
               <span>Scoped Write Allowed</span>
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: 'var(--foreground)' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#9a3412' }}>
               {activeRole.write.map((item, i) => (
-                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed rgba(255, 255, 255, 0.08)' }}>• {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #fed7aa' }}>• {item}</li>
               ))}
             </ul>
           </div>
 
           {/* Blocked / Redacted Access */}
-          <div style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.25)', borderRadius: 'var(--radius)', padding: '14px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#f87171', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+          <div style={{ background: '#fef2f2', border: '1px solid #fee2e2', borderRadius: 'var(--radius)', padding: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#dc2626', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
               <Lock size={14} />
               <span>Enforced Blocked Boundaries</span>
             </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#fca5a5' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#991b1b' }}>
               {activeRole.blocked.map((item, i) => (
-                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed rgba(239, 68, 68, 0.2)' }}>✕ {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #fecaca' }}>✕ {item}</li>
               ))}
             </ul>
           </div>
@@ -1064,13 +1068,13 @@ function SecurityRbacSimulator() {
 
         {/* Cryptographic Audit Stream */}
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)', marginBottom: '8px', fontWeight: 700 }}>
             <span>IMMUTABLE CRYPTOGRAPHIC AUDIT TRAIL (HMAC-SHA256)</span>
-            <span style={{ color: '#10b981' }}>ZERO TAMPER LOGGING</span>
+            <span style={{ color: '#15803d' }}>ZERO TAMPER LOGGING</span>
           </div>
           <div className="audit-stream-box">
             {logs.map((log, idx) => (
-              <div key={idx} style={{ padding: '2px 0' }}>{log}</div>
+              <div key={idx} style={{ padding: '3px 0' }}>{log}</div>
             ))}
           </div>
         </div>
@@ -1135,4 +1139,3 @@ document.addEventListener('DOMContentLoaded', () => {
     createRoot(rbacContainer).render(<SecurityRbacSimulator />);
   }
 });
-

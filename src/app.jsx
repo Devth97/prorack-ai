@@ -280,8 +280,8 @@ const deliveryStages = [
   {
     "title": "Precision Manufacture",
     "description": "Automated cold roll-forming with traceable prime HR steel coils. Quality gates verify tensile strength, punch tolerances, weld penetration, and powder coat thickness.",
-    "image": "machines-steel-coil-detail",
-    "alt": "Steel coil and manufacturing detail"
+    "image": "precision-manufacturing-concept",
+    "alt": "Illustrative cold roll-forming line with steel coil, forming rollers and finished perforated rack uprights"
   },
   {
     "title": "Certified Installation",

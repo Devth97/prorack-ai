@@ -147,7 +147,7 @@ function GlobalHeader({ activePage }) {
       <div className="nav-actions">
         <button className="search-toggle" aria-label="Search the website" onClick={()=>searchDialog.current.showModal()}><Search size={19}/></button>
         <VoiceAssistant/>
-        <a href="contact.html" className="nav-cta">Discuss a project <ArrowRight size={16}/></a>
+        <a href="contact.html" className="nav-cta">Get in touch <ArrowRight size={16}/></a>
         <button className="menu-toggle" aria-label="Open navigation menu" onClick={()=>menuDialog.current.showModal()}><Menu size={22}/></button>
       </div>
     </div>
@@ -262,6 +262,52 @@ const stagesData = [
     check: "Zero unverified metrics; 100% deterministic source citations"
   }
 ];
+
+
+const deliveryStages = [
+  {
+    "title": "Discover & Profile",
+    "description": "Inventory data audit: SKU velocity, pallet footprint, unit loads, forklift operating envelope, throughput requirements, and 5-year growth trajectory.",
+    "image": "copilot-layout-review",
+    "alt": "Warehouse layout and requirement drawings"
+  },
+  {
+    "title": "BIM & Structural Design",
+    "description": "3D Tekla Structures modeling and RSTAB finite element analysis. Structural load verification planned in collaboration with IIT-Powai for design certification.",
+    "image": "engineering-structural-study",
+    "alt": "Structural connection and engineering drawings"
+  },
+  {
+    "title": "Precision Manufacture",
+    "description": "Automated cold roll-forming with traceable prime HR steel coils. Quality gates verify tensile strength, punch tolerances, weld penetration, and powder coat thickness.",
+    "image": "machines-steel-coil-detail",
+    "alt": "Steel coil and manufacturing detail"
+  },
+  {
+    "title": "Certified Installation",
+    "description": "Executed by certified SmartFit crews. Strict laser plumb checks, anchor pull tests, baseplate grouting, and adherence to codes & tolerances for handover.",
+    "image": "indian-rack-installation-concept",
+    "alt": "Indian technicians installing warehouse racking"
+  },
+  {
+    "title": "Govern & Change Orders",
+    "description": "Structured engineering change order governance, lifecycle inspection protocols, and ProRack AI digital telemetry to protect long-term warehouse safety.",
+    "image": "architecture-network-detail",
+    "alt": "Network equipment illustrating project governance"
+  }
+];
+function DeliveryStages() {
+  const [active,setActive]=useState(0);
+  const stage=deliveryStages[active];
+  const StageIcon=[Search,Layers,Settings,Workflow,ShieldCheck][active];
+  return <div className="delivery-explorer">
+    <div className="delivery-stage-nav" role="group" aria-label="Delivery stages">{deliveryStages.map((item,i)=><button key={item.title} aria-pressed={active===i} aria-controls="delivery-stage-detail" onClick={()=>setActive(i)}><span>{String(i+1).padStart(2,'0')}</span>{item.title}</button>)}</div>
+    <div className="delivery-stage-detail" id="delivery-stage-detail">
+      <figure><img key={stage.image} src={'assets/editorial-photography/'+stage.image+'.webp'} alt={stage.alt} width="1600" height="900" loading="lazy"/><figcaption>Illustrative imagery / Not a ProRack project photograph</figcaption></figure>
+      <div className="delivery-stage-copy"><div className="delivery-stage-content" key={active}><StageIcon size={42} strokeWidth={1.2} aria-hidden="true"/><p className="eyebrow">Stage {String(active+1).padStart(2,'0')} / 05</p><h3>{stage.title}</h3><p>{stage.description}</p></div><span className="sr-only" aria-live="polite" aria-atomic="true">Stage {active+1} of 5: {stage.title}</span><div className="delivery-stage-controls"><button disabled={active===0} onClick={()=>setActive(active-1)}>Previous</button><button disabled={active===4} onClick={()=>setActive(active+1)}>Next stage <ArrowRight size={18}/></button></div></div>
+    </div><div className="delivery-stage-progress" aria-hidden="true"><span style={{width:((active+1)/5*100)+'%'}}/></div>
+  </div>;
+}
 
 function LifecycleExplorer() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -1058,7 +1104,7 @@ function SecurityRbacSimulator() {
 // MOUNT COMPONENT ISLANDS
 // ==========================================
 
-const storageSystems = [{"image":"assets/editorial-photography/selective-pallet-racking.webp","name":"Selective pallet racking","description":"The flexible, freely adaptable solution for pallets and stillages with large quantities of line items or heavy goods.","id":"selective"},{"image":"assets/editorial-photography/wide-aisle-multi-bay-racking.webp","name":"Wide-aisle multi-bay racking","description":"The workhorse system for pallet storage in large quantities, adaptable to almost any load and building height.","id":"wide-aisle"},{"image":"assets/editorial-photography/narrow-aisle-multi-bay-racking.webp","name":"Narrow-aisle multi-bay racking","description":"More efficiency when storing large quantities of palletised goods. Ideal for high throughput on a small footprint.","id":"narrow-aisle"},{"image":"assets/editorial-photography/drive-in-drive-through-racking.webp","name":"Drive-in / drive-through racking","description":"Compact block storage combined with rack stacking. Built for large quantities of heavy, similar items.","id":"drive-in"},{"image":"assets/editorial-photography/multi-tier-shelving.webp","name":"Multi-tier shelving","description":"Make full use of warehouse height and let personnel pick across several levels with walkways, stairs and gates.","id":"multi-tier"},{"image":"assets/editorial-photography/cantilever-racking.webp","name":"Cantilever racking","description":"Open-fronted storage for pipes, profiles, timber and other long goods that will not fit a standard pallet bay.","id":"cantilever"},{"image":"assets/editorial-photography/pallet-carton-flow-racking.webp","name":"Pallet and carton flow racking","description":"Gravity-fed lanes that separate loading from picking and keep FIFO stock rotation running without intervention.","id":"flow-racking"},{"image":"assets/editorial-photography/mezzanine-floors.webp","name":"Mezzanine floors","description":"Rack-supported and free-standing platforms that add usable floor area inside the existing building envelope.","id":"mezzanine"}];
+const storageSystems = [{"image":"assets/editorial-photography/selective-pallet-racking.webp","name":"Selective pallet racking","description":"The flexible, freely adaptable solution for pallets and stillages with large quantities of line items or heavy goods.","id":"selective"},{"image":"assets/editorial-photography/wide-aisle-multi-bay-racking.webp","name":"Wide-aisle multi-bay racking","description":"The workhorse system for pallet storage in large quantities, adaptable to almost any load and building height.","id":"wide-aisle"},{"image":"assets/editorial-photography/narrow-aisle-multi-bay-racking.webp","name":"Very narrow-aisle (VNA) racking","description":"More efficiency when storing large quantities of palletised goods. Ideal for high throughput on a small footprint.","id":"narrow-aisle"},{"image":"assets/editorial-photography/drive-in-drive-through-racking.webp","name":"Drive-in / drive-through racking","description":"Compact block storage combined with rack stacking. Built for large quantities of heavy, similar items.","id":"drive-in"},{"image":"assets/editorial-photography/multi-tier-shelving.webp","name":"Multi-tier shelving","description":"Make full use of warehouse height and let personnel pick across several levels with walkways, stairs and gates.","id":"multi-tier"},{"image":"assets/editorial-photography/cantilever-racking.webp","name":"Cantilever racking","description":"Open-fronted storage for pipes, profiles, timber and other long goods that will not fit a standard pallet bay.","id":"cantilever"},{"image":"assets/editorial-photography/pallet-carton-flow-racking.webp","name":"Pallet and carton flow racking","description":"Gravity-fed lanes that separate loading from picking and keep FIFO stock rotation running without intervention.","id":"flow-racking"},{"image":"assets/editorial-photography/mezzanine-floors.webp","name":"Mezzanine floors","description":"Rack-supported and free-standing platforms that add usable floor area inside the existing building envelope.","id":"mezzanine"}];
 function StorageExplorer() {
   const [selected,setSelected]=useState(0);
   const [reducedMotion,setReducedMotion]=useState(()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -1198,6 +1244,9 @@ document.addEventListener('DOMContentLoaded', () => {
   effectsContainer.id = 'site-effects';
   document.body.append(effectsContainer);
   createRoot(effectsContainer).render(<SiteEffects />);
+
+  const deliveryContainer=document.getElementById('react-delivery-stages');
+  if(deliveryContainer) createRoot(deliveryContainer).render(<DeliveryStages />);
 
   // Mount Lifecycle Explorer (if container present)
   const lifecycleContainer = document.getElementById('react-lifecycle');

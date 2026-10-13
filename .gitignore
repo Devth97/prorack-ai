@@ -2,3 +2,10 @@
 node_modules/
 .DS_Store
 
+.env
+.claude-flow/
+.swarm/
+artifacts/
+tmp/
+prorack-netlify-*.zip
+prorac-ai-*.zip

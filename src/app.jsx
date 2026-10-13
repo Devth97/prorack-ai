@@ -1,31 +1,114 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import useEmblaCarousel from 'embla-carousel-react';
+import { BolnaWebCall } from '@bolna/web-call';
+gsap.registerPlugin(ScrollTrigger);
 import { 
-  Search, Menu, X, Activity, Cpu, Layers, ChevronRight, 
+  Search, Menu, X, Activity, Cpu, Layers, ChevronRight, ArrowUp,
   Terminal, Check, AlertCircle, Clock, ArrowRight, ShieldCheck,
   Server, BarChart3, Database, Workflow, Settings, FileText,
-  Copy, CheckCheck, RefreshCw, Zap, Sliders, Lock
+  Copy, CheckCheck, RefreshCw, Zap, Sliders, Lock,
+  Mic, MicOff, PhoneOff, Headset
 } from 'lucide-react';
+
+// ==========================================
+// 0. VOICE AI ASSISTANT (Bolna web call)
+// ==========================================
+const VOICE_ERRORS = {
+  microphone_denied: 'Microphone access was blocked. Allow the microphone for this site in your browser settings, then try again.',
+  at_capacity: 'All our AI lines are busy right now. Please try again in a moment.',
+  autoplay_blocked: 'Your browser blocked audio playback. Please click "Start conversation" again.',
+  connect_failed: 'We could not connect the call. Check your connection and try again.',
+};
+const VOICE_STATUS = { connecting: 'Connecting…', ringing: 'Connecting to the assistant…', active: 'Live — go ahead and speak', ended: 'Call ended' };
+
+function VoiceAssistant() {
+  const [open, setOpen] = useState(false);
+  const [state, setState] = useState('idle');
+  const [muted, setMuted] = useState(false);
+  const [level, setLevel] = useState(0);
+  const [error, setError] = useState('');
+  const callRef = useRef(null);
+  const live = state === 'connecting' || state === 'ringing' || state === 'active';
+
+  useEffect(() => () => { callRef.current?.stop(); }, []);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = e => { if (e.key === 'Escape') setOpen(false); };
+    const onClick = e => { if (!e.target.closest('.voice-assistant')) setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onClick);
+    return () => { window.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onClick); };
+  }, [open]);
+
+  // start() must run directly inside the click handler so the browser allows audio.
+  const startCall = () => {
+    setError('');
+    setMuted(false);
+    const call = new BolnaWebCall({ sessionUrl: '/api/bolna-session', userData: { page: document.title } });
+    call.on('state-change', setState);
+    call.on('volume-level', setLevel);
+    call.on('call-end', () => setLevel(0));
+    call.on('error', e => setError(VOICE_ERRORS[e.code] || 'Something went wrong starting the call. Please try again, or call us on +91 79658 51000.'));
+    callRef.current = call;
+    call.start().catch(() => {});
+  };
+  const endCall = () => { callRef.current?.stop(); };
+  const toggleMute = () => { const next = !muted; callRef.current?.setMuted(next); setMuted(next); };
+
+  return <div className="voice-assistant">
+    <button className={'voice-toggle' + (live ? ' is-live' : '')} aria-expanded={open} aria-controls="voice-panel" onClick={() => setOpen(o => !o)}>
+      <Headset size={18}/><span className="voice-toggle-label">{live ? 'On call' : 'Ask our AI'}</span>
+    </button>
+    {open && <div className="voice-panel" id="voice-panel" role="dialog" aria-label="ProRack AI voice assistant">
+      <div className="voice-panel-head">
+        <div><strong>ProRack AI assistant</strong><small>Ask about racking, mezzanines, quotes or project timelines.</small></div>
+        <button aria-label="Close assistant" onClick={() => setOpen(false)}><X size={18}/></button>
+      </div>
+      <div className="voice-orb" data-state={state} style={{ '--level': level }} aria-hidden="true"><Mic size={26}/></div>
+      <p className="voice-status" role="status">{error || VOICE_STATUS[state] || 'Talk to our AI assistant right here in your browser. You will need a microphone.'}</p>
+      {live
+        ? <div className="voice-controls">
+            <button className="voice-mute" onClick={toggleMute} disabled={state !== 'active'} aria-pressed={muted}>{muted ? <MicOff size={18}/> : <Mic size={18}/>}{muted ? 'Unmute' : 'Mute'}</button>
+            <button className="voice-end" onClick={endCall}><PhoneOff size={18}/>End call</button>
+          </div>
+        : <button className="voice-start" onClick={startCall}><Mic size={18}/>{state === 'ended' ? 'Start a new conversation' : 'Start conversation'}</button>}
+      <p className="voice-fallback">Prefer a person? <a href="tel:+917965851000">+91 79658 51000</a> · <a href="contact.html">Send an enquiry</a></p>
+    </div>}
+  </div>;
+}
 
 // ==========================================
 // 1. GLOBAL COMMAND PALETTE & RESPONSIVE NAV
 // ==========================================
 function GlobalHeader({ activePage }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [commandOpen, setCommandOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-
+  const searchDialog = useRef(null);
+  const menuDialog = useRef(null);
   const navLinks = [
-    { name: 'Overview', href: 'index.html', id: 'index' },
-    { name: 'Platform', href: 'platform.html', id: 'platform' },
-    { name: 'Operations', href: 'operations.html', id: 'operations' },
-    { name: 'Machines', href: 'machines.html', id: 'machines' },
-    { name: 'AI Copilot', href: 'copilot.html', id: 'copilot' },
-    { name: 'Architecture', href: 'architecture.html', id: 'architecture' },
-    { name: 'Roadmap', href: 'roadmap.html', id: 'roadmap' },
+    ['Home','index'],['Solutions','solutions'],['Engineering','engineering'],['Execution','execution'],
+    ['Digital intelligence','platform'],['Company','company']
   ];
-
+  const digitalLinks = [['Platform','platform'],['Operations','operations'],['Machines','machines'],['AI copilot','copilot'],['Architecture','architecture'],['Roadmap','roadmap']];
+  const digital = digitalLinks.some(([,id])=>id===activePage);
   const searchItems = [
+    { title: 'Warehouse Storage Catalog (8 Systems)', category: 'Solutions', href: 'solutions.html' },
+    { title: 'Selective Pallet Racking Specs', category: 'Solutions', href: 'solutions.html#selective' },
+    { title: 'Drive-In & High-Density Racking', category: 'Solutions', href: 'solutions.html#drive-in' },
+    { title: 'Heavy-Duty Cantilever Racking', category: 'Solutions', href: 'solutions.html#cantilever' },
+    { title: 'Multi-Tier Shelving & Mezzanines', category: 'Solutions', href: 'solutions.html#mezzanine' },
+    { title: '5-Stage Engineering Lifecycle', category: 'Engineering', href: 'engineering.html' },
+    { title: 'Tekla BIM 3D & RSTAB Structural Analysis', category: 'Engineering', href: 'engineering.html#stages' },
+    { title: 'Change Order Management & Cost Control', category: 'Engineering', href: 'engineering.html#change-orders' },
+    { title: 'Planned IIT-Powai Structural Design Validation', category: 'Engineering', href: 'engineering.html#iit-powai' },
+    { title: '3 Specialist Execution Verticals', category: 'Execution', href: 'execution.html' },
+    { title: 'SmartFit Turnkey Installation', category: 'Execution', href: 'execution.html#smartfit' },
+    { title: 'ProMec MEP, HVAC & Fire Safety', category: 'Execution', href: 'execution.html#promech' },
+    { title: 'Silver Lining Storage Solutions Heritage', category: 'Company', href: 'company.html#heritage' },
+    { title: 'MD Roshan Sudhir (20+ Years Leadership)', category: 'Company', href: 'company.html#leadership' },
+    { title: 'Request Engineering RFQ / Contact', category: 'Contact', href: 'contact.html' },
     { title: 'Project Health Dashboard', category: 'Operations', href: 'operations.html' },
     { title: 'Tekla 3D Model Coherence', category: 'Platform', href: 'platform.html' },
     { title: 'ERPNext Commercial Integration', category: 'Platform', href: 'platform.html' },
@@ -40,180 +123,48 @@ function GlobalHeader({ activePage }) {
     { title: 'Computer Vision QC Inspection', category: 'Roadmap', href: 'roadmap.html' },
   ];
 
-  const filteredItems = searchItems.filter(item => 
-    item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
-  // Keyboard shortcut & resize listener
+  const filteredItems = searchItems.filter(item => (item.title+' '+item.category).toLowerCase().includes(searchTerm.toLowerCase()));
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    const shortcut = e => {
+      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==='k') {
         e.preventDefault();
-        setCommandOpen(prev => !prev);
-      }
-      if (e.key === 'Escape') {
-        setCommandOpen(false);
-        setMobileMenuOpen(false);
+        menuDialog.current?.close();
+        if(searchDialog.current.open) searchDialog.current.close(); else searchDialog.current.showModal();
       }
     };
-    const handleResize = () => {
-      if (window.innerWidth > 1040) {
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <>
-      <div className="shell nav-inner">
-        <a href="index.html" className="nav-brand" aria-label="ProRack AI Home">
-          <img src="assets/prorack-mark.webp" alt="ProRack Monogram" width="32" height="32" />
-          <div className="nav-brand-text">
-            <span className="brand-title">ProRack AI</span>
-            <span className="brand-sub">Connected Operations Layer</span>
-          </div>
-        </a>
-
-        <div className="nav-status-pill hidden-mobile">
-          <span className="pulse-dot"></span>
-          <span>Layer Active</span>
-        </div>
-
-        {/* Desktop Navigation Links */}
-        <nav className="nav-links">
-          {navLinks.map(link => (
-            <a 
-              key={link.id} 
-              href={link.href} 
-              className={activePage === link.id ? 'active' : ''}
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-
-        {/* Action Buttons & Command Palette Trigger */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <button 
-            className="command-trigger-btn"
-            onClick={() => setCommandOpen(true)}
-            title="Search systems and capabilities (Ctrl+K)"
-          >
-            <Search size={14} color="#64748b" />
-            <span className="hidden-mobile" style={{ fontSize: '11px', color: '#64748b' }}>Quick Find</span>
-            <kbd className="hidden-mobile">Ctrl K</kbd>
-          </button>
-
-          <a href="copilot.html#brief" className="nav-cta hidden-mobile">
-            Live Brief
-          </a>
-
-          {/* Mobile Hamburger Toggle */}
-          <button 
-            className="mobile-toggle-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+    window.addEventListener('keydown',shortcut);
+    return ()=>window.removeEventListener('keydown',shortcut);
+  },[]);
+  const brand = <><img src="assets/Prorack%20AI%20logo%20WITHOUT%20TAGLINE.jpg" alt="ProRack" width="54" height="54"/><span className="nav-brand-text"><span className="brand-title">PRORACK</span><span className="brand-sub">STORAGE SOLUTIONS</span></span></>;
+  const closeBackdrop = e => {if(e.target===e.currentTarget) e.currentTarget.close();};
+  return <>
+    <div className="shell nav-inner">
+      <a href="index.html" className="nav-brand" aria-label="ProRack Storage Solutions home">{brand}</a>
+      <nav className="nav-links" aria-label="Main navigation">
+        {navLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined}>{name}</a>)}
+      </nav>
+      <div className="nav-actions">
+        <button className="search-toggle" aria-label="Search the website" onClick={()=>searchDialog.current.showModal()}><Search size={19}/></button>
+        <VoiceAssistant/>
+        <a href="contact.html" className="nav-cta">Discuss a project <ArrowRight size={16}/></a>
+        <button className="menu-toggle" aria-label="Open navigation menu" onClick={()=>menuDialog.current.showModal()}><Menu size={22}/></button>
       </div>
-
-      {/* Mobile Drawer with Backdrop Overlay */}
-      {mobileMenuOpen && (
-        <>
-          <div className="mobile-drawer-overlay" onClick={() => setMobileMenuOpen(false)} />
-          <div className="mobile-drawer">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', padding: '16px' }}>
-            <div className="nav-status-pill" style={{ width: 'fit-content', marginBottom: '8px' }}>
-              <span className="pulse-dot"></span>
-              <span>Connected Intelligence Layer Active</span>
-            </div>
-
-            {navLinks.map(link => (
-              <a
-                key={link.id}
-                href={link.href}
-                className={`mobile-nav-link ${activePage === link.id ? 'active' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span>{link.name}</span>
-                <ChevronRight size={14} color="#94a3b8" />
-              </a>
-            ))}
-
-            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '12px', marginTop: '8px' }}>
-              <a 
-                href="copilot.html#brief" 
-                className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                View Live Shift Brief
-              </a>
-            </div>
-          </div>
-        </div>
-        </>
-      )}
-
-      {/* shadcn-style Command Dialog / Search Modal */}
-      {commandOpen && (
-        <div className="command-dialog-overlay" onClick={() => setCommandOpen(false)}>
-          <div className="command-dialog" onClick={(e) => e.stopPropagation()}>
-            <div className="command-input-wrap">
-              <Search size={16} color="#64748b" />
-              <input 
-                type="text"
-                placeholder="Search systems, metrics, drawings, machines..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                autoFocus
-                className="command-input"
-              />
-              <kbd className="command-esc-badge" onClick={() => setCommandOpen(false)}>ESC</kbd>
-            </div>
-
-            <div className="command-results-list">
-              {filteredItems.length > 0 ? (
-                filteredItems.map((item, idx) => (
-                  <a 
-                    key={idx} 
-                    href={item.href} 
-                    className="command-item"
-                    onClick={() => setCommandOpen(false)}
-                  >
-                    <div>
-                      <div className="command-item-title">{item.title}</div>
-                      <span className="command-item-cat">{item.category}</span>
-                    </div>
-                    <ArrowRight size={14} color="#94a3b8" />
-                  </a>
-                ))
-              ) : (
-                <div style={{ padding: '24px', textAlign: 'center', color: '#64748b', fontSize: '13px' }}>
-                  No matching systems or metrics found.
-                </div>
-              )}
-            </div>
-
-            <div className="command-footer">
-              <span>ProRack AI Intelligent Capability Routing Layer</span>
-              <span>Navigate with Enter / Esc</span>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
+    </div>
+    {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={id===activePage?'page':undefined}>{name}</a>)}</nav>}
+    <dialog className="site-dialog menu-dialog" ref={menuDialog} onClick={closeBackdrop} aria-label="Navigation menu">
+      <div className="dialog-heading"><span>Explore ProRack</span><button aria-label="Close navigation menu" onClick={()=>menuDialog.current.close()}><X size={24}/></button></div>
+      <nav aria-label="Mobile navigation">{[...navLinks,['Contact','contact']].map(([name,id],i)=><a key={id} href={id+'.html'} aria-current={activePage===id?'page':undefined}><small>0{i+1}</small>{name}<ArrowRight size={20}/></a>)}</nav>
+      <div className="menu-digital">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'}>{name}</a>)}</div>
+      <a className="menu-email" href="mailto:sales@prorack.ai">sales@prorack.ai</a>
+    </dialog>
+    <dialog className="site-dialog search-dialog" ref={searchDialog} onClick={closeBackdrop} aria-labelledby="search-title">
+      <div className="dialog-heading"><span id="search-title">Find your solution</span><button aria-label="Close search" onClick={()=>searchDialog.current.close()}><X size={22}/></button></div>
+      <input autoFocus aria-label="Search systems and capabilities" placeholder="Try pallet racking, engineering or telemetry" value={searchTerm} onChange={e=>setSearchTerm(e.target.value)} onKeyDown={e=>{if(e.key==='ArrowDown'){e.preventDefault();searchDialog.current.querySelector('.search-result')?.focus();}if(e.key==='Enter' && filteredItems.length) window.location.href=filteredItems[0].href;}}/>
+      <div className="search-results">{filteredItems.map((item,i)=><a className="search-result" key={item.href+i} href={item.href} onKeyDown={e=>{if(e.key==='ArrowDown'){e.preventDefault();e.currentTarget.nextElementSibling?.focus();}if(e.key==='ArrowUp'){e.preventDefault();(e.currentTarget.previousElementSibling||searchDialog.current.querySelector('input')).focus();}}}><span>{item.title}<small>{item.category}</small></span><ArrowRight size={18}/></a>)}{!filteredItems.length && <p>No results. Try another system or capability.</p>}</div>
+      <p className="search-hint">â†‘ â†“ to navigate Â· Enter to open Â· Esc to close</p>
+    </dialog>
+  </>;
 }
 
 // ==========================================
@@ -263,7 +214,7 @@ const stagesData = [
     sub: "Direct PLC integration tracking stroke cycles, line speeds, and tolerances.",
     source: "Modbus TCP / OPC-UA Edge Relays",
     output: "Cycle count verification, motor load, bearing vibration index",
-    check: "Profile dimensional tolerance within ±0.03mm"
+    check: "Profile dimensional tolerance within Â±0.03mm"
   },
   {
     num: "06",
@@ -431,6 +382,7 @@ function TelemetryLiveChart() {
         {machinesFeed.map(m => (
           <button
             key={m.id}
+            aria-pressed={selectedMachine.id === m.id}
             onClick={() => handleSelectMachine(m)}
             style={{
               padding: '6px 12px',
@@ -468,17 +420,17 @@ function TelemetryLiveChart() {
 
       <div className="responsive-stat-grid-3">
         <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Continuous Speed</small>
+          <small style={{ color: '#526052', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Continuous Speed</small>
           <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--primary)' }}>{speed} m/min</span>
         </div>
 
         <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Stroke Count</small>
+          <small style={{ color: '#526052', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Stroke Count</small>
           <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--foreground)' }}>{strokes.toLocaleString()}</span>
         </div>
 
         <div style={{ background: 'var(--secondary)', padding: '14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-          <small style={{ color: '#64748b', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Bearing RMS</small>
+          <small style={{ color: '#526052', fontSize: '9px', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)', marginBottom: '2px' }}>Bearing RMS</small>
           <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--data-teal)' }}>{vibration} mm/s</span>
         </div>
       </div>
@@ -523,7 +475,7 @@ const platformSystems = [
     protocol: 'REST Webhook / OAuth2',
     latency: '18ms',
     entity: 'SalesOrder: #SO-2026-089',
-    payload: `{\n  "source": "ERPNext_v15_Enterprise",\n  "sales_order": "SO-2026-089",\n  "customer": "Amazon Fulfillment Services",\n  "total_tonnage_mt": 1135,\n  "advance_cleared": true,\n  "coil_po_linked": "PO-9021-TATA-HR",\n  "status": "COMMERCIAL_RELEASED"\n}`,
+    payload: `{\n  "source": "ERPNext_v15_Enterprise",\n  "sales_order": "SO-2026-089",\n  "customer": "Demonstration Customer",\n  "total_tonnage_mt": 1135,\n  "advance_cleared": true,\n  "coil_po_linked": "PO-9021-TATA-HR",\n  "status": "COMMERCIAL_RELEASED"\n}`,
     boundary: 'Non-invasive polling; writes restricted to order milestone tags.'
   },
   {
@@ -578,8 +530,8 @@ function PlatformSystemMatrix() {
     }, 600);
   };
 
-  const handleCopyPayload = () => {
-    navigator.clipboard?.writeText(activeSys.payload);
+  const handleCopyPayload = async () => {
+    try {await navigator.clipboard.writeText(activeSys.payload);} catch {return;}
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -594,6 +546,7 @@ function PlatformSystemMatrix() {
         {platformSystems.map(sys => (
           <button
             key={sys.id}
+            aria-pressed={activeSys.id === sys.id}
             className={`sys-matrix-btn ${activeSys.id === sys.id ? 'active' : ''}`}
             onClick={() => setActiveSys(sys)}
           >
@@ -601,7 +554,7 @@ function PlatformSystemMatrix() {
               <div style={{ color: activeSys.id === sys.id ? 'var(--foreground)' : 'var(--muted-foreground)', fontSize: '13px', fontWeight: 600 }}>{sys.name}</div>
               <small style={{ fontSize: '10px', color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{sys.protocol}</small>
             </div>
-            <span style={{ fontSize: '11px', color: '#15803d', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{sys.latency}</span>
+            <span style={{ fontSize: '11px', color: '#166534', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{sys.latency}</span>
           </button>
         ))}
       </div>
@@ -631,7 +584,7 @@ function PlatformSystemMatrix() {
               onClick={handleCopyPayload}
               style={{ fontSize: '11px', height: '34px', gap: '6px' }}
             >
-              {copied ? <CheckCheck size={13} color="#15803d" /> : <Copy size={13} />}
+              {copied ? <CheckCheck size={13} color="#166534" /> : <Copy size={13} />}
               <span>{copied ? 'Copied' : 'Copy JSON'}</span>
             </button>
           </div>
@@ -645,7 +598,7 @@ function PlatformSystemMatrix() {
           </div>
           <div style={{ background: 'var(--secondary)', padding: '12px 14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>HEALTH / LATENCY</span>
-            <strong style={{ fontSize: '13px', color: '#15803d' }}>Synchronized ({activeSys.latency})</strong>
+            <strong style={{ fontSize: '13px', color: '#166534' }}>Synchronized ({activeSys.latency})</strong>
           </div>
           <div style={{ background: 'var(--secondary)', padding: '12px 14px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <span style={{ display: 'block', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>INGEST COUNTER</span>
@@ -654,7 +607,7 @@ function PlatformSystemMatrix() {
         </div>
 
         {/* Live Payload Preview */}
-        <div className="payload-preview-box">
+        <div className="payload-preview-box" tabIndex={0} role="region" aria-label="Sample connector payload">
           <div style={{ display: 'flex', justifyContent: 'space-between', color: '#94a3b8', fontSize: '10px', marginBottom: '8px', borderBottom: '1px solid #1e293b', paddingBottom: '6px' }}>
             <span>UNIFIED KNOWLEDGE GRAPH INGEST PACKET</span>
             <span style={{ color: '#00e5c9' }}>SCHEMA VALID // ZERO DRIFT</span>
@@ -663,7 +616,7 @@ function PlatformSystemMatrix() {
         </div>
 
         <div style={{ marginTop: '16px', background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <ShieldCheck size={16} color="#15803d" />
+          <ShieldCheck size={16} color="#166534" />
           <span style={{ color: '#166534' }}>
             <strong style={{ color: '#14532d' }}>Security Boundary:</strong> {activeSys.boundary}
           </span>
@@ -686,7 +639,7 @@ function OperationsLiveMonitor() {
         <div>
           <span className="mono-tag">LIVE OPERATIONS DASHBOARD // PROJECT 2026-HYD-04</span>
           <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--foreground)', marginTop: '2px' }}>
-            Amazon Logistics Hub (1,135 MT Execution Stream)
+            Demonstration Logistics Hub (1,135 MT Execution Stream)
           </h3>
         </div>
 
@@ -695,6 +648,7 @@ function OperationsLiveMonitor() {
           {['all', 'engineering', 'fabrication', 'qc', 'site'].map(f => (
             <button
               key={f}
+              aria-pressed={filter === f}
               onClick={() => setFilter(f)}
               className="btn btn-outline"
               style={{
@@ -727,7 +681,7 @@ function OperationsLiveMonitor() {
         <div className="ops-dial">
           <div className="ops-dial-num">842 / 1,135</div>
           <div className="ops-dial-label">Metric Tons Produced (MT)</div>
-          <div style={{ fontSize: '11px', color: '#15803d', marginTop: '6px', fontWeight: 700 }}>+12 MT ahead of shift plan</div>
+          <div style={{ fontSize: '11px', color: '#166534', marginTop: '6px', fontWeight: 700 }}>+12 MT ahead of shift plan</div>
         </div>
 
         <div className="ops-dial">
@@ -739,7 +693,7 @@ function OperationsLiveMonitor() {
         <div className="ops-dial">
           <div className="ops-dial-num">+1.5 Days</div>
           <div className="ops-dial-label">Erection Schedule Buffer</div>
-          <div style={{ fontSize: '11px', color: '#15803d', marginTop: '6px', fontWeight: 700 }}>Site receiving on schedule</div>
+          <div style={{ fontSize: '11px', color: '#166534', marginTop: '6px', fontWeight: 700 }}>Site receiving on schedule</div>
         </div>
       </div>
 
@@ -747,7 +701,7 @@ function OperationsLiveMonitor() {
       <div className={`ops-anomaly-banner ${anomalyResolved ? 'resolved' : ''}`}>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
           {anomalyResolved ? (
-            <CheckCheck size={22} color="#15803d" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <CheckCheck size={22} color="#166534" style={{ flexShrink: 0, marginTop: '2px' }} />
           ) : (
             <AlertCircle size={22} color="#d97706" style={{ flexShrink: 0, marginTop: '2px' }} />
           )}
@@ -817,8 +771,8 @@ const copilotScenarios = [
   {
     id: 'brief',
     title: 'Executive Shift Delivery Brief',
-    query: 'Generate executive shift handoff brief for Amazon Hyderabad Fulfillment Center.',
-    answer: 'EXECUTIVE SHIFT BRIEF (06:00 - 14:00 Shift):\n• Tonnage Complete: 842 / 1,135 MT (74.2% project completion)\n• Upright Columns C220: 640/640 fabricated, passed 100% digital caliper tolerance check (±0.012mm)\n• Flatbed Logistics: 4 truckloads dispatched, verified via weighbridge Gate 3\n• Site Sync (GoSmartFit): Bays 1-8 erect, anchor torque 165 Nm verified\n• Next Shift Priority: Sequence Step Beams B140 on Mill #02 at 14:30.',
+    query: 'Generate executive shift handoff brief for sample Hyderabad fulfillment project.',
+    answer: 'EXECUTIVE SHIFT BRIEF (06:00 - 14:00 Shift):\nâ€¢ Tonnage Complete: 842 / 1,135 MT (74.2% project completion)\nâ€¢ Upright Columns C220: 640/640 fabricated, passed 100% digital caliper tolerance check (Â±0.012mm)\nâ€¢ Flatbed Logistics: 4 truckloads dispatched, verified via weighbridge Gate 3\nâ€¢ Site Sync (GoSmartFit): Bays 1-8 erect, anchor torque 165 Nm verified\nâ€¢ Next Shift Priority: Sequence Step Beams B140 on Mill #02 at 14:30.',
     citations: [
       { text: 'ProRack AI Graph', source: 'Deterministic Aggregate' },
       { text: 'SmartFit Site Sync', source: 'Bay 01-08 Sign-off' }
@@ -847,12 +801,12 @@ function InteractiveCopilotChat() {
       setActiveScenario(match);
       setDisplayedAnswer(match.answer);
     } else {
-      setDisplayedAnswer(`ProRack AI deterministic inquiry: Querying unified knowledge graph across ERPNext, Tekla, PowerFab, and Modbus registers for "${customQuery}"...\n\nResult: 14 matching operational records located. Verified project entity: Project 2026-HYD-04. Structural drawings, roll-forming stroke records, and heat certs are synchronized with zero open non-conformances.`);
+      setDisplayedAnswer('This demonstration has no live data connection. Choose a sample scenario above to explore how an evidence-backed response would be presented.');
     }
   };
 
-  const handleCopy = () => {
-    navigator.clipboard?.writeText(displayedAnswer);
+  const handleCopy = async () => {
+    try {await navigator.clipboard.writeText(displayedAnswer);} catch {return;}
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -864,6 +818,7 @@ function InteractiveCopilotChat() {
         {copilotScenarios.map(sc => (
           <button
             key={sc.id}
+            aria-pressed={activeScenario.id === sc.id}
             className={`copilot-pill ${activeScenario.id === sc.id ? 'active' : ''}`}
             onClick={() => handleSelectScenario(sc)}
           >
@@ -891,7 +846,7 @@ function InteractiveCopilotChat() {
           <div style={{ flex: 1, background: '#ffffff', border: '1px solid var(--border)', padding: '20px', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-sm)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span className="badge badge-teal" style={{ fontSize: '9px' }}>DETERMINISTIC CITATION VERIFIED</span>
+                <span className="badge badge-teal" style={{ fontSize: '9px' }}>SAMPLE RESPONSE / DEMO DATA</span>
                 <span style={{ fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)' }}>LATENCY: 42MS</span>
               </div>
 
@@ -900,7 +855,7 @@ function InteractiveCopilotChat() {
                 className="btn btn-outline"
                 style={{ fontSize: '11px', height: '28px', padding: '0 10px', gap: '4px' }}
               >
-                {copied ? <CheckCheck size={13} color="#15803d" /> : <Copy size={13} />}
+                {copied ? <CheckCheck size={13} color="#166534" /> : <Copy size={13} />}
                 <span>{copied ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
@@ -917,9 +872,9 @@ function InteractiveCopilotChat() {
               <div>
                 {activeScenario.citations.map((c, i) => (
                   <span key={i} className="citation-chip" title={c.source}>
-                    <ShieldCheck size={12} color="#0284c7" />
+                    <ShieldCheck size={12} color="#0369a1" />
                     <span>{c.text}</span>
-                    <small style={{ color: '#64748b' }}>({c.source})</small>
+                    <small style={{ color: '#526052' }}>({c.source})</small>
                   </span>
                 ))}
               </div>
@@ -931,6 +886,7 @@ function InteractiveCopilotChat() {
         <form onSubmit={handleCustomSubmit} style={{ display: 'flex', gap: '8px', marginTop: '14px' }}>
           <input
             type="text"
+            aria-label="Ask a demonstration question"
             placeholder="Ask anything (e.g. 'coil', 'delay', 'tekla', 'mill')..."
             value={customQuery}
             onChange={(e) => setCustomQuery(e.target.value)}
@@ -1018,6 +974,7 @@ function SecurityRbacSimulator() {
         {rbacRoles.map(role => (
           <button
             key={role.id}
+            aria-pressed={activeRole.id === role.id}
             className={`rbac-role-btn ${activeRole.id === role.id ? 'active' : ''}`}
             onClick={() => handleRoleChange(role)}
           >
@@ -1042,13 +999,13 @@ function SecurityRbacSimulator() {
         <div className="responsive-rbac-grid">
           {/* Read Access */}
           <div style={{ background: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: 'var(--radius)', padding: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#15803d', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#166534', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
               <Check size={14} />
               <span>Read Permitted</span>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#166534' }}>
               {activeRole.read.map((item, i) => (
-                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #bbf7d0' }}>• {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #bbf7d0' }}>â€¢ {item}</li>
               ))}
             </ul>
           </div>
@@ -1061,20 +1018,20 @@ function SecurityRbacSimulator() {
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#9a3412' }}>
               {activeRole.write.map((item, i) => (
-                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #fed7aa' }}>• {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #fed7aa' }}>â€¢ {item}</li>
               ))}
             </ul>
           </div>
 
           {/* Blocked / Redacted Access */}
           <div style={{ background: '#fef2f2', border: '1px solid #fee2e2', borderRadius: 'var(--radius)', padding: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#dc2626', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#b91c1c', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
               <Lock size={14} />
               <span>Enforced Blocked Boundaries</span>
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '12px', color: '#991b1b' }}>
               {activeRole.blocked.map((item, i) => (
-                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #fecaca' }}>✕ {item}</li>
+                <li key={i} style={{ padding: '4px 0', borderBottom: '1px dashed #fecaca' }}>âœ• {item}</li>
               ))}
             </ul>
           </div>
@@ -1084,9 +1041,9 @@ function SecurityRbacSimulator() {
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'var(--muted-foreground)', fontFamily: 'var(--font-mono)', marginBottom: '8px', fontWeight: 700 }}>
             <span>IMMUTABLE CRYPTOGRAPHIC AUDIT TRAIL (HMAC-SHA256)</span>
-            <span style={{ color: '#15803d' }}>ZERO TAMPER LOGGING</span>
+            <span style={{ color: '#166534' }}>ZERO TAMPER LOGGING</span>
           </div>
-          <div className="audit-stream-box">
+          <div className="audit-stream-box" tabIndex={0} role="region" aria-label="Sample access audit log">
             {logs.map((log, idx) => (
               <div key={idx} style={{ padding: '3px 0' }}>{log}</div>
             ))}
@@ -1100,11 +1057,132 @@ function SecurityRbacSimulator() {
 // ==========================================
 // MOUNT COMPONENT ISLANDS
 // ==========================================
+
+const storageSystems = [{"image":"assets/editorial-photography/selective-pallet-racking.webp","name":"Selective pallet racking","description":"The flexible, freely adaptable solution for pallets and stillages with large quantities of line items or heavy goods.","id":"selective"},{"image":"assets/editorial-photography/wide-aisle-multi-bay-racking.webp","name":"Wide-aisle multi-bay racking","description":"The workhorse system for pallet storage in large quantities, adaptable to almost any load and building height.","id":"wide-aisle"},{"image":"assets/editorial-photography/narrow-aisle-multi-bay-racking.webp","name":"Narrow-aisle multi-bay racking","description":"More efficiency when storing large quantities of palletised goods. Ideal for high throughput on a small footprint.","id":"narrow-aisle"},{"image":"assets/editorial-photography/drive-in-drive-through-racking.webp","name":"Drive-in / drive-through racking","description":"Compact block storage combined with rack stacking. Built for large quantities of heavy, similar items.","id":"drive-in"},{"image":"assets/editorial-photography/multi-tier-shelving.webp","name":"Multi-tier shelving","description":"Make full use of warehouse height and let personnel pick across several levels with walkways, stairs and gates.","id":"multi-tier"},{"image":"assets/editorial-photography/cantilever-racking.webp","name":"Cantilever racking","description":"Open-fronted storage for pipes, profiles, timber and other long goods that will not fit a standard pallet bay.","id":"cantilever"},{"image":"assets/editorial-photography/pallet-carton-flow-racking.webp","name":"Pallet and carton flow racking","description":"Gravity-fed lanes that separate loading from picking and keep FIFO stock rotation running without intervention.","id":"flow-racking"},{"image":"assets/editorial-photography/mezzanine-floors.webp","name":"Mezzanine floors","description":"Rack-supported and free-standing platforms that add usable floor area inside the existing building envelope.","id":"mezzanine"}];
+function StorageExplorer() {
+  const [selected,setSelected]=useState(0);
+  const [reducedMotion,setReducedMotion]=useState(()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [viewport,carousel]=useEmblaCarousel({loop:true,duration:reducedMotion?0:28,watchFocus:false});
+  useEffect(()=>{
+    const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update=()=>setReducedMotion(preference.matches);
+    preference.addEventListener('change',update);
+    return ()=>preference.removeEventListener('change',update);
+  },[]);
+  useEffect(()=>{
+    if(!carousel) return;
+    const update=()=>setSelected(carousel.selectedScrollSnap());
+    update();
+    carousel.on('select',update).on('reInit',update);
+    return ()=>{carousel.off('select',update);carousel.off('reInit',update);};
+  },[carousel]);
+  const system=storageSystems[selected];
+  const selectSystem = index => carousel?.scrollTo((index+storageSystems.length)%storageSystems.length,reducedMotion);
+  return <div className="storage-explorer portfolio-viewer">
+    <div className="portfolio-tools"><p className="eyebrow">Eight systems / Designed around your operation</p><div className="portfolio-controls"><button aria-label="Previous storage system" onClick={()=>selectSystem(selected-1)}><ArrowRight className="previous-arrow" size={20}/></button><span aria-hidden="true">{String(selected+1).padStart(2,'0')} / 08</span><button aria-label="Next storage system" onClick={()=>selectSystem(selected+1)}><ArrowRight size={20}/></button></div></div>
+    <div className="storage-detail" id="storage-detail"><div className="portfolio-image"><div className="portfolio-viewport" ref={viewport} tabIndex={0} role="group" aria-roledescription="carousel" aria-label="Illustrative storage systems. Use left and right arrow keys to explore." onKeyDown={e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();selectSystem(selected+(e.key==='ArrowRight'?1:-1));}}}><div className="portfolio-track">{storageSystems.map((item,i)=><div className="portfolio-slide" key={item.id} role="group" aria-roledescription="slide" aria-label={`${i+1} of 8: ${item.name}`} aria-hidden={selected!==i}><img className="system-image" src={item.image} alt={item.name} width="1600" height="1000" loading="lazy" draggable="false"/></div>)}</div></div><span className="portfolio-drag-hint" aria-hidden="true"><span className="desktop-drag">Drag to explore</span><span className="mobile-swipe">Swipe to explore</span><span>&#8596;</span></span></div><div className="storage-caption" aria-live="polite" aria-atomic="true"><div key={system.id} className="portfolio-caption-content"><span className="portfolio-large-number" aria-hidden="true">{String(selected+1).padStart(2,'0')}</span><span className="eyebrow">System {String(selected+1).padStart(2,'0')} / 08</span><h3>{system.name}</h3><p>{system.description}</p><a className="line-link" href={'solutions.html#'+system.id}>Explore this system <ArrowRight size={19}/></a></div></div></div>
+    <div className="portfolio-mobile-select"><label htmlFor="portfolio-system">Choose a storage system</label><select id="portfolio-system" value={selected} onChange={e=>selectSystem(Number(e.target.value))}>{storageSystems.map((item,i)=><option key={item.id} value={i}>{String(i+1).padStart(2,'0')} / {item.name}</option>)}</select></div>
+    <div className="storage-list" role="group" aria-label="Racking systems">{storageSystems.map((item,i)=><button key={item.id} aria-pressed={selected===i} aria-controls="storage-detail" onClick={()=>selectSystem(i)}><small>{String(i+1).padStart(2,'0')}</small><span>{item.name}</span><ArrowRight size={17}/></button>)}</div>
+  </div>;
+}
+
+const storagePriorities = [
+  {label:'Access every pallet directly',index:0,heading:'Keep every load within reach.',reason:'Selective pallet racking gives direct access to each pallet position. Start here when you need flexibility across a varied inventory.',check:'Pallet dimensions, load weights, aisle widths and handling equipment.'},
+  {label:'Store more in the same footprint',index:3,heading:'Make density work for your stock.',reason:'Drive-in and drive-through racking reduce aisle space by storing pallets in lanes. Start here for larger batches of similar goods.',check:'SKU mix, batch sizes, stock rotation and forklift compatibility.'},
+  {label:'Make use of warehouse height',index:4,heading:'Put the space above you to work.',reason:'Multi-tier shelving creates picking levels within the building height. Start here for smaller items and manually handled stock.',check:'Clear height, floor loading, access routes and fire-safety requirements.'},
+  {label:'Store long or bulky materials',index:5,heading:'Give long loads room to breathe.',reason:'Cantilever racking provides open-fronted storage for pipes, timber and profiles. Start here when conventional pallet bays constrain your materials.',check:'Load lengths, weights, support spacing and handling methods.'},
+  {label:'Improve stock rotation and picking',index:6,heading:'Let the system support the flow.',reason:'Pallet and carton flow racking use gravity-fed lanes to separate replenishment from picking. Start here when FIFO rotation matters.',check:'Product dimensions, lane depth, picking rate and replenishment frequency.'}
+];
+function RequirementsGuide() {
+  const [selected,setSelected]=useState(0);
+  const priority=storagePriorities[selected];
+  const system=storageSystems[priority.index];
+  const choosePriority = (index) => {
+    setSelected(index);
+
+  };
+  return <div className="requirements-guide"><div className="requirement-mobile-select"><label htmlFor="requirement-priority">What would you like to improve?</label><select id="requirement-priority" value={selected} onChange={e=>choosePriority(Number(e.target.value))}>{storagePriorities.map((item,i)=><option key={item.index} value={i}>{item.label}</option>)}</select></div><div className="priority-options" role="group" aria-label="Storage priorities">{storagePriorities.map((item,i)=><button key={item.index} aria-pressed={selected===i} aria-controls="requirement-result" onClick={()=>choosePriority(i)}><span className="priority-number">{String(i+1).padStart(2,'0')}</span><span>{item.label}</span><ArrowRight size={18}/></button>)}</div><div className="requirement-result" id="requirement-result" aria-live="polite" aria-atomic="true"><div key={selected} className="requirement-result-content"><div className="requirement-result-top"><p className="eyebrow">A suggested starting point</p><span className="eyebrow">{String(selected+1).padStart(2,'0')} / 05</span></div><h3>{priority.heading}</h3><p className="suggested-system">{system.name}</p><p>{priority.reason}</p><div className="requirement-check"><span className="eyebrow">Our engineers will confirm</span><p>{priority.check}</p></div><div className="requirement-links"><a className="line-link" href={'solutions.html#'+system.id}>Explore {system.name.toLowerCase()} <ArrowRight size={18}/></a><a className="requirement-cta" href={'contact.html?system='+system.id}>Discuss your requirement <ArrowRight size={18}/></a></div></div></div></div>;
+}
+
+// Scroll enhancements never conceal content or replace native scrolling.
+function SiteEffects() {
+  const [paused,setPaused]=useState(false);
+  useEffect(()=>{
+    document.body.classList.toggle('motion-paused',paused);
+    return ()=>document.body.classList.remove('motion-paused');
+  },[paused]);
+  const progress = useRef(null);
+  const topLink = useRef(null);
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const distance = document.documentElement.scrollHeight - innerHeight;
+      progress.current.style.transform = `scaleX(${distance > 0 ? Math.min(1,Math.max(0,scrollY/distance)) : 0})`;
+      topLink.current.hidden = scrollY < 700;
+
+    };
+    const requestUpdate = () => {if(!frame) frame=requestAnimationFrame(update);};
+    const motion=gsap.matchMedia();
+    motion.add({desktop:'(min-width: 761px)',mobile:'(max-width: 760px)',reduced:'(prefers-reduced-motion: reduce)'},context=>{
+      if(context.conditions.reduced || paused) return;
+      const distance=context.conditions.desktop?24:12;
+      gsap.fromTo('.cover-hero .headline-line',{y:distance},{y:0,duration:.85,stagger:.1,ease:'power3.out',clearProps:'transform'});
+      document.querySelectorAll('.editorial-section-heading h2, .story-heading h2, .heritage-section h2, .project-invitation h2, .page-hero h1, .ecosystem-layout h2').forEach(target=>{
+        gsap.fromTo(target,{y:distance,opacity:.7},{y:0,opacity:1,duration:.7,ease:'power3.out',immediateRender:false,clearProps:'transform,opacity',scrollTrigger:{trigger:target,start:'top 92%',once:true}});
+      });
+      if(context.conditions.desktop) {
+        document.querySelectorAll('.hero-photograph img,.group-detail img,.intelligence-section > img').forEach(target=>{
+          gsap.fromTo(target,{scale:1.08,yPercent:-2},{yPercent:2,ease:'none',scrollTrigger:{trigger:target.parentElement,start:'top bottom',end:'bottom top',scrub:1}});
+        });
+      }
+    });
+    const surfaces=[...document.querySelectorAll('.cover-hero,.page-hero,.systems-section,.ecosystem-section,.project-invitation,.approach-feature')];
+    surfaces.forEach(surface=>{
+      surface.classList.add('motion-surface');
+      const texture=document.createElement('span');
+      texture.className='editorial-texture';
+      texture.setAttribute('aria-hidden','true');
+      surface.prepend(texture);
+    });
+    const visibility=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('motion-in-view',entry.isIntersecting)));
+    surfaces.forEach(surface=>visibility.observe(surface));
+    const onVisibility=()=>document.body.classList.toggle('motion-tab-hidden',document.hidden);
+    document.addEventListener('visibilitychange',onVisibility);
+    onVisibility();
+    const steps = new IntersectionObserver(entries => entries.forEach(e=>e.target.classList.toggle('stage-in-view',e.isIntersecting)),{rootMargin:'-25% 0px -25% 0px'});
+    document.querySelectorAll('.delivery-steps li').forEach(e=>steps.observe(e));
+    window.addEventListener('scroll',requestUpdate,{passive:true});
+    window.addEventListener('resize',requestUpdate);
+    preference.addEventListener('change',requestUpdate);
+    update();
+    return ()=>{motion.revert();steps.disconnect();visibility.disconnect();surfaces.forEach(surface=>{surface.querySelector('.editorial-texture')?.remove();surface.classList.remove('motion-surface','motion-in-view');});document.removeEventListener('visibilitychange',onVisibility);document.body.classList.remove('motion-tab-hidden');cancelAnimationFrame(frame);window.removeEventListener('scroll',requestUpdate);window.removeEventListener('resize',requestUpdate);preference.removeEventListener('change',requestUpdate);};
+  },[paused]);
+  return <><button className="motion-toggle" aria-pressed={paused} onClick={()=>setPaused(!paused)}>{paused?'Resume motion':'Pause motion'}</button><div className="reading-progress" aria-hidden="true"><span ref={progress}/></div><a ref={topLink} hidden className="back-to-top" href="#main-content" aria-label="Back to top" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});document.getElementById('main-content')?.focus({preventScroll:true});}}><ArrowUp size={20} aria-hidden="true"/><span>Back to top</span></a></>;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  const storageContainer = document.getElementById('react-storage-explorer');
+  if(storageContainer) createRoot(storageContainer).render(<StorageExplorer />);
+  const requirementsContainer = document.getElementById('react-requirements-guide');
+  if(requirementsContainer) createRoot(requirementsContainer).render(<RequirementsGuide />);
+  const systemSelect=document.querySelector('select[name="system_type"]');
+  if(systemSelect){
+    const requested=new URLSearchParams(window.location.search).get('system');
+    const aliases={'narrow-aisle':'vna'};
+    const value=aliases[requested]||requested;
+    if([...systemSelect.options].some(o=>o.value===value)) systemSelect.value=value;
+  }
   // Detect active page from URL
   const pathname = window.location.pathname;
   let activePage = 'index';
-  if (pathname.includes('platform')) activePage = 'platform';
+  if (pathname.includes('solutions')) activePage = 'solutions';
+  else if (pathname.includes('engineering')) activePage = 'engineering';
+  else if (pathname.includes('execution')) activePage = 'execution';
+  else if (pathname.includes('company')) activePage = 'company';
+  else if (pathname.includes('contact')) activePage = 'contact';
+  else if (pathname.includes('platform')) activePage = 'platform';
   else if (pathname.includes('operations')) activePage = 'operations';
   else if (pathname.includes('machines')) activePage = 'machines';
   else if (pathname.includes('copilot')) activePage = 'copilot';
@@ -1116,6 +1194,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (headerContainer) {
     createRoot(headerContainer).render(<GlobalHeader activePage={activePage} />);
   }
+  const effectsContainer = document.createElement('div');
+  effectsContainer.id = 'site-effects';
+  document.body.append(effectsContainer);
+  createRoot(effectsContainer).render(<SiteEffects />);
 
   // Mount Lifecycle Explorer (if container present)
   const lifecycleContainer = document.getElementById('react-lifecycle');

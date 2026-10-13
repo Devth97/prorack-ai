@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="510" viewBox="0 0 900 510" fill="none">
+  <title>Shuttle storage: conceptual material flow</title>
+  <desc>A receiving conveyor feeds an ASRS lift. A shuttle moves pallets into storage lanes. Retrieved pallets return through the lift to dispatch. Warehouse controls coordinate the handoffs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto-start-reverse"><path d="M0 0 6 3 0 6" fill="none" stroke="#b53a1b" stroke-width="1.5"/></marker>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" stroke="#ddd9ce" stroke-width=".5"/></pattern>
+    <g id="pallet"><rect width="53" height="34" rx="2" fill="#ded6c6" stroke="#737a6e"/><path d="M26 0V34M0 36H53M6 39H47" stroke="#737a6e" stroke-width="2"/></g>
+  </defs>
+  <rect width="900" height="510" fill="#f7f5ef"/>
+  <rect x="28" y="80" width="844" height="350" fill="url(#grid)"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#222721">
+    <text x="30" y="36" font-size="13" letter-spacing="2">MATERIAL FLOW / SHUTTLE STORAGE</text>
+    <text x="30" y="59" font-size="11" fill="#596158">A conceptual guide to storage, movement and control</text>
+    <text x="440" y="120" font-size="13">03 / Storage lanes</text>
+    <text x="440" y="142" font-size="11" fill="#596158">Pallet positions within a high-density rack</text>
+  </g>
+  <!-- Front elevation: rack bays and pallet loads, with a transfer aisle. -->
+  <g stroke="#737a6e" stroke-width="3">
+    <path d="M425 165V365M555 165V365M685 165V365M815 165V365"/>
+    <path d="M415 230H825M415 295H825M415 360H825" stroke="#b53a1b"/>
+    <path d="M430 170 550 225M430 225 550 170M690 235 810 290M690 290 810 235" stroke-width="1" opacity=".5"/>
+  </g>
+  <use href="#pallet" x="465" y="188"/><use href="#pallet" x="593" y="188"/><use href="#pallet" x="722" y="188"/>
+  <use href="#pallet" x="593" y="253"/><use href="#pallet" x="722" y="253"/>
+  <use href="#pallet" x="465" y="318"/><use href="#pallet" x="593" y="318"/><use href="#pallet" x="722" y="318"/>
+  <!-- Lift serving the rack levels. -->
+  <path d="M312 163V370M370 163V370M304 163H378M304 370H378" stroke="#222721" stroke-width="3"/>
+  <path d="M324 170V365M358 170V365" stroke="#737a6e"/>
+  <rect x="308" y="290" width="66" height="12" fill="#222721"/>
+  <path d="M340 183V240" stroke="#b53a1b" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <use href="#pallet" x="315" y="250"/>
+  <!-- Shuttle transfers the pallet along the selected lane. -->
+  <path d="M378 296H560" stroke="#737a6e" stroke-width="2"/>
+  <rect x="447" y="280" width="87" height="12" rx="3" fill="#b53a1b"/>
+  <circle cx="460" cy="296" r="4" fill="#222721"/><circle cx="521" cy="296" r="4" fill="#222721"/>
+  <use href="#pallet" x="465" y="238"/>
+  <path d="M388 266H433M540 266H579" stroke="#b53a1b" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Receiving and dispatch conveyor paths. -->
+  <g stroke="#737a6e" stroke-width="2">
+    <path d="M62 322H285V344H62ZM62 374H285V396H62Z"/>
+    <path d="M78 322V344M99 322V344M120 322V344M141 322V344M162 322V344M183 322V344M204 322V344M225 322V344M246 322V344M267 322V344M78 374V396M99 374V396M120 374V396M141 374V396M162 374V396M183 374V396M204 374V396M225 374V396M246 374V396M267 374V396"/>
+  </g>
+  <use href="#pallet" x="112" y="279"/>
+  <path d="M183 309H288M288 409H185" stroke="#b53a1b" stroke-width="2" marker-end="url(#arrow)"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222721">
+    <text x="62" y="256">01 / Receiving</text>
+    <text x="62" y="433">05 / Dispatch</text>
+    <text x="295" y="145">02 / ASRS lift</text>
+    <text x="575" y="400">04 / Shuttle transfer</text>
+    <path d="M563 395H495V305" stroke="#737a6e" fill="none"/>
+  </g>
+  <path d="M62 464H835" stroke="#ccc7ba"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="11">
+    <rect x="62" y="480" width="7" height="7" fill="#b53a1b"/>
+    <text x="79" y="487" fill="#596158">Pallet movement</text>
+    <text x="300" y="487" fill="#596158">WMS / equipment controls coordinate each handoff</text>
+    <text x="741" y="487" fill="#596158">Not to scale</text>
+  </g>
+</svg>

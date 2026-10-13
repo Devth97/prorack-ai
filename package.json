@@ -5,13 +5,18 @@
   "description": "ProRack AI warehouse engineering website",
   "scripts": {
     "bundle": "esbuild src/app.jsx --bundle --minify --outfile=assets/app.js --format=iife",
+    "check": "node ./scripts/check-site.mjs",
     "build": "npm run bundle && node ./scripts/build.mjs",
-    "start": "node ./scripts/serve.mjs"
+    "build:coming-soon": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/make-coming-soon-zip.ps1",
+    "start": "node --env-file-if-exists=.env ./scripts/serve.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.28.2"
   },
   "dependencies": {
+    "@bolna/web-call": "^3.0.1",
+    "embla-carousel-react": "^8.6.0",
+    "gsap": "^3.15.0",
     "lucide-react": "^1.45.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

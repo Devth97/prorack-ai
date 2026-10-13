@@ -2,6 +2,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { mintBolnaSession } from '../netlify/functions/bolna-session.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,7 +26,22 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
 };
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
+  // Mirror the Netlify Function locally so the voice agent works in preview.
+  if (req.url.split('?')[0] === '/api/bolna-session') {
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    const request = new Request(`http://${req.headers.host}${req.url}`, {
+      method: req.method,
+      headers: req.headers,
+      body: req.method === 'POST' ? Buffer.concat(chunks) : undefined,
+    });
+    const response = await mintBolnaSession(request);
+    res.writeHead(response.status, Object.fromEntries(response.headers));
+    res.end(await response.text());
+    return;
+  }
+
   let reqPath = decodeURIComponent(req.url.split('?')[0]);
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';

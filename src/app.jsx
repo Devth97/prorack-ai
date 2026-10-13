@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
+import { createPortal } from 'react-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -10,7 +11,7 @@ import {
   Terminal, Check, AlertCircle, Clock, ArrowRight, ShieldCheck,
   Server, BarChart3, Database, Workflow, Settings, FileText,
   Copy, CheckCheck, RefreshCw, Zap, Sliders, Lock,
-  Mic, MicOff, PhoneOff, Headset
+  Mic, MicOff, PhoneOff, Headset, ChevronUp, ChevronDown, AudioLines
 } from 'lucide-react';
 
 // ==========================================
@@ -24,19 +25,57 @@ const VOICE_ERRORS = {
 };
 const VOICE_STATUS = { connecting: 'Connecting…', ringing: 'Connecting to the assistant…', active: 'Live — go ahead and speak', ended: 'Call ended' };
 
+function VoiceMascot({ state, muted }) {
+  return <svg className="voice-mascot" viewBox="0 0 180 200" aria-hidden="true" focusable="false" data-state={state} data-muted={muted}>
+    <defs>
+      <linearGradient id="mascot-blue" x2=".3" y2="1"><stop stopColor="#8daeff"/><stop offset="1" stopColor="#4263df"/></linearGradient>
+      <linearGradient id="mascot-body" x2="0" y2="1"><stop stopColor="#7499ff"/><stop offset="1" stopColor="#405ad1"/></linearGradient>
+    </defs>
+    <ellipse className="mascot-shadow" cx="90" cy="187" rx="45" ry="7" fill="#24346b" opacity=".18"/>
+    <g className="mascot-float" stroke="#233468" strokeWidth="3" strokeLinejoin="round">
+      <g fill="url(#mascot-body)">
+        <path d="M66 160v18q0 8 10 8h12v-24M96 162v24h12q10 0 10-8v-18"/>
+        <rect x="58" y="119" width="66" height="49" rx="18"/>
+        <path className="mascot-arm-left" d="M58 126q-15 1-17 24l1 10q7 8 15 0l7-23"/>
+        <path className="mascot-arm-right" d="M122 126q15 1 17 24l-1 10q-7 8-15 0l-7-23"/>
+      </g>
+      <path fill="url(#mascot-blue)" d="M49 38q-2-20 23-22l12 5q19-12 37 5l6 12q23 2 28 26l-3 12q14 24-3 40l-13 5q-7 14-24 14H64q-22 0-27-16-21-3-23-25l6-12q-7-24 12-35z"/>
+      <path d="M47 43q-9 3-13 13M65 29l10-1" fill="none" stroke="#afc7ff" strokeWidth="5" strokeLinecap="round"/>
+      <rect x="43" y="58" width="96" height="61" rx="16" fill="#202e61"/>
+      <path d="M54 64h74" stroke="#394987" strokeLinecap="round"/>
+      <g className="mascot-eyes" stroke="#9af4f3" strokeWidth="6" strokeLinecap="square" fill="none">
+        <path d="m65 79 9 9-9 9"/><path d="M102 96h14"/>
+      </g>
+      <g className="mascot-wave" stroke="#9af4f3" strokeWidth="5" strokeLinecap="round">
+        <path d="M66 86v10"/><path d="M82 78v25"/><path d="M98 82v18"/><path d="M114 87v9"/>
+      </g>
+      <path d="m79 139 6 6-6 6m18-6h9" fill="none" stroke="#c4faff" strokeWidth="4"/>
+      <g className="mascot-laptop">
+        <path d="m89 166 10-39h58l-10 39z" fill="#28396f"/>
+        <path d="M79 167h70l-8 7H85z" fill="#6f8cef"/>
+        <path d="m119 138 6 6-9 7" fill="none" stroke="#9af4f3" strokeWidth="4"/>
+      </g>
+    </g>
+  </svg>;
+}
+
 function VoiceAssistant() {
   const [open, setOpen] = useState(false);
+  const [compact, setCompact] = useState(false);
   const [state, setState] = useState('idle');
   const [muted, setMuted] = useState(false);
   const [level, setLevel] = useState(0);
   const [error, setError] = useState('');
   const callRef = useRef(null);
+  const launcherRef = useRef(null);
+  const closeRef = useRef(null);
   const live = state === 'connecting' || state === 'ringing' || state === 'active';
 
   useEffect(() => () => { callRef.current?.stop(); }, []);
   useEffect(() => {
     if (!open) return;
-    const onKey = e => { if (e.key === 'Escape') setOpen(false); };
+    closeRef.current?.focus();
+    const onKey = e => { if (e.key === 'Escape') { setOpen(false); launcherRef.current?.focus(); } };
     const onClick = e => { if (!e.target.closest('.voice-assistant')) setOpen(false); };
     window.addEventListener('keydown', onKey);
     document.addEventListener('pointerdown', onClick);
@@ -45,6 +84,7 @@ function VoiceAssistant() {
 
   // start() must run directly inside the click handler so the browser allows audio.
   const startCall = () => {
+    if (live) return;
     setError('');
     setMuted(false);
     const call = new BolnaWebCall({ sessionUrl: '/api/bolna-session', userData: { page: document.title } });
@@ -58,14 +98,21 @@ function VoiceAssistant() {
   const endCall = () => { callRef.current?.stop(); };
   const toggleMute = () => { const next = !muted; callRef.current?.setMuted(next); setMuted(next); };
 
-  return <div className="voice-assistant">
-    <button className={'voice-toggle' + (live ? ' is-live' : '')} aria-expanded={open} aria-controls="voice-panel" onClick={() => setOpen(o => !o)}>
-      <Headset size={18}/><span className="voice-toggle-label">{live ? 'On call' : 'Ask our AI'}</span>
+  const closePanel = () => { setOpen(false); launcherRef.current?.focus(); };
+  return createPortal(<div className={'voice-assistant' + (compact && !open ? ' is-compact' : '')} style={{ '--level': level }}>
+    <button ref={launcherRef} className="mascot-launcher" aria-label={live ? 'Open active AI voice call' : 'Talk to ProRack AI assistant'} aria-expanded={open} aria-controls={open ? 'voice-panel' : undefined} onClick={() => setOpen(o => !o)}>
+      <VoiceMascot state={error ? 'error' : state} muted={muted}/>
+      <span className="mascot-caption">{live ? (muted ? 'Microphone muted' : 'On call with ProRack') : 'Ask ProRack AI'}</span>
     </button>
+    <div className="mascot-dock">
+      <a href="contact.html" aria-label="Send an enquiry" title="Send an enquiry"><FileText size={19}/></a>
+      <button className={live ? 'is-live' : ''} aria-label={live ? 'Open voice call controls' : 'Open AI voice conversation'} title="Voice conversation" onClick={() => setOpen(true)}><AudioLines size={23}/></button>
+      <button aria-label={compact ? 'Expand mascot' : 'Minimize mascot'} title={compact ? 'Expand mascot' : 'Minimize mascot'} aria-pressed={compact} onClick={() => { setCompact(c => !c); if (open) closePanel(); }}>{compact ? <ChevronUp size={21}/> : <ChevronDown size={21}/>}</button>
+    </div>
     {open && <div className="voice-panel" id="voice-panel" role="dialog" aria-label="ProRack AI voice assistant">
       <div className="voice-panel-head">
         <div><strong>ProRack AI assistant</strong><small>Ask about racking, mezzanines, quotes or project timelines.</small></div>
-        <button aria-label="Close assistant" onClick={() => setOpen(false)}><X size={18}/></button>
+        <button ref={closeRef} aria-label="Close assistant" onClick={closePanel}><X size={18}/></button>
       </div>
       <div className="voice-orb" data-state={state} style={{ '--level': level }} aria-hidden="true"><Mic size={26}/></div>
       <p className="voice-status" role="status">{error || VOICE_STATUS[state] || 'Talk to our AI assistant right here in your browser. You will need a microphone.'}</p>
@@ -77,7 +124,7 @@ function VoiceAssistant() {
         : <button className="voice-start" onClick={startCall}><Mic size={18}/>{state === 'ended' ? 'Start a new conversation' : 'Start conversation'}</button>}
       <p className="voice-fallback">Prefer a person? <a href="tel:+917965851000">+91 79658 51000</a> · <a href="contact.html">Send an enquiry</a></p>
     </div>}
-  </div>;
+  </div>, document.body);
 }
 
 // ==========================================

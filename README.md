@@ -31,13 +31,14 @@ See [REDESIGN.md](REDESIGN.md) for the design handoff and verification evidence.
 
 ## Animated voice shortcut
 
-The shared React header mounts a floating blue robot mascot through a portal to
+The shared React header mounts the approved orange-and-steel RackBot through a portal to
 the document body. Click the mascot or waveform to open the existing Bolna voice
 panel, then choose Start conversation. The dock also links to enquiries and lets
-visitors minimize the mascot. Idle floating/blinking, connecting laptop, and live
-waveform poses follow the call state; reduced-motion preferences disable animation.
+visitors minimize the mascot. RackBot continuously cycles between waving and
+typing on a tablet every eight seconds, with separate moving hand layers. The live
+waveform follows the call state; reduced-motion preferences disable animation.
 
-With the preview running, `node scripts/check-mascot.mjs` checks every mascot
+`node scripts/check-mascot.mjs` checks every mascot
 state/mute combination. `npm.cmd run check` checks all website routes, and
 `npm.cmd run build` rebuilds `dist/` and `dist.zip`. Voice calls require the existing
 `/api/bolna-session` backend and Bolna environment configuration; static hosting
@@ -46,8 +47,10 @@ alone serves the mascot but does not provide that backend.
 ### Mascot rollback checkpoint
 
 The Git tag `checkpoint/pre-mascot-2026-10-13` preserves the complete website before
-the mascot at commit `fe1b09d`. The mascot is kept in its own commit so it can be
-removed later with `git revert <mascot-commit>` followed by `git push origin main`.
+the mascot at commit `fe1b09d`. The tag `checkpoint/pre-rackbot-2026-10-13` preserves
+the original blue mascot at `25a0b98`. Revert the RackBot update commit to return to
+the blue mascot. To remove the mascot entirely, revert the RackBot update first,
+then revert `25a0b98`, and push the resulting commits with `git push origin main`.
 Reverting preserves later unrelated work; use the checkpoint tag to inspect the
 previous version. Do not reset or force-push the shared branch to roll back.
 

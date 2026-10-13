@@ -26,37 +26,25 @@ const VOICE_ERRORS = {
 const VOICE_STATUS = { connecting: 'Connecting…', ringing: 'Connecting to the assistant…', active: 'Live — go ahead and speak', ended: 'Call ended' };
 
 function VoiceMascot({ state, muted }) {
-  return <svg className="voice-mascot" viewBox="0 0 180 200" aria-hidden="true" focusable="false" data-state={state} data-muted={muted}>
-    <defs>
-      <linearGradient id="mascot-blue" x2=".3" y2="1"><stop stopColor="#8daeff"/><stop offset="1" stopColor="#4263df"/></linearGradient>
-      <linearGradient id="mascot-body" x2="0" y2="1"><stop stopColor="#7499ff"/><stop offset="1" stopColor="#405ad1"/></linearGradient>
-    </defs>
-    <ellipse className="mascot-shadow" cx="90" cy="187" rx="45" ry="7" fill="#24346b" opacity=".18"/>
-    <g className="mascot-float" stroke="#233468" strokeWidth="3" strokeLinejoin="round">
-      <g fill="url(#mascot-body)">
-        <path d="M66 160v18q0 8 10 8h12v-24M96 162v24h12q10 0 10-8v-18"/>
-        <rect x="58" y="119" width="66" height="49" rx="18"/>
-        <path className="mascot-arm-left" d="M58 126q-15 1-17 24l1 10q7 8 15 0l7-23"/>
-        <path className="mascot-arm-right" d="M122 126q15 1 17 24l-1 10q-7 8-15 0l-7-23"/>
+  return <span className="voice-mascot" aria-hidden="true" data-state={state} data-muted={muted}>
+    <svg className="rackbot-image" viewBox="0 0 1024 1536" focusable="false">
+      <defs>
+        <clipPath id="rackbot-wave-hand"><path d="M0 305H230L295 425 315 555 260 625 125 610 0 535Z"/></clipPath>
+        <mask id="rackbot-wave-body"><rect width="1024" height="1536" fill="white"/><path d="M0 305H230L295 425 315 555 260 625 125 610 0 535Z" fill="black"/></mask>
+        <clipPath id="rackbot-typing-hand"><path d="M383 733 471 681 574 669 649 745 584 837 455 863 390 814Z"/></clipPath>
+        <mask id="rackbot-typing-body"><rect width="1024" height="1536" fill="white"/><path d="M383 733 471 681 574 669 649 745 584 837 455 863 390 814Z" fill="black"/></mask>
+      </defs>
+      <g className="rackbot-pose rackbot-greeting">
+        <image href="assets/mascot/rackbot-greeting.png" width="1024" height="1536" mask="url(#rackbot-wave-body)"/>
+        <g className="rackbot-waving-hand"><image href="assets/mascot/rackbot-greeting.png" width="1024" height="1536" clipPath="url(#rackbot-wave-hand)"/></g>
       </g>
-      <path fill="url(#mascot-blue)" d="M49 38q-2-20 23-22l12 5q19-12 37 5l6 12q23 2 28 26l-3 12q14 24-3 40l-13 5q-7 14-24 14H64q-22 0-27-16-21-3-23-25l6-12q-7-24 12-35z"/>
-      <path d="M47 43q-9 3-13 13M65 29l10-1" fill="none" stroke="#afc7ff" strokeWidth="5" strokeLinecap="round"/>
-      <rect x="43" y="58" width="96" height="61" rx="16" fill="#202e61"/>
-      <path d="M54 64h74" stroke="#394987" strokeLinecap="round"/>
-      <g className="mascot-eyes" stroke="#9af4f3" strokeWidth="6" strokeLinecap="square" fill="none">
-        <path d="m65 79 9 9-9 9"/><path d="M102 96h14"/>
+      <g className="rackbot-pose rackbot-tablet">
+        <image href="assets/mascot/rackbot-tablet.png" width="1024" height="1536" mask="url(#rackbot-typing-body)"/>
+        <g className="rackbot-typing-hand"><image href="assets/mascot/rackbot-tablet.png" width="1024" height="1536" clipPath="url(#rackbot-typing-hand)"/></g>
       </g>
-      <g className="mascot-wave" stroke="#9af4f3" strokeWidth="5" strokeLinecap="round">
-        <path d="M66 86v10"/><path d="M82 78v25"/><path d="M98 82v18"/><path d="M114 87v9"/>
-      </g>
-      <path d="m79 139 6 6-6 6m18-6h9" fill="none" stroke="#c4faff" strokeWidth="4"/>
-      <g className="mascot-laptop">
-        <path d="m89 166 10-39h58l-10 39z" fill="#28396f"/>
-        <path d="M79 167h70l-8 7H85z" fill="#6f8cef"/>
-        <path d="m119 138 6 6-9 7" fill="none" stroke="#9af4f3" strokeWidth="4"/>
-      </g>
-    </g>
-  </svg>;
+    </svg>
+    <span className="mascot-wave"><i/><i/><i/><i/></span>
+  </span>;
 }
 
 function VoiceAssistant() {
@@ -102,7 +90,7 @@ function VoiceAssistant() {
   return createPortal(<div className={'voice-assistant' + (compact && !open ? ' is-compact' : '')} style={{ '--level': level }}>
     <button ref={launcherRef} className="mascot-launcher" aria-label={live ? 'Open active AI voice call' : 'Talk to ProRack AI assistant'} aria-expanded={open} aria-controls={open ? 'voice-panel' : undefined} onClick={() => setOpen(o => !o)}>
       <VoiceMascot state={error ? 'error' : state} muted={muted}/>
-      <span className="mascot-caption">{live ? (muted ? 'Microphone muted' : 'On call with ProRack') : 'Ask ProRack AI'}</span>
+      <span className="mascot-caption">{live ? (muted ? 'Microphone muted' : 'On call with RackBot') : 'Ask RackBot'}</span>
     </button>
     <div className="mascot-dock">
       <a href="contact.html" aria-label="Send an enquiry" title="Send an enquiry"><FileText size={19}/></a>
@@ -111,7 +99,7 @@ function VoiceAssistant() {
     </div>
     {open && <div className="voice-panel" id="voice-panel" role="dialog" aria-label="ProRack AI voice assistant">
       <div className="voice-panel-head">
-        <div><strong>ProRack AI assistant</strong><small>Ask about racking, mezzanines, quotes or project timelines.</small></div>
+        <div><strong>RackBot · ProRack AI</strong><small>Ask about racking, mezzanines, quotes or project timelines.</small></div>
         <button ref={closeRef} aria-label="Close assistant" onClick={closePanel}><X size={18}/></button>
       </div>
       <div className="voice-orb" data-state={state} style={{ '--level': level }} aria-hidden="true"><Mic size={26}/></div>

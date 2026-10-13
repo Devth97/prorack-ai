@@ -14,13 +14,18 @@ for (const state of ['idle', 'connecting', 'ringing', 'active', 'ended', 'error'
     const html = renderToStaticMarkup(React.createElement(Mascot, { state, muted }));
     assert.ok(html.includes(`data-state="${state}"`));
     assert.ok(html.includes(`data-muted="${muted}"`));
-    for (const part of ['mascot-eyes', 'mascot-wave', 'mascot-laptop']) assert.ok(html.includes(part));
+    for (const pose of ['tablet', 'greeting']) assert.ok(html.includes(`assets/mascot/rackbot-${pose}.png`));
+    for (const motion of ['rackbot-waving-hand', 'rackbot-typing-hand']) assert.ok(html.includes(motion));
+    assert.ok(html.includes('mascot-wave'));
     assert.ok(html.includes('aria-hidden="true"'));
   }
 }
 const css = await fs.readFile('assets/editorial.css', 'utf8');
+for (const pose of ['greeting', 'tablet']) await fs.access(`assets/mascot/rackbot-${pose}.png`);
 assert.ok(css.includes('prefers-reduced-motion:reduce'));
 assert.ok(css.includes('.voice-assistant * {animation:none!important;transition:none!important;}'));
-const response = await fetch('http://localhost:4600/');
-assert.equal(response.status, 200);
-console.log('PASS: 12 mascot state/mute combinations, decorative accessibility, reduced-motion override, preview HTTP 200.');
+for (const animation of ['rackbot-greeting-loop', 'rackbot-tablet-loop', 'rackbot-wave-hand', 'rackbot-type']) {
+  assert.ok(css.includes(`@keyframes ${animation}`));
+  assert.match(css, new RegExp(`animation:${animation}[^;]+infinite`));
+}
+console.log('PASS: 12 RackBot state/mute combinations, both poses present throughout, continuous pose/hand loops, assets and reduced motion.');

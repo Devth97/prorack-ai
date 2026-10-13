@@ -1253,27 +1253,26 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 /* Voice AI assistant (Bolna web call) */
 .voice-assistant {position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:80;width:164px;font-family:var(--font-sans);}
 .mascot-launcher {display:flex;align-items:center;flex-direction:column;width:100%;border:0;padding:0 0 10px;background:transparent;color:var(--foreground);cursor:pointer;}
-.voice-mascot {width:132px;height:147px;overflow:visible;filter:drop-shadow(0 4px 4px rgba(26,37,72,.12));transition:width .2s,height .2s;}
+.voice-mascot {position:relative;display:block;width:132px;height:168px;filter:drop-shadow(0 4px 4px rgba(26,37,72,.12));transition:width .2s,height .2s;animation:mascot-float 3.5s ease-in-out infinite;}
+.rackbot-image {display:block;width:100%;height:100%;object-fit:contain;}
+.rackbot-greeting {animation:rackbot-greeting-loop 8s linear infinite;}
+.rackbot-tablet {opacity:0;animation:rackbot-tablet-loop 8s linear infinite;}
+.rackbot-waving-hand {transform-origin:240px 580px;animation:rackbot-wave-hand .7s ease-in-out infinite alternate;}
+.rackbot-typing-hand {transform-origin:430px 820px;animation:rackbot-type .32s ease-in-out infinite alternate;}
 .mascot-caption {padding:7px 11px;border-radius:20px;background:var(--card);border:1px solid var(--border);font-size:11px;font-weight:600;box-shadow:0 3px 12px #00000008;}
-.mascot-float {animation:mascot-float 3.5s ease-in-out infinite;}
-.mascot-eyes {transform-origin:90px 89px;animation:mascot-blink 5.5s infinite;}
-.mascot-arm-right {transform-origin:123px 130px;animation:mascot-wave-arm 7s ease-in-out infinite;}
-.mascot-laptop,.mascot-wave {display:none;}
-.voice-mascot[data-state="connecting"] .mascot-laptop,.voice-mascot[data-state="ringing"] .mascot-laptop {display:block;}
-.voice-mascot[data-state="connecting"] .mascot-eyes,.voice-mascot[data-state="ringing"] .mascot-eyes {transform:scaleY(.3);animation:none;}
-.voice-mascot[data-state="active"][data-muted="false"] .mascot-eyes {display:none;}
-.voice-mascot[data-state="active"][data-muted="false"] .mascot-wave {display:block;}
-.mascot-wave path {transform-box:fill-box;transform-origin:center;animation:mascot-audio .65s ease-in-out infinite alternate;}
-.mascot-wave path:nth-child(2) {animation-delay:-.3s;}
-.mascot-wave path:nth-child(3) {animation-delay:-.15s;}
-.voice-mascot[data-state="active"] {filter:drop-shadow(0 0 calc(5px + var(--level) * 15px) #688dff80);}
+.mascot-wave {position:absolute;right:0;top:28%;display:none;align-items:center;gap:3px;padding:7px;border:1px solid #9af4f366;border-radius:12px;background:#202e61;}
+.voice-mascot[data-state="active"][data-muted="false"] .mascot-wave {display:flex;}
+.mascot-wave i {width:3px;height:15px;background:#9af4f3;border-radius:3px;animation:mascot-audio .65s ease-in-out infinite alternate;}
+.mascot-wave i:nth-child(2) {height:23px;animation-delay:-.3s;}
+.mascot-wave i:nth-child(3) {height:18px;animation-delay:-.15s;}
+.voice-mascot[data-state="active"] {filter:drop-shadow(0 0 calc(5px + var(--level) * 15px) #eb842880);}
 .mascot-dock {display:flex;align-items:center;padding:5px 9px;background:#191d24;border:1px solid #353b48;border-radius:32px;box-shadow:0 8px 24px #00000020;}
 .mascot-dock button,.mascot-dock a {display:flex;align-items:center;justify-content:center;width:48px;height:40px;border:0;background:transparent;color:#fff;cursor:pointer;}
 .mascot-dock > * + * {border-left:1px solid #ffffff24;}
 .mascot-dock button:hover,.mascot-dock a:hover {color:#9af4f3;}
 .mascot-dock .is-live {color:#9af4f3;}
 .mascot-launcher:focus-visible,.mascot-dock :focus-visible,.voice-panel button:focus-visible {outline:2px solid #4263df;outline-offset:4px;border-radius:12px;}
-.is-compact .voice-mascot {width:62px;height:69px;}
+.is-compact .voice-mascot {width:62px;height:79px;}
 .is-compact .mascot-caption {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);}
 .voice-panel {position:absolute;bottom:calc(100% + 14px);right:0;z-index:60;width:min(340px,calc(100vw - 32px));max-height:calc(100dvh - 260px);overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:0 18px 40px -12px rgba(34,39,33,.28);padding:20px;color:var(--foreground);text-align:left;}
 .voice-panel-head {display:flex;justify-content:space-between;gap:12px;align-items:flex-start;}
@@ -1295,18 +1294,20 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 .voice-fallback a {color:var(--foreground);text-decoration:underline;}
 @keyframes voice-pulse {50% {box-shadow:0 0 0 14px rgba(181,58,27,.12);}}
 @keyframes mascot-float {50% {transform:translateY(-5px);}}
-@keyframes mascot-blink {0%,43%,49%,100% {transform:scaleY(1);}46% {transform:scaleY(.08);}}
-@keyframes mascot-wave-arm {0%,70%,100% {transform:rotate(0);}76%,86% {transform:rotate(-20deg);}81%,91% {transform:rotate(-7deg);}}
 @keyframes mascot-audio {from {transform:scaleY(.4);}to {transform:scaleY(1.15);}}
+@keyframes rackbot-greeting-loop {0%,40%,100% {opacity:1;}46%,94% {opacity:0;}}
+@keyframes rackbot-tablet-loop {0%,40%,100% {opacity:0;}46%,94% {opacity:1;}}
+@keyframes rackbot-wave-hand {from {transform:rotate(-6deg);}to {transform:rotate(9deg);}}
+@keyframes rackbot-type {from {transform:translate(0,0) rotate(-1deg);}to {transform:translate(4px,7px) rotate(2deg);}}
 @media(prefers-reduced-motion:reduce){.voice-assistant * {animation:none!important;transition:none!important;}}
 @media(max-width:760px){
   .voice-assistant {right:max(16px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));width:144px;}
-  .voice-mascot {width:104px;height:116px;}
+  .voice-mascot {width:104px;height:132px;}
   .mascot-dock {padding:3px 5px;}
   .mascot-dock button,.mascot-dock a {width:44px;height:44px;}
   .voice-panel {max-height:calc(100dvh - 225px);}
 }
-@media(max-height:600px){.voice-assistant .voice-mascot {width:62px;height:69px;}.voice-assistant .mascot-caption {display:none;}.voice-panel {max-height:calc(100dvh - 155px);}}
+@media(max-height:600px){.voice-assistant .voice-mascot {width:62px;height:79px;}.voice-assistant .mascot-caption {display:none;}.voice-panel {max-height:calc(100dvh - 165px);}}
 
 /* Client feedback: clear hierarchy, distinct systems and a guided delivery sequence. */
 .editorial-site .cover-hero .hero-title-row {justify-content:center;gap:28px;}

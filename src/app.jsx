@@ -1187,11 +1187,6 @@ function RequirementsGuide() {
 
 // Scroll enhancements never conceal content or replace native scrolling.
 function SiteEffects() {
-  const [paused,setPaused]=useState(false);
-  useEffect(()=>{
-    document.body.classList.toggle('motion-paused',paused);
-    return ()=>document.body.classList.remove('motion-paused');
-  },[paused]);
   const progress = useRef(null);
   const topLink = useRef(null);
   useEffect(() => {
@@ -1207,7 +1202,7 @@ function SiteEffects() {
     const requestUpdate = () => {if(!frame) frame=requestAnimationFrame(update);};
     const motion=gsap.matchMedia();
     motion.add({desktop:'(min-width: 761px)',mobile:'(max-width: 760px)',reduced:'(prefers-reduced-motion: reduce)'},context=>{
-      if(context.conditions.reduced || paused) return;
+      if(context.conditions.reduced) return;
       const distance=context.conditions.desktop?24:12;
       gsap.fromTo('.cover-hero .headline-line',{y:distance},{y:0,duration:.85,stagger:.1,ease:'power3.out',clearProps:'transform'});
       document.querySelectorAll('.editorial-section-heading h2, .story-heading h2, .heritage-section h2, .project-invitation h2, .page-hero h1, .ecosystem-layout h2').forEach(target=>{
@@ -1239,8 +1234,8 @@ function SiteEffects() {
     preference.addEventListener('change',requestUpdate);
     update();
     return ()=>{motion.revert();steps.disconnect();visibility.disconnect();surfaces.forEach(surface=>{surface.querySelector('.editorial-texture')?.remove();surface.classList.remove('motion-surface','motion-in-view');});document.removeEventListener('visibilitychange',onVisibility);document.body.classList.remove('motion-tab-hidden');cancelAnimationFrame(frame);window.removeEventListener('scroll',requestUpdate);window.removeEventListener('resize',requestUpdate);preference.removeEventListener('change',requestUpdate);};
-  },[paused]);
-  return <><button className="motion-toggle" aria-pressed={paused} onClick={()=>setPaused(!paused)}>{paused?'Resume motion':'Pause motion'}</button><div className="reading-progress" aria-hidden="true"><span ref={progress}/></div><a ref={topLink} hidden className="back-to-top" href="#main-content" aria-label="Back to top" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});document.getElementById('main-content')?.focus({preventScroll:true});}}><ArrowUp size={20} aria-hidden="true"/><span>Back to top</span></a></>;
+  },[]);
+  return <><div className="reading-progress" aria-hidden="true"><span ref={progress}/></div><a ref={topLink} hidden className="back-to-top" href="#main-content" aria-label="Back to top" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});document.getElementById('main-content')?.focus({preventScroll:true});}}><ArrowUp size={20} aria-hidden="true"/><span>Back to top</span></a></>;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

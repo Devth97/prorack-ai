@@ -37,12 +37,17 @@ panel, then choose Start conversation. The dock also links to enquiries and lets
 visitors minimize the mascot. RackBot continuously cycles between waving and
 typing on a tablet every eight seconds, with separate moving hand layers. The live
 waveform follows the call state; reduced-motion preferences disable animation.
+Touch interaction does not outline the character; keyboard focus is shown on the
+Ask RackBot caption. There is no manual motion toggle.
 
 `node scripts/check-mascot.mjs` checks every mascot
 state/mute combination. `npm.cmd run check` checks all website routes, and
 `npm.cmd run build` rebuilds `dist/` and `dist.zip`. Voice calls require the existing
 `/api/bolna-session` backend and Bolna environment configuration; static hosting
 alone serves the mascot but does not provide that backend.
+Production builds version script and stylesheet URLs by content hash, and assets
+revalidate with the server. Run `node scripts/check-build-cache.mjs` after building
+to verify cache configuration and generated asset references.
 
 ### Mascot rollback checkpoint
 

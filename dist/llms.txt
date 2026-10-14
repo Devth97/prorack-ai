@@ -13,7 +13,9 @@
 - **Phone**: +91 79658 51000
 - **Email**: sales@prorack.ai
 - **Managing Director**: Roshan Sudhir (20+ years in warehouse storage and structural engineering)
-- **Heritage**: built on the Silver Lining Storage Solutions legacy
+- **Heritage**: built on Silver Lining Storage Solutions, the warehouse storage business of Mangal Industries, part of the Amara Raja Group
+- **Director**: Girish Annath, leading the HR function
+- **VP, Sales & Marketing**: Kshitij Salve
 - **Design codes**: EN 15512 and IS 800 structural compliance
 - **Engineering stack**: Tekla Structures (3D BIM), RSTAB structural analysis, Tekla PowerFab
 - **Service area**: India nationwide, with global supply-chain projects

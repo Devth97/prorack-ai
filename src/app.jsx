@@ -23,7 +23,7 @@ const VOICE_ERRORS = {
   autoplay_blocked: 'Your browser blocked audio playback. Please click "Start conversation" again.',
   connect_failed: 'We could not connect the call. Check your connection and try again.',
 };
-const VOICE_STATUS = { connecting: 'Connecting…', ringing: 'Connecting to the assistant…', active: 'Live — go ahead and speak', ended: 'Call ended' };
+const VOICE_STATUS = { connecting: 'Connecting…', ringing: 'Connecting to the assistant…', active: 'Live, go ahead and speak', ended: 'Call ended' };
 
 function VoiceMascot({ state, muted }) {
   return <span className="voice-mascot" aria-hidden="true" data-state={state} data-muted={muted}>
@@ -36,10 +36,12 @@ function VoiceMascot({ state, muted }) {
       </defs>
       <g className="rackbot-pose rackbot-greeting">
         <image href="assets/mascot/rackbot-greeting.png" width="1024" height="1536" mask="url(#rackbot-wave-body)"/>
+        <path className="rackbot-smile" d="M510 398 Q580 469 657 427" fill="none" stroke="#92f8ff" strokeWidth="20" strokeLinecap="round"/>
         <g className="rackbot-waving-hand"><image href="assets/mascot/rackbot-greeting.png" width="1024" height="1536" clipPath="url(#rackbot-wave-hand)"/></g>
       </g>
       <g className="rackbot-pose rackbot-tablet">
         <image href="assets/mascot/rackbot-tablet.png" width="1024" height="1536" mask="url(#rackbot-typing-body)"/>
+        <path className="rackbot-smile" d="M470 437 Q540 502 615 466" fill="none" stroke="#92f8ff" strokeWidth="20" strokeLinecap="round"/>
         <g className="rackbot-typing-hand"><image href="assets/mascot/rackbot-tablet.png" width="1024" height="1536" clipPath="url(#rackbot-typing-hand)"/></g>
       </g>
     </svg>

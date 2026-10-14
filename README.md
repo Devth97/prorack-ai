@@ -31,6 +31,14 @@ See [REDESIGN.md](REDESIGN.md) for the design handoff and verification evidence.
 
 ## Animated voice shortcut
 
+RackBot now has a cyan smile in both SVG poses. The homepage uses the approved
+line: "Designed & manufactured in Hyderabad, India and installed Pan India."
+Website copy was checked with SlopMonster and reviewed in a second pass by Claude.
+The upstream checker and MIT license are in `scripts/slopmonster/`:
+`python scripts/slopmonster/deslop.py index.html`. Technical hyphens and ordinary
+service lists are retained when flagged. `npm run check` also rejects em dashes
+in the HTML pages. Source: https://github.com/ItsssssJack/SlopMonster
+
 The shared React header mounts the approved orange-and-steel RackBot through a portal to
 the document body. Click the mascot or waveform to open the existing Bolna voice
 panel, then choose Start conversation. The dock also links to enquiries and lets

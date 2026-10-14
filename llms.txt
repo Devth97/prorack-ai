@@ -22,28 +22,28 @@
 
 ProRack manufactures eight core storage system families:
 
-1. **Selective pallet racking** — single-deep, 100% pallet selectivity, bay loads up to 20,000 kg. Best for high-SKU FMCG, retail distribution and cold stores.
-2. **Wide-aisle multi-bay racking** — high-volume pallet storage adaptable to most loads and building heights.
-3. **Narrow-aisle (VNA) multi-bay racking** — up to ~45% higher floor utilisation; high throughput on a small footprint.
-4. **Drive-in / drive-through racking** — compact block storage for large quantities of homogeneous pallets.
-5. **Multi-tier shelving** — multi-level picking with walkways, stairs and gates to exploit building height.
-6. **Cantilever racking** — open-fronted storage for pipes, profiles, timber and other long goods.
-7. **Pallet and carton flow racking** — gravity-fed lanes separating loading from picking, maintaining FIFO rotation.
-8. **Mezzanine floors** — rack-supported and free-standing platforms adding floor area inside the existing envelope.
+1. **Selective pallet racking**: single-deep, 100% pallet selectivity, bay loads up to 20,000 kg. Best for high-SKU FMCG, retail distribution and cold stores.
+2. **Wide-aisle multi-bay racking**: high-volume pallet storage adaptable to most loads and building heights.
+3. **Narrow-aisle (VNA) multi-bay racking**: up to ~45% higher floor utilisation; high throughput on a small footprint.
+4. **Drive-in / drive-through racking**: compact block storage for large quantities of homogeneous pallets.
+5. **Multi-tier shelving**: multi-level picking with walkways, stairs and gates to exploit building height.
+6. **Cantilever racking**: open-fronted storage for pipes, profiles, timber and other long goods.
+7. **Pallet and carton flow racking**: gravity-fed lanes separating loading from picking, maintaining FIFO rotation.
+8. **Mezzanine floors**: rack-supported and free-standing platforms adding floor area inside the existing envelope.
 
 ## Three delivery verticals
 
-- **ProRack Storage Solutions** — design, manufacture and execution of racking, mezzanines and rack-clad structures.
-- **SmartFit Solutions** — material-agnostic professional installation for storage and warehouse infrastructure.
-- **Promech Integration Services** — fire and life safety, HVAC, material handling, electrical, lighting, security and monitoring.
+- **ProRack Storage Solutions**: design, manufacture and execution of racking, mezzanines and rack-clad structures.
+- **SmartFit Solutions**: material-agnostic professional installation for storage and warehouse infrastructure.
+- **Promech Integration Services**: fire and life safety, HVAC, material handling, electrical, lighting, security and monitoring.
 
 ## Project delivery process
 
-1. **Discover** — storage profile, throughput, material flow and growth plan.
-2. **Engineer** — layouts and structural design in Tekla and RSTAB.
-3. **Manufacture** — controlled production with traceable materials and quality gates.
-4. **Install** — site execution to code and tolerance, built into handover.
-5. **Improve** — project transparency and operational insight for long-term performance.
+1. **Discover**: storage profile, throughput, material flow and growth plan.
+2. **Engineer**: layouts and structural design in Tekla and RSTAB.
+3. **Manufacture**: controlled production with traceable materials and quality gates.
+4. **Install**: site execution to code and tolerance, built into handover.
+5. **Improve**: project transparency and operational insight for long-term performance.
 
 ## Pages
 

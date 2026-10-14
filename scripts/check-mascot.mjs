@@ -17,6 +17,7 @@ for (const state of ['idle', 'connecting', 'ringing', 'active', 'ended', 'error'
     for (const pose of ['tablet', 'greeting']) assert.ok(html.includes(`assets/mascot/rackbot-${pose}.png`));
     for (const motion of ['rackbot-waving-hand', 'rackbot-typing-hand']) assert.ok(html.includes(motion));
     assert.ok(html.includes('mascot-wave'));
+    assert.equal((html.match(/class="rackbot-smile"/g) || []).length, 2, 'Smile in both RackBot poses');
     assert.ok(html.includes('aria-hidden="true"'));
   }
 }

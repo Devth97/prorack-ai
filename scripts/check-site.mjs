@@ -19,6 +19,7 @@ async function checkLink(from,href){
   }
 }
 for(const [name,html] of documents){
+  assert.ok(!/\u2014|&mdash;|&#(?:8212|x2014);/i.test(html), `${name}: no em dashes in website copy`);
   assert.equal((html.match(/<h1\b/g)||[]).length,1,`${name}: exactly one h1`);
   assert.ok(html.includes('id="main-content"'),`${name}: skip destination`);
   assert.ok(html.includes('assets/editorial.css'),`${name}: shared identity`);

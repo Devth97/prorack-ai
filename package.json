@@ -5,7 +5,7 @@
   "description": "ProRack AI warehouse engineering website",
   "scripts": {
     "bundle": "esbuild src/app.jsx --bundle --minify --outfile=assets/app.js --format=iife",
-    "check": "node ./scripts/check-site.mjs",
+    "check": "node ./scripts/check-site.mjs && node ./scripts/check-seo.mjs",
     "build": "npm run bundle && node ./scripts/build.mjs",
     "build:coming-soon": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/make-coming-soon-zip.ps1",
     "start": "node --env-file-if-exists=.env ./scripts/serve.mjs"

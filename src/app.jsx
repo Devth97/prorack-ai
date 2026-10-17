@@ -124,18 +124,24 @@ function GlobalHeader({ activePage }) {
   const [searchTerm, setSearchTerm] = useState('');
   const searchDialog = useRef(null);
   const menuDialog = useRef(null);
+  const megaRef = useRef(null);
   const navLinks = [
     ['Home','index'],['Solutions','solutions'],['Engineering','engineering'],['Execution','execution'],
     ['Digital intelligence','platform'],['Company','company']
   ];
   const digitalLinks = [['Platform','platform'],['Operations','operations'],['Machines','machines'],['AI copilot','copilot'],['Architecture','architecture'],['Roadmap','roadmap']];
-  const digital = digitalLinks.some(([,id])=>id===activePage);
+  const solutionGroups = [
+    {title:'Pallet storage',items:[['Selective pallet racking','selective'],['Wide-aisle racking','wide-aisle'],['Very narrow-aisle racking','narrow-aisle'],['Drive-in / drive-through','drive-in']]},
+    {title:'Shelving and structures',items:[['Multi-tier shelving','multi-tier'],['Cantilever racking','cantilever'],['Pallet and carton flow','flow-racking'],['Mezzanine floors','mezzanine']]},
+    {title:'Engineered and automated',items:[['Rack-clad buildings','rack-clad'],['ASRS and shuttle systems','automation']]}
+  ];
+  const digital = activePage === 'platform';
   const searchItems = [
     { title: 'Warehouse Storage Catalog (8 Systems)', category: 'Solutions', href: 'solutions.html' },
-    { title: 'Selective Pallet Racking Specs', category: 'Solutions', href: 'solutions.html#selective' },
-    { title: 'Drive-In & High-Density Racking', category: 'Solutions', href: 'solutions.html#drive-in' },
-    { title: 'Heavy-Duty Cantilever Racking', category: 'Solutions', href: 'solutions.html#cantilever' },
-    { title: 'Multi-Tier Shelving & Mezzanines', category: 'Solutions', href: 'solutions.html#mezzanine' },
+    { title: 'Selective Pallet Racking Specs', category: 'Solutions', href: 'product-selective.html' },
+    { title: 'Drive-In & High-Density Racking', category: 'Solutions', href: 'product-drive-in.html' },
+    { title: 'Heavy-Duty Cantilever Racking', category: 'Solutions', href: 'product-cantilever.html' },
+    { title: 'Multi-Tier Shelving & Mezzanines', category: 'Solutions', href: 'product-multi-tier.html' },
     { title: '5-Stage Engineering Lifecycle', category: 'Engineering', href: 'engineering.html' },
     { title: 'Tekla BIM 3D & RSTAB Structural Analysis', category: 'Engineering', href: 'engineering.html#stages' },
     { title: 'Change Order Management & Cost Control', category: 'Engineering', href: 'engineering.html#change-orders' },
@@ -146,18 +152,18 @@ function GlobalHeader({ activePage }) {
     { title: 'Silver Lining Storage Solutions Heritage', category: 'Company', href: 'company.html#heritage' },
     { title: 'MD Roshan Sudhir (20+ Years Leadership)', category: 'Company', href: 'company.html#leadership' },
     { title: 'Request Engineering RFQ / Contact', category: 'Contact', href: 'contact.html' },
-    { title: 'Project Health Dashboard', category: 'Operations', href: 'operations.html' },
+    { title: 'Project Health Dashboard', category: 'Operations', href: 'platform.html#operations' },
     { title: 'Tekla 3D Model Coherence', category: 'Platform', href: 'platform.html' },
     { title: 'ERPNext Commercial Integration', category: 'Platform', href: 'platform.html' },
     { title: 'PowerFab Nesting & Cut Lists', category: 'Platform', href: 'platform.html' },
-    { title: 'Cold Roll-Forming Telemetry (Modbus TCP)', category: 'Machines', href: 'machines.html' },
-    { title: 'Bearing Acoustic Vibration Sensors', category: 'Machines', href: 'machines.html' },
-    { title: 'AI Assistant & Executive Queries', category: 'AI Copilot', href: 'copilot.html' },
-    { title: 'Shift Project Delivery Brief', category: 'AI Copilot', href: 'copilot.html#brief' },
-    { title: 'Source-Level RBAC & Audit Trails', category: 'Architecture', href: 'architecture.html' },
-    { title: 'Air-Gapped OT Network Security', category: 'Architecture', href: 'architecture.html' },
-    { title: 'AI Dynamic Scheduling Roadmap', category: 'Roadmap', href: 'roadmap.html' },
-    { title: 'Computer Vision QC Inspection', category: 'Roadmap', href: 'roadmap.html' },
+    { title: 'Cold Roll-Forming Telemetry (Modbus TCP)', category: 'Machines', href: 'platform.html#machines' },
+    { title: 'Bearing Acoustic Vibration Sensors', category: 'Machines', href: 'platform.html#machines' },
+    { title: 'AI Assistant & Executive Queries', category: 'AI Copilot', href: 'platform.html#copilot' },
+    { title: 'Shift Project Delivery Brief', category: 'AI Copilot', href: 'platform.html#copilot' },
+    { title: 'Source-Level RBAC & Audit Trails', category: 'Architecture', href: 'platform.html#architecture' },
+    { title: 'Air-Gapped OT Network Security', category: 'Architecture', href: 'platform.html#architecture' },
+    { title: 'AI Dynamic Scheduling Roadmap', category: 'Roadmap', href: 'platform.html#roadmap' },
+    { title: 'Computer Vision QC Inspection', category: 'Roadmap', href: 'platform.html#roadmap' },
   ];
 
 
@@ -173,13 +179,42 @@ function GlobalHeader({ activePage }) {
     window.addEventListener('keydown',shortcut);
     return ()=>window.removeEventListener('keydown',shortcut);
   },[]);
-  const brand = <><img src="assets/Prorack%20AI%20logo%20WITHOUT%20TAGLINE.jpg" alt="ProRack" width="54" height="54"/><span className="nav-brand-text"><span className="brand-title">PRORACK</span><span className="brand-sub">STORAGE SOLUTIONS</span></span></>;
+  const brand = <img src="assets/prorack-hero-logo.webp" alt="ProRack Storage Solutions" width="190" height="95" className="nav-wordmark"/>;
+  useEffect(() => {
+    const onPointer = e => {if(megaRef.current?.open && !megaRef.current.contains(e.target)) megaRef.current.open=false;};
+    const onEscape = e => {if(e.key==='Escape' && megaRef.current?.open){megaRef.current.open=false;megaRef.current.querySelector('summary')?.focus();}};
+    document.addEventListener('pointerdown',onPointer);
+    document.addEventListener('keydown',onEscape);
+    return () => {document.removeEventListener('pointerdown',onPointer);document.removeEventListener('keydown',onEscape);};
+  },[]);
   const closeBackdrop = e => {if(e.target===e.currentTarget) e.currentTarget.close();};
   return <>
     <div className="shell nav-inner">
       <a href="index.html" className="nav-brand" aria-label="ProRack Storage Solutions home">{brand}</a>
       <nav className="nav-links" aria-label="Main navigation">
-        {navLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined}>{name}</a>)}
+        {navLinks.map(([name,id])=>id==='solutions'
+          ? <details className="nav-mega" key="solutions" ref={megaRef}>
+              <summary aria-label="Explore storage solutions and products" aria-current={activePage==='solutions'?'page':undefined}>Solutions <ChevronDown size={15} aria-hidden="true"/></summary>
+              <div className="nav-mega-panel">
+                <div className="nav-mega-intro">
+                  <span className="nav-mega-eyebrow">ENGINEERED STORAGE</span>
+                  <strong>Find the right system for your operation.</strong>
+                  <p>Explore each system with photographs, applications, design considerations and FAQs.</p>
+                  <a href="solutions.html">View all solutions <ArrowRight size={16} aria-hidden="true"/></a>
+                </div>
+                {solutionGroups.map(group=><div className="nav-mega-group" key={group.title}>
+                  <strong>{group.title}</strong>
+                  {group.items.map(([label,slug])=><a key={slug} href={'product-'+slug+'.html'}>{label}<ArrowRight size={14} aria-hidden="true"/></a>)}
+                  {group.title==='Engineered and automated' && <details className="nav-subproducts">
+                    <summary>ASRS configurations <ChevronDown size={13}/></summary>
+                    <a href="product-automation.html#pallet-shuttle">Pallet shuttle</a>
+                    <a href="product-automation.html#stacker-crane">Stacker crane ASRS</a>
+                    <a href="product-automation.html#mini-load">Mini-load ASRS</a>
+                  </details>}
+                </div>)}
+              </div>
+            </details>
+          : <a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined}>{name}</a>)}
       </nav>
       <div className="nav-actions">
         <button className="search-toggle" aria-label="Search the website" onClick={()=>searchDialog.current.showModal()}><Search size={19}/></button>
@@ -188,11 +223,13 @@ function GlobalHeader({ activePage }) {
         <button className="menu-toggle" aria-label="Open navigation menu" onClick={()=>menuDialog.current.showModal()}><Menu size={22}/></button>
       </div>
     </div>
-    {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={id===activePage?'page':undefined}>{name}</a>)}</nav>}
+    {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={'platform.html#'+id} aria-current={id==='platform'?'page':undefined}>{name}</a>)}</nav>}
     <dialog className="site-dialog menu-dialog" ref={menuDialog} onClick={closeBackdrop} aria-label="Navigation menu">
       <div className="dialog-heading"><span>Explore ProRack</span><button aria-label="Close navigation menu" onClick={()=>menuDialog.current.close()}><X size={24}/></button></div>
-      <nav aria-label="Mobile navigation">{[...navLinks,['Contact','contact']].map(([name,id],i)=><a key={id} href={id+'.html'} aria-current={activePage===id?'page':undefined}><small>0{i+1}</small>{name}<ArrowRight size={20}/></a>)}</nav>
-      <div className="menu-digital">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'}>{name}</a>)}</div>
+      <nav aria-label="Mobile navigation">{[...navLinks,['Contact','contact']].map(([name,id],i)=>id==='solutions'
+        ? <details key="solutions" className="mobile-solutions"><summary><small>0{i+1}</small>Solutions <ChevronDown size={20}/></summary><div><a href="solutions.html">All solutions and products <ArrowRight size={16}/></a>{solutionGroups.map(g=><div key={g.title} className="mobile-solution-group"><strong>{g.title}</strong>{g.items.map(([label,slug])=><a key={slug} href={'product-'+slug+'.html'}>{label}</a>)}</div>)}</div></details>
+        : <a key={id} href={id+'.html'} aria-current={activePage===id?'page':undefined}><small>0{i+1}</small>{name}<ArrowRight size={20}/></a>)}</nav>
+      <div className="menu-digital">{digitalLinks.map(([name,id])=><a key={id} href={'platform.html#'+id}>{name}</a>)}</div>
       <a className="menu-email" href="mailto:sales@prorack.ai">sales@prorack.ai</a>
     </dialog>
     <dialog className="site-dialog search-dialog" ref={searchDialog} onClick={closeBackdrop} aria-labelledby="search-title">
@@ -1255,7 +1292,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Detect active page from URL
   const pathname = window.location.pathname;
   let activePage = 'index';
-  if (pathname.includes('solutions')) activePage = 'solutions';
+  if (pathname.includes('solutions') || pathname.includes('product-')) activePage = 'solutions';
   else if (pathname.includes('engineering')) activePage = 'engineering';
   else if (pathname.includes('execution')) activePage = 'execution';
   else if (pathname.includes('company')) activePage = 'company';

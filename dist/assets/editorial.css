@@ -1,4 +1,4 @@
-/* ProRack Global — architectural industrial identity. Shared across existing routes. */
+/* ProRack AI — architectural industrial identity. Shared across existing routes. */
 :root {
   --background:#f4f3ed; --foreground:#222721; --card:#fff; --card-foreground:#222721;
   --primary:#b53a1b; --primary-hover:#aa3519; --primary-subtle:#fff0e6; --primary-border:#e9bb9d;
@@ -1362,3 +1362,36 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 
 /* Keep photographs clear of caption bars and text overlays. */
 .editorial-site :is(.installation-concept-label,.img-overlay-label,.approach-image-label,.hero-photograph figcaption,.approach-detail figcaption,.group-detail figcaption,.storage-feature figcaption,.delivery-stage-detail figcaption) {display:none!important;}
+
+/* Larger header navigation */
+.editorial-site .nav-links a {font-size:15px;}
+@media(max-width:1200px){.editorial-site .nav-links {gap:14px;} .editorial-site .nav-links a {font-size:14px;}}
+
+/* Company: larger leadership labels and team designations */
+.team-section .editorial-section-heading .eyebrow,.leadership-profiles .editorial-section-heading .eyebrow {font-size:14px;letter-spacing:.06em;color:var(--foreground);}
+.team-portrait figcaption strong {font-size:20px;}
+.team-portrait figcaption span {font-size:15px;line-height:1.5;}
+.leadership-profiles .team-copy .team-role {font-size:18px;line-height:1.4;letter-spacing:.01em;}
+@media(max-width:760px){
+  .team-section .editorial-section-heading .eyebrow,.leadership-profiles .editorial-section-heading .eyebrow {font-size:12px;}
+  .team-portrait figcaption span {font-size:14px;}
+  .leadership-profiles .team-copy .team-role {font-size:16px;}
+}
+
+/* Header hover previews (mega menu) */
+.mega-menu {position:absolute;top:100%;left:0;right:0;z-index:55;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 24px 40px -24px rgba(34,39,33,.3);animation:mega-in .16s ease-out;}
+.mega-inner {display:grid;grid-template-columns:1fr minmax(260px,340px);gap:48px;padding-block:34px 38px;}
+.mega-groups {display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px 40px;align-content:start;}
+.mega-group p {margin:0 0 14px;font-size:14px;font-weight:600;color:var(--brand-navy,var(--foreground));}
+.mega-group ul {list-style:none;margin:0;padding:0;display:grid;gap:11px;}
+.mega-group a {font-size:14px;color:var(--muted-foreground);text-decoration:none;}
+.mega-group a:hover,.mega-group a:focus-visible {color:var(--primary);text-decoration:underline;}
+.mega-preview {display:flex;flex-direction:column;gap:8px;padding:16px;background:var(--secondary);color:var(--foreground);text-decoration:none;}
+.mega-preview img {width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin-bottom:6px;}
+.mega-preview strong {font-size:15px;}
+.mega-preview span {font-size:13px;line-height:1.5;color:var(--muted-foreground);}
+.mega-preview em {display:inline-flex;align-items:center;gap:6px;margin-top:4px;font:600 11px/1 var(--font-sans);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);}
+.mega-preview:hover em {text-decoration:underline;}
+@keyframes mega-in {from {opacity:0;transform:translateY(-6px);}}
+@media(prefers-reduced-motion:reduce){.mega-menu {animation:none;}}
+@media(max-width:1040px){.mega-menu {display:none;}}

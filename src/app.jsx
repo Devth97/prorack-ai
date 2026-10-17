@@ -117,11 +117,48 @@ function VoiceAssistant() {
   </div>, document.body);
 }
 
+// Hover previews for the main navigation: section shortcuts plus a page preview.
+const MEGA_MENUS = {
+  index: { title: 'Warehouse performance solutions', blurb: 'Racking, mezzanines and storage systems designed, manufactured and installed end to end.', image: 'assets/warehouse-editorial-hero.webp', groups: [
+    { heading: 'On this page', links: [['Our approach','index.html#approach'],['Product portfolio','index.html#solutions'],['Find your fit','index.html#requirements'],['Industries we serve','index.html#industries']] },
+    { heading: 'Next steps', links: [['Technology & ecosystem','index.html#ecosystem'],['Warehouse questions','index.html#warehouse-questions'],['Discuss a project','contact.html']] },
+  ]},
+  solutions: { title: 'Storage systems portfolio', blurb: 'Eight engineered storage families, from selective pallet racking to mezzanine floors.', image: 'assets/editorial-photography/solutions-warehouse-overview.webp', groups: [
+    { heading: 'Pallet racking', links: [['Selective pallet racking','solutions.html#selective'],['Wide-aisle multi-bay','solutions.html#wide-aisle'],['Narrow-aisle (VNA)','solutions.html#narrow-aisle'],['Drive-in / drive-through','solutions.html#drive-in']] },
+    { heading: 'Specialist storage', links: [['Multi-tier shelving','solutions.html#multi-tier'],['Cantilever racking','solutions.html#cantilever'],['Pallet & carton flow','solutions.html#flow-racking'],['Mezzanine floors','solutions.html#mezzanine']] },
+    { heading: 'Structures & automation', links: [['Rack-clad buildings','solutions.html#rack-clad'],['Automation & ASRS','solutions.html#automation'],['Full catalog','solutions.html#catalog']] },
+  ]},
+  engineering: { title: 'Engineering & structural design', blurb: 'Tekla BIM and RSTAB analysis behind every layout, built to EN 15512 and IS 800.', image: 'assets/editorial-photography/engineering-structural-study.webp', groups: [
+    { heading: 'Delivery lifecycle', links: [['5-stage engineering lifecycle','engineering.html#stages'],['Change order management','engineering.html#change-orders']] },
+    { heading: 'Assurance', links: [['IIT-Powai design validation (planned)','engineering.html#iit-powai']] },
+  ]},
+  execution: { title: 'Execution & installation', blurb: 'Three specialist verticals that take a project from manufacture to handover.', image: 'assets/editorial-photography/group-project-delivery.webp', groups: [
+    { heading: 'Delivery verticals', links: [['ProRack Storage Solutions','execution.html#storage'],['SmartFit installation','execution.html#smartfit'],['ProMec MEP integration','execution.html#promech'],['All verticals','execution.html#verticals']] },
+  ]},
+  platform: { title: 'Digital intelligence', blurb: 'The connected data layer across projects, shop floor and machines.', image: 'assets/editorial-photography/platform-project-control.webp', groups: [
+    { heading: 'Platform', links: [['Platform overview','platform.html'],['Operations','operations.html'],['Machines','machines.html']] },
+    { heading: 'Intelligence', links: [['AI copilot','copilot.html'],['Architecture & security','architecture.html'],['Roadmap','roadmap.html']] },
+  ]},
+  company: { title: 'Company & people', blurb: 'Our heritage, leadership and the team behind ProRack AI.', image: 'assets/editorial-photography/precision-manufacturing-concept.webp', groups: [
+    { heading: 'About us', links: [['Heritage & story','company.html#heritage'],['Leadership','company.html#leadership'],['Meet the team','company.html#team']] },
+    { heading: 'Join & connect', links: [['Careers','company.html#careers'],['Contact us','contact.html']] },
+  ]},
+};
+
 // ==========================================
 // 1. GLOBAL COMMAND PALETTE & RESPONSIVE NAV
 // ==========================================
 function GlobalHeader({ activePage }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [megaOpen, setMegaOpen] = useState(null);
+  const megaTimer = useRef(null);
+  const openMega = id => { clearTimeout(megaTimer.current); megaTimer.current = setTimeout(() => setMegaOpen(id), 120); };
+  const closeMega = () => { clearTimeout(megaTimer.current); megaTimer.current = setTimeout(() => setMegaOpen(null), 180); };
+  useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') setMegaOpen(null); };
+    window.addEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); clearTimeout(megaTimer.current); };
+  }, []);
   const searchDialog = useRef(null);
   const menuDialog = useRef(null);
   const navLinks = [
@@ -178,8 +215,8 @@ function GlobalHeader({ activePage }) {
   return <>
     <div className="shell nav-inner">
       <a href="index.html" className="nav-brand" aria-label="ProRack Storage Solutions home">{brand}</a>
-      <nav className="nav-links" aria-label="Main navigation">
-        {navLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined}>{name}</a>)}
+      <nav className="nav-links" aria-label="Main navigation" onMouseLeave={closeMega}>
+        {navLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined} aria-expanded={megaOpen===id} aria-controls="mega-menu" onMouseEnter={()=>openMega(id)} onFocus={()=>{clearTimeout(megaTimer.current); setMegaOpen(id);}}>{name}</a>)}
       </nav>
       <div className="nav-actions">
         <button className="search-toggle" aria-label="Search the website" onClick={()=>searchDialog.current.showModal()}><Search size={19}/></button>
@@ -188,6 +225,13 @@ function GlobalHeader({ activePage }) {
         <button className="menu-toggle" aria-label="Open navigation menu" onClick={()=>menuDialog.current.showModal()}><Menu size={22}/></button>
       </div>
     </div>
+    {megaOpen && MEGA_MENUS[megaOpen] && (() => { const m = MEGA_MENUS[megaOpen]; const page = navLinks.find(([,id])=>id===megaOpen)[0]; return (
+      <div className="mega-menu" id="mega-menu" onMouseEnter={()=>clearTimeout(megaTimer.current)} onMouseLeave={closeMega} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget) && !e.relatedTarget?.closest('.nav-links')) setMegaOpen(null);}}>
+        <div className="shell mega-inner">
+          <div className="mega-groups">{m.groups.map(g=><div className="mega-group" key={g.heading}><p>{g.heading}</p><ul>{g.links.map(([label,href])=><li key={href}><a href={href}>{label}</a></li>)}</ul></div>)}</div>
+          <a className="mega-preview" href={megaOpen+'.html'}><img src={m.image} alt="" width="480" height="270"/><strong>{m.title}</strong><span>{m.blurb}</span><em>Explore {page} <ArrowRight size={14}/></em></a>
+        </div>
+      </div>); })()}
     {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={id===activePage?'page':undefined}>{name}</a>)}</nav>}
     <dialog className="site-dialog menu-dialog" ref={menuDialog} onClick={closeBackdrop} aria-label="Navigation menu">
       <div className="dialog-heading"><span>Explore ProRack</span><button aria-label="Close navigation menu" onClick={()=>menuDialog.current.close()}><X size={24}/></button></div>

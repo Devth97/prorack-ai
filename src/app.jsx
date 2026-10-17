@@ -129,7 +129,7 @@ function GlobalHeader({ activePage }) {
     ['Digital intelligence','platform'],['Company','company']
   ];
   const digitalLinks = [['Platform','platform'],['Operations','operations'],['Machines','machines'],['AI copilot','copilot'],['Architecture','architecture'],['Roadmap','roadmap']];
-  const digital = digitalLinks.some(([,id])=>id===activePage);
+  const digital = activePage === 'platform';
   const searchItems = [
     { title: 'Warehouse Storage Catalog (8 Systems)', category: 'Solutions', href: 'solutions.html' },
     { title: 'Selective Pallet Racking Specs', category: 'Solutions', href: 'solutions.html#selective' },
@@ -146,18 +146,18 @@ function GlobalHeader({ activePage }) {
     { title: 'Silver Lining Storage Solutions Heritage', category: 'Company', href: 'company.html#heritage' },
     { title: 'MD Roshan Sudhir (20+ Years Leadership)', category: 'Company', href: 'company.html#leadership' },
     { title: 'Request Engineering RFQ / Contact', category: 'Contact', href: 'contact.html' },
-    { title: 'Project Health Dashboard', category: 'Operations', href: 'operations.html' },
+    { title: 'Project Health Dashboard', category: 'Operations', href: 'platform.html#operations' },
     { title: 'Tekla 3D Model Coherence', category: 'Platform', href: 'platform.html' },
     { title: 'ERPNext Commercial Integration', category: 'Platform', href: 'platform.html' },
     { title: 'PowerFab Nesting & Cut Lists', category: 'Platform', href: 'platform.html' },
-    { title: 'Cold Roll-Forming Telemetry (Modbus TCP)', category: 'Machines', href: 'machines.html' },
-    { title: 'Bearing Acoustic Vibration Sensors', category: 'Machines', href: 'machines.html' },
-    { title: 'AI Assistant & Executive Queries', category: 'AI Copilot', href: 'copilot.html' },
-    { title: 'Shift Project Delivery Brief', category: 'AI Copilot', href: 'copilot.html#brief' },
-    { title: 'Source-Level RBAC & Audit Trails', category: 'Architecture', href: 'architecture.html' },
-    { title: 'Air-Gapped OT Network Security', category: 'Architecture', href: 'architecture.html' },
-    { title: 'AI Dynamic Scheduling Roadmap', category: 'Roadmap', href: 'roadmap.html' },
-    { title: 'Computer Vision QC Inspection', category: 'Roadmap', href: 'roadmap.html' },
+    { title: 'Cold Roll-Forming Telemetry (Modbus TCP)', category: 'Machines', href: 'platform.html#machines' },
+    { title: 'Bearing Acoustic Vibration Sensors', category: 'Machines', href: 'platform.html#machines' },
+    { title: 'AI Assistant & Executive Queries', category: 'AI Copilot', href: 'platform.html#copilot' },
+    { title: 'Shift Project Delivery Brief', category: 'AI Copilot', href: 'platform.html#copilot' },
+    { title: 'Source-Level RBAC & Audit Trails', category: 'Architecture', href: 'platform.html#architecture' },
+    { title: 'Air-Gapped OT Network Security', category: 'Architecture', href: 'platform.html#architecture' },
+    { title: 'AI Dynamic Scheduling Roadmap', category: 'Roadmap', href: 'platform.html#roadmap' },
+    { title: 'Computer Vision QC Inspection', category: 'Roadmap', href: 'platform.html#roadmap' },
   ];
 
 
@@ -188,7 +188,7 @@ function GlobalHeader({ activePage }) {
         <button className="menu-toggle" aria-label="Open navigation menu" onClick={()=>menuDialog.current.showModal()}><Menu size={22}/></button>
       </div>
     </div>
-    {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={id===activePage?'page':undefined}>{name}</a>)}</nav>}
+    {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={'platform.html#'+id} aria-current={id==='platform'?'page':undefined}>{name}</a>)}</nav>}
     <dialog className="site-dialog menu-dialog" ref={menuDialog} onClick={closeBackdrop} aria-label="Navigation menu">
       <div className="dialog-heading"><span>Explore ProRack</span><button aria-label="Close navigation menu" onClick={()=>menuDialog.current.close()}><X size={24}/></button></div>
       <nav aria-label="Mobile navigation">{[...navLinks,['Contact','contact']].map(([name,id],i)=><a key={id} href={id+'.html'} aria-current={activePage===id?'page':undefined}><small>0{i+1}</small>{name}<ArrowRight size={20}/></a>)}</nav>

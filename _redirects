@@ -1,6 +1,6 @@
-/platform         /platform.html         200
-/operations       /operations.html       200
-/machines         /machines.html         200
-/copilot          /copilot.html          200
-/architecture     /architecture.html     200
-/roadmap          /roadmap.html          200
+/platform /platform.html 200
+/operations /platform.html#operations 301
+/machines /platform.html#machines 301
+/copilot /platform.html#copilot 301
+/architecture /platform.html#architecture 301
+/roadmap /platform.html#roadmap 301

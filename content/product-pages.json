@@ -1,0 +1,734 @@
+{
+  "version": 1,
+  "editorialNote": "Technical specifications are design considerations, not fixed certified performance values. Confirm claims with engineering and supplier data before deployment.",
+  "products": [
+    {
+      "id": "selective",
+      "title": "Selective Pallet Racking",
+      "image": "selective-pallet-racking.webp",
+      "summary": "Direct access to individual pallet locations, designed for flexible everyday warehouse operations.",
+      "description": "Selective pallet racking gives handling equipment direct access to pallet locations in dedicated bays. The engineering design responds to the pallet dimensions, unit loads, forklift envelope, operating environment and planned storage growth.",
+      "benefits": [
+        [
+          "Immediate accessibility",
+          "Access individual pallets without first moving neighbouring stock."
+        ],
+        [
+          "Adaptable layouts",
+          "Plan bay widths and beam elevations around different stock profiles."
+        ],
+        [
+          "Familiar workflows",
+          "Support standard warehousing and a wide range of forklift operating models."
+        ]
+      ],
+      "specs": [
+        [
+          "Pallet dimensions",
+          "Defined by pallet width, depth, overhang and unit load."
+        ],
+        [
+          "Bay and beam loads",
+          "Specified through an approved structural design and load notice."
+        ],
+        [
+          "Aisle clearance",
+          "Based on the handling equipment manufacturer and turning geometry."
+        ],
+        [
+          "Storage levels",
+          "Set by clear height, lift reach and safety clearance."
+        ],
+        [
+          "Stock access",
+          "Direct pallet-level access; rotation policy managed operationally."
+        ]
+      ],
+      "uses": [
+        "FMCG distribution",
+        "Mixed-SKU retail replenishment",
+        "Third-party logistics and spare parts"
+      ],
+      "faqs": [
+        [
+          "What is selective pallet racking?",
+          "It is a rack system that provides direct forklift access to individual pallet positions from an aisle, making it suitable for mixed inventory."
+        ],
+        [
+          "How much weight can a rack bay carry?",
+          "Allowable loads depend on the approved upright, beam, bracing, connection, floor and anchorage design. Request the project-specific load chart rather than relying on a generic figure."
+        ],
+        [
+          "Can the layout be expanded later?",
+          "Modular layouts may permit extensions or beam adjustments, subject to a structural review, equipment compatibility and safe installation."
+        ],
+        [
+          "What details are needed for a quotation?",
+          "Share pallet dimensions and weights, required positions, clear height, handling equipment, site drawings, location and expected operating throughput."
+        ]
+      ],
+      "related": [
+        "wide-aisle",
+        "narrow-aisle",
+        "drive-in"
+      ]
+    },
+    {
+      "id": "wide-aisle",
+      "title": "Wide-Aisle Multi-Bay Racking",
+      "image": "wide-aisle-multi-bay-racking.webp",
+      "summary": "Conventional pallet storage with aisle space for efficient handling and flexible access.",
+      "description": "Wide-aisle layouts combine pallet-rack bays with truck access routes. The design balances aisle width, vehicle movements, rack capacity and staging requirements to support straightforward operation.",
+      "benefits": [
+        [
+          "Straightforward access",
+          "Operators can navigate rack faces with conventional handling equipment."
+        ],
+        [
+          "Flexible configuration",
+          "Adapt location dimensions to pallets, loads and traffic patterns."
+        ],
+        [
+          "Operational simplicity",
+          "Useful when ease of access and handling flexibility matter most."
+        ]
+      ],
+      "specs": [
+        [
+          "Aisle dimensions",
+          "Confirmed against the selected forklift or reach-truck specification."
+        ],
+        [
+          "Beam configuration",
+          "Designed to match unit loads and pallet dimensions."
+        ],
+        [
+          "Travel and staging space",
+          "Planned from one-way or two-way traffic and pedestrian safety."
+        ],
+        [
+          "Rack height",
+          "Subject to lifting equipment, roof height and fire requirements."
+        ],
+        [
+          "Flow strategy",
+          "Supports location-based picking and replenishment plans."
+        ]
+      ],
+      "uses": [
+        "General warehousing",
+        "Logistics distribution centres",
+        "Manufacturing components storage"
+      ],
+      "faqs": [
+        [
+          "When is wide-aisle racking suitable?",
+          "It is suitable when forklifts need conventional access and the operation values flexibility and simpler circulation over the highest possible storage density."
+        ],
+        [
+          "How wide should the aisle be?",
+          "Aisle width must be calculated for the chosen truck model, load overhang, turning envelope and operating conditions."
+        ],
+        [
+          "Can different pallet sizes share the same warehouse?",
+          "They can when locations, beams and handling equipment are engineered for the resulting pallet and load combinations."
+        ],
+        [
+          "How does wide-aisle differ from VNA?",
+          "VNA can reduce aisle area using specialist guided equipment, while wide-aisle generally accommodates more conventional truck movements."
+        ]
+      ],
+      "related": [
+        "selective",
+        "narrow-aisle",
+        "mezzanine"
+      ]
+    },
+    {
+      "id": "narrow-aisle",
+      "title": "Very Narrow-Aisle (VNA) Racking",
+      "image": "narrow-aisle-multi-bay-racking.webp",
+      "summary": "Use warehouse height and narrower operating aisles with specialist handling equipment.",
+      "description": "VNA storage reduces aisle footprint compared with conventional layouts. It requires coordinated engineering of rack geometry, floor tolerance, guidance, equipment selection and safe travel routes.",
+      "benefits": [
+        [
+          "Higher spatial efficiency",
+          "Allocate more of the available footprint to storage locations."
+        ],
+        [
+          "Vertical utilisation",
+          "Coordinate storage elevation with available clear height."
+        ],
+        [
+          "Structured traffic",
+          "Design around specialist turret or guided truck operations."
+        ]
+      ],
+      "specs": [
+        [
+          "Aisle width",
+          "Specific to the selected VNA truck and manufacturer criteria."
+        ],
+        [
+          "Operating height",
+          "Defined by truck lift reach, building and fire clearances."
+        ],
+        [
+          "Floor flatness",
+          "Validated against specialist equipment requirements."
+        ],
+        [
+          "Guidance method",
+          "Rail or wire guidance, if required by equipment."
+        ],
+        [
+          "Load rating",
+          "Approved through project-specific structural calculations."
+        ]
+      ],
+      "uses": [
+        "High-density logistics",
+        "Pharmaceutical distribution",
+        "Warehouses with expensive floor area"
+      ],
+      "faqs": [
+        [
+          "How does VNA racking save space?",
+          "It can reduce floor area allocated to aisles, allowing more rack locations in the same building envelope, subject to actual equipment and layout constraints."
+        ],
+        [
+          "Can standard forklifts operate in a VNA aisle?",
+          "VNA aisles usually need purpose-selected equipment; standard forklift compatibility must not be assumed."
+        ],
+        [
+          "Is special floor preparation necessary?",
+          "Floor flatness and levelness must be assessed against the selected VNA handling equipment and its guidance approach."
+        ],
+        [
+          "What determines the storage capacity?",
+          "Capacity follows the approved plan including pallet dimensions, available height, aisle and truck geometry, structural loads and operational constraints."
+        ]
+      ],
+      "related": [
+        "wide-aisle",
+        "selective",
+        "automation"
+      ]
+    },
+    {
+      "id": "drive-in",
+      "title": "Drive-In / Drive-Through Racking",
+      "image": "drive-in-drive-through-racking.webp",
+      "summary": "Deep-lane pallet storage for batches of similar products.",
+      "description": "Drive-in and drive-through layouts prioritise high storage density through deep pallet lanes. Forklifts enter or service the rack lanes, so pallet rotation, protective systems and operating discipline are central design decisions.",
+      "benefits": [
+        [
+          "Dense batch storage",
+          "Useful for many pallets of the same SKU or similar stock."
+        ],
+        [
+          "Reduced aisle share",
+          "More floor space can be dedicated to rack lanes."
+        ],
+        [
+          "Rotation choices",
+          "Different lane arrangements can support different stock-management approaches."
+        ]
+      ],
+      "specs": [
+        [
+          "Lane depth",
+          "Based on batch quantities, pallet type and forklift constraints."
+        ],
+        [
+          "Stock rotation",
+          "Drive-in typically LIFO; drive-through can support FIFO layouts."
+        ],
+        [
+          "Forklift clearance",
+          "Engineered for truck envelope and operating tolerances."
+        ],
+        [
+          "Protective features",
+          "Guide rails, upright protection and controlled entry."
+        ],
+        [
+          "Load capacity",
+          "Determined by the approved rack and foundation design."
+        ]
+      ],
+      "uses": [
+        "Cold storage",
+        "Bulk seasonal products",
+        "Large consistent pallet batches"
+      ],
+      "faqs": [
+        [
+          "What is the difference between drive-in and drive-through?",
+          "Drive-in generally loads and unloads from one end, often favouring LIFO rotation. Drive-through has access from opposite ends and can support FIFO workflows."
+        ],
+        [
+          "Is drive-in suitable for many different SKUs?",
+          "It is usually better suited to fewer SKUs held in larger pallet batches, because deep lanes limit access to individual loads."
+        ],
+        [
+          "What operating risks need attention?",
+          "Truck entry clearances, rack impact protection, trained operators, load compatibility and disciplined lane management are important."
+        ],
+        [
+          "How is lane depth selected?",
+          "Engineers balance stock batch quantity, load dimensions, building space, safe access and replenishment patterns."
+        ]
+      ],
+      "related": [
+        "selective",
+        "flow-racking",
+        "wide-aisle"
+      ]
+    },
+    {
+      "id": "multi-tier",
+      "title": "Multi-Tier Shelving",
+      "image": "multi-tier-shelving.webp",
+      "summary": "Use vertical space for organised hand-picking and parts storage.",
+      "description": "Multi-tier shelving introduces accessible picking levels within the warehouse. The arrangement brings together shelving, walkways, stairs, guardrails and material movement systems for the intended picking operation.",
+      "benefits": [
+        [
+          "More usable levels",
+          "Create additional picking areas within available building height."
+        ],
+        [
+          "Organised picking",
+          "Group parts, cartons and SKU families by process needs."
+        ],
+        [
+          "Integrated access",
+          "Plan stairways, walkways and goods movement as one system."
+        ]
+      ],
+      "specs": [
+        [
+          "Number of levels",
+          "Subject to clear height, structural design and fire regulations."
+        ],
+        [
+          "Floor and shelf loading",
+          "Set according to stored goods and people movement."
+        ],
+        [
+          "Access",
+          "Stairs, handrails, gates and escape requirements by design."
+        ],
+        [
+          "Decking",
+          "Chosen for loads, fire strategy and operating conditions."
+        ],
+        [
+          "Goods transfer",
+          "Conveyors, lifts or handling provisions, if specified."
+        ]
+      ],
+      "uses": [
+        "Automotive spare parts",
+        "E-commerce order picking",
+        "Small-parts and apparel operations"
+      ],
+      "faqs": [
+        [
+          "What is multi-tier shelving?",
+          "It is an engineered arrangement with shelving and accessible working levels to use vertical space for smaller-item storage and picking."
+        ],
+        [
+          "Can people work safely on upper tiers?",
+          "Walkways, stairs, guardrails, loads, emergency exits and fire protection must be designed and approved for the intended occupancy and use."
+        ],
+        [
+          "Can conveyors connect the tiers?",
+          "Conveyors or lifting equipment can be considered when the operating flow and structural design support them."
+        ],
+        [
+          "How is the number of levels decided?",
+          "Clear height, headroom, floor loading, fire requirements and expected picking volumes govern the practical arrangement."
+        ]
+      ],
+      "related": [
+        "mezzanine",
+        "flow-racking",
+        "selective"
+      ]
+    },
+    {
+      "id": "cantilever",
+      "title": "Heavy-Duty Cantilever Racking",
+      "image": "cantilever-racking.webp",
+      "summary": "Open-front storage for long, bulky and irregular loads.",
+      "description": "Cantilever systems use columns and projecting arms to support items that do not fit conventional pallet racking. Single- and double-sided configurations can be designed for the stock length, weight distribution and handling method.",
+      "benefits": [
+        [
+          "Clear loading face",
+          "Useful for long goods without front upright obstructions."
+        ],
+        [
+          "Purpose-built arms",
+          "Configure arm length, spacing and support for the stock profile."
+        ],
+        [
+          "Adaptable footprints",
+          "Plan single- or double-sided layouts around loading access."
+        ]
+      ],
+      "specs": [
+        [
+          "Arm capacity",
+          "Set by load weight, distribution, reach and arm geometry."
+        ],
+        [
+          "Column spacing",
+          "Determined by product length and allowable deflection."
+        ],
+        [
+          "Base and anchorage",
+          "Designed for overturning forces and floor conditions."
+        ],
+        [
+          "Handling method",
+          "Forklift, sideloader or crane, depending on the application."
+        ],
+        [
+          "Surface treatment",
+          "Selected for environmental exposure and specification."
+        ]
+      ],
+      "uses": [
+        "Steel pipes and profiles",
+        "Timber, boards and sheets",
+        "Long engineering components"
+      ],
+      "faqs": [
+        [
+          "What is cantilever racking?",
+          "It is open-front storage supported by arms connected to upright columns, commonly used for long or awkwardly shaped items."
+        ],
+        [
+          "How much can each arm hold?",
+          "Permitted loads depend on the entire engineered system, load distribution, arm length, column and anchorage. Only the project load chart is authoritative."
+        ],
+        [
+          "Can the system be double-sided?",
+          "Yes. Double-sided cantilever arrangements allow loading from both sides when space and safety conditions permit."
+        ],
+        [
+          "Can cantilever racks be used outdoors?",
+          "Outdoor use may be possible with suitable structural design, finishes, wind considerations and site-specific safety checks."
+        ]
+      ],
+      "related": [
+        "selective",
+        "mezzanine",
+        "rack-clad"
+      ]
+    },
+    {
+      "id": "flow-racking",
+      "title": "Pallet & Carton Flow Racking",
+      "image": "pallet-carton-flow-racking.webp",
+      "summary": "Gravity-assisted stock movement for replenishment and picking workflows.",
+      "description": "Flow storage uses sloped lanes and suitable rollers or tracks to advance loads toward the picking face. Its design must balance load size, speed control, safe separation and the required stock rotation pattern.",
+      "benefits": [
+        [
+          "FIFO-friendly handling",
+          "Move stock through lanes in a defined replenishment direction."
+        ],
+        [
+          "Picking focus",
+          "Keep the picking face organised and stocked."
+        ],
+        [
+          "Less manual repositioning",
+          "Gravity-assisted movement can reduce intermediate handling."
+        ]
+      ],
+      "specs": [
+        [
+          "Lane configuration",
+          "Sized for pallet or carton dimensions and quantities."
+        ],
+        [
+          "Stock rotation",
+          "Typically first-in, first-out when replenishment is correctly managed."
+        ],
+        [
+          "Flow mechanism",
+          "Rollers, tracks and brakes selected by load class."
+        ],
+        [
+          "Gradient and safety",
+          "Confirmed by engineered handling and load calculations."
+        ],
+        [
+          "Access interface",
+          "Picking and replenishment equipment planned together."
+        ]
+      ],
+      "uses": [
+        "Perishable and batch-controlled stock",
+        "Carton order picking",
+        "High-frequency replenishment"
+      ],
+      "faqs": [
+        [
+          "What is pallet flow racking?",
+          "It is a high-density gravity-assisted storage system in which pallets move through appropriately designed lanes toward a discharge point."
+        ],
+        [
+          "How is carton flow different?",
+          "Carton flow is designed for smaller cartons or bins at picking faces; pallet flow is designed for full pallet loads and different handling demands."
+        ],
+        [
+          "Does flow racking support FIFO?",
+          "Correctly arranged loading and picking at opposite ends can support FIFO; actual stock rotation depends on the operating process."
+        ],
+        [
+          "How are loads controlled on sloped lanes?",
+          "Engineered brakes, separation devices and rollers are selected for the load properties and safety requirements."
+        ]
+      ],
+      "related": [
+        "drive-in",
+        "selective",
+        "multi-tier"
+      ]
+    },
+    {
+      "id": "mezzanine",
+      "title": "Mezzanine Floors & Platforms",
+      "image": "mezzanine-floors.webp",
+      "summary": "Create additional usable floor area within an existing building.",
+      "description": "A mezzanine or structural platform introduces elevated working or storage space within the facility. The engineering must address live loads, access, fire strategy, foundations, height and integration with existing operations.",
+      "benefits": [
+        [
+          "Additional usable space",
+          "Use building height without automatically expanding the footprint."
+        ],
+        [
+          "Multiple applications",
+          "Plan storage, assembly or defined working areas."
+        ],
+        [
+          "Tailored structure",
+          "Coordinate deck type, stairs, lifts and railings with the design."
+        ]
+      ],
+      "specs": [
+        [
+          "Design loading",
+          "Calculated for storage, equipment and occupancy use."
+        ],
+        [
+          "Structural form",
+          "Independent steel structure or supported configuration as engineered."
+        ],
+        [
+          "Deck surface",
+          "Material selected for load, fire and slip requirements."
+        ],
+        [
+          "Access and egress",
+          "Stairs, gates, lifts and emergency routes where applicable."
+        ],
+        [
+          "Building interface",
+          "Checks for slab capacity, columns, services and permits."
+        ]
+      ],
+      "uses": [
+        "Parts storage and sorting",
+        "Warehouse operational space",
+        "Assembly and process support"
+      ],
+      "faqs": [
+        [
+          "When is a mezzanine useful?",
+          "It can add an elevated usable level in a building with sufficient structural, vertical and regulatory capacity."
+        ],
+        [
+          "How is floor loading decided?",
+          "Design loading depends on the actual intended use, goods and people loads, equipment and applicable codes."
+        ],
+        [
+          "Is planning or structural approval needed?",
+          "Applicable building permits, fire approvals and structural checks depend on the location and design and must be confirmed before construction."
+        ],
+        [
+          "Can a mezzanine connect to conveyors or lifts?",
+          "Yes, when transfer equipment is included in the engineered layout and safety provisions."
+        ]
+      ],
+      "related": [
+        "multi-tier",
+        "cantilever",
+        "rack-clad"
+      ]
+    },
+    {
+      "id": "rack-clad",
+      "title": "Rack-Clad Buildings",
+      "image": "mezzanines-rack-clad.webp",
+      "summary": "Storage systems engineered as part of the supporting building structure.",
+      "description": "Rack-clad concepts integrate the storage rack structure with building enclosure and access requirements. The complete structural and operational system must be engineered together, from load paths to wind actions, fire strategy and installation sequencing.",
+      "benefits": [
+        [
+          "Integrated structure",
+          "Coordinate building and storage requirements in one concept."
+        ],
+        [
+          "Dense vertical storage",
+          "Explore layouts where high utilisation of volume matters."
+        ],
+        [
+          "Coordinated interfaces",
+          "Plan enclosure, cladding, handling and storage together."
+        ]
+      ],
+      "specs": [
+        [
+          "Structural load cases",
+          "Storage, building envelope, wind and local design obligations."
+        ],
+        [
+          "Handling equipment",
+          "Selected together with storage geometry and throughput."
+        ],
+        [
+          "Building services",
+          "Fire safety, ventilation, drainage and access by project."
+        ],
+        [
+          "Foundation interface",
+          "Approved for combined structural forces and site conditions."
+        ],
+        [
+          "Delivery scope",
+          "Engineering and partner execution determined by contract."
+        ]
+      ],
+      "uses": [
+        "High-bay storage facilities",
+        "Distribution warehouses",
+        "Integrated industrial storage projects"
+      ],
+      "faqs": [
+        [
+          "What is a rack-clad building?",
+          "It is a facility where storage racks also form part of the structural support for the building envelope, subject to specialised engineering."
+        ],
+        [
+          "How does it differ from a conventional warehouse?",
+          "In conventional buildings the primary building frame and racks are largely separate, whereas a rack-clad design integrates the structural roles."
+        ],
+        [
+          "What design approvals are essential?",
+          "Structural, wind, fire, foundation and local building requirements must be reviewed for the proposed site and configuration."
+        ],
+        [
+          "Can an automated handling system be integrated?",
+          "Potentially, when the project design coordinates equipment, rack structure, access, controls and maintenance requirements."
+        ]
+      ],
+      "related": [
+        "mezzanine",
+        "narrow-aisle",
+        "automation"
+      ]
+    },
+    {
+      "id": "automation",
+      "title": "ASRS & High-Density Shuttle Systems",
+      "image": "asrs-shuttle-concept.webp",
+      "summary": "Explore engineered storage with automated goods movement and retrieval.",
+      "description": "Automated storage and retrieval systems can bring together storage racks, shuttles, cranes, conveyors, control software and safety systems. Equipment selection follows the required load profile, SKU mix, throughput, site geometry and operational integration needs.",
+      "benefits": [
+        [
+          "Automated handling",
+          "Study ways to reduce manual storage and retrieval movements."
+        ],
+        [
+          "Better flow coordination",
+          "Plan storage and conveyor interfaces around throughput needs."
+        ],
+        [
+          "System integration",
+          "Consider controls, software, safety and maintenance from the outset."
+        ]
+      ],
+      "specs": [
+        [
+          "Load types",
+          "Pallets, totes or cases; vendor and system dependent."
+        ],
+        [
+          "Payload",
+          "Specified for each selected machine and load-handling device."
+        ],
+        [
+          "Throughput",
+          "Calculated from cycle time, travel distances, demand and system layout."
+        ],
+        [
+          "Space utilisation",
+          "Determined by layout, unit-load geometry and maintenance access."
+        ],
+        [
+          "Controls and safety",
+          "PLC, WMS/WCS integration and protective systems as required."
+        ]
+      ],
+      "uses": [
+        "High-throughput distribution",
+        "Automated pallet warehousing",
+        "Tote and parts order fulfilment"
+      ],
+      "faqs": [
+        [
+          "What does ASRS mean?",
+          "ASRS stands for Automated Storage and Retrieval System, a combination of storage structures and controlled machines that place and retrieve goods."
+        ],
+        [
+          "How does a pallet shuttle differ from a stacker crane?",
+          "A shuttle typically moves loads inside rack lanes or across defined tracks, while a stacker crane travels along aisles to access storage positions. Designs and interfaces vary by vendor."
+        ],
+        [
+          "What is a mini-load ASRS?",
+          "Mini-load systems are generally intended for smaller loads such as bins, totes or cartons rather than full pallets."
+        ],
+        [
+          "How are payload and throughput determined?",
+          "They are calculated from an actual equipment model, storage geometry, travel cycle, lift motion, traffic and operating assumptions. Generic vendor examples cannot be used as ProRack specifications."
+        ]
+      ],
+      "related": [
+        "narrow-aisle",
+        "rack-clad",
+        "flow-racking"
+      ],
+      "configurations": [
+        [
+          "pallet-shuttle",
+          "Pallet shuttle",
+          "A shuttle typically moves loads inside rack lanes or across defined tracks, suited to dense storage of palletised goods."
+        ],
+        [
+          "stacker-crane",
+          "Stacker crane ASRS",
+          "A stacker crane travels along aisles to access storage positions, placing and retrieving loads under controlled motion."
+        ],
+        [
+          "mini-load",
+          "Mini-load ASRS",
+          "Mini-load systems are generally intended for smaller loads such as bins, totes or cartons rather than full pallets."
+        ]
+      ],
+      "configurationsNote": "Designs, payloads and interfaces vary by vendor and are confirmed for each project from the actual equipment model and operating assumptions."
+    }
+  ]
+}

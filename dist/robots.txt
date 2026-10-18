@@ -1,4 +1,4 @@
-# ProRack Global — https://prorack.ai
+# ProRack AI — https://prorack.ai
 User-agent: *
 Allow: /
 

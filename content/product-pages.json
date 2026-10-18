@@ -710,7 +710,25 @@
         "narrow-aisle",
         "rack-clad",
         "flow-racking"
-      ]
+      ],
+      "configurations": [
+        [
+          "pallet-shuttle",
+          "Pallet shuttle",
+          "A shuttle typically moves loads inside rack lanes or across defined tracks, suited to dense storage of palletised goods."
+        ],
+        [
+          "stacker-crane",
+          "Stacker crane ASRS",
+          "A stacker crane travels along aisles to access storage positions, placing and retrieving loads under controlled motion."
+        ],
+        [
+          "mini-load",
+          "Mini-load ASRS",
+          "Mini-load systems are generally intended for smaller loads such as bins, totes or cartons rather than full pallets."
+        ]
+      ],
+      "configurationsNote": "Designs, payloads and interfaces vary by vendor and are confirmed for each project from the actual equipment model and operating assumptions."
     }
   ]
 }

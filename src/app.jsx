@@ -117,14 +117,51 @@ function VoiceAssistant() {
   </div>, document.body);
 }
 
+// Hover previews for the main navigation: section shortcuts plus a page preview.
+const MEGA_MENUS = {
+  index: { title: 'Warehouse performance solutions', blurb: 'Racking, mezzanines and storage systems designed, manufactured and installed end to end.', image: 'assets/warehouse-editorial-hero.webp', groups: [
+    { heading: 'On this page', links: [['Our approach','index.html#approach'],['Product portfolio','index.html#solutions'],['Find your fit','index.html#requirements'],['Industries we serve','index.html#industries']] },
+    { heading: 'Next steps', links: [['Technology & ecosystem','index.html#ecosystem'],['Warehouse questions','index.html#warehouse-questions'],['Discuss a project','contact.html']] },
+  ]},
+  solutions: { title: 'Find the right system for your operation', blurb: 'Explore each system with photographs, applications, design considerations and FAQs.', image: 'assets/editorial-photography/solutions-warehouse-overview.webp', groups: [
+    { heading: 'Pallet storage', links: [['Selective pallet racking','product-selective.html'],['Wide-aisle racking','product-wide-aisle.html'],['Very narrow-aisle racking','product-narrow-aisle.html'],['Drive-in / drive-through','product-drive-in.html']] },
+    { heading: 'Shelving and structures', links: [['Multi-tier shelving','product-multi-tier.html'],['Cantilever racking','product-cantilever.html'],['Pallet and carton flow','product-flow-racking.html'],['Mezzanine floors','product-mezzanine.html']] },
+    { heading: 'Engineered and automated', links: [['Rack-clad buildings','product-rack-clad.html'],['ASRS and shuttle systems','product-automation.html'],['View all solutions','solutions.html']] },
+    { heading: 'ASRS configurations', links: [['Pallet shuttle','product-automation.html#pallet-shuttle'],['Stacker crane ASRS','product-automation.html#stacker-crane'],['Mini-load ASRS','product-automation.html#mini-load']] },
+  ]},
+  engineering: { title: 'Engineering & structural design', blurb: 'Tekla BIM and RSTAB analysis behind every layout, built to EN 15512 and IS 800.', image: 'assets/editorial-photography/engineering-structural-study.webp', groups: [
+    { heading: 'Delivery lifecycle', links: [['5-stage engineering lifecycle','engineering.html#stages'],['Change order management','engineering.html#change-orders']] },
+    { heading: 'Assurance', links: [['IIT-Powai design validation (planned)','engineering.html#iit-powai']] },
+  ]},
+  execution: { title: 'Execution & installation', blurb: 'Three specialist verticals that take a project from manufacture to handover.', image: 'assets/editorial-photography/group-project-delivery.webp', groups: [
+    { heading: 'Delivery verticals', links: [['ProRack Storage Solutions','execution.html#storage'],['SmartFit installation','execution.html#smartfit'],['ProMec MEP integration','execution.html#promech'],['All verticals','execution.html#verticals']] },
+  ]},
+  platform: { title: 'Digital intelligence', blurb: 'One connected view of projects, engineering, factory operations and site progress.', image: 'assets/editorial-photography/platform-project-control.webp', groups: [
+    { heading: 'Platform', links: [['Overview','platform.html#di-overview'],['Platform','platform.html#platform'],['Operations','platform.html#operations'],['Machines','platform.html#machines']] },
+    { heading: 'Intelligence', links: [['AI copilot','platform.html#copilot'],['Architecture & security','platform.html#architecture'],['Roadmap','platform.html#roadmap']] },
+  ]},
+  company: { title: 'Company & people', blurb: 'Our heritage, leadership and the team behind ProRack AI.', image: 'assets/editorial-photography/precision-manufacturing-concept.webp', groups: [
+    { heading: 'About us', links: [['Heritage & story','company.html#heritage'],['Leadership','company.html#leadership'],['Meet the team','company.html#team']] },
+    { heading: 'Join & connect', links: [['Careers','company.html#careers'],['Contact us','contact.html']] },
+  ]},
+};
+
 // ==========================================
 // 1. GLOBAL COMMAND PALETTE & RESPONSIVE NAV
 // ==========================================
 function GlobalHeader({ activePage }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [megaOpen, setMegaOpen] = useState(null);
+  const megaTimer = useRef(null);
+  const openMega = id => { clearTimeout(megaTimer.current); megaTimer.current = setTimeout(() => setMegaOpen(id), 120); };
+  const closeMega = () => { clearTimeout(megaTimer.current); megaTimer.current = setTimeout(() => setMegaOpen(null), 180); };
+  useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') setMegaOpen(null); };
+    window.addEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); clearTimeout(megaTimer.current); };
+  }, []);
   const searchDialog = useRef(null);
   const menuDialog = useRef(null);
-  const megaRef = useRef(null);
   const navLinks = [
     ['Home','index'],['Solutions','solutions'],['Engineering','engineering'],['Execution','execution'],
     ['Digital intelligence','platform'],['Company','company']
@@ -180,41 +217,12 @@ function GlobalHeader({ activePage }) {
     return ()=>window.removeEventListener('keydown',shortcut);
   },[]);
   const brand = <img src="assets/prorack-hero-logo.webp" alt="ProRack Storage Solutions" width="190" height="95" className="nav-wordmark"/>;
-  useEffect(() => {
-    const onPointer = e => {if(megaRef.current?.open && !megaRef.current.contains(e.target)) megaRef.current.open=false;};
-    const onEscape = e => {if(e.key==='Escape' && megaRef.current?.open){megaRef.current.open=false;megaRef.current.querySelector('summary')?.focus();}};
-    document.addEventListener('pointerdown',onPointer);
-    document.addEventListener('keydown',onEscape);
-    return () => {document.removeEventListener('pointerdown',onPointer);document.removeEventListener('keydown',onEscape);};
-  },[]);
   const closeBackdrop = e => {if(e.target===e.currentTarget) e.currentTarget.close();};
   return <>
     <div className="shell nav-inner">
       <a href="index.html" className="nav-brand" aria-label="ProRack Storage Solutions home">{brand}</a>
-      <nav className="nav-links" aria-label="Main navigation">
-        {navLinks.map(([name,id])=>id==='solutions'
-          ? <details className="nav-mega" key="solutions" ref={megaRef}>
-              <summary aria-label="Explore storage solutions and products" aria-current={activePage==='solutions'?'page':undefined}>Solutions <ChevronDown size={15} aria-hidden="true"/></summary>
-              <div className="nav-mega-panel">
-                <div className="nav-mega-intro">
-                  <span className="nav-mega-eyebrow">ENGINEERED STORAGE</span>
-                  <strong>Find the right system for your operation.</strong>
-                  <p>Explore each system with photographs, applications, design considerations and FAQs.</p>
-                  <a href="solutions.html">View all solutions <ArrowRight size={16} aria-hidden="true"/></a>
-                </div>
-                {solutionGroups.map(group=><div className="nav-mega-group" key={group.title}>
-                  <strong>{group.title}</strong>
-                  {group.items.map(([label,slug])=><a key={slug} href={'product-'+slug+'.html'}>{label}<ArrowRight size={14} aria-hidden="true"/></a>)}
-                  {group.title==='Engineered and automated' && <details className="nav-subproducts">
-                    <summary>ASRS configurations <ChevronDown size={13}/></summary>
-                    <a href="product-automation.html#pallet-shuttle">Pallet shuttle</a>
-                    <a href="product-automation.html#stacker-crane">Stacker crane ASRS</a>
-                    <a href="product-automation.html#mini-load">Mini-load ASRS</a>
-                  </details>}
-                </div>)}
-              </div>
-            </details>
-          : <a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined}>{name}</a>)}
+      <nav className="nav-links" aria-label="Main navigation" onMouseLeave={closeMega}>
+        {navLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={(activePage===id || id==='platform' && digital)?'page':undefined} aria-expanded={megaOpen===id} aria-controls="mega-menu" onMouseEnter={()=>openMega(id)} onFocus={()=>{clearTimeout(megaTimer.current); setMegaOpen(id);}}>{name}</a>)}
       </nav>
       <div className="nav-actions">
         <button className="search-toggle" aria-label="Search the website" onClick={()=>searchDialog.current.showModal()}><Search size={19}/></button>
@@ -223,6 +231,13 @@ function GlobalHeader({ activePage }) {
         <button className="menu-toggle" aria-label="Open navigation menu" onClick={()=>menuDialog.current.showModal()}><Menu size={22}/></button>
       </div>
     </div>
+    {megaOpen && MEGA_MENUS[megaOpen] && (() => { const m = MEGA_MENUS[megaOpen]; const page = navLinks.find(([,id])=>id===megaOpen)[0]; return (
+      <div className="mega-menu" id="mega-menu" onMouseEnter={()=>clearTimeout(megaTimer.current)} onMouseLeave={closeMega} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget) && !e.relatedTarget?.closest('.nav-links')) setMegaOpen(null);}}>
+        <div className="shell mega-inner">
+          <div className="mega-groups">{m.groups.map(g=><div className="mega-group" key={g.heading}><p>{g.heading}</p><ul>{g.links.map(([label,href])=><li key={href}><a href={href}>{label}</a></li>)}</ul></div>)}</div>
+          <a className="mega-preview" href={megaOpen+'.html'}><img src={m.image} alt="" width="480" height="270"/><strong>{m.title}</strong><span>{m.blurb}</span><em>Explore {page} <ArrowRight size={14}/></em></a>
+        </div>
+      </div>); })()}
     {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={'platform.html#'+id} aria-current={id==='platform'?'page':undefined}>{name}</a>)}</nav>}
     <dialog className="site-dialog menu-dialog" ref={menuDialog} onClick={closeBackdrop} aria-label="Navigation menu">
       <div className="dialog-heading"><span>Explore ProRack</span><button aria-label="Close navigation menu" onClick={()=>menuDialog.current.close()}><X size={24}/></button></div>

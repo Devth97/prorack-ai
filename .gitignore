@@ -9,3 +9,4 @@ artifacts/
 tmp/
 prorack-netlify-*.zip
 prorac-ai-*.zip
+serve.log

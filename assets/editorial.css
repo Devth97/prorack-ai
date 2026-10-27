@@ -1614,3 +1614,25 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 @media(max-width:850px){.brand-story-heading,.brand-story-layout{grid-template-columns:1fr;}.brand-hero-card{min-height:350px;}.brand-specialists{grid-template-rows:auto;}.brand-specialist-card{min-height:280px;}.work-step summary{grid-template-columns:26px 62px minmax(0,1fr) 28px;gap:10px;}.work-step-photo{width:62px;height:56px;}.work-step-content{margin-left:98px;}}
 @media(max-width:500px){.work-step summary{grid-template-columns:27px 54px minmax(0,1fr) 22px;gap:7px;}.work-step-photo{width:54px;height:55px;}.work-step-heading strong{font-size:17px;}.work-step-heading small{font-size:12px;}.work-step-content{margin-left:65px;}.brand-story-heading{gap:8px;}.brand-card-copy{padding:22px;}}
 @media(prefers-reduced-motion:reduce){.brand-hero-card img,.brand-specialist-card img{transition:none!important;}.brand-specialist-card:nth-child(2){transform:none!important;}}
+
+
+.company-vision-story{background:#eef2f4;padding:clamp(70px,7vw,110px) 0;}
+.company-vision-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,78px);align-items:center;}
+.company-vision-top h2,.company-4d h2{color:#123b58;font-weight:500;font-size:clamp(38px,4vw,64px);line-height:1.1;letter-spacing:-.05em;margin:10px 0 20px;}
+.company-vision-top h2 em{color:#b53a1b;font-style:normal;}
+.company-vision-top p{font-size:16px;color:#526270;line-height:1.75;max-width:56ch;margin-bottom:24px;}
+.company-vision-top figure{margin:0;min-width:0;}
+.company-vision-top figure img{display:block;width:100%;aspect-ratio:1.28;object-fit:cover;}
+.company-vision-top figcaption{font-size:11px;color:#667783;margin-top:10px;}
+.company-4d{margin-top:clamp(50px,6vw,94px);}
+.company-4d-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:28px;}
+.company-4d-grid article{padding:25px 23px;min-height:190px;background:#fff;border-top:3px solid #123b58;}
+.company-4d-grid article span{font-size:12px;color:#b53a1b;font-weight:700;}
+.company-4d-grid article h3{font-size:22px;color:#123b58;margin:13px 0 11px;}
+.company-4d-grid article p{font-size:13px;line-height:1.65;color:#536572;}
+.company-review-assets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:45px;}
+.company-review-assets article{padding:25px;border:1px solid #c8d3d6;background:#fff;}
+.company-review-assets article h3{font-size:23px;font-weight:600;color:#123b58;letter-spacing:-.03em;margin:14px 0;}
+.company-review-assets article p{font-size:13px;color:#53616a;line-height:1.7;}
+@media(max-width:1000px){.company-4d-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:760px){.company-vision-top,.company-4d-grid,.company-review-assets{grid-template-columns:1fr;}.company-4d-grid article{min-height:0;}}

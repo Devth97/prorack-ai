@@ -1,0 +1,42 @@
+name: ProRack staging ZIP (review only)
+on:
+  push:
+    branches:
+      - feature/customer-journey-how-we-work-20261017
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-staging:
+    name: Build and validate staging website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install exact dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build complete static site
+        run: npm run build
+      - name: Validate all pages and SEO
+        run: npm run check
+      - name: Verify approved imagery is packaged
+        run: |
+          test -s dist.zip
+          test -s dist/assets/editorial-photography/prorack-rollforming-latest.png
+          test -s dist/assets/PRAJAKTA.jpg
+          unzip -t dist.zip | tail -n 2
+          test "$(sha256sum dist/assets/editorial-photography/prorack-rollforming-latest.png | cut -d' ' -f1)" = "1c935b84735acc7e2c63f30f7256557f963930f23d701b9108d67e8bc549356d"
+      - name: Publish ZIP for manual staging upload only
+        uses: actions/upload-artifact@v4
+        with:
+          name: prorack-staging-site
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14

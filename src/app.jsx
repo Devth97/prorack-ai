@@ -1262,6 +1262,16 @@ function SiteEffects() {
       document.querySelectorAll('.editorial-section-heading h2, .story-heading h2, .heritage-section h2, .project-invitation h2, .page-hero h1, .ecosystem-layout h2').forEach(target=>{
         gsap.fromTo(target,{y:distance,opacity:.7},{y:0,opacity:1,duration:.7,ease:'power3.out',immediateRender:false,clearProps:'transform,opacity',scrollTrigger:{trigger:target,start:'top 92%',once:true}});
       });
+      // Subtle cascading reveal for visual grids. Content remains readable without JS.
+      document.querySelectorAll('.brand-specialists,.business-unit-grid,.company-4d-grid,.company-review-assets,.di-overview-grid,.di-benefit-grid,.solution-catalog-grid,.portfolio-fallback').forEach(group=>{
+        const cards=Array.from(group.children).filter(node=>node instanceof HTMLElement);
+        if(cards.length<2) return;
+        gsap.fromTo(cards,{y:context.conditions.desktop?26:12,opacity:.78},{
+          y:0,opacity:1,duration:.6,stagger:.09,ease:'power2.out',
+          immediateRender:false,clearProps:'transform,opacity',
+          scrollTrigger:{trigger:group,start:'top 90%',once:true}
+        });
+      });
       if(context.conditions.desktop) {
         document.querySelectorAll('.hero-photograph img,.group-detail img,.intelligence-section > img').forEach(target=>{
           gsap.fromTo(target,{scale:1.08,yPercent:-2},{yPercent:2,ease:'none',scrollTrigger:{trigger:target.parentElement,start:'top bottom',end:'bottom top',scrub:1}});

@@ -1636,3 +1636,15 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 .company-review-assets article p{font-size:13px;color:#53616a;line-height:1.7;}
 @media(max-width:1000px){.company-4d-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:760px){.company-vision-top,.company-4d-grid,.company-review-assets{grid-template-columns:1fr;}.company-4d-grid article{min-height:0;}}
+
+
+/* Image-led specialist execution: each role has a distinct visual. */
+.business-unit-grid .execution-brand-card{overflow:hidden;justify-content:flex-start!important;}
+.business-unit-grid .execution-brand-card>div:first-of-type{flex:1;}
+.execution-brand-photo{margin:-36px -36px 28px;position:relative;overflow:hidden;background:#0d2e47;}
+.execution-brand-photo img{display:block;width:100%;height:clamp(165px,17vw,245px);object-fit:cover;object-position:center;}
+.execution-brand-photo figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,.62),transparent);padding:20px 15px 10px;color:#fff;font-size:11px;letter-spacing:.03em;}
+#storage .execution-brand-photo img{object-position:57% center;}
+.brand-hero-card>img{object-position:62% center;}
+@media(max-width:760px){.business-unit-grid .execution-brand-card{min-height:0!important;}.execution-brand-photo img{height:215px;}.brand-hero-card>img{object-position:65% center;}}
+@media(prefers-reduced-motion:reduce){.execution-brand-photo img{transition:none!important;}}

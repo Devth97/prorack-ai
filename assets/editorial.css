@@ -1388,6 +1388,7 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 .mega-group a:hover,.mega-group a:focus-visible {color:var(--primary);text-decoration:underline;}
 .mega-preview {display:flex;flex-direction:column;gap:8px;padding:16px;background:var(--secondary);color:var(--foreground);text-decoration:none;}
 .mega-preview img {width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin-bottom:6px;}
+.team-section > .leadership-profiles {margin-top:48px;}
 .mega-preview strong {font-size:15px;}
 .mega-preview span {font-size:13px;line-height:1.5;color:var(--muted-foreground);}
 .mega-preview em {display:inline-flex;align-items:center;gap:6px;margin-top:4px;font:600 11px/1 var(--font-sans);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);}

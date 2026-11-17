@@ -139,7 +139,7 @@ const MEGA_MENUS = {
     { heading: 'Platform', links: [['Platform overview','platform.html'],['Operations','operations.html'],['Machines','machines.html']] },
     { heading: 'Intelligence', links: [['AI copilot','copilot.html'],['Architecture & security','architecture.html'],['Roadmap','roadmap.html']] },
   ]},
-  company: { title: 'Company & people', blurb: 'Our heritage, leadership and the team behind ProRack AI.', image: 'assets/editorial-photography/precision-manufacturing-concept.webp', groups: [
+  company: { title: 'Company & people', blurb: 'Our heritage, leadership and the team behind ProRack AI.', image: 'assets/editorial-photography/company-people-collaboration.jpg', imageAlt: 'AI-generated illustration of an engineering team collaborating around warehouse plans', groups: [
     { heading: 'About us', links: [['Heritage & story','company.html#heritage'],['Leadership','company.html#leadership'],['Meet the team','company.html#team']] },
     { heading: 'Join & connect', links: [['Careers','company.html#careers'],['Contact us','contact.html']] },
   ]},
@@ -229,7 +229,7 @@ function GlobalHeader({ activePage }) {
       <div className="mega-menu" id="mega-menu" onMouseEnter={()=>clearTimeout(megaTimer.current)} onMouseLeave={closeMega} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget) && !e.relatedTarget?.closest('.nav-links')) setMegaOpen(null);}}>
         <div className="shell mega-inner">
           <div className="mega-groups">{m.groups.map(g=><div className="mega-group" key={g.heading}><p>{g.heading}</p><ul>{g.links.map(([label,href])=><li key={href}><a href={href}>{label}</a></li>)}</ul></div>)}</div>
-          <a className="mega-preview" href={megaOpen+'.html'}><img src={m.image} alt="" width="480" height="270"/><strong>{m.title}</strong><span>{m.blurb}</span><em>Explore {page} <ArrowRight size={14}/></em></a>
+          <a className="mega-preview" href={megaOpen+'.html'}><img src={m.image} alt={m.imageAlt || ''} width="480" height="270"/><strong>{m.title}</strong><span>{m.blurb}</span><em>Explore {page} <ArrowRight size={14}/></em></a>
         </div>
       </div>); })()}
     {digital && <nav className="digital-subnav shell" aria-label="Digital intelligence navigation">{digitalLinks.map(([name,id])=><a key={id} href={id+'.html'} aria-current={id===activePage?'page':undefined}>{name}</a>)}</nav>}

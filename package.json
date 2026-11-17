@@ -10,7 +10,7 @@
     "build:coming-soon": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/make-coming-soon-zip.ps1",
     "start": "node --env-file-if-exists=.env server.mjs",
     "preview": "node --env-file-if-exists=.env ./scripts/serve.mjs",
-    "test": "node --test scripts/check-server.test.mjs"
+    "test": "node --test scripts/check-server.test.mjs scripts/check-startup.test.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.28.2"

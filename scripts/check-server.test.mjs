@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
-import { createProductionServer } from '../server.mjs';
+import { createProductionServer } from '../server-app.mjs';
 
 let directory, server, port;
 const env = { BOLNA_API_KEY: 'test-private-key', BOLNA_AGENT_ID: 'test-agent' };

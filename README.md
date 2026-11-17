@@ -101,7 +101,9 @@ Keep the existing secret values in Hostinger environment variables. Do not prefi
 these keys with `VITE_` or put them in browser code. Redeploy after changing the
 framework, entry file, or runtime variables. The application listens on Hostinger's
 `PORT`, serves built files from `dist/`, and uses the same session handler as Netlify.
-The server must be launched from the repository with `netlify/functions/` present.
+The server must be launched from the repository with `server-app.mjs` and
+`netlify/functions/` present. The entry starts its HTTP listener even when a managed
+host imports it; it must not be wrapped in an argv or main-module check.
 The public files remain inside `dist/`; source files and `.env` are not served.
 
 Check the deployment's runtime logs for `ProRack website and RackBot API listening

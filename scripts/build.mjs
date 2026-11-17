@@ -1,6 +1,6 @@
 import { cp, mkdir, rm, readdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { execSync } from 'node:child_process';
+
 import path from 'node:path';
 
 console.log('Cleaning dist directory...');
@@ -38,17 +38,3 @@ if (missingRootFiles.length) {
 }
 
 console.log(`Built dist/ with ${publishFiles.length} files (HTML, sitemap, robots, llms) and assets.`);
-
-// Create dist.zip archive for direct upload to Hostinger.
-try {
-  console.log('Compressing dist/ into dist.zip...');
-  if (process.platform === 'win32') {
-    execSync('powershell -NoProfile -ExecutionPolicy Bypass -File scripts/make-zip.ps1', {
-      stdio: 'inherit'
-    });
-  } else {
-    execSync('cd dist && zip -r ../dist.zip ./*', { stdio: 'inherit' });
-  }
-} catch (err) {
-  console.warn('Could not automatically create dist.zip:', err.message);
-}

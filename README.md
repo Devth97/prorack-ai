@@ -22,7 +22,7 @@ routes, Netlify configuration and submission integration. Start the local previe
 
 ```powershell
 npm.cmd run bundle
-npm.cmd start
+npm.cmd run preview
 ```
 
 Open http://localhost:4600/. Run `npm.cmd run check` for route, asset, anchor,
@@ -50,7 +50,7 @@ Ask RackBot caption. There is no manual motion toggle.
 
 `node scripts/check-mascot.mjs` checks every mascot
 state/mute combination. `npm.cmd run check` checks all website routes, and
-`npm.cmd run build` rebuilds `dist/` and `dist.zip`. Voice calls require the existing
+`npm.cmd run build` rebuilds `dist/` without generating deployment archives. Voice calls require the existing
 `/api/bolna-session` backend and Bolna environment configuration; static hosting
 alone serves the mascot but does not provide that backend.
 Production builds version script and stylesheet URLs by content hash, and assets
@@ -77,22 +77,56 @@ python -m http.server 4600
 npx serve .
 ```
 
-## Full Website Build
+## Hostinger production deployment (website and RackBot)
 
-Build the complete website with:
+RackBot requires a running backend at `POST /api/bolna-session`. A React/static
+publish of `dist/` serves the website but does not run Netlify Functions or read
+server environment variables. A 404 at that URL indicates the backend is missing;
+adding environment variables alone cannot create the route.
 
-```bash
+Use the connected GitHub repository and these Hostinger build settings:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | Other (run a Node.js backend) |
+| Node.js | 22.x or 24.x |
+| Root directory | `./` |
+| Build command | `npm run build` |
+| Entry file | `server.mjs` (relative to the repository root) |
+| Output directory, if shown | `.` (retain the server and its modules; do not publish only `dist`) |
+| Start command, if shown | `npm start` |
+| Environment variables | `BOLNA_API_KEY`, `BOLNA_AGENT_ID` |
+
+Keep the existing secret values in Hostinger environment variables. Do not prefix
+these keys with `VITE_` or put them in browser code. Redeploy after changing the
+framework, entry file, or runtime variables. The application listens on Hostinger's
+`PORT`, serves built files from `dist/`, and uses the same session handler as Netlify.
+The server must be launched from the repository with `netlify/functions/` present.
+The public files remain inside `dist/`; source files and `.env` are not served.
+
+Check the deployment's runtime logs for `ProRack website and RackBot API listening
+on port ...`. Opening `/api/bolna-session` in a browser should return JSON with
+HTTP 405 (POST is required), rather than Hostinger's HTML 404 page. Then start a
+RackBot conversation with microphone permission and verify a successful session
+POST. A JSON 500 saying the voice agent is not configured means the running Node
+process still needs the two runtime variables; provider errors need separate
+credential/account checks.
+
+Local production verification:
+
+```powershell
+npm ci
+npm test
+npm run check
 npm run build
+npm start
 ```
 
-This runs `scripts/build.mjs`, producing a clean, zero-dependency `dist/` bundle and `dist.zip` for Hostinger upload.
+The regression tests use a mocked voice provider and never consume real call
+minutes. `npm run preview` retains the source preview on port 4600. Production
+`npm start` defaults to port 3000 and requires a completed build.
 
-## Current Hostinger Holding Page
+The Netlify deployment can remain active during the migration. Remove or pause it
+only after the Hostinger API and an actual voice call have been verified.
 
-Keep the public site on the existing under-construction page while the full site is developed:
-
-```bash
-npm run build:coming-soon
-```
-
-Upload the contents of `prorac-ai-hostinger.zip` directly into Hostinger's `public_html` directory. The archive contains no Netlify configuration or branding.
+Hostinger reference: https://www.hostinger.com/support/how-to-deploy-a-nodejs-website-in-hostinger/

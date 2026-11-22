@@ -57,6 +57,13 @@ test('consolidates duplicate URLs on one canonical address with 301 redirects', 
   assert.equal(www.status, 301);
   assert.equal(www.headers.location, 'https://prorack.ai/company.html?a=1');
 });
+test('sends the modern security header baseline and keeps the microphone for RackBot', async () => {
+  const { headers } = await request('/company.html');
+  assert.match(headers['content-security-policy'], /frame-ancestors 'none'/);
+  assert.equal(headers['cross-origin-opener-policy'], 'same-origin-allow-popups');
+  assert.match(headers['permissions-policy'], /microphone=\(self\)/);
+  assert.match(headers['permissions-policy'], /camera=\(\)/);
+});
 test('unknown pages return a real HTML 404 that is not indexed', async () => {
   const response = await request('/no-such-page');
   assert.equal(response.status, 404);

@@ -31,7 +31,7 @@ async function notFound(req, res, rootDir) {
   // Crawlers must see a real 404 status with a helpful HTML page, never JSON or a soft 200.
   try {
     const body = await readFile(path.join(rootDir, '404.html'));
-    res.writeHead(404, { 'Content-Type': types['.html'], 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' });
+    res.writeHead(404, { 'Content-Type': types['.html'], 'Cache-Control': 'no-cache', 'X-Robots-Tag': 'noindex' });
     res.end(req.method === 'HEAD' ? undefined : body);
   } catch { json(res, 404, { error: 'Not found' }); }
 }
@@ -42,6 +42,11 @@ export function createProductionServer({ rootDir = path.join(projectDir, 'dist')
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    // Modern security baseline (Chrome modern-web-guidance): no framing, popups keep opener isolation,
+    // and only the microphone is allowed (RackBot voice calls); other powerful features are off.
+    res.setHeader('Content-Security-Policy', "frame-ancestors 'none'; object-src 'none'; base-uri 'self'");
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+    res.setHeader('Permissions-Policy', 'camera=(), geolocation=(), payment=(), usb=(), microphone=(self)');
     const pathname = (req.url || '/').split('?')[0];
     const query = (req.url || '').includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
     const host = String(req.headers.host || '').toLowerCase();

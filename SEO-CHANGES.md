@@ -32,6 +32,23 @@ Copilot), and retire signals pointing at the deleted Netlify deployment.
 - **IndexNow**: key file in the root plus `npm run indexnow` to notify Bing/Yandex after each deploy.
 - Checks: `npm test` (redirect + 404 tests), `npm run check` (identical Organization on every page, favicon/manifest/404 present).
 
+## Chrome modern-web-guidance pass
+
+Applied the performance, HTML and security rules from
+[GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) (Apache-2.0 / CC-BY 4.0):
+
+- **LCP**: the hero photo on all 11 inner pages is a CSS background, which the browser finds only after
+  `editorial.css` loads. Each page now preloads its hero with `fetchpriority="high"` (measured locally:
+  fetch starts at ~50 ms instead of after the stylesheet). The homepage hero was already preloaded.
+- **Social image**: the 2.4 MB PNG used for `og:image` and schema is replaced by a 181 KB 1200x630 JPEG with
+  `og:image:width`/`height`, so link previews (WhatsApp, LinkedIn, Slack, AI tools) load reliably.
+- **Security headers**: `Content-Security-Policy: frame-ancestors 'none'; object-src 'none'; base-uri 'self'`,
+  `Cross-Origin-Opener-Policy: same-origin-allow-popups`, `Permissions-Policy` that keeps only the microphone
+  (RackBot voice). HSTS deliberately omits `includeSubDomains` because `mail.prorack.ai` is a separate server.
+- **404**: `Cache-Control: no-cache` instead of `no-store` (keeps back/forward cache working).
+- Already compliant, unchanged: one `h1` per page, `lang`, viewport, width/height on every image, `loading="lazy"`
+  only below the fold (checked in the browser), `defer` on the app script, skip link, no unused web fonts.
+
 ## Actions only the site owner can do (biggest ranking impact)
 
 1. **Cloudflare DNS**: change `www` from the Netlify CNAME to `prorack.ai` (CNAME, proxied) or Hostinger's address, and add

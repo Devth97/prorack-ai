@@ -12,7 +12,8 @@ for (const page of pages) {
   for (const match of html.matchAll(/assets\/(app\.js|editorial\.css|style\.css)([^"\s]*)/g)) {
     assert.equal(match[2], `?v=${versions.get(match[1])}`, `${page}: current ${match[1]} version`);
   }
-  assert.ok(html.includes(`assets/app.js?v=${versions.get('app.js')}`), `${page}: versioned script`);
+  // The static 404 page deliberately loads no application script.
+  if (page !== '404.html') assert.ok(html.includes(`assets/app.js?v=${versions.get('app.js')}`), `${page}: versioned script`);
 }
 for (const file of ['_headers', 'dist/_headers', 'netlify.toml']) {
   const config = await readFile(file, 'utf8');

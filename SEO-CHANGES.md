@@ -1,3 +1,52 @@
+# ProRack SEO / AEO / GEO update: 22 November 2026
+
+Goal: make https://prorack.ai the one clearly identified "ProRack" warehouse racking
+entity for Google, Bing and AI answer engines (ChatGPT, Claude, Perplexity, Gemini,
+Copilot), and retire signals pointing at the deleted Netlify deployment.
+
+## Live-site findings (before this change)
+
+| Finding | Effect |
+| --- | --- |
+| `www.prorack.ai` is a Cloudflare CNAME to `velvety-ganache-baf4e1.netlify.app` (the deleted Netlify site) | www returns a Netlify 404; search engines still associate the brand with Netlify. **DNS fix required, see below.** |
+| Missing pages returned JSON 404 | Poor crawler and visitor experience |
+| `/solutions`, `/solutions.html`, `/index.html` and `/` all returned 200 | Duplicate URLs split ranking signals |
+| No `/favicon.ico` | No brand icon in Google results |
+| Company page declared a different Organization name under the same `@id` as the homepage | Inconsistent entity for Knowledge Graph / LLMs |
+| "ProRack" is shared with Pelican cases, WillScot, Proslat, vehicle racks and server cabinets | Brand query is ambiguous; needs explicit disambiguation |
+
+## Code changes
+
+- **server-app.mjs**: www to apex 301; `/index.html` to `/`; extensionless and trailing-slash URLs 301 to the canonical `.html`;
+  real HTML 404 page (`404.html`, noindex); HSTS; serves favicon, manifest, `llms-full.txt`, IndexNow key and `BingSiteAuth.xml`; media cached for a day.
+- **All pages**: favicon set, apple-touch icon, web manifest, theme colour, `max-image-preview:large` robots directive,
+  `og:site_name`, `og:locale=en_IN`, `og:image:alt`, geo meta and a link to `llms.txt`.
+- **JSON-LD**: one identical `Organization` entity on every page (legal name, alternate names, disambiguating description,
+  logo ImageObject, address, areas served, `knowsAbout`, parent group, LinkedIn `sameAs`), plus `LocalBusiness`, `WebSite`
+  and a `WebPage` / `AboutPage` / `ContactPage` node linked to them. Leadership `Person` entities on the company page.
+- **Answer-engine content**: visible Q&A "What is ProRack AI?" and "Is ProRack AI related to other ProRack products?" on the
+  homepage; four company questions on the company page; FAQ schema generated to match the visible text exactly.
+- **llms.txt**: brand identity and disambiguation section, full leadership, hours. Build now also writes **llms-full.txt** (all page text).
+- **robots.txt**: adds Claude-SearchBot, GoogleOther, Amazonbot, DuckAssistBot, MistralAI-User, CCBot, Applebot, DuckDuckBot.
+- **sitemap.xml**: image sitemap entries, refreshed `lastmod`.
+- **IndexNow**: key file in the root plus `npm run indexnow` to notify Bing/Yandex after each deploy.
+- Checks: `npm test` (redirect + 404 tests), `npm run check` (identical Organization on every page, favicon/manifest/404 present).
+
+## Actions only the site owner can do (biggest ranking impact)
+
+1. **Cloudflare DNS**: change `www` from the Netlify CNAME to `prorack.ai` (CNAME, proxied) or Hostinger's address, and add
+   `www.prorack.ai` as an alias in Hostinger. Delete any other record pointing to `*.netlify.app`.
+2. **Google Search Console**: add a *Domain* property for `prorack.ai` (DNS TXT in Cloudflare), submit `https://prorack.ai/sitemap.xml`,
+   use URL Inspection to request indexing of `/`, `/solutions.html`, `/company.html`, `/contact.html`.
+3. **Bing Webmaster Tools**: import from Search Console, submit the sitemap, then run `npm run indexnow`. Bing feeds ChatGPT search and Copilot.
+4. **Google Business Profile**: create / verify "ProRack Storage Solutions India Pvt. Ltd." at the Secunderabad address with
+   website `https://prorack.ai`, the same phone and hours. This is the main driver for local "racking manufacturer Hyderabad" results.
+5. **Consistent citations (NAP)**: same name, address, phone and URL on LinkedIn, IndiaMART, TradeIndia, JustDial, Crunchbase,
+   and the prorackglobal.com group site linking to prorack.ai. Add every verified profile URL to `sameAs` in the JSON-LD.
+6. **Old Netlify URLs**: they disappear from Google as it recrawls and sees them gone; this cannot be forced for a site you no longer control.
+
+---
+
 # ProRack SEO changes — 14 October 2026
 
 Scope: audit all 12 static pages, improve the existing site, and publish only to

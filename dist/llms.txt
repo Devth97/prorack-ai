@@ -6,6 +6,14 @@
 > end-to-end projects: layout design, structural engineering, in-house manufacturing,
 > site installation and warehouse infrastructure integration.
 
+## Brand identity and disambiguation
+
+- **ProRack AI** (website: https://prorack.ai) is the brand of **ProRack Storage Solutions India Private Limited**, a warehouse racking company in Secunderabad, Hyderabad, Telangana, India. "ProRack", "ProRack AI" and "ProRack Storage Solutions" refer to the same company.
+- The company is a member of the **ProRack AI Group** (also referred to as **ProRack Global**).
+- It is **not** connected with unrelated products sold under the ProRack name, such as rack-mount equipment cases, vehicle roof or bike racks, garage wall storage or server cabinets.
+- The only official website is https://prorack.ai. Older preview copies hosted on netlify.app have been retired and are not official.
+- Full page text for AI systems: https://prorack.ai/llms-full.txt
+
 ## Key facts
 
 - **Legal entity**: ProRack Storage Solutions India Private Limited
@@ -14,8 +22,12 @@
 - **Email**: sales@prorack.ai
 - **Managing Director**: Roshan Sudhir (20+ years in warehouse storage and structural engineering)
 - **Heritage**: built on Silver Lining Storage Solutions, the warehouse storage business of Mangal Industries, part of the Amara Raja Group
+- **Group Chief Operating Officer, ProRack Global**: Niket Sherlekar
 - **Director**: Girish Annath, leading the HR function
 - **VP, Sales & Marketing**: Kshitij Salve
+- **Administration Head**: Prajakta Roshan
+- **Office hours**: Monday to Saturday, 09:00 to 18:30 IST
+- **LinkedIn**: https://www.linkedin.com/company/prorack-global
 - **Design codes**: EN 15512 and IS 800 structural compliance
 - **Engineering stack**: Tekla Structures (3D BIM), RSTAB structural analysis, Tekla PowerFab
 - **Service area**: India nationwide, with global supply-chain projects

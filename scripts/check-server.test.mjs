@@ -14,6 +14,9 @@ before(async () => {
   await mkdir(path.join(rootDir, 'assets'), { recursive: true });
   await writeFile(path.join(rootDir, 'index.html'), '<h1>ProRack</h1>');
   await writeFile(path.join(rootDir, 'company.html'), '<h1>Company</h1>');
+  await writeFile(path.join(rootDir, '404.html'), '<h1>Page not found</h1>');
+  await writeFile(path.join(rootDir, 'favicon.ico'), 'icon');
+  await writeFile(path.join(rootDir, 'llms-full.txt'), 'ProRack full text');
   await writeFile(path.join(rootDir, 'assets', 'photo.jpg'), 'image fixture');
   await writeFile(path.join(directory, '.env'), 'PRIVATE=secret');
   await writeFile(path.join(rootDir, '.env'), 'PRIVATE=secret');
@@ -25,10 +28,10 @@ after(async () => {
   await new Promise(resolve => server.close(resolve));
   await rm(directory, { recursive: true, force: true });
 });
-function request(url, { method = 'GET', body, origin } = {}) {
+function request(url, { method = 'GET', body, origin, host } = {}) {
   return new Promise((resolve, reject) => {
     const req = http.request({ hostname: '127.0.0.1', port, path: url, method,
-      headers: { ...(origin ? { Origin: origin } : {}), ...(body ? { 'Content-Type': 'application/json' } : {}) } }, res => {
+      headers: { ...(host ? { Host: host } : {}), ...(origin ? { Origin: origin } : {}), ...(body ? { 'Content-Type': 'application/json' } : {}) } }, res => {
       let text = ''; res.setEncoding('utf8'); res.on('data', chunk => text += chunk);
       res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, text }));
     });
@@ -37,9 +40,29 @@ function request(url, { method = 'GET', body, origin } = {}) {
 }
 test('serves built pages and assets, including HEAD requests', async () => {
   assert.equal((await request('/')).text, '<h1>ProRack</h1>');
-  assert.equal((await request('/company')).status, 200);
+  assert.equal((await request('/company.html')).status, 200);
+  assert.equal((await request('/favicon.ico')).status, 200);
+  assert.equal((await request('/llms-full.txt')).status, 200);
   assert.equal((await request('/assets/photo.jpg?v=123')).headers['content-type'], 'image/jpeg');
   assert.equal((await request('/company.html', { method: 'HEAD' })).text, '');
+});
+test('consolidates duplicate URLs on one canonical address with 301 redirects', async () => {
+  const cases = [['/company', '/company.html'], ['/company/', '/company.html'], ['/index.html', '/'], ['/company?ref=x', '/company.html?ref=x']];
+  for (const [from, to] of cases) {
+    const response = await request(from);
+    assert.equal(response.status, 301, from);
+    assert.equal(response.headers.location, to, from);
+  }
+  const www = await request('/company.html?a=1', { host: 'www.prorack.ai' });
+  assert.equal(www.status, 301);
+  assert.equal(www.headers.location, 'https://prorack.ai/company.html?a=1');
+});
+test('unknown pages return a real HTML 404 that is not indexed', async () => {
+  const response = await request('/no-such-page');
+  assert.equal(response.status, 404);
+  assert.match(response.headers['content-type'], /^text\/html/);
+  assert.equal(response.headers['x-robots-tag'], 'noindex');
+  assert.equal((await request('/404.html')).status, 404);
 });
 test('does not expose environment files or paths outside the publish directory', async () => {
   for (const url of ['/.env', '/%2eenv', '/assets/../../.env', '/assets/%2e%2e/%2e%2e/.env', '/package.json', '/netlify/functions/bolna-session.mjs']) {

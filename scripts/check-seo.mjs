@@ -4,7 +4,9 @@ import assert from 'node:assert/strict';
 
 const root = path.resolve(process.argv[2] || '.');
 const origin = 'https://prorack.ai';
-const pages = (await fs.readdir(root)).filter(name => name.endsWith('.html'));
+// 404.html is served only with a 404 status and is intentionally noindex and outside the sitemap.
+const pages = (await fs.readdir(root)).filter(name => name.endsWith('.html') && name !== '404.html');
+const organizations = [];
 const sitemap = await fs.readFile(path.join(root, 'sitemap.xml'), 'utf8');
 const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
 const titles = new Set();
@@ -36,6 +38,7 @@ for (const name of pages) {
   for (const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
     const data = JSON.parse(match[1]);
     for (const node of data['@graph'] || [data]) {
+      if (node['@type'] === 'Organization' && node['@id'] === `${origin}/#organization`) organizations.push(JSON.stringify(node));
       if (node['@type'] === 'LocalBusiness') {
         assert.equal(node['@id'], `${origin}/#localbusiness`, `${name}: stable business identity`);
         businesses.push(node);
@@ -62,4 +65,9 @@ for (const business of businesses) assert.deepEqual(business.address, businesses
 const hours = businesses.filter(b => b.openingHoursSpecification).map(b => [b.openingHoursSpecification].flat());
 assert.deepEqual(hours[0], hours[1], 'Homepage and contact business hours agree');
 assert.ok((await fs.readFile(path.join(root, 'robots.txt'), 'utf8')).includes(`Sitemap: ${origin}/sitemap.xml`));
+assert.equal(organizations.length, pages.length, 'Every page declares the brand Organization entity');
+assert.equal(new Set(organizations).size, 1, 'The Organization entity is identical on every page');
+for (const file of ['favicon.ico', 'apple-touch-icon.png', 'site.webmanifest', 'llms.txt', '404.html']) await fs.access(path.join(root, file));
+const notFoundPage = await fs.readFile(path.join(root, '404.html'), 'utf8');
+assert.ok(/<meta name="robots" content="noindex/.test(notFoundPage), '404 page is noindex');
 console.log(`PASS: SEO for ${pages.length} pages, sitemap/canonical/social URLs, JSON-LD, business identity and ${faqCount} visible FAQ answers (${root}).`);

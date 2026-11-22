@@ -1,0 +1,2387 @@
+# ProRack AI
+
+> ProRack AI designs, manufactures and installs engineered warehouse racking,
+> mezzanine structures and industrial storage systems from Hyderabad, Telangana, India.
+> Operating as ProRack Storage Solutions India Private Limited, the company delivers
+> end-to-end projects: layout design, structural engineering, in-house manufacturing,
+> site installation and warehouse infrastructure integration.
+
+## Brand identity and disambiguation
+
+- **ProRack AI** (website: https://prorack.ai) is the brand of **ProRack Storage Solutions India Private Limited**, a warehouse racking company in Secunderabad, Hyderabad, Telangana, India. "ProRack", "ProRack AI" and "ProRack Storage Solutions" refer to the same company.
+- The company is a member of the **ProRack AI Group** (also referred to as **ProRack Global**).
+- It is **not** connected with unrelated products sold under the ProRack name, such as rack-mount equipment cases, vehicle roof or bike racks, garage wall storage or server cabinets.
+- The only official website is https://prorack.ai. Older preview copies hosted on netlify.app have been retired and are not official.
+- Full page text for AI systems: https://prorack.ai/llms-full.txt
+
+## Key facts
+
+- **Legal entity**: ProRack Storage Solutions India Private Limited
+- **Location**: West Marredpally, Secunderabad, Telangana 500026, India
+- **Phone**: +91 79658 51000
+- **Email**: sales@prorack.ai
+- **Managing Director**: Roshan Sudhir (20+ years in warehouse storage and structural engineering)
+- **Heritage**: built on Silver Lining Storage Solutions, the warehouse storage business of Mangal Industries, part of the Amara Raja Group
+- **Group Chief Operating Officer, ProRack Global**: Niket Sherlekar
+- **Director**: Girish Annath, leading the HR function
+- **VP, Sales & Marketing**: Kshitij Salve
+- **Administration Head**: Prajakta Roshan
+- **Office hours**: Monday to Saturday, 09:00 to 18:30 IST
+- **LinkedIn**: https://www.linkedin.com/company/prorack-global
+- **Design codes**: EN 15512 and IS 800 structural compliance
+- **Engineering stack**: Tekla Structures (3D BIM), RSTAB structural analysis, Tekla PowerFab
+- **Service area**: India nationwide, with global supply-chain projects
+
+## Racking and storage systems
+
+ProRack manufactures eight core storage system families:
+
+1. **Selective pallet racking**: single-deep, 100% pallet selectivity, bay loads up to 20,000 kg. Best for high-SKU FMCG, retail distribution and cold stores.
+2. **Wide-aisle multi-bay racking**: high-volume pallet storage adaptable to most loads and building heights.
+3. **Narrow-aisle (VNA) multi-bay racking**: up to ~45% higher floor utilisation; high throughput on a small footprint.
+4. **Drive-in / drive-through racking**: compact block storage for large quantities of homogeneous pallets.
+5. **Multi-tier shelving**: multi-level picking with walkways, stairs and gates to exploit building height.
+6. **Cantilever racking**: open-fronted storage for pipes, profiles, timber and other long goods.
+7. **Pallet and carton flow racking**: gravity-fed lanes separating loading from picking, maintaining FIFO rotation.
+8. **Mezzanine floors**: rack-supported and free-standing platforms adding floor area inside the existing envelope.
+
+## Three delivery verticals
+
+- **ProRack Storage Solutions**: design, manufacture and execution of racking, mezzanines and rack-clad structures.
+- **SmartFit Solutions**: material-agnostic professional installation for storage and warehouse infrastructure.
+- **Promech Integration Services**: fire and life safety, HVAC, material handling, electrical, lighting, security and monitoring.
+
+## Project delivery process
+
+1. **Discover**: storage profile, throughput, material flow and growth plan.
+2. **Engineer**: layouts and structural design in Tekla and RSTAB.
+3. **Manufacture**: controlled production with traceable materials and quality gates.
+4. **Install**: site execution to code and tolerance, built into handover.
+5. **Improve**: project transparency and operational insight for long-term performance.
+
+## Pages
+
+- [Home](https://prorack.ai/): warehouse performance solutions overview
+- [Solutions](https://prorack.ai/solutions.html): racking and storage catalog; capacities require engineering validation
+- [Engineering](https://prorack.ai/engineering.html): structural BIM delivery and the 5-stage lifecycle
+- [Execution](https://prorack.ai/execution.html): installation and MEP integration verticals
+- [Company](https://prorack.ai/company.html): heritage, leadership and engineering vision
+- [Contact](https://prorack.ai/contact.html): consultation and RFQ requests
+- [Digital Intelligence](https://prorack.ai/platform.html): the connected operations data layer
+- [Operations](https://prorack.ai/operations.html): project health and shop-floor execution visibility
+- [Copilot](https://prorack.ai/copilot.html): operational assistant demonstration
+- [Machines](https://prorack.ai/machines.html): roll-forming and PLC telemetry
+- [Architecture](https://prorack.ai/architecture.html): security and governance model
+- [Roadmap](https://prorack.ai/roadmap.html): planned engineering capabilities
+
+## Scope and limitations
+
+- Engineering capacities and suitability require project-specific validation.
+- Institutional validation described as planned is not an existing certification.
+- Digital dashboards and assistant examples illustrate the platform concept; they
+  are not verified live customer or factory data.
+- Roadmap capabilities are planned and should not be represented as available.
+- Contact the team for a project-specific quotation and service availability.
+
+---
+
+# Full page text
+
+# Warehouse Racking Manufacturer in Hyderabad | ProRack AI
+URL: https://prorack.ai/
+Summary: ProRack AI designs and manufactures warehouse racking, mezzanines and storage systems in Hyderabad, India, with installation across India.
+
+Warehouse editorial / AI-generated concept 
+ProRack AI / Warehouse performance solutions
+
+## Engineering better use of space
+Warehouse racking, shelving and mezzanines.
+Designed & manufactured in Hyderabad, India and installed Pan India.
+Discuss your project ↗ 
+
+
+
+01 / Storage
+
+## Space,
+engineered.
+Discover our storage systems.
+↗ 
+02 / Engineering
+
+## Precision,
+built in.
+From layout to structural design.
+↗ 
+03 / Execution
+
+## Plans into
+practice.
+Installation and project delivery.
+↗ 
+04 / Intelligence
+
+## Operations,
+connected.
+Explore the ProRack AI ecosystem.
+↗ 
+05 / Team
+
+## The people
+behind ProRack.
+Meet the leadership.
+↗ 
+
+
+ENGINEERED FOR YOUR SPACE ✱ STORE MORE. ACCESS FASTER. ✱ DESIGN TO DELIVERY ✱ PRECISION IN EVERY CONNECTION ✱ ENGINEERED FOR YOUR SPACE ✱ STORE MORE. ACCESS FASTER. ✱ DESIGN TO DELIVERY ✱ PRECISION IN EVERY CONNECTION ✱ 
+01 / The ProRack approach
+
+## Every square metre.
+Working harder.
+Storage planned around
+your warehouse.
+Your warehouse has its own challenges. We connect engineering, storage systems and project execution to help you store more, access faster and operate better.
+Meet ProRack AI ↗ Detail / 01 Strength starts
+at the connection. AI-generated industrial detail concept / Not a ProRack product photograph 
+01 / Design Consider every dimension. ↗ 02 / Storage Give every load its place. ↗ 03 / Delivery Bring the whole plan together. ↗ 
+
+
+02 / Product portfolio
+
+## Different systems.
+One purpose.
+The complete portfolio ↗ Looking beyond conventional racking?
+Rack-clad structures ↗ ASRS & shuttle systems ↗
+
+03 / Find your fit
+
+## What are you
+optimizing for?
+Start with what you need to achieve. Explore a suitable starting point, then work with our engineers to confirm the right configuration.
+Designed for the way you work, from logistics and manufacturing to retail and cold storage.
+
+
+04 / The ProRack group
+
+## Racking, installation
+and integration teams.
+Explore the group ↗ From design to delivery. AI-generated project delivery concept / Not a ProRack project photograph 01 / Storage
+
+## ProRack Storage
+Engineered racking, shelving and structural storage. From the first layout to manufacturing.
+↗ 02 / Execution
+
+## SmartFit
+Surveying, installation and site coordination. Turning engineering intent into a working facility.
+↗ 03 / Integration
+
+## ProMec
+Fire safety, HVAC, electrical and material handling. Connecting the infrastructure around your storage.
+↗
+
+05 / Technology & ecosystem
+
+## Connect your project
+information.
+ProRack AI brings commercial, design, manufacturing and site information into a shared view of the project. Your systems remain the source of record; the intelligence layer connects them.
+Explore ProRack AI ↗ The intelligence layer
+
+## ProRack AI
+Connect. Interpret. Coordinate.
+
+- 01 / Commercial CRM & ERPNext Scope, procurement & release
+
+- 02 / Engineering Tekla & PowerFab Design intent & fabrication
+
+- 03 / Manufacturing Shop floor & PLCs Production signals & quality
+
+- 04 / Site execution GoSmartFit Field App / Installation & handover
+Architecture overview / Explore the platform for integration scope and demonstrations.
+
+
+
+
+Planning your warehouse
+
+
+## Warehouse racking questions
+
+What is ProRack AI?
+ProRack AI (prorack.ai) is the brand of ProRack Storage Solutions India Private Limited, a warehouse racking and storage systems company headquartered in Secunderabad, Hyderabad, India. ProRack AI designs, manufactures and installs pallet racking, shelving, mezzanine floors and industrial storage systems for warehouses across India.
+
+
+Is ProRack AI related to other products sold under the ProRack name?
+No. ProRack AI and ProRack Storage Solutions India Private Limited are an Indian warehouse racking manufacturer. The company is not connected with unrelated ProRack-branded products such as rack-mount equipment cases, vehicle roof and bike racks, or garage wall storage.
+
+
+What warehouse storage systems does ProRack offer?
+ProRack offers selective pallet racking, wide-aisle and very narrow-aisle racking, drive-in and drive-through racking, multi-tier shelving, cantilever racking, pallet and carton flow racking, and mezzanine floors. System selection depends on the goods, handling equipment and building constraints.
+
+
+Where is ProRack based?
+ProRack Storage Solutions India Private Limited is based in West Marredpally, Secunderabad, Telangana, in the Hyderabad region of India. Contact the team to discuss the location and scope of your warehouse project.
+
+
+What information is needed for a warehouse racking quotation?
+Share your project location, warehouse dimensions and clear height, pallet or item dimensions and weights, storage quantity, handling equipment and expected timeline. ProRack reviews the requirement before preparing a project-specific quotation.
+
+
+Compare storage systems · Discuss your warehouse requirement
+
+
+
+Your next warehouse starts with a conversation
+
+## Let's make
+space work.
+↗ New facility or existing operation.
+Tell us what you need to move forward.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Pallet Racking & Storage Systems India | ProRack AI
+URL: https://prorack.ai/solutions.html
+Summary: Eight engineered racking systems built in Hyderabad: selective, VNA narrow-aisle, drive-in, cantilever, flow racking, multi-tier shelving and mezzanines.
+
+INDUSTRIAL STORAGE SYSTEMS 
+
+## Storage solutions.
+Designed around your operation.
+
+Every warehouse has different products, capacities, workflows and constraints. Our portfolio combines proven storage systems with engineered solutions designed to make the best use of available space.
+
+
+View All Systems ↓ 
+Request Custom Layout 
+
+
+
+
+
+01 / Capacity
+
+## Make space count.
+Maximise available floor and vertical space.
+02 / Accessibility
+
+## Keep inventory moving.
+Balance storage density with access to inventory.
+03 / Material handling
+
+## Design around flow.
+Coordinate equipment and the movement of goods.
+04 / Scalability
+
+## Make room for growth.
+Create systems that can evolve with your business.
+
+
+
+
+
+
+COMPLETE PRODUCT PORTFOLIO 
+
+## Industrial Storage & Racking Catalog
+
+
+Eight core system families, with modern roll-forming and powder-coating capabilities and high-strength steel construction. Final capacities and configurations are determined through project-specific engineering.
+
+
+
+
+
+
+
+
+
+
+SYSTEM 01 // 100% SELECTIVITY 
+
+## Selective Pallet Racking
+
+The versatile industry workhorse. Provides direct, unrestricted access to every individual pallet with standard forklifts. Completely modular and reconfigurable as inventory profiles evolve.
+
+
+
+- Bay Load: Up to 20,000 kg
+
+
+- Beam Capacities: 1,000 kg – 4,500 kg per pair
+
+
+- Best For: High SKU variety, FMCG, retail distribution, cold stores
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 02 // MULTI-BAY STORAGE 
+
+## Wide-Aisle Multi-Bay Racking
+
+Engineered for high-throughput logistics terminals with continuous simultaneous reach truck operations. Wide aisles permit bi-directional forklift transit and buffer staging.
+
+
+
+- Aisle Width: 3.0m – 3.8m
+
+
+- Equipment: Standard counterbalance & reach forklifts
+
+
+- Best For: 3PL fulfillment centers, general warehousing, heavy machinery spares
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 03 // HIGH-DENSITY VNA 
+
+## Very Narrow-Aisle (VNA) Racking
+
+Maximizes vertical warehouse volume by compressing aisle widths down to 1.5m. Turret trucks or man-up order pickers operate guided by wire or mechanical floor rails.
+
+
+
+- Building Height: Up to 18+ meters
+
+
+- Space Saving: 40%–45% higher storage density
+
+
+- Best For: High land-cost regions, pharmaceutical, e-commerce mega-hubs
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 04 // COMPACT BLOCK STORAGE 
+
+## Drive-In / Drive-Through Racking
+
+Eliminates operating aisles by creating continuous lane tunnels where forklifts drive directly into rack bays. Supports LIFO (Drive-In) or FIFO (Drive-Through) protocols.
+
+
+
+- Capacity Boost: 60%–80% higher density than standard selective
+
+
+- Guidance: Floor guidance channels & heavy-duty upright guards
+
+
+- Best For: Cold storage, seasonal goods, bulk homogenous stock
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 05 // MULTI-LEVEL PICKING 
+
+## Multi-Tier Shelving Installations
+
+Vertical modular shelving structures integrated with intermediate steel mesh or timber walkways, access stairs, safety gates, and carton chute drops for multi-level order picking.
+
+
+
+- Walkway Tiers: 2 to 4 picking levels
+
+
+- Safety: Toe boards, handrails, fire sprinkler integration
+
+
+- Best For: Automotive spare parts, apparel, hardware, electrical items
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 06 // LONG GOODS & PIPES 
+
+## Heavy-Duty Cantilever Racking
+
+Unobstructed front-opening storage engineered for oversized, long, and irregular inventory. Structural columns with load-tested cantilever arms withstand heavy point loads.
+
+
+
+- Arm Capacities: 250 kg – 2,500+ kg per arm
+
+
+- Configurations: Single-sided wall or double-sided central
+
+
+- Best For: Steel pipes, extruded aluminium, timber, PVC conduit, coils
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 07 // FIFO DYNAMIC FLOW 
+
+## Pallet & Carton Flow Racking
+
+Gravity-fed dynamic roller lanes automatically advance pallets and cartons toward the picking face. Physically isolates replenishment loading from front-end order fulfillment.
+
+
+
+- Stock Rotation: Strict First-In, First-Out (FIFO)
+
+
+- Safety: Speed controller brake rollers & end-stop separators
+
+
+- Best For: Perishable goods, pharmaceutical expiry batches, high-speed picking
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+SYSTEM 08 // STRUCTURAL EXPANSION 
+
+## Mezzanine Floors & Platforms
+
+Double or triple your usable warehouse square footage without expanding the building envelope. Custom structural steel or rack-supported mezzanine designs engineered in Tekla/RSTAB.
+
+
+
+- Floor Loading: 350 kg/m² to 2,000+ kg/m²
+
+
+- Options: Heavy-duty grating, chequered plate, or particle board
+
+
+- Best For: Sorting hubs, office-over-storage, assembly lines, buffer staging
+
+
+Request Specification Sheet → 
+
+
+
+
+
+
+
+
+
+09 / Structural storage
+
+## Rack-clad buildings
+Integrate the racking structure into the building itself for highly dense storage applications, coordinated from engineering through fabrication and erection.
+Discuss a rack-clad project ↗
+
+AI-generated automated storage concept 10 / Automated storage
+
+## ASRS & high-density shuttles
+Automated storage combines racking, material-handling equipment and control systems to store and retrieve goods. Configurations include RF shuttle racking, ASRS shuttle, stacker crane ASRS and mini load ASRS. AI-generated concept illustration; equipment layout and integration are confirmed during engineering.
+Discuss an automated system ↗
+
+
+Additional configurations / Approved product offerings
+
+## Find the right fit.
+
+
+Double-deep & mobile pallet racking
+Double-deep racking uses two rack bays to increase the rack-to-aisle ratio for higher storage density. Mobile pallet racks move laterally to create access aisles when required, helping maximise capacity while retaining SKU selectivity.
+
+
+Heavy-duty, bolt-free & flow shelving
+Heavy-duty shelving serves medium-to-heavy goods and mixed palletised and non-palletised storage. Bolt-free shelving supports flexible light-duty and spare-parts storage. Carton and bin flow racking uses gravity for efficient picking and FIFO operations.
+
+
+
+Talk to an expert ↗ 
+
+
+
+
+
+ENGINEERING FAQs & SPECIFICATIONS 
+
+## Frequently Asked Engineering Questions
+
+
+
+
+What factors determine the right warehouse racking system for a facility?
+
+
+Selecting the optimal storage system depends on five core parameters: (1) Inventory Profile: pallet dimensions, weights, and SKU diversity; (2) Throughput Velocity: picking frequencies and FIFO vs. LIFO rotation rules; (3) Handling Equipment: mast lift heights and forklift turning radius; (4) Building Envelope: clear floor height, column grid spacing, and slab load capacity; and (5) Future Scalability: planned expansion phases and potential automated shuttle/ASRS integration.
+
+
+
+
+
+
+How does ProRack ensure structural safety and seismic compliance?
+
+
+ProRack models every installation using 3D structural analysis tools (Tekla Structures and RSTAB), accounting for dynamic forklift impact loads, dead loads, and regional seismic zone coefficients in accordance with IS 1893, EN 15512, and FEM 10.2.02. In addition, ProRack is planning collaboration with IIT-Powai to validate and certify structural designs and site installations.
+
+
+
+
+
+
+Can existing racking layouts be upgraded or reconfigured?
+
+
+Yes. ProRack's selective and multi-bay upright patterns are designed for modular adjustment, allowing beam levels to be repositioned on standard 50mm or 75mm pitch increments. Our SmartFit installation team also conducts structural health audits to verify load charts and install safety upgrades such as column protectors, rack end barriers, and mesh decking.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 
+Ready to optimize your warehouse layout?
+
+
+
+
+
+
+
+Get in touch
+
+Warehouse Solutions Team
+
+
+
+
+
+Email us 
+sales@prorack.ai 
+
+
+
+
+
+Call us 
++91 79658 51000
+
+---
+
+# Warehouse Engineering & Structural BIM | ProRack AI
+URL: https://prorack.ai/engineering.html
+Summary: Warehouse layout and structural design delivered in Tekla Structures and RSTAB, from load study to EN 15512 and IS 800 compliant fabrication drawings.
+
+INTEGRATED PROJECT DELIVERY 
+
+## 
+From Warehouse Plan
+To Certified Operating System. 
+
+
+
+One continuous, closed-loop engineering process keeps design intent, structural calculations, cold roll-forming manufacturing, and site handover strictly aligned with international codes and digital transparency.
+
+
+
+Explore 5 Delivery Stages ↓ 
+Consult an Engineer 
+
+
+
+
+
+
+
+
+
+DISCIPLINED EXECUTION GATES 
+
+## The Five Delivery Stages
+
+
+Each phase enforces explicit quality gates, structural models, and operational milestones to eliminate variance between commercial commitments and physical site reality.
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODEL-DRIVEN FABRICATION 
+
+## 
+Tekla 3D & RSTAB Finite Element Calculations
+
+
+
+Every ProRack installation begins as a comprehensive 3D BIM model. We do not rely on generic estimations; our structural engineers simulate actual load distributions, baseplate anchor reactions, beam deflections, and seismic response spectra using Dlubal RSTAB and Tekla Open API workflows.
+
+
+
+
+- Clash Elimination: Pre-fabrication clash detection against building PEB columns, downspouts, HVAC ducts, and lighting runs.
+
+
+- Codes & Tolerances: Strict compliance with EN 15512 (European racking code), RMI (US specification), and IS 800 (Indian standard).
+
+
+- Direct CNC Integration: Automated cut lists and punching patterns fed directly into roll-forming shop floor lines.
+
+
+- Academic Validation: Planned institutional certification with IIT-Powai for structural integrity assurance.
+
+
+Explore ProRack AI Digital Platform → 
+
+
+
+
+
+
+
+
+
+
+
+OPERATIONAL TRANSPARENCY 
+
+## 
+Structured Change Order Management
+
+
+
+In complex industrial projects, warehouse floor plans and operational layouts frequently evolve. Uncontrolled changes create site delays, mismatched components, and structural risks. ProRack operates a formalized engineering change order framework:
+
+
+
+
+1. Digital Revision Control 
+Every layout revision is version-controlled with automated DWG/IFC diff comparisons, ensuring site teams never install outdated drawings.
+
+
+
+2. Tonnage & Coil Reallocation 
+Material changes immediately sync with shop floor coil nesting software to prevent scrap and maintain delivery schedules.
+
+
+
+3. Complete Commercial Clarity 
+Clients receive clear, itemized impact summaries covering cost variations, structural implications, and handover dates prior to execution.
+
+
+
+
+
+
+
+
+
+
+ENGINEERING FAQs 
+
+## Common Technical Questions
+
+
+
+
+What structural calculations are conducted before manufacturing begins?
+
+
+ProRack performs full global and local finite element structural analysis: upright buckling capacity, beam end connector shear and moment rotation, baseplate bearing stresses on the concrete slab, anchorage pull-out resistance, and dynamic seismic drift under IS 1893 and EN 15512 specifications.
+
+
+
+
+
+
+How does ProRack ensure material traceability on the production line?
+
+
+Every coil of high-tensile steel is logged with mill heat test certificates (MTC), yield strength verification, and coil heat tracking. Components are barcoded through roll-forming, punching, welding, and powder coating, giving clients verifiable traceability for quality audits.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 
+Discuss your structural engineering requirements
+
+
+
+
+
+
+
+Engineering Consultation
+
+Structural Solutions Team
+
+
+
+
+
+Email us 
+sales@prorack.ai 
+
+
+
+
+
+Call us 
++91 79658 51000
+
+---
+
+# Warehouse Installation & MEP Integration | ProRack AI
+URL: https://prorack.ai/execution.html
+Summary: Three specialist verticals covering racking manufacture, SmartFit site installation, and ProMec fire, HVAC, electrical and security integration.
+
+TURNKEY WAREHOUSE EXECUTION 
+
+## 
+Three Specialist Verticals.
+One Coordinated Warehouse Outcome. 
+
+
+
+Our teams handle racking manufacture, site installation and the building services around the storage system. One project team coordinates the work.
+
+
+
+View All 3 Verticals ↓ 
+Schedule Project Discussion 
+
+
+
+
+
+
+
+
+
+INTEGRATED BUSINESS UNITS 
+
+## Racking, Installation and Building Services
+
+
+Dedicated teams handle storage manufacturing, field installation and mechanical, electrical and plumbing (MEP) integration. They work from a shared engineering plan.
+
+
+
+
+
+
+
+
+
+VERTICAL 01 // CORE ENGINEERING 
+
+## ProRack Storage Solutions
+
+
+Design, automated manufacturing, and engineering delivery of warehouse racking, industrial mezzanines, rack-clad structures, cantilever, flow systems, and custom metal stillages.
+
+
+
+
+- Prime cold roll-formed uprights & box beams
+
+
+- Tekla Structures 3D model-driven production
+
+
+- High-tensile steel with mill test certification
+
+
+- Compliant with EN 15512, RMI & IS 800 codes
+
+
+
+
+View Storage Systems → 
+
+
+
+
+
+
+
+VERTICAL 02 // SITE EXECUTION 
+
+## SmartFit Solutions
+
+
+Our dedicated installation vertical, specializing in the professional erection and execution of warehouse storage and infrastructure systems. Material-agnostic and execution-focused, SmartFit can install components sourced from any manufacturer or supplier.
+
+
+
+
+- Material-agnostic assembly & third-party rack audits
+
+
+- Laser plumb alignment & anchor pull-out test reports
+
+
+- Certified rigging crews with full PPE & safety gates
+
+
+- Handover compliance documentation & load signage
+
+
+
+
+Book Installation Audit → 
+
+
+
+
+
+
+
+VERTICAL 03 // BEYOND RACK & PEB 
+
+## ProMec Integration Services
+
+
+Our vertical for warehouse systems beyond the Rack and PEB, covering Fire & Life Safety, HVAC & Environmental Control, Material Handling & Automation, Electrical & Lighting, and Security & Monitoring.
+
+
+
+
+- NFPA 13 / NBC in-rack sprinkler hydraulic layouts
+
+
+- HVAC, dehumidification & cold chain monitoring
+
+
+- Conveyor automation, shuttles & ASRS integration
+
+
+- High-bay smart LED arrays & CCTV/access control
+
+
+
+
+Inquire About Infrastructure Integration → 
+
+
+
+
+
+
+
+
+
+
+
+
+THE PRORACK ADVANTAGE 
+
+## 
+Coordinating Work Between Trades
+
+
+
+Traditional warehouse setups require the client to coordinate separate racking vendors, MEP contractors, civil crews, and installation teams. When piping obstructs pallet beams or when floor anchors damage post-tensioned slabs, delays mount. ProRack solves this through:
+
+
+
+
+Single Point Responsibility 
+One accountable contract managing structural design, installation safety, and MEP infrastructure synchronization.
+
+
+
+BIM Space Reservation 
+In-rack fire sprinklers and lighting trunking are modeled in Tekla 3D files so clashes can be identified and resolved before installation.
+
+
+
+Rapid Turnaround Delivery 
+Manufacturing runs alongside site preparation, so completed areas can be handed over in phases where the project allows.
+
+
+
+
+
+
+
+
+
+
+
+## 
+Coordinate your warehouse execution with specialist teams
+
+
+
+
+
+AI-generated installation concept
+
+
+
+Execution Support
+
+Site Operations Team
+
+
+
+
+
+Email us 
+sales@prorack.ai 
+
+
+
+
+
+Call us 
++91 79658 51000
+
+---
+
+# About ProRack AI | Warehouse Racking Company, Hyderabad
+URL: https://prorack.ai/company.html
+Summary: ProRack Storage Solutions India Pvt Ltd, built on the Silver Lining Storage Solutions legacy and led by Managing Director Roshan Sudhir in Hyderabad.
+
+COMPANY & LEADERSHIP 
+
+## Built on experience.
+Moving forward with ProRack.
+
+ProRack Storage Solutions India Pvt. Ltd. is part of the ProRack AI Group. We engineer warehouse storage systems, building on the legacy of Silver Lining Storage Solutions.
+
+
+Our Heritage & Story ↓ 
+Connect With Leadership 
+
+
+
+
+
+
+
+
+
+12+ Years 
+Industry engineering pedigree 
+
+
+20+ Years 
+Managing Director track record 
+
+
+Hyderabad HQ 
+Centralized engineering & execution 
+
+
+Silver Lining Legacy 
+Built on Silver Lining experience 
+
+
+
+
+
+
+
+
+
+OUR HERITAGE & FOUNDATION 
+
+## 
+Warehouse Racking Built Around Your Operation
+
+
+
+ProRack Storage Solutions India Pvt. Ltd. is a warehouse engineering and storage solutions company within the ProRack AI Group. The business builds on the legacy of Silver Lining Storage Solutions, the warehouse storage business of Mangal Industries, part of the Amara Raja Group.
+
+
+
+As we take ownership of this legacy, we are developing the business with a focus on accountability, transparency and AI integration across warehouse engineering and project delivery.
+
+
+
+
+"We design every warehouse solution around the customer's operational requirements, storage profile, material-handling systems, available space, and future growth trajectory."
+
+
+
+
+
+
+
+## Our Core Operating Pillars
+
+
+
+1 
+
+BIM Solution Engineering 
+Tekla Structures 3D modeling and RSTAB finite element analysis validate every connection before manufacturing.
+
+
+
+
+2 
+
+Strict Codes & Tolerances 
+Compliance with EN 15512, RMI, and IS 800 standards, alongside planned IIT-Powai academic certification.
+
+
+
+
+3 
+
+Complete Project Transparency 
+Structured change order management and tracked project status from coil slitting to site handover.
+
+
+
+
+
+
+
+
+
+
+Leadership / ProRack AI
+
+## Practical experience.
+Clear direction.
+Roshan Sudhir Managing Director / 20+ years of industrial experience Engineering, manufacturing
+and delivery. Together.
+Managing Director Roshan Sudhir brings over 20 years of hands-on leadership across warehouse, manufacturing and heavy industrial infrastructure projects. Roshan leads ProRack's engineering team and coordinates the design and delivery of storage installations.
+Under his leadership, ProRack AI has integrated engineering design, specialised site installation through SmartFit Solutions, and warehouse MEP infrastructure through ProMec Integration to coordinate the work across each project.
+
+- 01
+
+## Engineering-led decisions
+Storage requirements, structural design and building coordination considered together.
+
+- 02
+
+## A shared delivery approach
+Manufacturing, site installation and infrastructure teams working around the project brief.
+
+sales@prorack.ai ↗ +91 79658 51000 ↗ 
+
+
+
+Niket Sherlekar Group Chief Operating Officer, ProRack Global 
+
+
+## Niket Sherlekar
+Group Chief Operating Officer, ProRack Global
+
+Niket Sherlekar leads the Group’s operating agenda across ProRack Storage Solutions, SmartFit Solutions and the wider ProRack Global platform. His focus is on building the systems, teams and execution capability needed to deliver warehouse infrastructure at scale.
+
+Before joining ProRack Global, Niket led infrastructure supply chain and expansion for Blinkit’s dark-store and warehouse network. His responsibilities included racking and storage solutions, material-handling and other capital assets, and MEP services.
+
+He has led Category P&Ls, spent five years as a South Asia Segment Leader at DuPont, and brings seven years of entrepreneurial experience. He combines operating rigour with a practical builder’s mindset.
+
+
+
+
+
+
+
+
+
+Our team / ProRack Storage Solutions
+
+## Meet the team.
+
+
+
+
+Girish Annath Director, ProRack Storage Solutions 
+
+
+## Girish Annath
+Director, ProRack Storage Solutions
+
+Girish brings extensive experience in operations management, infrastructure development and business leadership. His career includes leadership roles at OEC Records Management, NAX (Navbharat Archive Xpress), Iron Mountain and Recall, where he contributed to facility development, operational standardisation and security practices.
+
+His experience in business development, strategy and materials management gives him a practical understanding of infrastructure and business needs. At ProRack Storage Solutions, he heads the HR function and focuses on recruiting the people needed to grow the business.
+
+
+
+
+
+
+
+Prajakta Roshan Administration Head, ProRack AI 
+
+
+## Prajakta Roshan
+Administration Head, ProRack AI
+
+Prajakta Roshan plays an important role in ProRack AI, bringing a diligent, detail-oriented approach to the company’s administration and day-to-day operations. As a key stakeholder in the business, she is committed to ensuring that internal processes are organised, responsibilities are managed efficiently, and the organisation’s foundations remain strong as it grows.
+
+Known for her meticulous nature and sense of responsibility, Prajakta contributes to building a disciplined, well-coordinated working environment that supports ProRack AI’s long-term vision.
+
+
+
+
+
+
+
+Kshitij Salve VP, Sales & Marketing 
+
+
+## Kshitij Salve
+VP, Sales & Marketing
+
+Kshitij has over 20 years of experience in branding, communication, sales, stakeholder management and building and leading teams.
+
+He has worked across brands including Panasonic, Fiat, Skoda India, ICICI Prudential, SBI and Bajaj Hindustan, and has handled social media for leading Indian cricketers. At ProRack, he brings this experience to sales, marketing and the way the company communicates its work in the warehousing industry.
+
+
+
+
+
+
+
+
+
+REGISTERED ENTITY INFORMATION 
+
+## 
+Corporate Identity & Headquarters
+
+
+
+
+
+
+Official Brand Identity 
+ProRack Storage Solutions India Pvt. Ltd. 
+Operating under ProRack AI Group. Headquartered in Secunderabad / Hyderabad, delivering pan-India and international racking solutions.
+
+
+
+
+
+
+Corporate Entity 
+
+ProRack Storage Solutions India Private Limited
+
+A member company of ProRack AI Group 
+
+
+
+
+
+Registered Office 
+
+H.No.10-2-294/Plot No.177, Flat No.303, 3rd Floor,
+
+Royal Sai Mahalaxmi Pride, West Marredpally,
+
+Secunderabad - 500026, Telangana, India
+
+
+
+
+
+Operating Footprint 
+
+Serving warehousing and manufacturing hubs across Hyderabad, Telangana, South India, pan-India logistics corridors, and Middle East export projects.
+
+
+
+
+
+
+
+
+
+About ProRack
+
+
+## Company questions
+
+Who owns and runs ProRack AI?
+ProRack AI is the brand of ProRack Storage Solutions India Private Limited, a member company of the ProRack AI Group. The company is led by Managing Director Roshan Sudhir, with Niket Sherlekar as Group Chief Operating Officer, Girish Annath as Director, Kshitij Salve as VP, Sales and Marketing, and Prajakta Roshan as Administration Head.
+
+
+What is the relationship between ProRack and Silver Lining Storage Solutions?
+ProRack Storage Solutions builds on the legacy of Silver Lining Storage Solutions, the warehouse storage business of Mangal Industries, part of the Amara Raja Group.
+
+
+Where is ProRack Storage Solutions registered?
+The registered office is H.No.10-2-294/Plot No.177, Flat No.303, 3rd Floor, Royal Sai Mahalaxmi Pride, West Marredpally, Secunderabad 500026, Telangana, India. The company serves warehousing and manufacturing hubs across India and supports Middle East export projects.
+
+
+Which ProRack businesses deliver warehouse projects?
+ProRack Storage Solutions designs and manufactures racking, shelving, mezzanines and rack-clad structures. SmartFit Solutions handles surveying and site installation, and ProMec Integration covers fire safety, HVAC, electrical and material-handling infrastructure.
+
+
+
+
+
+Careers / Build with us
+
+## Build what moves
+business forward.
+Behind every efficient warehouse is a team of people who design it, engineer it, build it and make it work. We are building a modern warehouse infrastructure business where engineering, technology and execution come together.
+Opportunities across engineering & design, sales & business development, project management, manufacturing, installation and operations.
+Send us your CV ↗
+
+
+
+
+
+## 
+Connect with ProRack AI
+
+
+
+
+
+
+
+Executive Office
+
+Roshan Sudhir & Leadership
+
+
+
+
+
+Email us 
+sales@prorack.ai 
+
+
+
+
+
+Call us 
++91 79658 51000
+
+---
+
+# Contact ProRack AI | Warehouse Racking RFQ, Hyderabad
+URL: https://prorack.ai/contact.html
+Summary: Request a warehouse racking consultation, layout study or RFQ. Call +91 79658 51000 or email sales@prorack.ai. Based in Secunderabad, Telangana.
+
+DIRECT PROJECT INTAKE 
+
+## Let's build
+a better warehouse.
+
+Whether you're planning a new facility, expanding an existing warehouse or looking to improve storage efficiency, we're here to help. Tell us what you're trying to achieve. We'll help you find the right solution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PRIMARY EMAIL INTAKE 
+sales@prorack.ai 
+Project enquiries & consultation 
+
+
+
+
+
+
+
+
+
+DIRECT TELEPHONE LINE 
++91 79658 51000 
+Mon–Sat, 9:00 AM – 6:30 PM IST 
+
+
+
+
+
+
+
+
+
+MANAGING DIRECTOR 
+Roshan Sudhir 
+20+ yrs industrial leadership 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Project enquiry 
+
+## Discuss your project
+
+
+This form opens your email application. Send the draft to submit your enquiry.
+
+
+
+
+Full Name * 
+
+
+
+Company Name * 
+
+
+
+
+
+
+Work Email * 
+
+
+
+Phone Number * 
+
+
+
+
+
+Storage system 
+
+Selective Pallet Racking 
+Wide-Aisle Multi-Bay Racking 
+Rack-Clad Building 
+Very Narrow Aisle (VNA) Racking 
+Drive-In / Drive-Through Racking 
+Multi-Tier Shelving Installation 
+Heavy-Duty Cantilever Racking 
+Pallet & Carton Flow Racking 
+Industrial Mezzanine Floor / Platform 
+ASRS & Automated Shuttle System 
+SmartFit Installation Audit (Existing Racking) 
+ProMec MEP & In-Rack Fire Protection 
+
+
+
+City / Location 
+
+Your Requirement * 
+
+
+
+
+Prepare Project Inquiry →
+
+
+Or email specifications directly to sales@prorack.ai 
+
+
+
+
+
+
+
+
+
+
+
+Executive Leadership 
+Roshan Sudhir 
+Managing Director (20+ Years Industrial Experience) 
+
+✉ sales@prorack.ai 
+✆ +91 79658 51000 
+
+
+
+
+
+REGISTERED OFFICE LOCATION 
+
+## Hyderabad Headquarters
+
+
+
+ProRack Storage Solutions India Private Limited
+
+H.No.10-2-294/Plot No.177, Flat No.303, 3rd Floor,
+
+Royal Sai Mahalaxmi Pride, West Marredpally,
+
+Secunderabad - 500026, Telangana, India
+
+
+
+
+Direct Phone: +91 79658 51000 
+Primary Email: sales@prorack.ai 
+Business Hours: Monday – Saturday: 9:00 AM – 6:30 PM IST 
+
+
+
+
+
+## Regional & Global Execution Reach
+
+
+ProRack engineers and installs warehouse racking projects across Telangana, Andhra Pradesh, Maharashtra, Karnataka, Tamil Nadu, NCR Delhi, and export facilities across the Middle East.
+
+---
+
+# Connected Intelligence Layer | ProRack AI Platform
+URL: https://prorack.ai/platform.html
+Summary: Explore ProRack AI's Connected Intelligence Layer: non-disruptive integration across ERPNext, Tekla Structures, PowerFab, Microsoft 365, and machine PLCs.
+
+PLATFORM ARCHITECTURE // CONNECTED LAYER 
+
+## Connect Your Project Systems.
+Platform concept / interactive demonstrations use sample data. No live customer or machine connection.
+
+
+ProRack AI does not replace your existing systems of record. It bridges ERP, CAD/BIM tools, shop routing, and machine sensors into a shared view of project information.
+
+
+
+
+
+
+
+
+
+
+MULTI-SYSTEM TOPOLOGY 
+
+## How your project systems connect
+
+
+Select a system to see an example of the information it could share with ProRack AI: orders from ERPNext, design records from Tekla, fabrication lists from PowerFab and production signals from machines. This demonstration uses sample data; it does not connect to your systems.
+
+
+
+
+
+
+
+
+
+
+
+DESIGN TO FABRICATION // CONCEPT 
+MODEL & DRAWING REFERENCES 
+
+
+
+ENGINEERING FIDELITY 
+
+## Keep design and fabrication aligned
+
+
+The proposed Tekla integration links each rack component to its model reference, drawing revision and fabrication list. This helps teams check that the parts being manufactured match the current approved design. The examples below illustrate the intended workflow.
+
+
+
+
+Revision Diff 
+Example: drawing revision C 
+
+
+Fabrication Route 
+Example: matched fabrication list
+
+---
+
+# Operations Intelligence & Project Health | ProRack AI
+URL: https://prorack.ai/operations.html
+Summary: Live project health, fabrication progress and site execution visibility connecting commercial, engineering and shop-floor data in one operational view.
+
+REAL-TIME OPERATIONS // PROJECT & SHOP FLOOR 
+
+## Synchronize Shop Floor Flow with Project Commitments.
+Platform concept / interactive demonstrations use sample data. No live customer or machine connection.
+
+
+Live progress across structural phase gates, change orders, machine statuses, planned vs. actual production tonnage, and digital quality inspection traceability.
+
+
+
+
+
+
+
+
+
+
+
+
+LIVE PROJECT TELEMETRY 
+
+## Project 2026-HYD-04 // Heavy Duty Drive-In Rack Complex
+
+
+STAGE 4: FABRICATION RELEASE · LAST SYNC: 4S AGO 
+
+
+
+
+Material Readiness 
+94.2% 
+48.6 MT HR Coils verified in yard 
+
+
+Shop Fabrication 
+68.4% 
+Uprights 82% · Beams 64% · Bracing 55% 
+
+
+Active Blockers 
+1 Critical 
+Gusset Rev C structural approval 
+
+
+Installation Readiness 
+On Track 
+GoSmartFit verified anchor grid B1-F12 
+
+
+
+
+
+
+
+
+## Active Blockers & Root Causes
+
+1 HIGH · 1 MEDIUM 
+
+
+
+
+CRITICAL PATH HOLD 
+TEKLA DWG-C104-REV-C 
+
+Base Plate Gusset Structural EOR Approval Pending 
+
+Seismic revision requires upgraded 12mm plate. PowerFab holds cutting nest #412 until engineering approval is logged in M365 email thread #419.
+
+
+
+
+
+
+TRANSIT ALERT 
+ERPNEXT PO-00892 
+
+M16 High-Tensile Fasteners Shipment Transit Delay 
+
+18-hour transport delay. Buffer inventory at Hyderabad warehouse is sufficient for initial 4 days of site erection.
+
+
+
+
+
+
+
+
+
+## Milestone Gate Status
+
+PHASE 4 OF 6 
+
+
+
+
+Tekla 3D Model Freeze & Structural Stamp 
+CLEARED 
+
+
+PowerFab Nesting & Coil Allocation (48 MT) 
+CLEARED 
+
+
+Batch 01 Dispatch (Uprights & Anchors) 
+IN PROGRESS 
+
+
+Site Erection & Plumb Check (GoSmartFit) 
+SCHEDULED 22 SEP 
+
+
+
+
+
+
+
+SHOP FLOOR EXECUTION 
+
+## Active Machine Work Centers
+
+
+
+
+
+
+RF-01 ROLL FORMER 
+RUNNING 
+
+Upright Post 90×1.8 
+Speed: 42.2 m/min · Shift: 1,840 m 
+TOLERANCE ±0.03mm 
+
+
+
+
+RF-02 BEAM LINE 
+CHANGEOVER 
+
+Box Beam 125×50 
+Tooling adjustment · 10 min remaining 
+PLANNED WINDOW 
+
+
+
+
+CNC-PL01 PLASMA 
+RUNNING 
+
+Base Plates 12mm 
+Cutting nest #308 · 92% sheet yield 
+GAS FLOW OPTIMAL 
+
+
+
+
+WELD-R01 ROBOTIC 
+RUNNING 
+
+Beam Connectors 
+Cycle: 34 sec/pc · Arc-on: 88.4% 
+TWIN MIG SYNC 
+
+
+
+
+
+
+
+
+METROLOGY & QC INSPECTION 
+IS 2062 / EN 10025 
+
+
+
+HEAT CERT PROVENANCE 
+
+## Material Heat Number Traceability
+
+
+Every cold-rolled profile, welded connector, and base plate retains digital traceability to its raw steel mill heat certificate.
+
+
+
+
+
+HEAT #JSW-CR450-8912 
+Yield 462 MPa · UTS 535 MPa · Thickness 1.80mm 
+
+PASSED QC 
+
+
+
+HEAT #TATA-HR350-1094 
+Yield 368 MPa · UTS 450 MPa · Thickness 3.20mm 
+
+PASSED QC
+
+---
+
+# Machine Intelligence & PLC Telemetry | ProRack AI
+URL: https://prorack.ai/machines.html
+Summary: Connect industrial cold roll-forming lines, punch presses, and robotic welding cells to ProRack AI using Modbus TCP, OPC-UA, and MQTT without disrupting PLC logic.
+
+INDUSTRIAL IOT & OT INTEGRATION 
+
+## PLC & Machine Telemetry Without Disruption.
+Platform concept / interactive demonstrations use sample data. No live customer or machine connection.
+
+
+Connect cold roll-forming lines, punch presses, and robotic cells using Modbus TCP, OPC-UA, and MQTT without interrupting existing PLC ladder logic.
+
+
+
+
+
+
+
+
+
+
+
+
+
+COLD ROLL-FORMING MILL // LINE RF-01 HYDERABAD PLANT 
+MODBUS TCP OK · 42.2 M/MIN 
+
+
+
+
+
+EDGE TELEMETRY CONSOLE 
+
+## Live Machine Sensor Feeds
+
+
+Raw industrial events translated into operational intelligence: cycle counts, stroke speed, bearing acoustic vibration, and hydraulic oil temperatures.
+
+
+
+
+
+
+
+
+
+
+
+NODE: HYD-EDGE-RELAY-01 
+Line RF-01 & RF-02 Streams 
+
+
+MODBUS TCP 
+OPC-UA 
+MQTT BROKER 
+REST EDGE 
+
+
+
+
+
+01 / LIVE CYCLE COUNTS 
+
+[10:38:12] PLC_RF1_STROKE: 14821 
+[10:38:14] PROFILE_LEN_M: +3.204 
+[10:38:16] SHEAR_PUNCH_ACK: OK (0.18s) 
+[10:38:18] PART_ID: UP-90-18-B24 #892 
+[10:38:20] LINE_SPEED: 42.1 m/min 
+[10:38:22] MOTOR_AMPS: 28.4 A (NORM) 
+[10:38:24] ENCODER_DELTA: +0.02 mm 
+[10:38:26] BUNDLE_COUNT: 24/25 PCS 
+
+
+
+
+02 / PREDICTIVE HEALTH 
+
+[SYS] BEARING_VIB_RMS: 0.14 mm/s 
+[SYS] GEARBOX_OIL_TEMP: 48.2°C 
+[SYS] HYD_PRESSURE: 185 BAR (STABLE) 
+[SYS] ROLL_GAP_ALIGN: 1.81 mm 
+[SYS] THERMAL_DRIFT: 0.003 mm 
+[SYS] PUNCH_DIE_WEAR: 12.4% (GOOD) 
+[SYS] LUBRICATION_FLOW: 1.4 L/min 
+[SYS] EST_MAINTENANCE_DUE: 184 HRS 
+
+
+
+
+03 / EVENT SYNTHESIS 
+
+[EVENT] Coil changeover logged (8.2 min) 
+[CORRELATION] Tied to ERP Coil #JSW-8912 
+[CHECK] Thickness 1.80mm matches Tekla spec 
+[ALERT] Speed reduced 5% for hole slotting 
+[DISPATCH] Batch #01 completion est 16:45 
+[AI SYNTHESIS] Zero variance against schedule 
+[AUDIT] Log signed by Edge Agent #04 
+
+
+
+
+
+
+
+
+## Air-Gapped OT Network Protection
+
+
+ProRack AI edge relays run on isolated plant networks with outbound-only TLS 1.3 connectivity. No external inbound connections are permitted to factory PLC controllers or machine safety networks.
+
+---
+
+# Operational AI Assistant & Shift Brief | ProRack AI
+URL: https://prorack.ai/copilot.html
+Summary: Ask operational questions across ERPNext, Tekla drawings, and PowerFab cut lists. Get deterministic, evidence-backed answers with exact citations.
+
+OPERATIONAL AI ASSISTANT 
+
+## Ask the Operation. Get Evidence-Backed Answers.
+Platform concept / interactive demonstrations use sample data. No live customer or machine connection.
+
+
+Zero speculation. Every query is answered with verifiable citations to living engineering drawings, purchase orders, and machine logs.
+
+
+
+
+
+
+
+
+
+
+LIVE INTERACTIVE QUERY SIMULATOR 
+
+## Test Context-Aware Operations Queries
+
+
+Select an executive query below or ask any operational question to observe real-time cross-system synthesis and citations.
+
+
+
+
+
+
+
+
+
+
+AUTOMATED SHIFT DIGEST // HYD-PLANT-01 
+
+## Project 2026-HYD-04 Executive Digest
+
+Scope: 14,000 Pallet Position Heavy Duty Drive-In Storage System
+
+
+
+STATUS: FABRICATION RELEASE 
+CONFIDENCE: 100% EVIDENCE-BACKED 
+
+
+
+
+
+
+## CURRENT GATES & STAGE
+
+
+
+- Current Stage: Stage 4 (Shop Fabrication)
+
+
+- Gate 1: Requirements Signed (Commercial OK)
+
+
+- Gate 2: 3D Tekla Model Freeze (Passed)
+
+
+- Gate 3: Dispatch Clearance (Holds pending base plates)
+
+
+
+
+
+
+## ACTIVE BLOCKERS & OWNERS
+
+
+
+- Base Plate Seismic Rev C: Lead EOR (Due 14:00)
+
+
+- Fastener Shipment Transit: Procurement Head
+
+
+- Roll Tooling RF-02: Plant Tooling Master
+
+
+
+
+
+
+## ASSUMPTIONS & UNKNOWNS
+
+
+
+- Assumption: Site anchor slab cure strength > 35 MPa by 20 Sep.
+
+
+- Assumption: Unloading dock crane capacity verified at 5 MT.
+
+
+- Unknown: Monsoon rainfall impact on flatbed transit.
+
+
+
+
+
+
+
+RECOMMENDED ACTION: 
+Expedite DWG-C104 stamp; proceed with Upright post roll-forming uninterrupted. 
+
+STRICTLY EVIDENCE-BACKED · NO HALLUCINATIONS 
+
+
+
+
+
+
+
+
+
+
+OPERATIONAL INTELLIGENCE IN ACTION 
+
+## Plant Operations Control Center.
+
+
+Plant managers and scheduling supervisors use ProRack AI Copilot directly on floor stations to coordinate roll-forming runs, cut list allocations, and dispatch timelines in real time.
+
+
+
+
+- ✓ Real-time Tekla 3D model cross-referenced against ERP inventory
+
+
+- ✓ Automated morning shift brief generated in under 3 seconds
+
+
+- ✓ Instant resolution of engineering change orders on the active shop floor
+
+
+
+
+
+
+PLANT CONTROL HUB // HYD-OPS-01 
+REAL-TIME COPILOT LIVE
+
+---
+
+# Enterprise Architecture & Governance | ProRack AI
+URL: https://prorack.ai/architecture.html
+Summary: ProRack AI Enterprise Architecture: Non-disruptive integration, source-level RBAC, immutable audit logging, human write boundaries, and on-premises OT edge security.
+
+DATA PLATFORM & GOVERNANCE 
+
+## Access Controls and Audit Records.
+Platform concept / interactive demonstrations use sample data. No live customer or machine connection.
+
+
+An ingestion-to-application pipeline engineered specifically for industrial engineering workflows, with strict role-based access control, cryptographic auditability, and human write boundaries.
+
+
+
+
+
+
+
+
+
+
+THE 4-STAGE PIPELINE 
+
+## End-to-End Execution Flow
+
+
+Every user request flows through a deterministic interpretation and policy validation layer before accessing any connected enterprise system.
+
+
+
+
+
+
+
+OPERATIONS 
+
+## Users & Team
+
+Plant managers, structural engineers, QC chiefs
+
+
+
+→ 
+
+
+LAYER 01 
+
+## ProRack AI Core
+
+Context synthesis & semantic cross-referencing
+
+
+
+→ 
+
+
+LAYER 02 
+
+## Controlled Tool Layer
+
+RBAC permissions, audit logging, human sign-off
+
+
+
+→ 
+
+
+SOURCE SYSTEMS 
+
+## Enterprise & Factory
+
+ERPNext · Tekla · PowerFab · PLCs · WMS
+
+
+
+
+
+
+Core Architectural Principle: ProRack AI does not replace your source systems of record; it connects, interprets, and surfaces operational intelligence across them. Your ERP, CAD/BIM models, and factory PLCs continue operating as the authoritative sources of truth.
+
+
+
+
+
+
+
+
+
+
+SECURITY & COMPLIANCE 
+
+## Six Pillars of Enterprise Governance
+
+
+The proposed architecture checks user permissions, records access and requires approval for changes to connected systems.
+
+
+
+
+
+
+01 // ACCESS CONTROL 
+
+## Source-Level RBAC
+
+
+ProRack AI inherits permission scopes directly from ERPNext and Microsoft 365. An employee without commercial margin visibility cannot query cost data through the AI assistant.
+
+
+
+
+
+02 // AUDIT COMPLIANCE 
+
+## Immutable Audit Trails
+
+
+Every query, telemetry extraction, and user action is cryptographically logged with user identity, timestamp, and source system citations to support audit reviews.
+
+
+
+
+
+03 // HUMAN-IN-THE-LOOP 
+
+## Controlled Write Boundary
+
+
+The AI layer is read-only by default. Any operational write-action (e.g. releasing a hold on a work order) strictly requires explicit authorized human confirmation.
+
+
+
+
+
+04 // GROUNDED INTELLIGENCE 
+
+## Deterministic Citations
+
+
+Operational inquiries are answered strictly with verifiable citations to underlying structural models, ERP documents, and machine PLCs. Speculative answers are explicitly blocked.
+
+
+
+
+
+05 // NETWORK SECURITY 
+
+## On-Premises Edge Relays
+
+
+Lightweight edge agents interface with machine PLCs using outbound-only TLS 1.3 connections, preventing inbound exposure of factory OT networks to the public internet.
+
+
+
+
+
+06 // DATA PRIVACY 
+
+## Complete Sovereignty
+
+
+Structural CAD files, proprietary roll-forming die profiles, customer layouts, and cost metrics remain isolated in your private environment and are never used for public model training.
+
+
+
+
+
+
+
+
+
+
+
+
+HARDENED OT INFRASTRUCTURE 
+
+## On-Premises Edge Relay Architecture.
+
+
+To protect mission-critical cold roll-forming lines and punch presses, ProRack AI operates hardened edge compute nodes deployed inside factory OT environments with outbound-only TLS 1.3 telemetry encryption.
+
+
+
+
+- ✓ Industrial DIN-rail IPC running isolated deterministic telemetry collectors
+
+
+- ✓ Modbus TCP and OPC-UA isolation preventing inbound external connections
+
+
+- ✓ 50 ms local buffering designed to retain telemetry during network drops
+
+
+
+
+
+
+FACTORY OT NODE // SECURE RACK 01 
+OUTBOUND TLS 1.3 ACTIVE
+
+---
+
+# Technology Roadmap & Future Vision | ProRack AI
+URL: https://prorack.ai/roadmap.html
+Summary: Explore ProRack AI's technology roadmap: AI dynamic scheduling, risk prediction, computer vision for structural steel QC, and physical-to-digital twin sync.
+
+FUTURE VISION & TECHNOLOGY ROADMAP 
+
+## What We Plan to Build Next.
+Planned initiatives / subject to development and validation.
+
+
+Explore our planned future capabilities under active development, clearly distinguished from currently available production features.
+
+
+
+
+
+
+
+
+
+
+DEVELOPMENT MILESTONES 
+
+## Planned Operations Features
+
+
+Each initiative is engineered to solve concrete structural manufacturing constraints without disrupting core plant operations.
+
+
+
+
+
+
+
+ROADMAP / FUTURE CAPABILITY 
+
+## AI-Assisted Dynamic Scheduling
+
+
+Real-time factory schedule rebalancing that dynamically adapts cutting, punching, and roll-forming queues when an upstream machine undergoes unexpected maintenance.
+
+
+
+PHASE: RESEARCH 
+
+
+
+
+ROADMAP / FUTURE CAPABILITY 
+
+## Risk & Margin Prediction
+
+
+Continuous financial variance intelligence connecting raw steel coil price fluctuations directly to project delivery margins and site erection schedules.
+
+
+
+PHASE: PROTOTYPING 
+
+
+
+
+ROADMAP / FUTURE CAPABILITY 
+
+## Computer Vision QC Inspection
+
+
+High-speed optical camera inspection measuring hole punch pitch, flange angle, and robotic weld fillet geometry directly on the conveyor line.
+
+
+
+PHASE: LAB VALIDATION 
+
+
+
+
+ROADMAP / FUTURE CAPABILITY 
+
+## Predictive Maintenance Models
+
+
+Physics-informed machine learning models detecting microscopic bearing friction and hydraulic valve degradation weeks before mechanical failure occurs.
+
+
+
+PHASE: MODEL TRAINING 
+
+
+
+
+ROADMAP / FUTURE CAPABILITY 
+
+## Digital Twin Synchronization
+
+
+Bi-directional sync connecting physical warehouse rack deflection sensors back into the structural Tekla 3D model for live structural load monitoring.
+
+
+
+PHASE: ARCHITECTURE DESIGN 
+
+
+
+
+ROADMAP / FUTURE CAPABILITY 
+
+## Autonomous Operational Workflows
+
+
+Self-orchestrating multi-agent loops that draft technical RFIs, notify suppliers of coil delays, and update shipping manifests upon manager approval.
+
+
+
+PHASE: EXPLORATION 
+
+
+
+
+ℹ 
+Transparency Commitment: Capabilities listed on this roadmap are under active engineering development and are planned for enterprise releases, subject to validation at our Hyderabad facility. 
+
+
+
+
+
+
+
+
+
+LAB VALIDATION PILOT 
+
+## Optical Computer Vision Quality Control.
+
+
+Planned for the Hyderabad facility: multi-camera optical arrays positioned along the roll-former outfeed would inspect punch hole alignment, slot pitch variance, and weld bead continuity. Line-speed targets remain subject to development and validation.
+
+
+
+
+- ✓ Sub-millimeter laser profile scanning for structural column uprights
+
+
+- ✓ Early flagging of die wear drift (target) before punch tolerance is exceeded
+
+
+- ✓ Automated digital twin tag generation linked directly to ERP cut lists
+
+
+
+
+
+
+OPTICAL INSPECTION STATION // QC-CAM-02 
+LAB PILOT PLANNED

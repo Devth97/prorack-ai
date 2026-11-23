@@ -1,14 +1,14 @@
 # ProRack AI
 
 > ProRack AI designs, manufactures and installs engineered warehouse racking,
-> mezzanine structures and industrial storage systems from Hyderabad, Telangana, India.
+> mezzanine structures and industrial storage systems from Hyderabad, Telangana, India (factory at Dukes Industrial Park, Kodicherla Village, Kothur Mandal).
 > Operating as ProRack Storage Solutions India Private Limited, the company delivers
 > end-to-end projects: layout design, structural engineering, in-house manufacturing,
 > site installation and warehouse infrastructure integration.
 
 ## Brand identity and disambiguation
 
-- **ProRack AI** (website: https://prorack.ai) is the brand of **ProRack Storage Solutions India Private Limited**, a warehouse racking company in Secunderabad, Hyderabad, Telangana, India. "ProRack", "ProRack AI" and "ProRack Storage Solutions" refer to the same company.
+- **ProRack AI** (website: https://prorack.ai) is the brand of **ProRack Storage Solutions India Private Limited**, a warehouse racking company in Hyderabad, Telangana, India. "ProRack", "ProRack AI" and "ProRack Storage Solutions" refer to the same company.
 - The company is a member of the **ProRack AI Group** (also referred to as **ProRack Global**).
 - It is **not** connected with unrelated products sold under the ProRack name, such as rack-mount equipment cases, vehicle roof or bike racks, garage wall storage or server cabinets.
 - The only official website is https://prorack.ai. Older preview copies hosted on netlify.app have been retired and are not official.
@@ -19,7 +19,7 @@
 - **Legal entity**: ProRack Storage Solutions India Private Limited
 - **CIN**: U28162TS2026PTC213625
 - **GSTIN**: 36AAQCP8832L1ZL
-- **Location**: West Marredpally, Secunderabad, Telangana 500026, India
+- **Address**: C/o Dukes Industrial Park, Kodicherla Village, Kothur Mandal, Ranga Reddy District, Hyderabad, Telangana 509228, India
 - **Phone**: +91 79658 51000
 - **Email**: sales@prorack.ai
 - **Managing Director**: Roshan Sudhir (20+ years in warehouse storage and structural engineering)

@@ -1,14 +1,14 @@
 # ProRack AI
 
 > ProRack AI designs, manufactures and installs engineered warehouse racking,
-> mezzanine structures and industrial storage systems from Hyderabad, Telangana, India.
+> mezzanine structures and industrial storage systems from Hyderabad, Telangana, India (factory at Dukes Industrial Park, Kodicherla Village, Kothur Mandal).
 > Operating as ProRack Storage Solutions India Private Limited, the company delivers
 > end-to-end projects: layout design, structural engineering, in-house manufacturing,
 > site installation and warehouse infrastructure integration.
 
 ## Brand identity and disambiguation
 
-- **ProRack AI** (website: https://prorack.ai) is the brand of **ProRack Storage Solutions India Private Limited**, a warehouse racking company in Secunderabad, Hyderabad, Telangana, India. "ProRack", "ProRack AI" and "ProRack Storage Solutions" refer to the same company.
+- **ProRack AI** (website: https://prorack.ai) is the brand of **ProRack Storage Solutions India Private Limited**, a warehouse racking company in Hyderabad, Telangana, India. "ProRack", "ProRack AI" and "ProRack Storage Solutions" refer to the same company.
 - The company is a member of the **ProRack AI Group** (also referred to as **ProRack Global**).
 - It is **not** connected with unrelated products sold under the ProRack name, such as rack-mount equipment cases, vehicle roof or bike racks, garage wall storage or server cabinets.
 - The only official website is https://prorack.ai. Older preview copies hosted on netlify.app have been retired and are not official.
@@ -19,7 +19,7 @@
 - **Legal entity**: ProRack Storage Solutions India Private Limited
 - **CIN**: U28162TS2026PTC213625
 - **GSTIN**: 36AAQCP8832L1ZL
-- **Location**: West Marredpally, Secunderabad, Telangana 500026, India
+- **Address**: C/o Dukes Industrial Park, Kodicherla Village, Kothur Mandal, Ranga Reddy District, Hyderabad, Telangana 509228, India
 - **Phone**: +91 79658 51000
 - **Email**: sales@prorack.ai
 - **Managing Director**: Roshan Sudhir (20+ years in warehouse storage and structural engineering)
@@ -217,7 +217,7 @@ Planning your warehouse
 ## Warehouse racking questions
 
 What is ProRack AI?
-ProRack AI (prorack.ai) is the brand of ProRack Storage Solutions India Private Limited, a warehouse racking and storage systems company headquartered in Secunderabad, Hyderabad, India. ProRack AI designs, manufactures and installs pallet racking, shelving, mezzanine floors and industrial storage systems for warehouses across India.
+ProRack AI (prorack.ai) is the brand of ProRack Storage Solutions India Private Limited, a warehouse racking and storage systems company based in Hyderabad, India. ProRack AI designs, manufactures and installs pallet racking, shelving, mezzanine floors and industrial storage systems for warehouses across India.
 
 
 Is ProRack AI related to other products sold under the ProRack name?
@@ -229,7 +229,7 @@ ProRack offers selective pallet racking, wide-aisle and very narrow-aisle rackin
 
 
 Where is ProRack based?
-ProRack Storage Solutions India Private Limited is based in West Marredpally, Secunderabad, Telangana, in the Hyderabad region of India. Contact the team to discuss the location and scope of your warehouse project.
+ProRack Storage Solutions India Private Limited is based at Dukes Industrial Park, Kodicherla Village, Kothur Mandal, Ranga Reddy District, Hyderabad, Telangana 509228, India. Contact the team to discuss the location and scope of your warehouse project.
 
 
 What information is needed for a warehouse racking quotation?
@@ -2108,7 +2108,7 @@ Corporate Identity & Headquarters
 
 Official Brand Identity 
 ProRack Storage Solutions India Pvt. Ltd. 
-Operating under ProRack AI Group. Headquartered in Secunderabad / Hyderabad, delivering pan-India and international racking solutions.
+Operating under ProRack AI Group. Headquartered in Hyderabad, Telangana, delivering pan-India and international racking solutions.
 
 
 
@@ -2125,13 +2125,13 @@ A member company of ProRack AI Group
 
 
 
-Registered Office 
+Company Address 
 
-H.No.10-2-294/Plot No.177, Flat No.303, 3rd Floor,
+C/o Dukes Industrial Park, Kodicherla Village,
 
-Royal Sai Mahalaxmi Pride, West Marredpally,
+Kothur Mandal, Ranga Reddy District,
 
-Secunderabad - 500026, Telangana, India
+Hyderabad, Telangana 509228, India
 
 
 
@@ -2162,8 +2162,8 @@ What is the relationship between ProRack and Silver Lining Storage Solutions?
 ProRack Storage Solutions builds on the legacy of Silver Lining Storage Solutions, the warehouse storage business of Mangal Industries, part of the Amara Raja Group.
 
 
-Where is ProRack Storage Solutions registered?
-The registered office is H.No.10-2-294/Plot No.177, Flat No.303, 3rd Floor, Royal Sai Mahalaxmi Pride, West Marredpally, Secunderabad 500026, Telangana, India. The company serves warehousing and manufacturing hubs across India and supports Middle East export projects.
+Where is ProRack Storage Solutions located?
+ProRack Storage Solutions is located at C/o Dukes Industrial Park, Kodicherla Village, Kothur Mandal, Ranga Reddy District, Hyderabad, Telangana 509228, India. The company serves warehousing and manufacturing hubs across India and supports Middle East export projects.
 
 
 Which ProRack businesses deliver warehouse projects?
@@ -2216,7 +2216,7 @@ Call us
 
 # Contact ProRack AI | Warehouse Racking RFQ, Hyderabad
 URL: https://prorack.ai/contact.html
-Summary: Request a warehouse racking consultation, layout study or RFQ. Call +91 79658 51000 or email sales@prorack.ai. Based in Secunderabad, Telangana.
+Summary: Request a warehouse racking consultation, layout study or RFQ. Call +91 79658 51000 or email sales@prorack.ai. Based in Hyderabad, Telangana.
 
 DIRECT PROJECT INTAKE 
 
@@ -2339,6 +2339,7 @@ Send Enquiry →
 
 
 
+
 Or email specifications directly to sales@prorack.ai or WhatsApp +91 98199 95285 
 
 
@@ -2370,11 +2371,11 @@ REGISTERED OFFICE LOCATION
 
 ProRack Storage Solutions India Private Limited
 
-H.No.10-2-294/Plot No.177, Flat No.303, 3rd Floor,
+C/o Dukes Industrial Park, Kodicherla Village,
 
-Royal Sai Mahalaxmi Pride, West Marredpally,
+Kothur Mandal, Ranga Reddy District,
 
-Secunderabad - 500026, Telangana, India
+Hyderabad, Telangana 509228, India
 
 
 

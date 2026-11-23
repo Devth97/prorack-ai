@@ -17,6 +17,8 @@
 ## Key facts
 
 - **Legal entity**: ProRack Storage Solutions India Private Limited
+- **CIN**: U28162TS2026PTC213625
+- **GSTIN**: 36AAQCP8832L1ZL
 - **Location**: West Marredpally, Secunderabad, Telangana 500026, India
 - **Phone**: +91 79658 51000
 - **Email**: sales@prorack.ai

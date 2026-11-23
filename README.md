@@ -132,3 +132,18 @@ The Netlify deployment can remain active during the migration. Remove or pause i
 only after the Hostinger API and an actual voice call have been verified.
 
 Hostinger reference: https://www.hostinger.com/support/how-to-deploy-a-nodejs-website-in-hostinger/
+
+## Project enquiries and WhatsApp
+
+- Every page has a WhatsApp button (bottom-left) that opens a free click-to-chat with Kshitij Salve,
+  VP Sales (+91 98199 95285), pre-filled with the page the visitor was reading.
+- The contact form posts to `POST /api/enquiry` (`server-enquiry.mjs`), which validates the form,
+  drops bot submissions (hidden honeypot field), rate-limits to 5 enquiries per IP per 10 minutes and
+  emails the enquiry to `ENQUIRY_TO` with the visitor as reply-to.
+- Email needs these Hostinger environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`,
+  optional `ENQUIRY_TO` (default sales@prorack.ai) and `ENQUIRY_FROM`. For Microsoft 365 use
+  `smtp.office365.com`, port `587`, and a mailbox with Authenticated SMTP enabled in the Microsoft 365
+  admin centre. Redeploy after adding them.
+- Until email is configured, or if sending fails, the form opens WhatsApp with the full enquiry so the
+  lead still reaches sales. Without JavaScript the form falls back to `mailto:sales@prorack.ai`.
+- Leads are tracked as GA4 `generate_lead` events once a GA4 tag is added to the pages.

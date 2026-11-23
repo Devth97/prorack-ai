@@ -1429,3 +1429,19 @@ body:has(.site-dialog[open]) {overflow:hidden;}
 .editorial-site .system-overview h2, .editorial-site .system-copy h2, .editorial-site .system-faq h2 {font-size:clamp(28px,3vw,44px);margin:8px 0 14px;}
 .editorial-site .system-fit h2 {font-size:clamp(24px,2.4vw,34px);margin:8px 0 12px;}
 .editorial-site .system-overview + .system-copy, .editorial-site .system-copy + .system-fit, .editorial-site .system-fit + .system-copy, .editorial-site .system-copy + .system-faq {border-top:1px solid var(--border);}
+
+/* ---- WhatsApp enquiry button and contact form status ---- */
+.whatsapp-enquiry {position:fixed;left:max(20px,env(safe-area-inset-left));bottom:max(18px,env(safe-area-inset-bottom));z-index:79;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 16px 0 12px;border-radius:999px;background:#1a7f4b;color:#fff!important;font:600 14px/1 var(--font-sans,system-ui);text-decoration:none!important;box-shadow:0 6px 20px #0003;}
+.whatsapp-enquiry:hover {background:#146c3f;}
+.whatsapp-enquiry:focus-visible {outline:3px solid #222721;outline-offset:3px;}
+.whatsapp-enquiry svg {flex-shrink:0;}
+@media (max-width:760px) {
+  .whatsapp-enquiry {padding:0;width:52px;height:52px;justify-content:center;}
+  .whatsapp-enquiry span {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+}
+@media print {.whatsapp-enquiry {display:none;}}
+.enquiry-hp {position:absolute!important;left:-10000px;width:1px;height:1px;overflow:hidden;}
+.enquiry-status {margin:0;padding:12px 14px;font-size:14px;line-height:1.5;border-left:4px solid #596158;background:#f4f3ed;}
+.enquiry-status[data-tone="success"] {border-color:#1a7f4b;background:#eaf6ef;}
+.enquiry-status[data-tone="warn"], .enquiry-status[data-tone="error"] {border-color:#b53a1b;background:#fbeee9;}
+.enquiry-status a {color:#b53a1b;font-weight:700;}

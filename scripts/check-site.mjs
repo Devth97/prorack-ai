@@ -36,6 +36,7 @@ for(const name of ['name','company','email','phone','details']) {
  assert.match(contact,new RegExp(`<(?:input|textarea)[^>]*id="inquiry-${name}"[^>]*required`),`${name}: required`);
 }
 assert.ok(contact.includes('action="mailto:sales@prorack.ai"'),'Existing submission integration retained');
-assert.ok(contact.includes('This form opens your email application'),'Submission behavior explained');
+assert.ok(contact.includes('id="enquiry-status"') && contact.includes('name="website"'),'Form posts to /api/enquiry with a status message and spam honeypot');
+for(const [name,html] of documents) assert.ok(html.includes('class="whatsapp-enquiry" href="https://wa.me/919819995285'),`${name}: WhatsApp enquiry button`);
 assert.deepEqual(errors,[]);
 console.log(`PASS: ${pages.length} routes, static/React links, assets, anchors, eight systems, form labels and required fields.`);

@@ -1284,6 +1284,57 @@ function SiteEffects() {
   return <><div className="reading-progress" aria-hidden="true"><span ref={progress}/></div><a ref={topLink} hidden className="back-to-top" href="#main-content" aria-label="Back to top" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});document.getElementById('main-content')?.focus({preventScroll:true});}}><ArrowUp size={20} aria-hidden="true"/><span>Back to top</span></a></>;
 }
 
+const WHATSAPP_NUMBER = '919819995285'; // Kshitij Salve, VP Sales & Marketing
+const whatsappUrl = text => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+// Mention the page the visitor is on, so sales knows which product they were reading.
+function setupWhatsAppLinks(){
+  const page = document.title.split(' | ')[0].trim();
+  if(!page) return;
+  document.querySelectorAll('a.whatsapp-enquiry').forEach(link=>{
+    link.href = whatsappUrl(`Hi ProRack, I would like to discuss a warehouse racking / storage requirement. (Page: ${page})`);
+  });
+}
+
+// Send the contact form to /api/enquiry. If email delivery is unavailable, hand the
+// same enquiry to WhatsApp so the lead still reaches sales. Without JavaScript the
+// form keeps its mailto: action.
+function setupEnquiryForm(){
+  const form = document.getElementById('project-inquiry');
+  const status = document.getElementById('enquiry-status');
+  if(!form || !status) return;
+  const show = (message, tone) => { status.hidden = false; status.dataset.tone = tone; status.innerHTML = message; };
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if(!form.reportValidity()) return;
+    const data = Object.fromEntries(new FormData(form));
+    data.page = location.pathname;
+    const systemLabel = form.querySelector('select[name="system_type"]')?.selectedOptions[0]?.textContent.trim() || data.system_type;
+    const chatText = `Hi ProRack, project enquiry from the website.\nName: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone}\nSystem: ${systemLabel}\nCity: ${data.city || '-'}\nRequirement: ${data.details}`;
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true; show('Sending your enquiry...', 'info');
+    try {
+      const response = await fetch('/api/enquiry', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({...data, system_type: systemLabel}) });
+      const result = await response.json().catch(()=>({}));
+      if(response.ok && result.ok){
+        form.reset();
+        show('Thank you. Your enquiry has reached our sales team and we will reply within one working day.', 'success');
+        window.gtag?.('event','generate_lead',{method:'form'});
+        return;
+      }
+      if(result.fallback === 'whatsapp' || response.status >= 500 || response.status === 429){
+        show(`We could not send it by email just now. <a href="${whatsappUrl(chatText)}" target="_blank" rel="noopener">Send the same enquiry on WhatsApp</a> or call +91 79658 51000.`, 'warn');
+        window.open(whatsappUrl(chatText), '_blank', 'noopener');
+        return;
+      }
+      show(result.error || 'Please check the form and try again.', 'error');
+    } catch {
+      show(`Connection problem. <a href="${whatsappUrl(chatText)}" target="_blank" rel="noopener">Send your enquiry on WhatsApp</a> or call +91 79658 51000.`, 'warn');
+    } finally { button.disabled = false; }
+  });
+  document.querySelectorAll('a.whatsapp-enquiry, a[href^="https://wa.me/"]').forEach(a=>a.addEventListener('click',()=>window.gtag?.('event','generate_lead',{method:'whatsapp'})));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const storageContainer = document.getElementById('react-storage-explorer');
   if(storageContainer) createRoot(storageContainer).render(<StorageExplorer />);
@@ -1296,6 +1347,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const value=aliases[requested]||requested;
     if([...systemSelect.options].some(o=>o.value===value)) systemSelect.value=value;
   }
+  setupEnquiryForm();
+  setupWhatsAppLinks();
   // Detect active page from URL
   const pathname = window.location.pathname;
   let activePage = 'index';

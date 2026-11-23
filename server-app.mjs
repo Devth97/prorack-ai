@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { pipeline } from 'node:stream/promises';
 import { mintBolnaSession } from './netlify/functions/bolna-session.mjs';
+import { handleEnquiry } from './server-enquiry.mjs';
 
 const projectDir = path.dirname(fileURLToPath(import.meta.url));
 const types = {
@@ -37,7 +38,8 @@ async function notFound(req, res, rootDir) {
 }
 
 // Hostinger runs this entry file; only the built public directory is exposed.
-export function createProductionServer({ rootDir = path.join(projectDir, 'dist'), env = process.env } = {}) {
+// enquirySender lets tests replace SMTP delivery; production uses the SMTP_* variables.
+export function createProductionServer({ rootDir = path.join(projectDir, 'dist'), env = process.env, enquirySender } = {}) {
   return http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
@@ -54,13 +56,14 @@ export function createProductionServer({ rootDir = path.join(projectDir, 'dist')
     if (host.startsWith('www.')) return redirect(res, `https://${host.slice(4)}${pathname}${query}`);
     if (host === 'prorack.ai') res.setHeader('Strict-Transport-Security', 'max-age=31536000');
     try {
-      if (pathname === '/api/bolna-session') {
+      if (pathname === '/api/bolna-session' || pathname === '/api/enquiry') {
+        const limit = pathname === '/api/enquiry' ? 16384 : 8192;
         const chunks = [];
         let size = 0;
         if (req.method === 'POST') {
           for await (const chunk of req) {
             size += chunk.length;
-            if (size > 8192) return json(res, 413, { error: 'Request too large' });
+            if (size > limit) return json(res, 413, { error: 'Request too large' });
             chunks.push(chunk);
           }
         }
@@ -68,7 +71,10 @@ export function createProductionServer({ rootDir = path.join(projectDir, 'dist')
           method: req.method, headers: req.headers,
           ...(req.method === 'POST' ? { body: Buffer.concat(chunks) } : {}),
         });
-        const response = await mintBolnaSession(request, env);
+        const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
+        const response = pathname === '/api/enquiry'
+          ? await handleEnquiry(request, env, { ip, send: enquirySender })
+          : await mintBolnaSession(request, env);
         res.writeHead(response.status, Object.fromEntries(response.headers));
         res.end(await response.text());
         return;

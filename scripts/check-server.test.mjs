@@ -132,3 +132,46 @@ test('rejects oversized session requests without contacting the provider', async
   assert.equal(response.status, 413);
   assert.equal(upstream.mock.callCount(), 0);
 });
+// ---- Project enquiry API ----
+import { handleEnquiry, resetEnquiryState } from '../server-enquiry.mjs';
+const enquiry = { name: 'Asha Rao', company: 'Test Logistics', email: 'asha@example.com', phone: '+91 98765 43210', system_type: 'Mezzanine', city: 'Hyderabad', details: 'Need a 500 m2 mezzanine.' };
+const enquiryRequest = (body, origin) => new Request('http://prorack.test/api/enquiry', { method: 'POST',
+  headers: { 'Content-Type': 'application/json', ...(origin ? { Origin: origin } : {}) }, body: JSON.stringify(body) });
+
+test('enquiry API emails sales with the visitor as reply-to', async () => {
+  resetEnquiryState();
+  let sent;
+  const response = await handleEnquiry(enquiryRequest(enquiry), { ENQUIRY_TO: 'sales@prorack.ai', SMTP_USER: 'web@prorack.ai' }, { ip: '1.1.1.1', send: async m => { sent = m; } });
+  assert.equal(response.status, 200);
+  assert.equal(sent.to, 'sales@prorack.ai');
+  assert.match(sent.replyTo, /asha@example\.com/);
+  assert.match(sent.subject, /Test Logistics/);
+  assert.match(sent.text, /Need a 500 m2 mezzanine/);
+});
+test('enquiry API asks for WhatsApp fallback when email is not configured or fails', async () => {
+  resetEnquiryState();
+  const unconfigured = await handleEnquiry(enquiryRequest(enquiry), {}, { ip: '2.2.2.2' });
+  assert.equal(unconfigured.status, 503);
+  assert.equal((await unconfigured.json()).fallback, 'whatsapp');
+  const failing = await handleEnquiry(enquiryRequest(enquiry), {}, { ip: '2.2.2.3', send: async () => { throw new Error('smtp down'); } });
+  assert.equal(failing.status, 502);
+  assert.equal((await failing.json()).fallback, 'whatsapp');
+});
+test('enquiry API validates input, ignores bots, blocks other sites and rate-limits', async () => {
+  resetEnquiryState();
+  const send = async () => {};
+  assert.equal((await handleEnquiry(enquiryRequest({ ...enquiry, email: 'bad' }), {}, { ip: '3.3.3.3', send })).status, 400);
+  assert.equal((await handleEnquiry(enquiryRequest({ ...enquiry, details: '' }), {}, { ip: '3.3.3.3', send })).status, 400);
+  let botSent = false;
+  const bot = await handleEnquiry(enquiryRequest({ ...enquiry, website: 'spam.example' }), {}, { ip: '3.3.3.4', send: async () => { botSent = true; } });
+  assert.equal(bot.status, 200); assert.equal(botSent, false);
+  assert.equal((await handleEnquiry(enquiryRequest(enquiry, 'https://other.test'), {}, { ip: '3.3.3.5', send })).status, 403);
+  for (let i = 0; i < 5; i++) assert.equal((await handleEnquiry(enquiryRequest(enquiry), {}, { ip: '4.4.4.4', send })).status, 200);
+  assert.equal((await handleEnquiry(enquiryRequest(enquiry), {}, { ip: '4.4.4.4', send })).status, 429);
+});
+test('production server routes POST /api/enquiry and rejects GET', async () => {
+  assert.equal((await request('/api/enquiry')).status, 405);
+  const response = await request('/api/enquiry', { method: 'POST', body: JSON.stringify(enquiry) });
+  assert.equal(response.status, 503);
+  assert.equal(JSON.parse(response.text).fallback, 'whatsapp');
+});

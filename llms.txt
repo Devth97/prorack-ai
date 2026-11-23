@@ -63,6 +63,14 @@ ProRack manufactures eight core storage system families:
 
 - [Home](https://prorack.ai/): warehouse performance solutions overview
 - [Solutions](https://prorack.ai/solutions.html): racking and storage catalog; capacities require engineering validation
+- [Selective pallet racking](https://prorack.ai/selective-pallet-racking.html): specifications, how it works, when to choose it, FAQs
+- [Wide-aisle racking](https://prorack.ai/wide-aisle-racking.html): 3.0 to 3.8 m aisles for counterbalance and reach forklifts
+- [VNA racking](https://prorack.ai/vna-racking.html): very narrow aisles down to about 1.5 m, heights of 18 m and more
+- [Drive-in / drive-through racking](https://prorack.ai/drive-in-racking.html): dense LIFO or FIFO block storage
+- [Multi-tier shelving](https://prorack.ai/multi-tier-shelving.html): 2 to 4 picking levels with walkways and stairs
+- [Cantilever racking](https://prorack.ai/cantilever-racking.html): long goods, 250 kg to 2,500 kg and more per arm
+- [Pallet and carton flow racking](https://prorack.ai/flow-racking.html): gravity FIFO lanes
+- [Mezzanine floors](https://prorack.ai/mezzanine-floors.html): 350 to 2,000 kg/m² and more, free-standing or rack-supported
 - [Engineering](https://prorack.ai/engineering.html): structural BIM delivery and the 5-stage lifecycle
 - [Execution](https://prorack.ai/execution.html): installation and MEP integration verticals
 - [Company](https://prorack.ai/company.html): heritage, leadership and engineering vision

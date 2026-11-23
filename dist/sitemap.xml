@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://prorack.ai/solutions.html</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image><image:loc>https://prorack.ai/assets/icons/prorack-og-1200x630.jpg</image:loc></image:image>
@@ -31,6 +31,62 @@
     <image:image><image:loc>https://prorack.ai/assets/editorial-photography/pallet-carton-flow-racking.webp</image:loc></image:image>
     <image:image><image:loc>https://prorack.ai/assets/editorial-photography/mezzanine-floors.webp</image:loc></image:image>
     <image:image><image:loc>https://prorack.ai/assets/editorial-photography/mezzanines-rack-clad.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/selective-pallet-racking.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/selective-pallet-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/wide-aisle-racking.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/wide-aisle-multi-bay-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/vna-racking.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/narrow-aisle-multi-bay-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/drive-in-racking.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/drive-in-drive-through-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/multi-tier-shelving.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/multi-tier-shelving.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/cantilever-racking.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/cantilever-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/flow-racking.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/pallet-carton-flow-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/mezzanine-floors.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/mezzanine-floors.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://prorack.ai/engineering.html</loc>

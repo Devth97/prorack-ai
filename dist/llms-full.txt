@@ -63,6 +63,14 @@ ProRack manufactures eight core storage system families:
 
 - [Home](https://prorack.ai/): warehouse performance solutions overview
 - [Solutions](https://prorack.ai/solutions.html): racking and storage catalog; capacities require engineering validation
+- [Selective pallet racking](https://prorack.ai/selective-pallet-racking.html): specifications, how it works, when to choose it, FAQs
+- [Wide-aisle racking](https://prorack.ai/wide-aisle-racking.html): 3.0 to 3.8 m aisles for counterbalance and reach forklifts
+- [VNA racking](https://prorack.ai/vna-racking.html): very narrow aisles down to about 1.5 m, heights of 18 m and more
+- [Drive-in / drive-through racking](https://prorack.ai/drive-in-racking.html): dense LIFO or FIFO block storage
+- [Multi-tier shelving](https://prorack.ai/multi-tier-shelving.html): 2 to 4 picking levels with walkways and stairs
+- [Cantilever racking](https://prorack.ai/cantilever-racking.html): long goods, 250 kg to 2,500 kg and more per arm
+- [Pallet and carton flow racking](https://prorack.ai/flow-racking.html): gravity FIFO lanes
+- [Mezzanine floors](https://prorack.ai/mezzanine-floors.html): 350 to 2,000 kg/m² and more, free-standing or rack-supported
 - [Engineering](https://prorack.ai/engineering.html): structural BIM delivery and the 5-stage lifecycle
 - [Execution](https://prorack.ai/execution.html): installation and MEP integration verticals
 - [Company](https://prorack.ai/company.html): heritage, leadership and engineering vision
@@ -314,7 +322,7 @@ The versatile industry workhorse. Provides direct, unrestricted access to every 
 - Best For: High SKU variety, FMCG, retail distribution, cold stores
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -340,7 +348,7 @@ Engineered for high-throughput logistics terminals with continuous simultaneous 
 - Best For: 3PL fulfillment centers, general warehousing, heavy machinery spares
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -366,7 +374,7 @@ Maximizes vertical warehouse volume by compressing aisle widths down to 1.5m. Tu
 - Best For: High land-cost regions, pharmaceutical, e-commerce mega-hubs
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -392,7 +400,7 @@ Eliminates operating aisles by creating continuous lane tunnels where forklifts 
 - Best For: Cold storage, seasonal goods, bulk homogenous stock
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -418,7 +426,7 @@ Vertical modular shelving structures integrated with intermediate steel mesh or 
 - Best For: Automotive spare parts, apparel, hardware, electrical items
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -444,7 +452,7 @@ Unobstructed front-opening storage engineered for oversized, long, and irregular
 - Best For: Steel pipes, extruded aluminium, timber, PVC conduit, coils
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -470,7 +478,7 @@ Gravity-fed dynamic roller lanes automatically advance pallets and cartons towar
 - Best For: Perishable goods, pharmaceutical expiry batches, high-speed picking
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -496,7 +504,7 @@ Double or triple your usable warehouse square footage without expanding the buil
 - Best For: Sorting hubs, office-over-storage, assembly lines, buffer staging
 
 
-Request Specification Sheet → 
+Full specifications & FAQs → Request Specification Sheet → 
 
 
 
@@ -609,6 +617,888 @@ sales@prorack.ai
 
 Call us 
 +91 79658 51000
+
+---
+
+# Selective Pallet Racking Manufacturer, Hyderabad | ProRack AI
+URL: https://prorack.ai/selective-pallet-racking.html
+Summary: Selective pallet racking designed and manufactured in Hyderabad: bay loads up to 20,000 kg, beam pairs 1,000 to 4,500 kg, installed across India.
+
+System 01 / 100% selectivity
+
+## Selective Pallet Racking
+
+Selective pallet racking is single-deep racking in which every pallet sits on a pair of beams and can be reached directly by a forklift. ProRack designs and manufactures selective racking in Hyderabad for bay loads up to 20,000 kg and installs it across India.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Selective Pallet Racking
+
+At a glance
+
+## Selective Pallet Racking specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Bay load Up to 20,000 kg
+
+Beam capacity 1,000 kg to 4,500 kg per pair
+
+Pallet access 100% of pallets directly accessible
+
+Beam adjustment Repositionable on 50 mm or 75 mm pitch
+
+Handling equipment Counterbalance and reach forklifts
+
+Best for High SKU variety, FMCG, retail distribution, cold stores
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Selective Pallet Racking by ProRack AI
+
+How it works
+
+## How selective pallet racking works
+
+Upright frames are connected by pairs of horizontal beams, and each pallet rests across one beam pair. Because every pallet faces an aisle, any pallet can be put away or retrieved without moving another one.
+
+Beam levels can be moved as the inventory profile changes, and the system can be extended bay by bay. Safety accessories such as column protectors, rack end barriers and mesh decking are specified with the layout.
+
+Is it the right fit?
+
+## When to choose selective pallet racking
+
+- You store many different SKUs and need access to every pallet
+
+- Stock rotation is mixed or changes often
+
+- You use standard counterbalance or reach forklifts
+
+- You expect the layout to change as the business grows
+
+Compare
+
+## When another system may fit better
+
+- Very narrow-aisle racking when land is expensive and you need more pallet positions on the same footprint.
+
+- Drive-in racking when you hold large quantities of a few SKUs.
+
+- Pallet flow racking when strict first-in, first-out rotation is required.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Selective Pallet Racking FAQs
+
+What is the load capacity of selective pallet racking?
+ProRack selective pallet racking is engineered for bay loads up to 20,000 kg, with beam pair capacities from 1,000 kg to 4,500 kg. The final capacity depends on the upright section, beam length, number of levels and floor slab, and is confirmed by project-specific design to EN 15512 and IS 800.
+
+How wide should the aisles be for selective pallet racking?
+Aisle width is set by the forklift. Selective racking served by counterbalance and reach forklifts typically uses aisles of about 3.0 m to 3.8 m. If floor space is the constraint, very narrow-aisle racking can reduce aisles to about 1.5 m with turret trucks.
+
+Can selective pallet racking be reconfigured later?
+Yes. Beam levels can be repositioned on standard 50 mm or 75 mm pitch increments and bays can be added. Any change to beam levels or loads should be checked against the load chart before use.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your selective pallet racking project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Wide-Aisle Pallet Racking System, India | ProRack AI
+URL: https://prorack.ai/wide-aisle-racking.html
+Summary: Wide-aisle multi-bay pallet racking for high-throughput warehouses: 3.0 to 3.8 m aisles for counterbalance and reach forklifts. Made in Hyderabad.
+
+System 02 / Multi-bay storage
+
+## Wide-Aisle Multi-Bay Racking
+
+Wide-aisle multi-bay racking is pallet racking laid out with aisles of about 3.0 m to 3.8 m so that standard counterbalance and reach forklifts can work and pass each other. ProRack manufactures it in Hyderabad for 3PL, distribution and general warehouses across India.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Wide-Aisle Multi-Bay Racking
+
+At a glance
+
+## Wide-Aisle Multi-Bay Racking specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Aisle width 3.0 m to 3.8 m
+
+Handling equipment Standard counterbalance and reach forklifts
+
+Traffic Two-way forklift movement and buffer staging
+
+Configuration Multi-bay runs, single or back-to-back
+
+Best for 3PL fulfilment centres, general warehousing, heavy machinery spares
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Wide-Aisle Multi-Bay Racking by ProRack AI
+
+How it works
+
+## How wide-aisle multi-bay racking works
+
+Long runs of pallet racking are arranged in multi-bay rows with aisles wide enough for forklifts to turn, pass and stage pallets. Several trucks can work at the same time, which suits high put-away and dispatch volumes.
+
+Because no specialised trucks are needed, a wide-aisle layout works with an existing forklift fleet and is simple to operate and expand.
+
+Is it the right fit?
+
+## When to choose wide-aisle multi-bay racking
+
+- Several forklifts work in the same area at peak times
+
+- You want to use your existing counterbalance or reach trucks
+
+- Fast put-away and dispatch matter more than maximum density
+
+- You need staging space next to the racking
+
+Compare
+
+## When another system may fit better
+
+- Very narrow-aisle racking when you need more pallet positions on the same footprint.
+
+- Selective pallet racking for the beam, upright and load details behind each bay.
+
+- Drive-in racking for bulk storage of a few SKUs.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Wide-Aisle Multi-Bay Racking FAQs
+
+What is the difference between wide-aisle and very narrow-aisle racking?
+Wide-aisle racking uses aisles of about 3.0 m to 3.8 m and standard counterbalance or reach forklifts. Very narrow-aisle racking reduces aisles to about 1.5 m and uses guided turret trucks or order pickers, giving higher storage density but requiring specialised equipment and a very flat floor.
+
+Which forklifts can work in a wide-aisle racking layout?
+Standard counterbalance forklifts and reach trucks. The exact aisle width is set by the truck model, load size and turning radius during layout design.
+
+Who is wide-aisle racking best suited for?
+It suits 3PL fulfilment centres, general warehousing and heavy machinery spares, where many forklift movements happen at the same time and throughput matters more than maximum density.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your wide-aisle multi-bay racking project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# VNA Very Narrow Aisle Racking Manufacturer | ProRack AI
+URL: https://prorack.ai/vna-racking.html
+Summary: Very narrow-aisle (VNA) racking with aisles down to 1.5 m and heights of 18 m and more, for 40% to 45% higher storage density. Made in Hyderabad.
+
+System 03 / High-density VNA
+
+## Very Narrow-Aisle (VNA) Racking
+
+Very narrow-aisle (VNA) racking is pallet racking with aisles as narrow as about 1.5 m, served by guided turret trucks or man-up order pickers. It can reach building heights of 18 m and more and gives about 40% to 45% higher storage density than a conventional layout.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Very Narrow-Aisle (VNA) Racking
+
+At a glance
+
+## Very Narrow-Aisle (VNA) Racking specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Aisle width Down to about 1.5 m
+
+Building height Up to 18 m and more
+
+Storage density 40% to 45% higher than a conventional layout
+
+Handling equipment Turret trucks or man-up order pickers
+
+Guidance Wire guidance or mechanical floor rails
+
+Best for High land-cost regions, pharmaceutical, e-commerce hubs
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Very Narrow-Aisle (VNA) Racking by ProRack AI
+
+How it works
+
+## How very narrow-aisle (VNA) racking works
+
+Aisles are reduced to little more than the width of the pallet, and specialised turret trucks lift and turn the load inside the aisle. The trucks are guided by a wire in the floor or by rails, so they run safely close to the racking.
+
+Because VNA trucks reach great heights in a narrow aisle, the floor slab must be very flat and the racking, truck and building are designed together.
+
+Is it the right fit?
+
+## When to choose very narrow-aisle (VNA) racking
+
+- Land or building space is expensive
+
+- The building is tall and you want to use its full height
+
+- You need access to every pallet as well as high density
+
+- You are prepared to invest in guided VNA trucks
+
+Compare
+
+## When another system may fit better
+
+- Wide-aisle racking if you want to keep standard forklifts.
+
+- Drive-in racking if you store large quantities of a few SKUs.
+
+- Mezzanine floors to add floor area for picking or offices.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Very Narrow-Aisle (VNA) Racking FAQs
+
+How narrow can the aisles be in VNA racking?
+VNA aisles can be reduced to about 1.5 m. The exact width depends on the pallet size, the VNA truck model and the guidance system, and is fixed during layout design.
+
+What floor is needed for VNA racking?
+VNA trucks lift loads to great heights in narrow aisles, so the floor slab must be very flat and level along the truck wheel tracks. Floor flatness, slab capacity and guidance installation are checked as part of the design.
+
+How much more storage does VNA racking provide?
+VNA layouts typically give about 40% to 45% higher storage density than conventional wide-aisle racking on the same footprint, while keeping direct access to every pallet.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your very narrow-aisle (VNA) racking project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Drive-In and Drive-Through Racking Manufacturer | ProRack AI
+URL: https://prorack.ai/drive-in-racking.html
+Summary: Drive-in and drive-through racking for dense block storage: 60% to 80% more pallets than selective racking, for cold stores and bulk stock. Made in Hyderabad.
+
+System 04 / Compact block storage
+
+## Drive-In / Drive-Through Racking
+
+Drive-in racking removes the aisles between rack rows so forklifts drive into the racking and place pallets on rails, one behind another. Drive-in works last-in, first-out; drive-through is open at both ends and works first-in, first-out. It stores about 60% to 80% more pallets than selective racking.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Drive-In / Drive-Through Racking
+
+At a glance
+
+## Drive-In / Drive-Through Racking specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Storage density 60% to 80% higher than selective racking
+
+Stock rotation LIFO (drive-in) or FIFO (drive-through)
+
+Guidance Floor guidance channels and heavy-duty upright guards
+
+Pallet access Lane by lane, not every pallet
+
+Best for Cold storage, seasonal goods, bulk homogeneous stock
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Drive-In / Drive-Through Racking by ProRack AI
+
+How it works
+
+## How drive-in / drive-through racking works
+
+Instead of beams, pallets rest on continuous rails on each side of a lane. The forklift drives into the lane and places pallets from the back to the front, so a single lane holds many pallets of the same product.
+
+In drive-in racking the lane is entered from one side only, so the last pallet in is the first out. Drive-through racking is open at both ends, so pallets are loaded on one side and picked from the other.
+
+Is it the right fit?
+
+## When to choose drive-in / drive-through racking
+
+- You hold large quantities of relatively few SKUs
+
+- Space is expensive, as in cold stores
+
+- Products are not time-critical, or FIFO is handled with drive-through
+
+- Pallets are of consistent size and quality
+
+Compare
+
+## When another system may fit better
+
+- Selective pallet racking when you need access to every pallet.
+
+- Pallet flow racking for strict FIFO with dense storage.
+
+- VNA racking for density with full selectivity.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Drive-In / Drive-Through Racking FAQs
+
+What is the difference between drive-in and drive-through racking?
+Drive-in racking is entered from one side only, so it works last-in, first-out. Drive-through racking is open at both ends, so pallets are loaded from one side and retrieved from the other on a first-in, first-out basis.
+
+Is drive-in racking suitable for cold storage?
+Yes. Cold stores are expensive to build and run per cubic metre, and drive-in racking stores about 60% to 80% more pallets than selective racking in the same space, which makes it a common choice for frozen and chilled goods.
+
+What are the limitations of drive-in racking?
+Only the pallet at the front of each lane is accessible, so it suits few SKUs with many pallets each. Forklift drivers work inside the racking, so guidance channels, upright guards and operator training are important.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your drive-in / drive-through racking project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Multi-Tier Shelving Systems Manufacturer, India | ProRack AI
+URL: https://prorack.ai/multi-tier-shelving.html
+Summary: Multi-tier shelving with 2 to 4 picking levels, walkways, stairs, handrails and toe boards for spares, apparel and e-commerce picking. Made in Hyderabad.
+
+System 05 / Multi-level picking
+
+## Multi-Tier Shelving
+
+Multi-tier shelving is a shelving structure built on two to four levels, with walkways, stairs and safety gates between them, so that staff can hand-pick small items from the full height of the building. ProRack designs and manufactures multi-tier shelving in Hyderabad.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Multi-Tier Shelving
+
+At a glance
+
+## Multi-Tier Shelving specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Picking levels 2 to 4 tiers
+
+Walkways Steel mesh or timber decking
+
+Access Stairs, safety gates and carton chutes
+
+Safety Toe boards, handrails, fire sprinkler integration
+
+Best for Automotive spare parts, apparel, hardware, electrical items
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Multi-Tier Shelving by ProRack AI
+
+How it works
+
+## How multi-tier shelving works
+
+The shelving uprights carry the walkways of the upper levels, so one structure provides both storage and access floors. Pickers walk the aisles on each level and send goods down through chutes or lifts.
+
+Stairs, gates, handrails and toe boards are designed in from the start, and sprinkler integration is coordinated with the fire design for the building.
+
+Is it the right fit?
+
+## When to choose multi-tier shelving
+
+- You pick small items or cartons by hand
+
+- You have many SKUs with low quantities each
+
+- The building has height you are not using
+
+- You want storage and access in one structure
+
+Compare
+
+## When another system may fit better
+
+- Mezzanine floors when you need an open floor for offices, assembly or packing.
+
+- Carton flow racking for fast FIFO picking faces.
+
+- Selective pallet racking for full pallets.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Multi-Tier Shelving FAQs
+
+What is the difference between multi-tier shelving and a mezzanine floor?
+In multi-tier shelving the shelving itself supports the upper walkways, so the structure is designed around picking aisles. A mezzanine floor is an independent structural floor that creates open space which can be used for storage, offices or assembly.
+
+How many levels can multi-tier shelving have?
+ProRack multi-tier shelving is typically built with 2 to 4 picking levels. The number of levels depends on the building height, loads, access and fire safety requirements.
+
+How is fire safety handled in multi-tier shelving?
+Walkway decking, handrails, toe boards and stairs are designed in, and sprinkler integration is coordinated with the building fire design. Local fire regulations should be confirmed early in the project.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your multi-tier shelving project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Heavy-Duty Cantilever Racking Manufacturer | ProRack AI
+URL: https://prorack.ai/cantilever-racking.html
+Summary: Heavy-duty cantilever racking for pipes, steel sections, timber and PVC: arm capacities from 250 kg to 2,500 kg and more. Made in Hyderabad, India.
+
+System 06 / Long goods and pipes
+
+## Cantilever Racking
+
+Cantilever racking stores long and irregular goods such as pipes, steel sections, timber and PVC on arms that project from vertical columns, with no front uprights in the way. ProRack cantilever arms are designed for 250 kg to 2,500 kg and more per arm.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Cantilever Racking
+
+At a glance
+
+## Cantilever Racking specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Arm capacity 250 kg to 2,500 kg and more per arm
+
+Configuration Single-sided against a wall or double-sided in the centre
+
+Access Open front with no front uprights
+
+Best for Steel pipes, extruded aluminium, timber, PVC conduit, coils
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Cantilever Racking by ProRack AI
+
+How it works
+
+## How cantilever racking works
+
+Vertical columns stand on bases, and arms project from the columns to carry the load. With no front uprights, long items can be loaded from the side by forklift, side loader or crane.
+
+Arm length, arm capacity and column spacing are chosen from the longest, heaviest and most flexible item stored, so loads rest on enough arms not to sag.
+
+Is it the right fit?
+
+## When to choose cantilever racking
+
+- You store pipes, bars, sections, sheets or timber
+
+- Items are longer than a standard pallet bay
+
+- You need to load with side loaders or cranes
+
+- Item lengths vary
+
+Compare
+
+## When another system may fit better
+
+- Selective pallet racking for palletised goods.
+
+- Mezzanine floors to add floor area above storage.
+
+- Wide-aisle racking for mixed pallet storage.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Cantilever Racking FAQs
+
+What can be stored on cantilever racking?
+Cantilever racking is designed for long, bulky and irregular items such as steel pipes, extruded aluminium, timber, PVC conduit, sheets and coils that do not fit a standard pallet bay.
+
+How much weight can a cantilever arm hold?
+ProRack cantilever arms are designed for 250 kg to 2,500 kg and more per arm. The final rating depends on arm length, column section and how the load is spread, and is confirmed by project-specific design.
+
+Should cantilever racking be single-sided or double-sided?
+Single-sided cantilever racking stands against a wall and is loaded from one side. Double-sided racking stands in the middle of the floor and is loaded from both sides, giving more capacity per column.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your cantilever racking project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Pallet and Carton Flow Racking (FIFO) Manufacturer | ProRack AI
+URL: https://prorack.ai/flow-racking.html
+Summary: Gravity pallet and carton flow racking for strict first-in, first-out stock rotation, with brake rollers and end stops. Designed and made in Hyderabad.
+
+System 07 / FIFO dynamic flow
+
+## Pallet and Carton Flow Racking
+
+Flow racking uses gently inclined roller lanes so that pallets or cartons loaded at the back move by gravity to the picking face at the front. It gives strict first-in, first-out stock rotation and separates replenishment from picking.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Pallet and Carton Flow Racking
+
+At a glance
+
+## Pallet and Carton Flow Racking specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Stock rotation Strict first-in, first-out (FIFO)
+
+Movement Gravity-fed roller lanes
+
+Safety Speed-controller brake rollers and end-stop separators
+
+Types Pallet flow and carton flow
+
+Best for Perishable goods, pharmaceutical expiry batches, high-speed picking
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Pallet and Carton Flow Racking by ProRack AI
+
+How it works
+
+## How pallet and carton flow racking works
+
+Each lane is a slightly inclined bed of rollers. Pallets or cartons are loaded at the upper end and roll forward until they reach the front, where they are picked. When one is removed, the next moves forward.
+
+Brake rollers control the speed of loaded pallets, and separators at the picking end take the pressure of the lane off the front pallet so it can be lifted safely.
+
+Is it the right fit?
+
+## When to choose pallet and carton flow racking
+
+- Products have expiry dates or batches
+
+- You need strict FIFO without extra handling
+
+- You want to separate loading from picking
+
+- Picking speed is critical
+
+Compare
+
+## When another system may fit better
+
+- Drive-through racking for dense FIFO block storage at lower cost.
+
+- Multi-tier shelving for manual picking of small items.
+
+- Selective pallet racking when every pallet must be accessible.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Pallet and Carton Flow Racking FAQs
+
+How does pallet flow racking work?
+Pallets are loaded at the back of an inclined roller lane and move forward by gravity to the picking face. Brake rollers control the speed and separators at the front protect the operator when the first pallet is removed.
+
+What is the difference between pallet flow and carton flow racking?
+Pallet flow racking moves full pallets for bulk picking or dispatch. Carton flow racking uses lighter roller or wheel lanes for cartons and totes, usually at waist height for fast manual order picking.
+
+What are the requirements for flow racking to work reliably?
+Flow lanes need pallets or cartons of consistent size, weight and base quality, because damaged or irregular pallets can stop in the lane. Load details are reviewed during design so the rollers and brakes suit the actual goods.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your pallet and carton flow racking project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Mezzanine Floor Manufacturer in Hyderabad, India | ProRack AI
+URL: https://prorack.ai/mezzanine-floors.html
+Summary: Industrial mezzanine floors and rack-supported platforms with floor loads from 350 to 2,000 kg/m² and more, engineered in Tekla and RSTAB. Made in Hyderabad.
+
+System 08 / Structural expansion
+
+## Mezzanine Floors and Platforms
+
+An industrial mezzanine floor is a structural steel platform built inside an existing building to add usable floor area without extending the building. ProRack designs free-standing and rack-supported mezzanines for floor loads from 350 kg/m² to 2,000 kg/m² and more, engineered in Tekla Structures and RSTAB.
+
+Request a layout and quotation
+All storage systems
+
+Home / Solutions / Mezzanine Floors and Platforms
+
+At a glance
+
+## Mezzanine Floors and Platforms specifications
+
+Indicative specifications. Final capacities and configurations are confirmed by project-specific structural design to EN 15512 and IS 800.
+
+Floor loading 350 kg/m² to 2,000 kg/m² and more
+
+Types Free-standing structural steel or rack-supported
+
+Decking Heavy-duty grating, chequered plate or particle board
+
+Engineering Tekla Structures and RSTAB
+
+Best for Sorting hubs, office-over-storage, assembly lines, buffer staging
+
+Design codes EN 15512, IS 800 and IS 1893 seismic checks
+
+Manufactured in Hyderabad, Telangana, India; installed across India
+
+Mezzanine Floors and Platforms by ProRack AI
+
+How it works
+
+## How mezzanine floors and platforms works
+
+Columns and beams carry a new floor at an intermediate height in the building. A free-standing mezzanine has its own steel frame, while a rack-supported mezzanine uses the racking below as its structure.
+
+Stairs, handrails, gates and loading points are designed with the floor. Column positions are coordinated with the slab, the racking below and the material flow.
+
+Is it the right fit?
+
+## When to choose mezzanine floors and platforms
+
+- You need more floor area but cannot extend the building
+
+- You want offices, packing or assembly above storage
+
+- The building has clear height above the working floor
+
+- You want space that can later be moved or extended
+
+Compare
+
+## When another system may fit better
+
+- Multi-tier shelving when the upper levels are only for picking aisles.
+
+- VNA racking to use height for pallet storage.
+
+- Selective pallet racking for pallet storage below the mezzanine.
+
+Planning a project
+
+## What we need for a quotation
+
+- Project location and expected timeline
+
+- Warehouse dimensions, clear height and column grid
+
+- Pallet or item dimensions and weights
+
+- Number of storage positions required
+
+- Handling equipment in use or planned
+
+- Floor slab details, if available
+
+ProRack reviews the requirement, prepares a layout and structural design in Tekla Structures and RSTAB, manufactures in Hyderabad and installs through SmartFit Solutions. See how we engineer projects .
+
+Questions
+
+## Mezzanine Floors and Platforms FAQs
+
+What floor loads can a ProRack mezzanine carry?
+ProRack mezzanine floors are designed for floor loads from 350 kg/m² to 2,000 kg/m² and more. The design load is set from the intended use, such as offices, storage or machinery, and confirmed in the structural design.
+
+What is the difference between a free-standing and a rack-supported mezzanine?
+A free-standing mezzanine has its own columns and beams and leaves an open floor below. A rack-supported mezzanine uses the storage racking as its structure, which is efficient when the area below is used for racking.
+
+Do mezzanine floors need approvals?
+Requirements vary by state and building use, so check with the local authority and fire consultant early. ProRack prepares the structural design and drawings in Tekla Structures and RSTAB as part of the project.
+
+Last updated 23 November 2026 by the ProRack engineering team.
+
+Discuss your mezzanine floors and platforms project
+
+## Let's make
+space work.
+↗ Share your layout and load details.
+Our engineers will recommend a configuration.
+sales@prorack.ai ↗ +91 79658 51000 ↗
 
 ---
 

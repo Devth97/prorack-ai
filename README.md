@@ -140,10 +140,13 @@ Hostinger reference: https://www.hostinger.com/support/how-to-deploy-a-nodejs-we
 - The contact form posts to `POST /api/enquiry` (`server-enquiry.mjs`), which validates the form,
   drops bot submissions (hidden honeypot field), rate-limits to 5 enquiries per IP per 10 minutes and
   emails the enquiry to `ENQUIRY_TO` with the visitor as reply-to.
-- Email needs these Hostinger environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`,
-  optional `ENQUIRY_TO` (default sales@prorack.ai) and `ENQUIRY_FROM`. For Microsoft 365 use
-  `smtp.office365.com`, port `587`, and a mailbox with Authenticated SMTP enabled in the Microsoft 365
-  admin centre. Redeploy after adding them.
+- Email is sent with Microsoft Graph from the free shared mailbox `enquiries@prorack.ai`
+  (Kshitij Salve and Zeneta have Full Access). Hostinger environment variables: `MS_TENANT_ID`,
+  `MS_CLIENT_ID`, `MS_CLIENT_SECRET` (Entra app "ProRack Website Enquiries", Microsoft Graph
+  application permission Mail.Send, admin consented), `MAIL_FROM=enquiries@prorack.ai` and
+  `ENQUIRY_TO=enquiries@prorack.ai` (comma-separated for more). SMTP (`SMTP_HOST`, `SMTP_PORT`,
+  `SMTP_USER`, `SMTP_PASS`) also works if Graph is not configured. Redeploy after changing them.
+  When the client secret expires, create a new one in Entra and update `MS_CLIENT_SECRET`.
 - Until email is configured, or if sending fails, the form opens WhatsApp with the full enquiry so the
   lead still reaches sales. Without JavaScript the form falls back to `mailto:sales@prorack.ai`.
 - Leads are tracked as GA4 `generate_lead` events once a GA4 tag is added to the pages.

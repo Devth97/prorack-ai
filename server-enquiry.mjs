@@ -1,7 +1,13 @@
 // Project enquiry endpoint: POST /api/enquiry (JSON). Validates the form, blocks bots,
-// and emails the enquiry to the sales inbox over SMTP.
+// and emails the enquiry to the sales inbox through Microsoft Graph (preferred) or SMTP.
 //
 // Runtime environment variables (set in Hostinger, never in browser code):
+// Microsoft Graph (Microsoft 365, modern auth, works with MFA; no SMTP AUTH needed):
+//   MS_TENANT_ID      Entra directory (tenant) ID
+//   MS_CLIENT_ID      Application (client) ID of the app registration
+//   MS_CLIENT_SECRET  client secret value (Mail.Send application permission, admin consented)
+//   MAIL_FROM         mailbox the enquiry is sent from, e.g. website@prorack.ai (a free shared mailbox)
+// Or SMTP:
 //   SMTP_HOST   e.g. smtp.office365.com (Microsoft 365) or smtp.hostinger.com
 //   SMTP_PORT   587 (STARTTLS, default) or 465 (TLS)
 //   SMTP_USER   mailbox used to send, e.g. sales@prorack.ai
@@ -36,9 +42,44 @@ function getTransport(env) {
   return transport;
 }
 
-export function resetEnquiryState() { hits.clear(); transport = undefined; }
+// ---- Microsoft Graph sender (client-credentials token, cached until shortly before expiry) ----
+let graphToken;
+async function graphAccessToken(env, fetchImpl) {
+  if (graphToken && graphToken.expires > Date.now() + 60000) return graphToken.value;
+  const response = await fetchImpl(`https://login.microsoftonline.com/${encodeURIComponent(env.MS_TENANT_ID)}/oauth2/v2.0/token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ client_id: env.MS_CLIENT_ID, client_secret: env.MS_CLIENT_SECRET,
+      scope: 'https://graph.microsoft.com/.default', grant_type: 'client_credentials' }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok || !data.access_token) throw new Error(`Graph token failed: ${response.status} ${data.error || ''}`.trim());
+  graphToken = { value: data.access_token, expires: Date.now() + Number(data.expires_in || 3600) * 1000 };
+  return graphToken.value;
+}
+const recipients = list => String(list).split(',').map(s => s.trim()).filter(Boolean).map(address => ({ emailAddress: { address } }));
+function graphSender(env, fetchImpl = globalThis.fetch) {
+  if (!env.MS_TENANT_ID || !env.MS_CLIENT_ID || !env.MS_CLIENT_SECRET || !env.MAIL_FROM) return null;
+  return async message => {
+    const token = await graphAccessToken(env, fetchImpl);
+    const response = await fetchImpl(`https://graph.microsoft.com/v1.0/users/${encodeURIComponent(env.MAIL_FROM)}/sendMail`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ saveToSentItems: true, message: {
+        subject: message.subject, body: { contentType: 'Text', content: message.text },
+        toRecipients: recipients(message.to), replyTo: [{ emailAddress: { address: message.replyToAddress, name: message.replyToName } }],
+      } }),
+    });
+    if (response.status !== 202 && !response.ok) {
+      const detail = await response.json().catch(() => ({}));
+      throw new Error(`Graph sendMail failed: ${response.status} ${detail?.error?.code || ''}`.trim());
+    }
+  };
+}
 
-export async function handleEnquiry(req, env = process.env, { ip = 'unknown', send } = {}) {
+export function resetEnquiryState() { hits.clear(); transport = undefined; graphToken = undefined; }
+
+export async function handleEnquiry(req, env = process.env, { ip = 'unknown', send, fetchImpl = globalThis.fetch } = {}) {
   if (req.method !== 'POST') return json(405, { error: 'Method not allowed' });
   const origin = req.headers.get('origin');
   if (origin && new URL(origin).host !== new URL(req.url).host) return json(403, { error: 'Forbidden' });
@@ -65,15 +106,18 @@ export async function handleEnquiry(req, env = process.env, { ip = 'unknown', se
     `Storage system: ${data.system_type || 'Not specified'}`, `City / location: ${data.city || 'Not specified'}`,
     `Page: ${data.page || 'contact.html'}`, '', 'Requirement:', data.details,
   ];
+  const replyToName = data.name.replace(/[<>"\r\n]/g, '');
   const message = {
-    from: env.ENQUIRY_FROM || env.SMTP_USER,
+    from: env.ENQUIRY_FROM || env.MAIL_FROM || env.SMTP_USER,
     to: env.ENQUIRY_TO || 'sales@prorack.ai',
-    replyTo: `${data.name.replace(/[<>"\r\n]/g, '')} <${data.email}>`,
+    replyTo: `${replyToName} <${data.email}>`,
+    replyToAddress: data.email, replyToName,
     subject: `Website enquiry: ${data.company.replace(/[\r\n]/g, ' ')} (${data.system_type || 'general'})`,
     text: lines.join('\n'),
   };
 
-  const sender = send || (getTransport(env) && (m => getTransport(env).sendMail(m)));
+  const smtp = getTransport(env) && (({ replyToAddress, replyToName: _n, ...m }) => getTransport(env).sendMail(m));
+  const sender = send || graphSender(env, fetchImpl) || smtp;
   if (!sender) return json(503, { error: 'Email delivery is not configured', fallback: 'whatsapp' });
   try {
     await sender(message);

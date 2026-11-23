@@ -175,3 +175,32 @@ test('production server routes POST /api/enquiry and rejects GET', async () => {
   assert.equal(response.status, 503);
   assert.equal(JSON.parse(response.text).fallback, 'whatsapp');
 });
+test('enquiry API sends through Microsoft Graph when configured', async () => {
+  resetEnquiryState();
+  const calls = [];
+  const fetchImpl = async (url, options) => {
+    calls.push({ url, options });
+    if (url.includes('login.microsoftonline.com')) return Response.json({ access_token: 'graph-token', expires_in: 3600 });
+    return new Response(null, { status: 202 });
+  };
+  const env = { MS_TENANT_ID: 'tenant-1', MS_CLIENT_ID: 'client-1', MS_CLIENT_SECRET: 'secret-1', MAIL_FROM: 'website@prorack.ai', ENQUIRY_TO: 'sales@prorack.ai, kshitij@prorack.ai' };
+  const response = await handleEnquiry(enquiryRequest(enquiry), env, { ip: '5.5.5.5', fetchImpl });
+  assert.equal(response.status, 200);
+  assert.match(calls[0].url, /tenant-1\/oauth2\/v2\.0\/token/);
+  assert.match(String(calls[0].options.body), /grant_type=client_credentials/);
+  assert.equal(calls[1].url, 'https://graph.microsoft.com/v1.0/users/website%40prorack.ai/sendMail');
+  assert.equal(calls[1].options.headers.Authorization, 'Bearer graph-token');
+  const mail = JSON.parse(calls[1].options.body).message;
+  assert.deepEqual(mail.toRecipients.map(r => r.emailAddress.address), ['sales@prorack.ai', 'kshitij@prorack.ai']);
+  assert.equal(mail.replyTo[0].emailAddress.address, 'asha@example.com');
+  // A second enquiry reuses the cached token.
+  await handleEnquiry(enquiryRequest(enquiry), env, { ip: '5.5.5.6', fetchImpl });
+  assert.equal(calls.filter(c => c.url.includes('login.microsoftonline.com')).length, 1);
+});
+test('enquiry API falls back to WhatsApp when Graph rejects the request', async () => {
+  resetEnquiryState();
+  const fetchImpl = async url => url.includes('login') ? Response.json({ error: 'invalid_client' }, { status: 401 }) : new Response(null, { status: 202 });
+  const response = await handleEnquiry(enquiryRequest(enquiry), { MS_TENANT_ID: 't', MS_CLIENT_ID: 'c', MS_CLIENT_SECRET: 'bad', MAIL_FROM: 'website@prorack.ai' }, { ip: '6.6.6.6', fetchImpl });
+  assert.equal(response.status, 502);
+  assert.equal((await response.json()).fallback, 'whatsapp');
+});

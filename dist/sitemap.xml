@@ -166,4 +166,18 @@
     <priority>0.6</priority>
     <image:image><image:loc>https://prorack.ai/assets/editorial-photography/roadmap-optical-sensor-detail.webp</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://prorack.ai/pallet-racking-types-compared.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/narrow-aisle-multi-bay-racking.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://prorack.ai/mezzanine-vs-multi-tier-shelving.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://prorack.ai/assets/editorial-photography/mezzanine-floors.webp</image:loc></image:image>
+  </url>
 </urlset>

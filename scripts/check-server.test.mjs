@@ -204,3 +204,15 @@ test('enquiry API falls back to WhatsApp when Graph rejects the request', async 
   assert.equal(response.status, 502);
   assert.equal((await response.json()).fallback, 'whatsapp');
 });
+test('hash-versioned scripts are cached for a year; unversioned ones revalidate', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'prorack-cache-'));
+  await mkdir(path.join(dir, 'assets'), { recursive: true });
+  await writeFile(path.join(dir, 'assets', 'app.js'), 'console.log(1)');
+  const srv = createProductionServer({ rootDir: dir, env: {} });
+  await new Promise(r => srv.listen(0, '127.0.0.1', r));
+  const get = p => new Promise((res, rej) => http.get({ hostname: '127.0.0.1', port: srv.address().port, path: p }, r => { r.resume(); res(r.headers['cache-control']); }).on('error', rej));
+  assert.equal(await get('/assets/app.js?v=0123456789ab'), 'public, max-age=31536000, immutable');
+  assert.equal(await get('/assets/app.js'), 'public, max-age=0, must-revalidate');
+  await new Promise(r => srv.close(r));
+  await rm(dir, { recursive: true, force: true });
+});

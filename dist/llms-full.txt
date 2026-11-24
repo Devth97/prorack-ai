@@ -73,6 +73,8 @@ ProRack manufactures eight core storage system families:
 - [Cantilever racking](https://prorack.ai/cantilever-racking.html): long goods, 250 kg to 2,500 kg and more per arm
 - [Pallet and carton flow racking](https://prorack.ai/flow-racking.html): gravity FIFO lanes
 - [Mezzanine floors](https://prorack.ai/mezzanine-floors.html): 350 to 2,000 kg/m² and more, free-standing or rack-supported
+- [Pallet racking types compared](https://prorack.ai/pallet-racking-types-compared.html): selective vs wide-aisle vs VNA vs drive-in vs flow, with a comparison table
+- [Mezzanine floor vs multi-tier shelving](https://prorack.ai/mezzanine-vs-multi-tier-shelving.html): structure, loads, uses and when to choose each
 - [Engineering](https://prorack.ai/engineering.html): structural BIM delivery and the 5-stage lifecycle
 - [Execution](https://prorack.ai/execution.html): installation and MEP integration verticals
 - [Company](https://prorack.ai/company.html): heritage, leadership and engineering vision
@@ -542,6 +544,8 @@ Heavy-duty, bolt-free & flow shelving
 Heavy-duty shelving serves medium-to-heavy goods and mixed palletised and non-palletised storage. Bolt-free shelving supports flexible light-duty and spare-parts storage. Carton and bin flow racking uses gravity for efficient picking and FIFO operations.
 
 
+
+Buying guides: Pallet racking types compared · Mezzanine floor vs multi-tier shelving
 
 Talk to an expert ↗ 
 
@@ -3280,3 +3284,150 @@ Planned for the Hyderabad facility: multi-camera optical arrays positioned along
 
 OPTICAL INSPECTION STATION // QC-CAM-02 
 LAB PILOT PLANNED
+
+---
+
+# Pallet Racking Types Compared: Selective, VNA, Drive-In, Flow | ProRack AI
+URL: https://prorack.ai/pallet-racking-types-compared.html
+Summary: Compare selective, wide-aisle, VNA, drive-in and pallet flow racking by pallet access, aisle width, storage density, stock rotation and handling equipment.
+
+Buying guide / Pallet racking
+
+## Pallet racking types compared
+
+The right pallet racking depends on how many SKUs you store, how many pallets you hold per SKU, how stock must rotate and what forklifts you use. Selective and wide-aisle racking give access to every pallet; very narrow-aisle (VNA) racking keeps that access while fitting about 40% to 45% more pallets; drive-in racking stores about 60% to 80% more pallets than selective but only gives access lane by lane; pallet flow racking enforces strict first-in, first-out rotation.
+
+Ask an engineer about your warehouse
+All storage systems
+
+Home / Solutions / Pallet racking types compared
+
+Side by side
+
+## Comparison table
+
+Indicative comparison. Final layouts and capacities are confirmed by project-specific design to EN 15512 and IS 800.
+System Pallet access Aisle width Storage density Stock rotation Handling equipment Best for
+
+Selective pallet racking Every pallet About 3.0 to 3.8 m Baseline Any (FIFO or LIFO) Counterbalance and reach forklifts Many SKUs, FMCG, retail distribution, cold stores
+
+Wide-aisle racking Every pallet 3.0 to 3.8 m Baseline Any (FIFO or LIFO) Counterbalance and reach forklifts, two-way traffic 3PL and busy dispatch areas with several forklifts
+
+VNA racking Every pallet Down to about 1.5 m About 40% to 45% higher than conventional Any (FIFO or LIFO) Guided turret trucks or man-up order pickers High land-cost sites, pharma, e-commerce hubs
+
+Drive-in / drive-through Front pallet of each lane No aisles between lanes About 60% to 80% more pallets than selective LIFO (drive-in) or FIFO (drive-through) Forklifts driving into the lanes Cold storage, bulk stock of few SKUs
+
+Pallet flow racking Front pallet of each lane Loading aisle and picking aisle Dense, lanes several pallets deep Strict FIFO Forklifts at the loading and picking faces Perishables, pharmaceutical batches, fast picking
+
+## How to choose in five questions
+
+- How many SKUs, and how many pallets per SKU? Many SKUs with few pallets each point to selective, wide-aisle or VNA racking. Few SKUs with many pallets each point to drive-in or pallet flow.
+
+- Does stock have to rotate first-in, first-out? Expiry dates and batches favour pallet flow or drive-through racking. Drive-in racking works last-in, first-out.
+
+- How expensive is floor space? When land or cold-store volume is costly, VNA (with access to every pallet) or drive-in (bulk) packs more pallets into the same building.
+
+- What forklifts do you have or plan? Selective and wide-aisle racking work with standard counterbalance and reach trucks. VNA needs guided turret trucks and a very flat floor slab.
+
+- How tall is the building? VNA layouts can use heights of 18 m and more; standard layouts are set by the reach of your forklifts.
+
+## Mixing systems in one warehouse
+
+Most warehouses combine systems: selective or VNA racking for the full SKU range, drive-in or flow lanes for fast-moving bulk lines, and mezzanine floors or multi-tier shelving for small-item picking. ProRack engineers the whole layout together in Tekla Structures and RSTAB so the systems, aisles and handling equipment fit the building.
+
+Questions
+
+## Frequently asked questions
+
+Which pallet racking gives the most storage?
+Drive-in racking stores about 60% to 80% more pallets than selective racking, but only the front pallet of each lane is accessible. If you need access to every pallet, very narrow-aisle (VNA) racking gives about 40% to 45% more pallets than a conventional wide-aisle layout.
+
+What is the difference between selective and VNA racking?
+Both give direct access to every pallet. Selective racking uses aisles of about 3.0 to 3.8 m for standard counterbalance and reach forklifts. VNA racking reduces aisles to about 1.5 m and uses guided turret trucks, which needs a very flat floor but stores more pallets on the same footprint.
+
+Which racking is best for FIFO stock rotation?
+Pallet flow racking gives strict first-in, first-out rotation because pallets loaded at the back roll forward to the picking face. Drive-through racking also works FIFO when loaded from one side and picked from the other.
+
+Which racking suits cold storage?
+Cold stores are expensive per cubic metre, so dense systems are common: drive-in racking for bulk pallets of few SKUs, or VNA racking when every pallet must stay accessible. The choice depends on the number of SKUs and how stock rotates.
+
+Last updated 24 November 2026 by the ProRack engineering team.
+
+Not sure which system fits?
+
+## Let's make
+space work.
+↗ Share your building size, pallets and SKUs.
+Our engineers will recommend a layout.
+sales@prorack.ai ↗ +91 79658 51000 ↗
+
+---
+
+# Mezzanine Floor vs Multi-Tier Shelving: Which to Choose | ProRack AI
+URL: https://prorack.ai/mezzanine-vs-multi-tier-shelving.html
+Summary: Mezzanine floors add an open structural floor; multi-tier shelving builds picking levels into the shelving. Compare structure, loads, uses and flexibility.
+
+Buying guide / Using building height
+
+## Mezzanine floor vs multi-tier shelving
+
+Both use the height of your building. A mezzanine floor is an independent structural steel floor that creates open space for storage, offices, packing or assembly, designed for floor loads from 350 kg/m² to 2,000 kg/m² and more. Multi-tier shelving builds 2 to 4 picking levels into the shelving itself, with walkways between the shelves, and suits hand-picking of small items.
+
+Ask an engineer about your warehouse
+All storage systems
+
+Home / Solutions / Mezzanine floor vs multi-tier shelving
+
+Side by side
+
+## Comparison table
+
+Indicative comparison. Loads and layouts are confirmed by project-specific structural design.
+Mezzanine floor Multi-tier shelving
+
+Structure Free-standing steel floor or rack-supported platform Shelving uprights carry the walkways of the upper levels
+
+Upper level used for Open floor: storage, offices, packing, assembly, staging Picking aisles between shelves
+
+Levels Usually one additional floor 2 to 4 picking levels
+
+Loads 350 kg/m² to 2,000 kg/m² and more Set by shelf load and walkway design
+
+Decking Heavy-duty grating, chequered plate or particle board Steel mesh or timber walkways
+
+Best for Sorting hubs, office-over-storage, assembly lines, buffer staging Spare parts, apparel, hardware, electrical items
+
+## Which one fits your warehouse?
+
+- Choose a mezzanine floor when you need open floor area that can change use over time, carry heavy loads or host offices, packing stations or machinery.
+
+- Choose multi-tier shelving when the upper levels are only for picking many small SKUs by hand and you want storage and access in one structure.
+
+- Combine them when you need both: shelving on a mezzanine floor, or pallet racking below a rack-supported mezzanine.
+
+## Safety and approvals
+
+Both systems are designed with stairs, handrails, gates and toe boards, and sprinkler integration is coordinated with the building fire design. Requirements for approvals vary by state and building use, so check with your local authority and fire consultant early. ProRack prepares the structural design and drawings in Tekla Structures and RSTAB as part of the project.
+
+Questions
+
+## Frequently asked questions
+
+Is a mezzanine floor or multi-tier shelving better for picking?
+Multi-tier shelving is usually better for hand-picking many small items, because the shelving and walkways form picking aisles on 2 to 4 levels. A mezzanine floor is better when the upper level needs open space for storage, offices, packing or assembly.
+
+How much load can a mezzanine floor carry?
+ProRack mezzanine floors are designed for floor loads from 350 kg/m² to 2,000 kg/m² and more. The design load is set from the intended use and confirmed in the structural design.
+
+Can multi-tier shelving be built on a mezzanine?
+Yes. Shelving can be installed on a mezzanine floor, and pallet racking can sit below a rack-supported mezzanine. The structure is designed for the combined loads.
+
+Last updated 24 November 2026 by the ProRack engineering team.
+
+Not sure which system fits?
+
+## Let's make
+space work.
+↗ Share your building size, pallets and SKUs.
+Our engineers will recommend a layout.
+sales@prorack.ai ↗ +91 79658 51000 ↗

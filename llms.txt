@@ -73,6 +73,8 @@ ProRack manufactures eight core storage system families:
 - [Cantilever racking](https://prorack.ai/cantilever-racking.html): long goods, 250 kg to 2,500 kg and more per arm
 - [Pallet and carton flow racking](https://prorack.ai/flow-racking.html): gravity FIFO lanes
 - [Mezzanine floors](https://prorack.ai/mezzanine-floors.html): 350 to 2,000 kg/m² and more, free-standing or rack-supported
+- [Pallet racking types compared](https://prorack.ai/pallet-racking-types-compared.html): selective vs wide-aisle vs VNA vs drive-in vs flow, with a comparison table
+- [Mezzanine floor vs multi-tier shelving](https://prorack.ai/mezzanine-vs-multi-tier-shelving.html): structure, loads, uses and when to choose each
 - [Engineering](https://prorack.ai/engineering.html): structural BIM delivery and the 5-stage lifecycle
 - [Execution](https://prorack.ai/execution.html): installation and MEP integration verticals
 - [Company](https://prorack.ai/company.html): heritage, leadership and engineering vision

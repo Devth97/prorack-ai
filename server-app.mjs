@@ -110,10 +110,13 @@ export function createProductionServer({ rootDir = path.join(projectDir, 'dist')
       } catch { return notFound(req, res, rootDir); }
       if (relative === '404.html') return notFound(req, res, rootDir);
       const contentType = types[path.extname(file).toLowerCase()] || 'application/octet-stream';
-      // HTML and hash-versioned CSS/JS revalidate; unversioned media is cached for a day (faster repeat visits).
+      // CSS/JS requested with a content-hash version (?v=<hash>, added by the build) never change at that URL,
+      // so browsers keep them for a year. HTML and unversioned CSS/JS revalidate; media is cached for a day.
+      const versionedAsset = /\.(js|css)$/i.test(file) && /[?&]v=[a-f0-9]{8,}(?:&|$)/.test(query);
       const mediaCache = /\.(webp|jpe?g|png|svg|ico|woff2?|mp4)$/i.test(file);
       const headers = { 'Content-Type': contentType, 'Content-Length': info.size,
-        'Cache-Control': mediaCache ? 'public, max-age=86400' : 'public, max-age=0, must-revalidate' };
+        'Cache-Control': versionedAsset ? 'public, max-age=31536000, immutable'
+          : mediaCache ? 'public, max-age=86400' : 'public, max-age=0, must-revalidate' };
       let start = 0, end = info.size - 1, status = 200;
       if (contentType === 'video/mp4') {
         headers['Accept-Ranges'] = 'bytes';

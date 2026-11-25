@@ -1,3 +1,31 @@
+# Search visibility review: 25 November 2026
+
+## Verified first-party findings
+
+- Search Console URL Inspection says the homepage is indexed, crawl and indexing are allowed, the last recorded fetch succeeded on 22 November, and Google selected the declared https://prorack.ai/ canonical.
+- A live URL test on 25 November passed: URL available to Google and page can be indexed.
+- The three-month Performance view currently has only 21-22 November chart data: 36 impressions, 8 clicks, 22.2% CTR and average position 5.3. Visible queries are mostly branded. This is not the position for the generic Hyderabad manufacturer query and is not evidence of a penalty.
+- The pasted third-party list is a research shortlist, not an audited ranking. Its omission of ProRack cannot establish a Google rank.
+- The live www and HTTP addresses redirect successfully to the HTTPS apex. The prior www/Netlify failure is no longer reproducible.
+- Browser and OAI-SearchBot user-agent probes receive 200. Simulated Googlebot/Bingbot requests from an unverified IP receive 403, but Google's actual live test succeeds. Do not disable bot protection based on spoofed user-agent tests.
+- prorackglobal.com and prorackstoragesolutions.com currently show Coming Soon. Updating or redirecting those separately managed sites requires an explicit domain-specific plan; this change does not alter them.
+- Hostinger's deployment page identifies itadminprorack/prorack.ai.prod as the production fork, currently at 651c7b1. Pushing only Devth97/prorack-ai does not establish a production deploy.
+
+## Targeted homepage change
+
+Make the legal company name, manufacturing role and full factory location visible in the existing approach section instead of leaving identity largely to metadata and FAQs. Add two useful buyer questions (local manufacturing and how to compare suppliers) with matching visible text and JSON-LD. Update only the homepage's modification date. No fabricated rankings, reviews, prices, certifications, project counts or acquisition claims are introduced.
+
+## Remaining evidence and owner actions
+
+- After publishing, request homepage indexing once, submit the deployed sitemap URLs through IndexNow, and record acceptance separately from indexing/ranking.
+- Evaluate non-branded queries over subsequent Search Console reporting periods; current metrics are a baseline, not an improvement claim.
+- Review the verified Business Profile and company listings for the same legal name, Dukes Industrial Park address, phone and prorack.ai URL. Do not overwrite account profiles without checking their current verified business details.
+- Search Console also reports 13 Product snippet items missing offers/review/aggregateRating. This affects rich-result eligibility, not ordinary indexing. Do not invent a price or review to clear the report; review the intended structured-data strategy separately.
+
+References: [Google AI search guidance](https://developers.google.com/search/docs/appearance/ai-features), [Hostinger crawler verification](https://www.hostinger.com/support/hostinger-cdn-search-engine-crawlers-and-seo/).
+
+---
+
 # ProRack SEO / AEO / GEO update: 22 November 2026
 
 Goal: make https://prorack.ai the one clearly identified "ProRack" warehouse racking
@@ -71,7 +99,7 @@ Applied the performance, HTML and security rules from
 2. **Google Search Console**: add a *Domain* property for `prorack.ai` (DNS TXT in Cloudflare), submit `https://prorack.ai/sitemap.xml`,
    use URL Inspection to request indexing of `/`, `/solutions.html`, `/company.html`, `/contact.html`.
 3. **Bing Webmaster Tools**: import from Search Console, submit the sitemap, then run `npm run indexnow`. Bing feeds ChatGPT search and Copilot.
-4. **Google Business Profile**: create / verify "ProRack Storage Solutions India Pvt. Ltd." at the Secunderabad address with
+4. **Google Business Profile**: create / verify "ProRack Storage Solutions India Pvt. Ltd." at the verified Dukes Industrial Park address with
    website `https://prorack.ai`, the same phone and hours. This is the main driver for local "racking manufacturer Hyderabad" results.
 5. **Consistent citations (NAP)**: same name, address, phone and URL on LinkedIn, IndiaMART, TradeIndia, JustDial, Crunchbase,
    and the prorackglobal.com group site linking to prorack.ai. Add every verified profile URL to `sameAs` in the JSON-LD.

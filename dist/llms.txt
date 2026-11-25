@@ -47,6 +47,19 @@ ProRack manufactures eight core storage system families:
 7. **Pallet and carton flow racking**: gravity-fed lanes separating loading from picking, maintaining FIFO rotation.
 8. **Mezzanine floors**: rack-supported and free-standing platforms adding floor area inside the existing envelope.
 
+## Full product range
+
+Beyond the eight core families, ProRack supplies the following systems (full list: https://prorack.ai/solutions.html#full-range). Configurations, loads and suitability are confirmed by engineering for each project.
+
+- **A. Conventional pallet racking**: selective pallet racking (SPR), double deep pallet racking, very narrow aisle (VNA) racking, drive-in racking, drive-through racking.
+- **B. High-density storage**: push-back racking, pallet flow / gravity flow racking, radio shuttle / pallet shuttle racking, mobile pallet racking.
+- **C. Shelving and multi-tier solutions**: long span shelving, boltless shelving, carton flow racking, multi-tier shelving, bin shelving / small parts racking, mobile shelving, structural mezzanine floors, rack-supported mezzanine, multi-level picking towers, pick modules.
+- **D. Automation-compatible racking**: unit load ASRS, mini load ASRS, four-way shuttle ASRS, multi-shuttle ASRS, cube-based storage systems, vertical lift modules (VLM), vertical carousel systems, rack-supported buildings / clad-rack warehouses.
+- **E. Industrial and specialised storage**: cantilever racking, vertical storage racking, sheet metal storage racks, cable drum / reel racking, tyre storage racking, automotive component racking, heavy-duty die and mould racks, coil storage racks, drum and barrel racks, roll-out / pull-out racks, stackable / portable racks, nesting racks, stillages and storage cages, garment hanging racks, cold storage racking, seismic-designed racking, outdoor galvanised racking, hazardous material storage racks.
+- **F. Integrated warehouse infrastructure**: conveyor support structures, industrial walkways and access platforms.
+- **G. Mezzanine floors**: frame-based mezzanine, column-based mezzanine.
+- **H. Flooring for multi-tier shelving**: indigenous grating, imported Miser grating, and deck sheet with Berghoef wood, MDF, normal plywood, high-density plywood or sugarcane bagasse eco board.
+
 ## Three delivery verticals
 
 - **ProRack Storage Solutions**: design, manufacture and execution of racking, mezzanines and rack-clad structures.

@@ -135,6 +135,15 @@ body.editorial-site {background:var(--background);font-family:var(--font-sans);}
 .extended-portfolio h2 {margin:25px 0 35px;}
 .extended-portfolio details {padding:25px 0!important;}
 .extended-portfolio details p {font-size:14px;line-height:1.8;color:var(--muted-foreground);margin-top:18px;max-width:800px;}
+.full-range-intro {font-size:15px;line-height:1.8;color:var(--muted-foreground);max-width:760px;margin:-15px 0 45px;}
+.range-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px 56px;margin-bottom:45px;}
+.range-group h3 {font-size:20px;font-weight:500;margin:10px 0 14px;}
+.range-group ul {list-style:none;margin:0;padding:0;}
+.range-group li {display:grid;gap:4px;padding:12px 0;border-top:1px solid var(--border);}
+.range-group li strong {font-weight:500;font-size:15px;}
+.range-group li a {color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;}
+.range-group li a:hover {text-decoration-color:currentColor;}
+.range-group li span {font-size:13px;line-height:1.6;color:var(--muted-foreground);}
 .editorial-site .solution-catalog-grid > article:hover {transform:none;}
 .project-invitation {background:#ed744b;padding:80px 0 45px;color:#1e251f;}
 .project-invitation .eyebrow {color:inherit;}

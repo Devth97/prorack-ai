@@ -126,7 +126,7 @@ const MEGA_MENUS = {
   solutions: { title: 'Storage systems portfolio', blurb: 'Eight engineered storage families, from selective pallet racking to mezzanine floors.', image: 'assets/editorial-photography/solutions-warehouse-overview.webp', groups: [
     { heading: 'Pallet racking', links: [['Selective pallet racking','solutions.html#selective'],['Wide-aisle multi-bay','solutions.html#wide-aisle'],['Narrow-aisle (VNA)','solutions.html#narrow-aisle'],['Drive-in / drive-through','solutions.html#drive-in']] },
     { heading: 'Specialist storage', links: [['Multi-tier shelving','solutions.html#multi-tier'],['Cantilever racking','solutions.html#cantilever'],['Pallet & carton flow','solutions.html#flow-racking'],['Mezzanine floors','solutions.html#mezzanine']] },
-    { heading: 'Structures & automation', links: [['Rack-clad buildings','solutions.html#rack-clad'],['Automation & ASRS','solutions.html#automation'],['Full catalog','solutions.html#catalog']] },
+    { heading: 'Structures & automation', links: [['Rack-clad buildings','solutions.html#rack-clad'],['Automation & ASRS','solutions.html#automation'],['Full catalog','solutions.html#catalog'],['Full product range','solutions.html#full-range']] },
   ]},
   engineering: { title: 'Engineering & structural design', blurb: 'Tekla BIM and RSTAB analysis behind every layout, built to EN 15512 and IS 800.', image: 'assets/editorial-photography/engineering-structural-study.webp', groups: [
     { heading: 'Delivery lifecycle', links: [['5-stage engineering lifecycle','engineering.html#stages'],['Change order management','engineering.html#change-orders']] },
@@ -169,6 +169,7 @@ function GlobalHeader({ activePage }) {
   const digital = digitalLinks.some(([,id])=>id===activePage);
   const searchItems = [
     { title: 'Warehouse Storage Catalog (8 Systems)', category: 'Solutions', href: 'solutions.html' },
+    { title: 'Full Product Range (56 Systems & Options)', category: 'Solutions', href: 'solutions.html#full-range' },
     { title: 'Selective Pallet Racking Specs', category: 'Solutions', href: 'solutions.html#selective' },
     { title: 'Drive-In & High-Density Racking', category: 'Solutions', href: 'solutions.html#drive-in' },
     { title: 'Heavy-Duty Cantilever Racking', category: 'Solutions', href: 'solutions.html#cantilever' },

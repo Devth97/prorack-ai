@@ -47,6 +47,19 @@ ProRack manufactures eight core storage system families:
 7. **Pallet and carton flow racking**: gravity-fed lanes separating loading from picking, maintaining FIFO rotation.
 8. **Mezzanine floors**: rack-supported and free-standing platforms adding floor area inside the existing envelope.
 
+## Full product range
+
+Beyond the eight core families, ProRack supplies the following systems (full list: https://prorack.ai/solutions.html#full-range). Configurations, loads and suitability are confirmed by engineering for each project.
+
+- **A. Conventional pallet racking**: selective pallet racking (SPR), double deep pallet racking, very narrow aisle (VNA) racking, drive-in racking, drive-through racking.
+- **B. High-density storage**: push-back racking, pallet flow / gravity flow racking, radio shuttle / pallet shuttle racking, mobile pallet racking.
+- **C. Shelving and multi-tier solutions**: long span shelving, boltless shelving, carton flow racking, multi-tier shelving, bin shelving / small parts racking, mobile shelving, structural mezzanine floors, rack-supported mezzanine, multi-level picking towers, pick modules.
+- **D. Automation-compatible racking**: unit load ASRS, mini load ASRS, four-way shuttle ASRS, multi-shuttle ASRS, cube-based storage systems, vertical lift modules (VLM), vertical carousel systems, rack-supported buildings / clad-rack warehouses.
+- **E. Industrial and specialised storage**: cantilever racking, vertical storage racking, sheet metal storage racks, cable drum / reel racking, tyre storage racking, automotive component racking, heavy-duty die and mould racks, coil storage racks, drum and barrel racks, roll-out / pull-out racks, stackable / portable racks, nesting racks, stillages and storage cages, garment hanging racks, cold storage racking, seismic-designed racking, outdoor galvanised racking, hazardous material storage racks.
+- **F. Integrated warehouse infrastructure**: conveyor support structures, industrial walkways and access platforms.
+- **G. Mezzanine floors**: frame-based mezzanine, column-based mezzanine.
+- **H. Flooring for multi-tier shelving**: indigenous grating, imported Miser grating, and deck sheet with Berghoef wood, MDF, normal plywood, high-density plywood or sugarcane bagasse eco board.
+
 ## Three delivery verticals
 
 - **ProRack Storage Solutions**: design, manufacture and execution of racking, mezzanines and rack-clad structures.
@@ -256,20 +269,15 @@ sales@prorack.ai ↗ +91 79658 51000 ↗
 URL: https://prorack.ai/solutions.html
 Summary: Eight engineered racking systems built in Hyderabad: selective, VNA narrow-aisle, drive-in, cantilever, flow racking, multi-tier shelving and mezzanines.
 
-INDUSTRIAL STORAGE SYSTEMS 
+INDUSTRIAL STORAGE SYSTEMS
 
 ## Storage solutions.
 Designed around your operation.
 
 Every warehouse has different products, capacities, workflows and constraints. Our portfolio combines proven storage systems with engineered solutions designed to make the best use of available space.
 
-
-View All Systems ↓ 
-Request Custom Layout 
-
-
-
-
+View All Systems ↓
+Request Custom Layout
 
 01 / Capacity
 
@@ -288,235 +296,123 @@ Coordinate equipment and the movement of goods.
 ## Make room for growth.
 Create systems that can evolve with your business.
 
-
-
-
-
-
-COMPLETE PRODUCT PORTFOLIO 
+COMPLETE PRODUCT PORTFOLIO
 
 ## Industrial Storage & Racking Catalog
 
-
 Eight core system families, with modern roll-forming and powder-coating capabilities and high-strength steel construction. Final capacities and configurations are determined through project-specific engineering.
 
-
-
-
-
-
-
-
-
-
-SYSTEM 01 // 100% SELECTIVITY 
+SYSTEM 01 // 100% SELECTIVITY
 
 ## Selective Pallet Racking
 
 The versatile industry workhorse. Provides direct, unrestricted access to every individual pallet with standard forklifts. Completely modular and reconfigurable as inventory profiles evolve.
 
-
-
 - Bay Load: Up to 20,000 kg
-
 
 - Beam Capacities: 1,000 kg – 4,500 kg per pair
 
-
 - Best For: High SKU variety, FMCG, retail distribution, cold stores
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 02 // MULTI-BAY STORAGE 
+SYSTEM 02 // MULTI-BAY STORAGE
 
 ## Wide-Aisle Multi-Bay Racking
 
 Engineered for high-throughput logistics terminals with continuous simultaneous reach truck operations. Wide aisles permit bi-directional forklift transit and buffer staging.
 
-
-
 - Aisle Width: 3.0m – 3.8m
-
 
 - Equipment: Standard counterbalance & reach forklifts
 
-
 - Best For: 3PL fulfillment centers, general warehousing, heavy machinery spares
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 03 // HIGH-DENSITY VNA 
+SYSTEM 03 // HIGH-DENSITY VNA
 
 ## Very Narrow-Aisle (VNA) Racking
 
 Maximizes vertical warehouse volume by compressing aisle widths down to 1.5m. Turret trucks or man-up order pickers operate guided by wire or mechanical floor rails.
 
-
-
 - Building Height: Up to 18+ meters
-
 
 - Space Saving: 40%–45% higher storage density
 
-
 - Best For: High land-cost regions, pharmaceutical, e-commerce mega-hubs
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 04 // COMPACT BLOCK STORAGE 
+SYSTEM 04 // COMPACT BLOCK STORAGE
 
 ## Drive-In / Drive-Through Racking
 
 Eliminates operating aisles by creating continuous lane tunnels where forklifts drive directly into rack bays. Supports LIFO (Drive-In) or FIFO (Drive-Through) protocols.
 
-
-
 - Capacity Boost: 60%–80% higher density than standard selective
-
 
 - Guidance: Floor guidance channels & heavy-duty upright guards
 
-
 - Best For: Cold storage, seasonal goods, bulk homogenous stock
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 05 // MULTI-LEVEL PICKING 
+SYSTEM 05 // MULTI-LEVEL PICKING
 
 ## Multi-Tier Shelving Installations
 
 Vertical modular shelving structures integrated with intermediate steel mesh or timber walkways, access stairs, safety gates, and carton chute drops for multi-level order picking.
 
-
-
 - Walkway Tiers: 2 to 4 picking levels
-
 
 - Safety: Toe boards, handrails, fire sprinkler integration
 
-
 - Best For: Automotive spare parts, apparel, hardware, electrical items
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 06 // LONG GOODS & PIPES 
+SYSTEM 06 // LONG GOODS & PIPES
 
 ## Heavy-Duty Cantilever Racking
 
 Unobstructed front-opening storage engineered for oversized, long, and irregular inventory. Structural columns with load-tested cantilever arms withstand heavy point loads.
 
-
-
 - Arm Capacities: 250 kg – 2,500+ kg per arm
-
 
 - Configurations: Single-sided wall or double-sided central
 
-
 - Best For: Steel pipes, extruded aluminium, timber, PVC conduit, coils
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 07 // FIFO DYNAMIC FLOW 
+SYSTEM 07 // FIFO DYNAMIC FLOW
 
 ## Pallet & Carton Flow Racking
 
 Gravity-fed dynamic roller lanes automatically advance pallets and cartons toward the picking face. Physically isolates replenishment loading from front-end order fulfillment.
 
-
-
 - Stock Rotation: Strict First-In, First-Out (FIFO)
-
 
 - Safety: Speed controller brake rollers & end-stop separators
 
-
 - Best For: Perishable goods, pharmaceutical expiry batches, high-speed picking
 
+Full specifications & FAQs → Request Specification Sheet →
 
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
-SYSTEM 08 // STRUCTURAL EXPANSION 
+SYSTEM 08 // STRUCTURAL EXPANSION
 
 ## Mezzanine Floors & Platforms
 
 Double or triple your usable warehouse square footage without expanding the building envelope. Custom structural steel or rack-supported mezzanine designs engineered in Tekla/RSTAB.
 
-
-
 - Floor Loading: 350 kg/m² to 2,000+ kg/m²
-
 
 - Options: Heavy-duty grating, chequered plate, or particle board
 
-
 - Best For: Sorting hubs, office-over-storage, assembly lines, buffer staging
 
-
-Full specifications & FAQs → Request Specification Sheet → 
-
-
-
-
-
-
-
-
+Full specifications & FAQs → Request Specification Sheet →
 
 09 / Structural storage
 
@@ -530,98 +426,187 @@ AI-generated automated storage concept 10 / Automated storage
 Automated storage combines racking, material-handling equipment and control systems to store and retrieve goods. Configurations include RF shuttle racking, ASRS shuttle, stacker crane ASRS and mini load ASRS. AI-generated concept illustration; equipment layout and integration are confirmed during engineering.
 Discuss an automated system ↗
 
-
-Additional configurations / Approved product offerings
+11 / Full product range
 
 ## Find the right fit.
 
+The complete range of racking, shelving, automation-ready, specialised storage and flooring systems we supply. Configurations, loads and suitability are confirmed by our engineers for each project.
 
-Double-deep & mobile pallet racking
-Double-deep racking uses two rack bays to increase the rack-to-aisle ratio for higher storage density. Mobile pallet racks move laterally to create access aisles when required, helping maximise capacity while retaining SKU selectivity.
+A / 5 systems
 
+## Conventional pallet racking
 
-Heavy-duty, bolt-free & flow shelving
-Heavy-duty shelving serves medium-to-heavy goods and mixed palletised and non-palletised storage. Bolt-free shelving supports flexible light-duty and spare-parts storage. Carton and bin flow racking uses gravity for efficient picking and FIFO operations.
+- Selective Pallet Racking (SPR) Direct access to every pallet location.
 
+- Double Deep Pallet Racking Pallets stored two deep for a higher rack-to-aisle ratio.
 
+- Very Narrow Aisle (VNA) Racking Narrow aisles served by guided VNA trucks.
+
+- Drive-In Racking Forklifts enter the storage lanes for dense LIFO block storage.
+
+- Drive-Through Racking Lanes open at both ends for FIFO block storage.
+
+B / 4 systems
+
+## High-density storage
+
+- Push-Back Racking Inclined carts or rollers for deep LIFO lanes loaded from one aisle.
+
+- Pallet Flow / Gravity Flow Racking Gravity roller lanes that keep pallets in FIFO order.
+
+- Radio Shuttle / Pallet Shuttle Racking A remote-controlled shuttle moves pallets in deep lanes.
+
+- Mobile Pallet Racking Racks on moving bases that open an aisle only where needed.
+
+C / 10 systems
+
+## Shelving and multi-tier solutions
+
+- Long Span Shelving Manual storage for cartons, parts and medium-duty goods.
+
+- Boltless Shelving Modular light and medium-duty shelving, assembled without bolts.
+
+- Carton Flow Racking Gravity-fed carton lanes for fast picking.
+
+- Multi-Tier Shelving Shelving built over several levels with walkways and stairs.
+
+- Bin Shelving / Small Parts Racking Organised storage for small components and bins.
+
+- Mobile Shelving Compact shelving on movable bases.
+
+- Structural Mezzanine Floors Independent elevated platforms on their own columns.
+
+- Rack-Supported Mezzanine An upper floor carried by the racking structure.
+
+- Multi-Level Picking Towers Multi-level structures for fulfilment picking.
+
+- Pick Modules Shelving, flow racking and conveyors integrated into one picking system.
+
+D / 8 systems
+
+## Automation-compatible racking
+
+- Unit Load ASRS Crane-based automated pallet storage.
+
+- Mini Load ASRS Automated storage for totes and cartons.
+
+- Four-Way Shuttle ASRS Pallet shuttles that travel in four directions.
+
+- Multi-Shuttle ASRS High-throughput shuttle storage for totes.
+
+- Cube-Based Storage Systems Dense bin grids served by robots.
+
+- Vertical Lift Modules (VLM) Automated vertical tray storage.
+
+- Vertical Carousel Systems Rotating carriers that bring goods to the operator.
+
+- Rack-Supported Buildings / Clad-Rack Warehouses The rack structure carries the building cladding and roof.
+
+E / 18 systems
+
+## Industrial and specialised storage
+
+- Cantilever Racking Long goods such as pipes, steel sections and timber.
+
+- Vertical Storage Racking Upright storage for bars and profiles.
+
+- Sheet Metal Storage Racks Pull-out storage for metal sheets.
+
+- Cable Drum / Reel Racking Storage and dispensing of cable reels and drums.
+
+- Tyre Storage Racking Racking designed for tyres.
+
+- Automotive Component Racking Custom racks for automotive parts.
+
+- Heavy-Duty Die and Mould Racks Storage for tooling, dies and moulds.
+
+- Coil Storage Racks Storage for coils and rolls.
+
+- Drum and Barrel Racks Storage for industrial drums and barrels.
+
+- Roll-Out / Pull-Out Racks Heavy-duty pull-out storage.
+
+- Stackable Racks / Portable Racks Portable racks that stack on each other.
+
+- Nesting Racks Collapsible racks that save space when empty.
+
+- Stillages and Storage Cages Industrial cages and stillages for parts.
+
+- Garment Hanging Racks Hanging storage for apparel.
+
+- Cold Storage Racking Racking for temperature-controlled warehouses.
+
+- Seismic-Designed Racking Racking engineered for seismic resistance.
+
+- Outdoor Galvanised Racking Corrosion-resistant racking for outdoor use.
+
+- Hazardous Material Storage Racks Engineered storage for regulated materials.
+
+F / 2 systems
+
+## Integrated warehouse infrastructure
+
+- Conveyor Support Structures Steelwork that supports conveyor systems.
+
+- Industrial Walkways and Access Platforms Walkways and platforms for safe access.
+
+G / 2 systems
+
+## Mezzanine floors
+
+- Frame-Based Mezzanine A mezzanine built on frames.
+
+- Column-Based Mezzanine A mezzanine carried on columns.
+
+H / 7 systems
+
+## Flooring for multi-tier shelving
+
+- Grating (Indigenous) Locally made steel grating.
+
+- Imported Miser Grating Imported Miser grating.
+
+- Deck Sheet with Berghoef Wood Steel deck sheet with Berghoef wood.
+
+- Deck Sheet with MDF Wood Steel deck sheet with MDF.
+
+- Deck Sheet with Normal Plywood Steel deck sheet with standard plywood.
+
+- Deck Sheet with High-Density Plywood Steel deck sheet with high-density plywood.
+
+- Deck Sheet with Sugarcane Bagasse Eco Board Steel deck sheet with an eco board made from sugarcane bagasse.
 
 Buying guides: Pallet racking types compared · Mezzanine floor vs multi-tier shelving
 
-Talk to an expert ↗ 
+Talk to an expert ↗
 
-
-
-
-
-ENGINEERING FAQs & SPECIFICATIONS 
+ENGINEERING FAQs & SPECIFICATIONS
 
 ## Frequently Asked Engineering Questions
 
-
-
-
 What factors determine the right warehouse racking system for a facility?
-
 
 Selecting the optimal storage system depends on five core parameters: (1) Inventory Profile: pallet dimensions, weights, and SKU diversity; (2) Throughput Velocity: picking frequencies and FIFO vs. LIFO rotation rules; (3) Handling Equipment: mast lift heights and forklift turning radius; (4) Building Envelope: clear floor height, column grid spacing, and slab load capacity; and (5) Future Scalability: planned expansion phases and potential automated shuttle/ASRS integration.
 
-
-
-
-
-
 How does ProRack ensure structural safety and seismic compliance?
-
 
 ProRack models every installation using 3D structural analysis tools (Tekla Structures and RSTAB), accounting for dynamic forklift impact loads, dead loads, and regional seismic zone coefficients in accordance with IS 1893, EN 15512, and FEM 10.2.02. In addition, ProRack is planning collaboration with IIT-Powai to validate and certify structural designs and site installations.
 
-
-
-
-
-
 Can existing racking layouts be upgraded or reconfigured?
-
 
 Yes. ProRack's selective and multi-bay upright patterns are designed for modular adjustment, allowing beam levels to be repositioned on standard 50mm or 75mm pitch increments. Our SmartFit installation team also conducts structural health audits to verify load charts and install safety upgrades such as column protectors, rack end barriers, and mesh decking.
 
-
-
-
-
-
-
-
-
-
-
-
-
-## 
+##
 Ready to optimize your warehouse layout?
-
-
-
-
-
-
 
 Get in touch
 
 Warehouse Solutions Team
 
+Email us
+sales@prorack.ai
 
-
-
-
-Email us 
-sales@prorack.ai 
-
-
-
-
-
-Call us 
+Call us
 +91 79658 51000
 
 ---
